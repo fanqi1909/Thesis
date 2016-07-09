@@ -1,0 +1,152 @@
+\chapter{Introduction}
+With the maturity of database technologies, nowadays
+applications collect data in all domains at an
+unprecedented scale. For example, billions of 
+social network users and their activities are collected in the form
+of \emph{graphs}; Thousands of sensor reports are collected
+in the form of \emph{streams}; Hundreds of millions of temporal-locations
+are collected as \emph{trajectories}, etc.
+Although modern data management systems are able to collect
+and store such tremendous amount of data, there are lack
+of study on providing useful and efficient analytics for various data domains.
+
+Traditional SQL-based analytics including ranking, aggregation, 
+and window functions, has seen a great success in supporting
+data-based decision-makings on relational data. However, 
+when applying SQL-based analytics on other data domains, it often
+involves expensive joins which are hard to optimize without leveraging the domain
+knowledge. For instance, when computing the $K$-hop neighborhoods of vertexes in a graph, 
+SQL-based traversal of graph involves multi-rounds of joins, which is inefficient
+than search-based traversal~\cite{}. Or, when searching for a group of objects
+that travels together for a certain time, SQL-based solution would involves
+recursive joins and chain joins.
+
+See from the limitation of SQL-analytic on those domains, in this thesis, we 
+explore the neighborhood based analytics in various data domains.
+In particular, we address three issues. First, we define the neighborhoods
+on various domains. Second, we showcase the usefulness of neighborhood analytics 
+on data models.
+Third, we address the efficiency issues on applying the neighborhood
+analytics in different data domains for large data.
+
+% 
+%With the rapid advancement of technologies, 
+%many applications nowadays generate floods of data. 
+%For example, social network users and their
+%activities generate graph data; News events generate
+%streams of texts; and moving vehicles generate spatial-temporal trajectories.
+%These data embeds a wealth of information from different domains 
+%which is crucial in supporting data-driven decision-makings. An 
+%important tasks in management of these data is to provide useful analytics
+%to facilitate the discovery of data insights. Thus, the design of 
+%effective methods for data analysis under different application domains 
+%has drawn a tremendous attention from both industries and academia recently.
+%
+%Traditional SQL-defined analytics which are specifically designed for
+%structured data faces two major issues in supporting data analytics under
+%various domains. First, SQL analytics has limited operations which may not
+%be suitable for some applications. Second, SQL analytics may loose semantic
+%meaning in no-structured or semi-structured data.
+
+%Traditionally,  SQL-defined analytics becomes limited when handling data with such heterogeneity.
+%Opposed to the one-set-fits-all SQL analytics,
+%ad-hoc analytics for each domain are often required.
+% Thus, the design
+%of 
+%
+%An important aspect in data analytics is to study the data objects
+%that are locally connected, as these data demonstrates strong clustering features. Such a kind 
+%of analytic is referred as \emph{neighborhood analytic}. Nevertheless, the neighborhood
+%analytic is prevalently seen in many area of applications.
+
+
+ 
+%
+%nowadays data are collected 
+%at unprecedented scale. With the heterogeneity of data, many
+%decisions that are painstakingly constructed manually 
+%increasingly rely on data insights. 
+%A crucial taks in management of such data is to provide useful analytics to 
+%With the whole suite of the SQL analytic tools, data-driven decisions are 
+%
+%Decisions that previously were based on guesswork, or on	
+%painstakingly constructed models of reality, can now be made based on the data itself. 
+%A crucial task in management of data is to provide useful
+%analytics to facilitate the discovery of data insights.
+%
+%As we
+%enter the era of ``Big-data'', traditional SQL 
+%analytics, which are designed specifically for structural relational data,
+%are becoming shorthanded in supporting data with heterogeneity. 
+%
+%We are awash in	a flood of data today.	 In	 a broad range of application areas, data is being	
+%collected at unprecedented scale.	 	 Decisions that previously were based	 on guesswork, or	 on	
+%painstakingly constructed models of reality, can now be made based on the data itself.	 Such Big Data	
+%analysis now drives nearly every aspect of our	 modern society, including mobile services, retail,	
+%manufacturing, financial	services, life sciences, and	physical	sciences.
+%
+%``Big-data'', famous for its heterogeneity, scale and complexity, 
+%has entering to the research horizon with promising potential 
+%in data-driven decision-making. There has been an increasing needs
+%for analyzing, understanding and processing ``big-data'' from
+%both industrial and academic perspective. 
+%
+%``Neighborhood'' based analytic has been a complementary method
+%for analyze data from a local perspective, which plays an important
+%role in traditional data analytics. For instance, density-based spatial
+%clustering examines the ....  egocentric network analysis,  SQL window
+%function... Semi-Lazy data mining,
+%to name a few. While these analytics are successful in 
+%traditional area, it is left unknown whether ``neighborhood'' 
+%based analytic is able to discover more insights in Big-data era.
+%
+%
+%As being part of the research efforts
+%in closing the gap between the potential of ``big-data'' and its realization,
+%this thesis investigates the possibility of introducing ``neighborhood''-based
+%analytic to ``big-data'' analysis. Specifically, we propose and analyze
+% ``neighborhood''-based analytic in three heterogeneous domains: graph data,
+% stream data, and spatial-temporal data. We design ad-hoc ``neighborhood''
+% based data analytic on each data domain, and demonstrate the effectiveness
+% of these analytic. We further address the challenges of applying these
+% analytic efficiently by designing efficient index, powerful pruning, and scalable systems.
+%
+%
+%The promise	of data-driven decision-making is now being recognized broadly, 
+%and there is growing enthusiasm for	the notion of ``Big Data''.	 
+%While the promise of Big Data is real -- for example, it is 
+%estimated that Google alone contributed	54 billion dollars to the US economy
+%in 2009 -- there is	currently a wide gap between its potential and its realization.
+%Heterogeneity, scale, timeliness, complexity, and	privacy	 problems
+%with Big Data impede progress at all phases of the pipeline that can create value from data.
+%The problems start right away during data acquisition, when the data tsunami requires us to make decisions, currently in an ad hoc	manner, about what data to keep and what to discard, and how to store what	we keep reliably	with the	
+%right metadata.	 Much data today is not natively in structured format; for example, tweets	and blogs are	
+%weakly structured pieces of text,	while images and video are structured for storage and display, but not	
+%for semantic content and search: transforming such content into a structured format for later analysis is	
+%a major challenge. The value of data explodes when it can be linked with other data, thus data	
+%integration	is a	major	creator	of	value.	 Since most data is directly generated in	digital format today, we	
+%have the opportunity and	 the challenge both	 to influence the creation	to facilitate later linkage and	 to	
+%automatically link previously created	data.	 Data	analysis, organization, retrieval, and	modeling	are other	
+%foundational challenges.	 Data analysis is a clear bottleneck in many applications, both due to lack of	
+%scalability of the underlying algorithms and due to the complexity of the data	that needs to be analyzed.	
+%Finally, presentation	of the results and its interpretation by non-technical domain experts is crucial to	
+%extracting	actionable knowledge.
+
+\section{Neighborhood Data Analytic}
+Neighborhood analytic is the counterpart of global analytic, which aims to providing analytics 
+over each objects' vicinity. In SQL-analytic, neighborhood analytic is in the form of window function.
+Specifically, window function is launched with the keyword ``over''. For example XXXXX. In this example,
+each tuple in attached by a window based on the order on attribute YYY. Basically, the window contains
+the most related tuples to this tuple. Then, an aggregate function is applied on each tuples' window, resulting
+in a neighborhood analytic. To generalize,......
+
+\section{Motivation and Challenge}
+\subsection{Graph}
+Neighborhood is defined by different distance function
+\subsection{Data Stream}
+Nested neighborhoods.
+\subsection{Spatial-temporal Data}
+Reflexive neighborhoods.
+\section{Contribution and Impact}
+
+\section{Organization}
