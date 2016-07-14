@@ -220,7 +220,7 @@ We then categorize two intuitive neighborhood function $\mathcal{N}$ as follows:
 \textbf{Distance Neighborhood}: the neighborhood is defined based on numeric distance, that is $\mathcal{N}(o) = \{o_i | \mathtt{dist}(o,o_i) \leq K \}$, where $\mathtt{dist}$ is a distance function and $K$ is a distance threshold.
 
 \textbf{Comparison Neighborhood}: the neighborhood is defined based on the comparison of objects, that is $\mathcal{N}(o) = \{o_i | o.a_m \ \mathtt{op} \ o_i.a_m\}$, where $a_m$ is an attribute of object
-and $\mathtt{op}$ is a comparator.
+and $\mathtt{op}$ is a binary comparator.
 
 Due to the space limitation, we only consider the neighborhoods that is \emph{distance} or \emph{comparison} or any combinations of these two. In terms of analytic function $\mathcal{F}$, we consider aggregate, rank, and pattern matching.
 
@@ -245,17 +245,18 @@ This first piece of the thesis is on proposing neighborhood analytics
 for graph data. Information networks such as social networks, biological networks
 and phone-call networks are typically modeled as graphs where the 
 vertexes correspond to objects and the edges capture the
-relationships between these objects. In the context of graph, we 
+relationships between these objects. 
+In the context of graph, we 
 the \emph{graph window analytics}. The window is essentially 
 a neighborhood function. We have identified 
 two instances of graph windows, namely
 \emph{k-hop} and \emph{topological} windows. 
-The \emph{k-hop} window is a \emph{distance} neighborhood function that
-captures the vertexes that are $k$-hop away. The \emph{topological}
-window is a \emph{comparison} neighborhood function that captures
-the ancestors of a vertex. 
+The \emph{k-hop} window is a \emph{distance} neighborhood function, i.e., $\mathcal{N}_k(v)= \{u|\mathtt{dist}(v,u) \leq K\}$, which captures the vertexes that are $k$-hop nearby. 
+The \emph{topological} window,  $\mathcal{N}_t(v)= \{u | u \in v.ancestor\}$,
+is a \emph{comparison} neighborhood function that captures
+the ancestors of a vertex in a directly acyclic graph. 
 
-To support efficient graph window query processing, we propose
+With the two defined neighborhood function, we present many useful analytics. To support efficient graph window query processing, we propose
 two different types of indexes: Dense Block Index (DBIndex)
 and Inheritance Index (I-Index). The DBIndex and I-Index
 are specially optimized to support k-hop window and topological
