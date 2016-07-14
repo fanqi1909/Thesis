@@ -3,31 +3,40 @@ With the maturity of database technologies, nowadays
 applications collect data in all domains at an
 unprecedented scale. For example, billions of 
 social network users and their activities are collected in the form
-of \emph{graphs}; Thousands of sensor reports are collected
-in the form of \emph{streams}; Hundreds of millions of temporal-locations
-are collected as \emph{trajectories}, etc.
-Although modern data management systems are able to collect
-and store such tremendous amount of data, there are lack
-of study on providing useful and efficient analytics for various data domains.
-
-Traditional SQL-based analytics including ranking, aggregation, 
-and window functions, has seen a great success in supporting
-data-based decision-makings on relational data. However, 
-when applying SQL-based analytics on other data domains, it often
-involves expensive joins which are hard to optimize without leveraging the domain
-knowledge. For instance, when computing the $K$-hop neighborhoods of vertexes in a graph, 
-SQL-based traversal of graph involves multi-rounds of joins, which is inefficient
-than search-based traversal~\cite{}. Or, when searching for a group of objects
-that travels together for a certain time, SQL-based solution would involves
-recursive joins and chain joins.
-
-See from the limitation of SQL-analytic on those domains, in this thesis, we 
-explore the neighborhood based analytics in various data domains.
-In particular, we address three issues. First, we define the neighborhoods
-on various domains. Second, we showcase the usefulness of neighborhood analytics 
-on data models.
-Third, we address the efficiency issues on applying the neighborhood
-analytics in different data domains for large data.
+of \emph{graphs}; Thousand sensor reports are collected per second
+in the form of \emph{time series}; Hundreds of millions of temporal-locations
+are collected as \emph{trajectories}, to name just a few. Flooded by the
+tremendous amount of data, it is emerging to 
+provide useful and efficient analytics for various data domains.
+Traditional SQL-based analytics which comprises 
+of primitives (such as, partition, sorting and aggregation etc.)
+become limited in non-structured data domains.
+In SQL context, interesting analytics such as graph traversal and pattern detection
+often involve complex joins which are very hard to optimize 
+without domain knowledge.
+In this thesis, we explore the neighborhood data analytic, which
+in SQL is expressed by the window function,
+on different data domains and demonstrate how to efficiently deploy
+neighborhood data analytic to gain useful data insights.
+%
+%Traditional SQL-based analytics including ranking, aggregation, 
+%and window functions, has seen a great success in supporting
+%data-based decision-makings on relational data. However, 
+%when applying SQL-based analytics on other data domains, it often
+%involves expensive joins which are hard to optimize without leveraging the domain
+%knowledge. For instance, when computing the $K$-hop neighborhoods of vertexes in a graph, 
+%SQL-based traversal of graph involves multi-rounds of joins, which is inefficient
+%than search-based traversal~\cite{}. Or, when searching for a group of objects
+%that travels together for a certain time, SQL-based solution would involves
+%recursive joins and chain joins.
+%
+%See from the limitation of SQL-analytic on those domains, in this thesis, we 
+%explore the neighborhood based analytics in various data domains.
+%In particular, we address three issues. First, we define the neighborhoods
+%on various domains. Second, we showcase the usefulness of neighborhood analytics 
+%on data models.
+%Third, we address the efficiency issues on applying the neighborhood
+%analytics in different data domains for large data.
 
 % 
 %With the rapid advancement of technologies, 
@@ -133,20 +142,175 @@ analytics in different data domains for large data.
 %extracting	actionable knowledge.
 
 \section{Neighborhood Data Analytic}
-Neighborhood analytic is the counterpart of global analytic, which aims to providing analytics 
-over each objects' vicinity. In SQL-analytic, neighborhood analytic is in the form of window function.
-Specifically, window function is launched with the keyword ``over''. For example XXXXX. In this example,
-each tuple in attached by a window based on the order on attribute YYY. Basically, the window contains
-the most related tuples to this tuple. Then, an aggregate function is applied on each tuples' window, resulting
-in a neighborhood analytic. To generalize,......
+By its self-describing name, neighborhood data analytic aims to provide
+summaries of each object over its vicinity. In contrast to the global
+analytics which aggregates the entire collection of data as a whole, neighborhood
+data analytic provides a personalized view on each object per se. Neighborhood
+data analytics originates from the window function defined in  SQL which is
+illustrated in Figure~\ref{fig:window}.
 
-\section{Motivation and Challenge}
-\subsection{Graph}
-Neighborhood is defined by different distance function
-\subsection{Data Stream}
-Nested neighborhoods.
-\subsection{Spatial-temporal Data}
-Reflexive neighborhoods.
-\section{Contribution and Impact}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\linewidth]{window_example.pdf}
+\caption{A SQL window function computing running sum and average of
+sales. The window of season-3 is highlighted.} 
+\label{fig:window}
+\end{figure}
 
-\section{Organization}
+As shown in the figure,the sales report of a company contains five attributes. 
+``Season'', ``Region'' and ``Sales'' are the original fields, ``$\mathtt{sum()}$'' and ``$\mathtt{avg()}$''
+are the analytics representing the running sum and average. A window function
+is represented by the $\mathtt{over}$ keyword. In this context, the window of a tuple $o_i$
+contains other tuples $o_j$ such that $o_i$ and $o_j$ are in the same ``region'' and $o_j$'s ``season'' is
+prior to $o_i$'s. The window of season-$3$ for region-``West'' is highlighted.
+
+Apart from this example, there are many other 
+usages of the window function in the relational context. 
+Being aware of the success of the window function, 
+SQL~11 standard incorporates ``$\mathtt{LEAD}$'' and ``$\mathtt{LAG}$'' 
+keywords which offer fine-grained specifications on a tuple's window.
+
+Despite the usefulness, there are few works reporting the window
+analytics in the non-relational context. This may dues to the
+usage of \emph{sorting} in relational windows. For example,
+in Figure~\ref{fig:window},
+objects needs to be sorted according to ``Season'', and then the windows of
+each object are implicitly formed. However, 
+in non-relational context, sorting may be ambiguous and undefined.
+
+To generalize the window function to other data domains, we define the neighborhood
+analytics in a broader context. Given a set of objects 
+(such as tuples in relational context or vertexes in graph context),
+the neighborhood analytic is a composite function
+$(\mathcal{F} \circ \mathcal{N})$ applied on every object. $\mathcal{N}$
+is the \emph{neighborhood function}, which contains the related objects of $o$;
+$\mathcal{F}$ is an \emph{analytic function}, which could be aggregate, rank,
+pattern matching, etc.
+%the neighborhood analytic instance consists of two parts: a neighborhood indicator
+%function $\mathbb{N}(o_i,o_j)$ deciding whether $o_j$ is in $o_i$'s neighborhoods,
+%and an analytic function $f$ which aggregates a set of objects.  
+%Let $N(o_i)$ be
+%the set of neighbors of $o_i$, the neighborhood analytic aims to compute $f(N(o_i))$
+%for all objects.
+Apparently, relational window functions is a special case of such defined 
+neighborhood analytics. For example, window function in Figure~\ref{fig:window} 
+can be represented as $\mathcal{N}(o_i)=\{o_j | o_i.season > o_j.season \wedge o_i.region = o_j.region\}$
+and $\mathcal{F} = \mathtt{avg}$.
+Since the \emph{sorting} requirement is relaxed, our definition of neighborhood analytics
+enriches the semantic of relational window notations 
+and can be applied on other domains.
+%
+%Intuitively, we enrich the semantic of neighborhood as compared to the relation
+%window notations. And our definition directly supports relational window notations by setting $\mathcal{N}$
+%to capture the $\mathtt{over}$ clause. Since the \emph{sorting} is not required, such a 
+%
+%
+%and is able to be
+%applied on other data domains.
+
+
+\section{Scope of the thesis}
+In this thesis, we explore the neighborhood analytics in
+different data domains. Our efforts showcase the usefulness of the neighborhood
+concepts in those data domains and address the efficiency issues when adopting
+nontrivial analytics. In particular, we looked at three most prevalent data domains, namely \textbf{graph},
+\textbf{time series} and \textbf{trajectory}. 
+We then categorize two intuitive neighborhood function $\mathcal{N}$ as follows:
+
+\textbf{Distance Neighborhood}: the neighborhood is defined based on numeric distance, that is $\mathcal{N}(o) = \{o_i | \mathtt{dist}(o,o_i) \leq K \}$, where $\mathtt{dist}$ is a distance function and $K$ is a distance threshold.
+
+\textbf{Comparison Neighborhood}: the neighborhood is defined based on the comparison of objects, that is $\mathcal{N}(o) = \{o_i | o.a_m \ \mathtt{op} \ o_i.a_m\}$, where $a_m$ is an attribute of object
+and $\mathtt{op}$ is a comparator.
+
+Due to the space limitation, we only consider the neighborhoods that is \emph{distance} or \emph{comparison} or any combinations of these two. In terms of analytic function $\mathcal{F}$, we consider aggregate, rank, and pattern matching.
+
+\section{Contributions}
+The high level contributions of this thesis are bi-folded. First, by
+sewing different $\mathcal{N}$ and $\mathcal{F}$, three interesting
+neighborhood analytic queries are proposed for \emph{graph}, \emph{trajectory}
+and \emph{time series} data domains respectively. Second, this thesis
+deals with the efficiency issues in deploying corresponding analytic queries to
+handle data with nowadays scale.
+The overview of this thesis is as show in Figure~\ref{fig:thesis_roadmap}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\linewidth]{thesis_roadmap.pdf}
+\caption{The road map of this thesis. There are three major contributions as highlighted in the center. Each contribution
+is a neighborhood analytic based on different $\mathcal{N}$ and $\mathcal{F}$ as indicated by arrows.} 
+\label{fig:thesis_roadmap}
+\end{figure}
+
+\subsection{Graph Window Analytics}
+This first piece of the thesis is on proposing neighborhood analytics
+for graph data. Information networks such as social networks, biological networks
+and phone-call networks are typically modeled as graphs where the 
+vertexes correspond to objects and the edges capture the
+relationships between these objects. In the context of graph, we 
+the \emph{graph window analytics}. The window is essentially 
+a neighborhood function. We have identified 
+two instances of graph windows, namely
+\emph{k-hop} and \emph{topological} windows. 
+The \emph{k-hop} window is a \emph{distance} neighborhood function that
+captures the vertexes that are $k$-hop away. The \emph{topological}
+window is a \emph{comparison} neighborhood function that captures
+the ancestors of a vertex. 
+
+To support efficient graph window query processing, we propose
+two different types of indexes: Dense Block Index (DBIndex)
+and Inheritance Index (I-Index). The DBIndex and I-Index
+are specially optimized to support k-hop window and topological
+window query processing. We develop the indexes
+by integrating the window aggregation sharing techniques
+to salvage partial work done for efficient computation. 
+In addition, we develop space and performance efficient techniques
+for index construction. In our experiments, DBIndex saves upto 80\%
+of indexing time as compared to the state-of-the-art competitor.
+
+
+\subsection{Automatic News Discovery in Time Series Data}
+The second piece of the thesis proposes a neighborhood analytic
+query to automatic discover news in the time series data.
+Automatic discovery of newsworthy themes from sequenced
+data can relieve journalists from manually poring over a
+large amount of data in order to discover interesting news.
+An typical news themes generated from time-series data
+is the so-called \emph{prominent streaks}. We resolve the limitations
+of \emph{prominent streaks}.
+
+Previous efforts have focused on generating prominent streaks
+that are limited to single subjects. In this paper, we consider 
+the prominence of a subject's streak in comparison to
+the peers' and propose a novel scoring function that takes
+into account both strikingness and diversity. Our objective
+is to maintain the k most striking and representative news
+themes for each subject. We study the problem in both
+offline and online scenarios, and propose various window-
+level pruning techniques to and striking candidate themes.
+Among those candidates, we then develop approximation
+methods, with theoretical bounds, to discover the k most
+representative themes. We conduct experiments on four real
+datasets, and the results demonstrate the efficiency and 
+effectiveness of our proposed algorithms: the running time
+achieves up to 500 times speedup and the quality of the
+detected news themes is endorsed by the anonymous users
+from Amazon Mechanical Turk.
+
+\subsection{Mining Co-Movement in Trajectory Databases}
+The third piece of the thesis is on trajectory.
+Discovering co-movement patterns from large-scale trajectory 
+databases is an important mining task and has a wide
+spectrum of applications. Previous studies have identified
+several types of interesting co-movement patterns and showcased 
+their usefulness. In this paper, we make two key 
+contributions to this research field. First, we propose a more
+general co-movement pattern to unify those defined in the
+past literature. Second, we propose two types of parallel and
+scalable frameworks and deploy them on Apache Spark. To
+the best of our knowledge, this is the first work to mine
+co-movement patterns in real life trajectory databases with
+hundreds of millions of points. Experiments on three real
+life large-scale trajectory datasets have verified the efficiency
+and scalability of our proposed solutions.
+
+\section{Thesis Organization}
+%The remaining part of the thesis are organized as follows: in Chapter 2, we summarize related literature. In Chapter 3, we present the window function of graph data using \emph{distance} and \emph{comparative} neighborhoods. In Chapter 4, we present a news discovery application on time series data using \emph{hybrid} neighborhoods. In Chapter 5, we present a pattern mining framework utilizing \emph{comparative} neighborhoods in trajectory data.
