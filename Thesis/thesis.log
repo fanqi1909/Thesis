@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.1)  14 JUL 2016 20:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.1)  17 JUL 2016 20:51
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -70,6 +70,18 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(E:\Programs\MikTex2.9\tex\latex\amscls\amsthm.sty
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks16
+\thm@bodyfont=\toks17
+\thm@headfont=\toks18
+\thm@notefont=\toks19
+\thm@headpunct=\toks20
+\thm@preskip=\skip43
+\thm@postskip=\skip44
+\thm@headsep=\skip45
+\dth@everypar=\toks21
+)
 (E:\Programs\MikTex2.9\tex\latex\setspace\setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
@@ -148,6 +160,10 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \c@subfigure=\count90
 \c@subtable=\count91
 )
+(E:\Programs\MikTex2.9\tex\latex\url\url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 (E:\Programs\MikTex2.9\tex\latex\todonotes\todonotes.sty
 Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
 Package: todonotes 2012/07/25
@@ -157,8 +173,8 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
 (E:\Programs\MikTex2.9\tex\generic\xkeyval\xkeyval.tex
 (E:\Programs\MikTex2.9\tex\generic\xkeyval\xkvutils.tex
-\XKV@toks=\toks16
-\XKV@tempa@toks=\toks17
+\XKV@toks=\toks22
+\XKV@tempa@toks=\toks23
 )
 \XKV@depth=\count92
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
@@ -184,7 +200,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 (E:\Programs\MikTex2.9\tex\latex\pgf\basiclayer\pgf.sty
 (E:\Programs\MikTex2.9\tex\latex\pgf\utilities\pgfrcs.sty
 (E:\Programs\MikTex2.9\tex\generic\pgf\utilities\pgfutil-common.tex
-\pgfutil@everybye=\toks18
+\pgfutil@everybye=\toks24
 \pgfutil@tempdima=\dimen114
 \pgfutil@tempdimb=\dimen115
 
@@ -206,11 +222,11 @@ Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
 (E:\Programs\MikTex2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks19
-\pgfkeys@temptoks=\toks20
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
 
 (E:\Programs\MikTex2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks21
+\pgfkeys@tmptoks=\toks27
 ))
 \pgf@x=\dimen116
 \pgf@y=\dimen117
@@ -226,9 +242,9 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \c@pgf@countb=\count94
 \c@pgf@countc=\count95
 \c@pgf@countd=\count96
-\t@pgf@toka=\toks22
-\t@pgf@tokb=\toks23
-\t@pgf@tokc=\toks24
+\t@pgf@toka=\toks28
+\t@pgf@tokb=\toks29
+\t@pgf@tokc=\toks30
 
 (E:\Programs\MikTex2.9\tex\generic\pgf\systemlayer\pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -259,9 +275,9 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 \pgfmath@dimen=\dimen124
 \pgfmath@count=\count99
 \pgfmath@box=\box27
-\pgfmath@toks=\toks25
-\pgfmath@stack@operand=\toks26
-\pgfmath@stack@operation=\toks27
+\pgfmath@toks=\toks31
+\pgfmath@stack@operand=\toks32
+\pgfmath@stack@operation=\toks33
 )
 (E:\Programs\MikTex2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex
 (E:\Programs\MikTex2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex)
@@ -377,8 +393,8 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 (E:\Programs\MikTex2.9\tex\generic\pgf\math\pgfmath.code.tex)
 \pgffor@iter=\dimen151
 \pgffor@skip=\dimen152
-\pgffor@stack=\toks28
-\pgffor@toks=\toks29
+\pgffor@stack=\toks34
+\pgffor@toks=\toks35
 ))
 (E:\Programs\MikTex2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
@@ -424,44 +440,46 @@ Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Bcount=\count113
 \calc@Adimen=\dimen160
 \calc@Bdimen=\dimen161
-\calc@Askip=\skip43
-\calc@Bskip=\skip44
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count114
-\calc@Cskip=\skip45
+\calc@Cskip=\skip48
 )
 \c@@todonotes@numberoftodonotes=\count115
 )
+\c@example=\count116
+
 (thesis.aux (chapter1.aux) (chapter2.aux) (conclusions.aux) (appendix.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 (E:\Programs\MikTex2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count116
+\scratchcounter=\count117
 \scratchdimen=\dimen162
 \scratchbox=\box37
-\nofMPsegments=\count117
-\nofMParguments=\count118
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count119
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count120
 \MPscratchDim=\dimen163
-\MPnumerator=\count120
-\makeMPintoPDFobject=\count121
-\everyMPtoPDFconversion=\toks31
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
+\everyMPtoPDFconversion=\toks37
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -493,65 +511,75 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 161.
 
 (E:\Programs\MikTex2.9\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2 <./Charts/window_example.pdf>]
+) [2 <./Charts/window_example.pdf>] [3]
 
 pdfTeX warning: pdflatex (file ./Charts/thesis_roadmap.pdf): PDF inclusion: fou
 nd PDF version <1.6>, but at most version <1.5> allowed
-<./Charts/thesis_roadmap.pdf, id=35, 676.49178pt x 305.14pt>
+<./Charts/thesis_roadmap.pdf, id=39, 676.49178pt x 305.14pt>
 File: ./Charts/thesis_roadmap.pdf Graphic file (type pdf)
 
 <use ./Charts/thesis_roadmap.pdf>
-Package pdftex.def Info: ./Charts/thesis_roadmap.pdf used on input line 237.
+Package pdftex.def Info: ./Charts/thesis_roadmap.pdf used on input line 240.
 (pdftex.def)             Requested size: 346.89731pt x 156.47604pt.
- [3] [4 <./Charts/thesis_roadmap.pdf>]
-[5]) [6]
-\openout2 = `chapter2.aux'.
-
- (chapter2.tex
-Chapter 2.
-) [7
+ [4 <./Charts/thesis_roadmap.pdf>] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 296--296
+[][]$\OT1/cmtt/m/n/10 http : / / www . cbssports . com / nba / eye-[]on-[]baske
+tball / 24525914 /$
+ []
 
 
-
-]
-\openout2 = `conclusions.aux'.
-
- (conclusions.tex
-Chapter 3.
-) [8
+Overfull \hbox (161.62506pt too wide) in paragraph at lines 298--298
+[][]$\OT1/cmtt/m/n/10 http : / / www . zacks . com / stock / news / 176469 / ch
+ina-[]stock-[]roundup-[]ctrip-[]buys-[]elong-[]stake-[]trina-[]solar-[]beats-[]
+estimates$| 
+ []
 
 
+Overfull \hbox (60.87593pt too wide) in paragraph at lines 300--300
+[][]$\OT1/cmtt/m/n/10 http : / / www . dnaindia . com / delhi / report-[]delhi-
+[]records-[]highest-[]temperature-[]in-[]62-[]years-[]1994332$| 
+ []
 
-]
-\openout2 = `appendix.aux'.
+[6] [7]
+Overfull \hbox (3.7162pt too wide) in paragraph at lines 358--358
+[]\OT1/cmr/bx/n/14.4 Mining Co-Movement Pat-terns in Tra-jec-tory Databases 
+ []
 
- (appendix.tex
-Appendix A.
-) [9
+<./Charts/trajectory_patterns.pdf, id=73, 580.1675pt x 391.4625pt>
+File: ./Charts/trajectory_patterns.pdf Graphic file (type pdf)
+
+<use ./Charts/trajectory_patterns.pdf>
+Package pdftex.def Info: ./Charts/trajectory_patterns.pdf used on input line 37
+1.
+(pdftex.def)             Requested size: 346.89731pt x 234.06694pt.
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-]
+[8] [9 <./Charts/trajectory_patterns.pdf>]) [10] [11]
 No file thesis.bbl.
 (thesis.aux (chapter1.aux) (chapter2.aux) (conclusions.aux) (appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 13474 strings out of 493634
- 266042 string characters out of 3146201
- 302586 words of memory out of 3000000
- 16567 multiletter control sequences out of 15000+200000
- 11261 words of font info for 43 fonts, out of 3000000 for 9000
+ 13659 strings out of 493634
+ 268278 string characters out of 3146201
+ 306063 words of memory out of 3000000
+ 16746 multiletter control sequences out of 15000+200000
+ 13464 words of font info for 54 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 62i,7n,79p,484b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,8n,79p,1660b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
 <E
 :/Programs/MikTex2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><E:/Programs/Mik
 Tex2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><E:/Programs/MikTex2.9/fonts/t
 ype1/public/amsfonts/cm/cmmi8.pfb><E:/Programs/MikTex2.9/fonts/type1/public/ams
-fonts/cm/cmr12.pfb><E:/Programs/MikTex2.9/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><E:/Programs/MikTex2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><E:/Progr
-ams/MikTex2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (9 pages, 193781 bytes).
+fonts/cm/cmr12.pfb><E:/Programs/MikTex2.9/fonts/type1/public/amsfonts/cm/cmr7.p
+fb><E:/Programs/MikTex2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><E:/Programs/
+MikTex2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><E:/Programs/MikTex2.9/font
+s/type1/public/amsfonts/cm/cmti12.pfb><E:/Programs/MikTex2.9/fonts/type1/public
+/amsfonts/cm/cmtt10.pfb><E:/Programs/MikTex2.9/fonts/type1/public/amsfonts/cm/c
+mtt12.pfb>
+Output written on thesis.pdf (11 pages, 281741 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
+ 138 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

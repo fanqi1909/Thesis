@@ -3,18 +3,24 @@
 %\documentclass[12pt,shieldcrest]{ociamthesis} % use older shield crest logo
 
 %load any additional packages
-\usepackage{amssymb}
+\usepackage{amssymb,amsthm}
 \usepackage{graphics}
 \usepackage{setspace}
 \usepackage{epsfig,epstopdf}
 \usepackage{subcaption}
 \usepackage{caption}
+\usepackage{url}
 
 \usepackage{todonotes}
 \usepackage{xcolor}
 
 \graphicspath{ {./Charts/} }
 \epstopdfsetup{outdir=./Charts/}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+\includeonly{chapter1}
 
 
 %input macros (i.e. write your own macros file called mymacros.tex 
