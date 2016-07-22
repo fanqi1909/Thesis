@@ -1,0 +1,29 @@
+\chapter{Introduction}
+With the maturity of database technologies, nowadays
+applications collect data in all domains at an
+unprecedented scale. For example, billions of 
+social network users and their activities are collected in the form
+of \emph{graphs}; Thousand sensor reports are collected per second
+in the form of \emph{time series}; Hundreds of millions of temporal-locations
+are collected as \emph{trajectories}, to name just a few. Flooded by the
+tremendous amount of data, it is emerging to 
+provide useful and efficient analytics for various data domains.
+Traditional SQL analytics which comprises 
+of operations (such as, partition, sorting and aggregation) in the relational domain
+become limited in non-structured domains.
+In SQL context, interesting analytics such as graph traversal and pattern detection
+often involve complex joins which are very hard to optimize 
+without domain knowledge.
+In this thesis, we explore the neighborhood data analytic, which
+in SQL is expressed by the window function,
+on different domains and demonstrate how to efficiently deploy
+neighborhood analytic to gain useful insights.
+
+\input{chapter1/neighborhood_analytic}
+\input{chapter1/thesis_scope}
+\input{chapter1/contributions}
+
+
+\section{Thesis Organization}
+The remaining part of the thesis are organized as follows: in Chapter 2, we summarize related literature on neighborhood related analytics in different data domains. In Chapter 3, we present the window function on graph data. In Chapter 4, we present a news discovery application on time series data.
+In Chapter 5, we present a pattern mining framework on trajectory data. Chapter 6 summarizes this thesis and highlights the future directions.
