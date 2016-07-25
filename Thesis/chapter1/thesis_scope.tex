@@ -1,24 +1,36 @@
 \section{Scope of the Thesis}
 In this thesis, we explore the neighborhood analytics in
-different data domains. Our efforts showcase the usefulness of the neighborhood
-concepts in those domains and address the efficiency issues when adopting
-nontrivial analytics. In particular, we looked at three most prevalent data domains, namely \textbf{attributed graph},
+three prevalent data domains, namely \textbf{attributed graph},
 \textbf{time series} and \textbf{trajectory}. 
-We then categorize two intuitive neighborhood functions as follows:
+Since neighborhood analytics is broad in
+semantic, we focus on the following
+two intuitive neighborhood functions:
 
 \textbf{Distance Neighborhood}: the neighborhood is defined based on numeric distance, that is $\mathcal{N}(o_i,K) = \{o_j | \mathtt{dist}(o_i,o_j) \leq K \}$, where $\mathtt{dist}$ is a distance function and $K$ is a distance threshold.
 
 \textbf{Comparison Neighborhood}: the neighborhood is defined based on the comparison of objects, that is $\mathcal{N}(o) = \{o_i | o.a_m \ \mathtt{cmp} \ o_i.a_m\}$, where $a_m$ is an attribute of object
 and $\mathtt{cmp}$ is a binary comparator.
 
+There could be other types of neighborhood functions with different level of granularity. 
+However, despite the simpleness of these two neighborhood functions, they 
+are indeed versatile in representing many useful analytics.
 
-There could be other types of neighborhoods with more fine-grained or more general definitions. 
-In this thesis, we demonstrate
-that these two simple neighborhood definitions
-joint with traditional analytic functions are already versatile 
-in various domains. 
-\revised{They are cable to both express existing queries and devise novel emerging 
-queries that are practically useful.
-}
+%In particular, we looked at three most prevalent data domains, namely \textbf{attributed graph},
+%\textbf{time series} and \textbf{trajectory}. 
+%We then categorize two intuitive neighborhood functions as follows:
+%
+%\textbf{Distance Neighborhood}: the neighborhood is defined based on numeric distance, that is $\mathcal{N}(o_i,K) = \{o_j | \mathtt{dist}(o_i,o_j) \leq K \}$, where $\mathtt{dist}$ is a distance function and $K$ is a distance threshold.
+%
+%\textbf{Comparison Neighborhood}: the neighborhood is defined based on the comparison of objects, that is $\mathcal{N}(o) = \{o_i | o.a_m \ \mathtt{cmp} \ o_i.a_m\}$, where $a_m$ is an attribute of object
+%and $\mathtt{cmp}$ is a binary comparator.
+%
+%There could be other types of neighborhoods with more fine-grained or more general definitions. 
+%In this thesis, we demonstrate
+%that these two simple neighborhood definitions
+%joint with traditional analytic functions are already versatile 
+%in various domains. 
+%\revised{They are cable to both express existing queries and devise novel emerging 
+%queries that are practically useful.
+%}
 
 

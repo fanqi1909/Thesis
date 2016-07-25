@@ -1,12 +1,18 @@
 \section{Contributions}
-At a high level, this thesis entitles a twofold contribution.
-First, by
-sewing different $\mathcal{N}$s and $\mathcal{F}$s, three interesting
-neighborhood analytic queries are proposed for \emph{graph}, \emph{time series} 
-and \emph{trajectory} domains respectively. Second, this thesis
+%This thesis strives to showcase the usefulness of the neighborhood
+%concepts and address the efficiency issues when adopting with
+%nontrivial analytic functions. 
+In brief, this thesis entitles a twofold contribution.
+First, by sewing different $\mathcal{N}$s and $\mathcal{F}$s, existing
+queries are identified and novel analytic queries are proposed for 
+\emph{graph}, \emph{time series} and \emph{trajectory} domains respectively. 
+%three interesting
+%neighborhood analytic queries are proposed for \emph{graph}, \emph{time series} 
+%and \emph{trajectory} domains respectively. 
+Second, this thesis
 deals with the technical issues in efficiently deploying corresponding analytic queries to
-handle data in nowadays scale.
-The road map of this thesis is as shown in Figure~\ref{fig:thesis_roadmap}.
+handle data of nowadays scale.
+The roadmap of this thesis is as shown in Figure~\ref{fig:thesis_roadmap}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\linewidth]{thesis_roadmap.pdf}
@@ -15,12 +21,12 @@ is a neighborhood analytic based on different $\mathcal{N}$ and $\mathcal{F}$ as
 \label{fig:thesis_roadmap}
 \end{figure}
 
-\doubted{In summary, we propose and enrich the neighborhood analytics in the
-three domains. In \emph{graph}, we propose two types
-of the window analytics: \emph{k-hop} window is based on the \emph{distance} neighborhood
+\doubted{Particularly, we propose and enrich the neighborhood analytics in the
+three data domains. In \emph{graph}, we identify two types
+of the window queries: \emph{k-hop} window is based on the \emph{distance} neighborhood
 and \emph{topological} window is based on the \emph{comparison} neighborhood. In \emph{time series}, we 
-propose the rank-aware event window detection query which is based on the nested \emph{distant} and \emph{comparison}
-neighborhood. In \emph{trajectory}, we propose the moving pattern detection which is based on the \emph{comparison} 
+leverage the nested \emph{distant} and \emph{comparison} neighborhoods to design the rank-aware streak discovery query.
+In \emph{trajectory}, we generalize the movement pattern detection query utilizing the \emph{comparison} 
 neighborhood.}
 
 \subsection{Graph Window Analytics}
@@ -44,7 +50,7 @@ in order to study the protein regulating process, one may be interested to find 
  count the number of genes and enzymes among those molecules.
 \end{example}
 
-The two \emph{windows} shown in the examples are essentially neighborhood functions defined for each vertex. Specifically, let $G=(V:E:A)$ be an attributed graph, where $V$ is the set of vertexes, $E$ is the set of edges, and each vertex $v$ is associated as a multidimensional points $a_v \in A$.
+The two \emph{windows} shown in the examples are essentially neighborhood functions defined for each vertex. Specifically, let $G=(V:E:A)$ be an attributed graph, where $V$ is the set of vertexes, $E$ is the set of edges, and each vertex $v$ is associated as a multidimensional points $a_v \in A$ called attributes.
 The \emph{k-hop} window is a \emph{distance} neighborhood function, 
 i.e., $\mathcal{N}_1(v,k)= \{u|\mathtt{dist}(v,u) \leq k\}$, 
 which captures the vertexes that are $k$-hop nearby. 
@@ -52,7 +58,7 @@ The \emph{topological} window,  $\mathcal{N}_2(v)= \{u | u \in v.ancestor\}$,
 is a \emph{comparison} neighborhood function that captures
 the ancestors of a vertex in a directly acyclic graph.  The analytic function $\mathcal{F}$ is an aggregate function (sum, avg, etc.) on $A$.
 
-Apart from demonstrating the useful use-cases on these two windows, we also strive to support efficient window processing. 
+Apart from demonstrating the useful use-cases on these two windows, we also investigate on supporting efficient window processing. 
 We propose
 two different types of indexes: Dense Block Index (DBIndex)
 and Inheritance Index (I-Index). The DBIndex and I-Index
@@ -66,11 +72,21 @@ of indexing time as compared to the state-of-the-art competitor.
 
 
 \subsection{Rank-aware Streak Discovery in Time Series}
-Neighborhood in time series data has dual interpretations. It
-is possible to define neighborhood intra-subject or inter-subject.
+The second piece of the thesis explores the neighborhood
+query in time series domain. In time series, an important
+and revenue generating task is to detect phenomenal patterns.
+A prominent example of such patterns is \emph{streak} which is
+an analytic on a consecutive sequence of data. Streak has been
+found useful in many time series applications,
+such as network monitoring, stock analysis
+and computational journalism.  We enrich the semantic of \emph{streak}
+by proposing the \emph{rank-aware} streak, which computes the
+relative position of a streak among its cohort. In real-life,
+rank-aware streaks are often used to add values in news reporting as 
+in the following examples:
 
 
-\revised{The second piece of the thesis proposes a neighborhood
+\eat{The second piece of the thesis proposes a neighborhood
 query in \emph{time series} domain to support the rank-aware streak discovery. 
 In time series domain, an 
 important and revenue generating tasks is to detect phenomenal patterns. However,
