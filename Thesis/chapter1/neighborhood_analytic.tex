@@ -20,7 +20,6 @@ are the analytics representing the running sum and average. A window function
 is represented by the $\mathtt{over}$ keyword. In this context, the window of a tuple $o_i$
 contains other tuples $o_j$ such that $o_i$ and $o_j$ are in the same ``region'' and $o_j$'s ``season'' is
 prior to $o_i$'s. The window of season-$3$ for region-``West'' is highlighted.
-
 Apart from this example, there are many other 
 usages of the window function in the relational context. 
 Being aware of the success of the window function, 
@@ -44,9 +43,9 @@ is the \emph{neighborhood function}, which contains the related objects of an ob
 $\mathcal{F}$ is an \emph{analytic function}, which could be aggregate, rank,
 pattern matching, etc.
 Apparently, the relational window function is a special case of the
-neighborhood analytics. For example, window function in Figure~\ref{fig:window} 
+neighborhood analytics. For example, the window function in Figure~\ref{fig:window} 
 can be represented as $\mathcal{N}(o_i)=\{o_j | o_i.season > o_j.season \wedge o_i.region = o_j.region\}$
 and $\mathcal{F} = \mathtt{avg}$.
-Since the \emph{sorting} requirement is relaxed, our neighborhood analytics could
+Since the \emph{sorting} requirement is relaxed, our neighborhood analytics is able to
 enrich the semantic of relational window notations 
-and can be applied on other domains.
+and can be applied on many other domains.

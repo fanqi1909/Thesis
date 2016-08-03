@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.28)  25 JUL 2016 18:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.28)  3 AUG 2016 17:30
 entering extended mode
 **thesis.tex
 (F:\GitHubRepos\Thesis\Thesis\thesis.tex
@@ -445,7 +445,9 @@ LaTeX Info: Redefining \addtolength on input line 77.
 
 (F:\GitHubRepos\Thesis\Thesis\thesis.aux
 (F:\GitHubRepos\Thesis\Thesis\chapter1/chapter1.aux)
-No file chapter2/chapter2.aux.
+(F:\GitHubRepos\Thesis\Thesis\chapter2/chapter2.aux)
+(F:\GitHubRepos\Thesis\Thesis\chapter3/chapter3.aux)
+(F:\GitHubRepos\Thesis\Thesis\chapter4/chapter4.aux)
 (F:\GitHubRepos\Thesis\Thesis\conclusions.aux)
 (F:\GitHubRepos\Thesis\Thesis\appendix.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
@@ -517,66 +519,60 @@ File: ./Charts/thesis_roadmap.pdf Graphic file (type pdf)
 <use ./Charts/thesis_roadmap.pdf>
 Package pdftex.def Info: ./Charts/thesis_roadmap.pdf used on input line 18.
 (pdftex.def)             Requested size: 346.89731pt x 156.47604pt.
- [3] [4 <F:/GitHubRepos/Thesis/Thesis/Charts/thesis_roadmap.pdf>] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 109--109
+ [3] [4 <F:/GitHubRepos/Thesis/Thesis/Charts/thesis_roadmap.pdf>] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
 [][]$\OT1/cmtt/m/n/10 http : / / www . cbssports . com / nba / eye-[]on-[]baske
 tball / 24525914 /$
  []
 
 
-Overfull \hbox (161.62506pt too wide) in paragraph at lines 111--111
+Overfull \hbox (161.62506pt too wide) in paragraph at lines 143--143
 [][]$\OT1/cmtt/m/n/10 http : / / www . zacks . com / stock / news / 176469 / ch
 ina-[]stock-[]roundup-[]ctrip-[]buys-[]elong-[]stake-[]trina-[]solar-[]beats-[]
 estimates$| 
  []
 
-[6]
-Overfull \hbox (60.87593pt too wide) in paragraph at lines 113--113
+
+Overfull \hbox (60.87593pt too wide) in paragraph at lines 145--145
 [][]$\OT1/cmtt/m/n/10 http : / / www . dnaindia . com / delhi / report-[]delhi-
 []records-[]highest-[]temperature-[]in-[]62-[]years-[]1994332$| 
  []
 
-[7]
-Overfull \hbox (3.7162pt too wide) in paragraph at lines 177--177
-[]\OT1/cmr/bx/n/14.4 Mining Co-Movement Pat-terns in Tra-jec-tory Databases 
- []
-
-[8] <./Charts/trajectory_patterns.pdf, id=76, 580.1675pt x 391.4625pt>
+[7] [8] <./Charts/trajectory_patterns.pdf, id=77, 580.1675pt x 391.4625pt>
 File: ./Charts/trajectory_patterns.pdf Graphic file (type pdf)
 
 <use ./Charts/trajectory_patterns.pdf>
-Package pdftex.def Info: ./Charts/trajectory_patterns.pdf used on input line 19
-0.
+Package pdftex.def Info: ./Charts/trajectory_patterns.pdf used on input line 23
+8.
 (pdftex.def)             Requested size: 346.89731pt x 234.06694pt.
- [9 <F:/GitHubRepos/Thesis/Thesis/Charts/trajectory_patterns.pdf>])) [10] [11]
+ [9 <F:/GitHubRepos/Thesis/Thesis/Charts/trajectory_patterns.pdf>] [10])) [11]
 No file thesis.bbl.
 (F:\GitHubRepos\Thesis\Thesis\thesis.aux
 (F:\GitHubRepos\Thesis\Thesis\chapter1/chapter1.aux)
-No file chapter2/chapter2.aux.
+(F:\GitHubRepos\Thesis\Thesis\chapter2/chapter2.aux)
+(F:\GitHubRepos\Thesis\Thesis\chapter3/chapter3.aux)
+(F:\GitHubRepos\Thesis\Thesis\chapter4/chapter4.aux)
 (F:\GitHubRepos\Thesis\Thesis\conclusions.aux)
-(F:\GitHubRepos\Thesis\Thesis\appendix.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(F:\GitHubRepos\Thesis\Thesis\appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 12008 strings out of 493921
- 220958 string characters out of 3154491
- 265210 words of memory out of 3000000
- 15012 multiletter control sequences out of 15000+200000
- 13464 words of font info for 54 fonts, out of 3000000 for 9000
+ 12035 strings out of 493921
+ 221842 string characters out of 3154491
+ 266263 words of memory out of 3000000
+ 15020 multiletter control sequences out of 15000+200000
+ 14880 words of font info for 60 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  63i,10n,75p,1698b,364s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikTex/fonts/type1/p
-ublic/amsfonts/cm/cmmi12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pf
-b><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MikTex/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D
-:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/publi
-c/amsfonts/cm/cmti12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb><
-D:/MikTex/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (11 pages, 282705 bytes).
+<D:/MikTex/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Mi
+kTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/MikTex/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Mik
+Tex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/MikTex/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex
+/fonts/type1/public/amsfonts/cm/cmti12.pfb><D:/MikTex/fonts/type1/public/amsfon
+ts/cm/cmtt10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on thesis.pdf (11 pages, 293568 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
+ 142 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
