@@ -32,8 +32,8 @@ on \emph{distance} and \emph{comparison} neighborhoods. Then we propose a genera
 to capture movement patterns built on top of the \emph{comparison} neighborhoods.
 
 \subsection{Window Queries for Graph Data}
-This first piece of the thesis deals with neighborhood analytics
-on graphs. Nowadays information network are typically
+The first piece of the thesis deals with neighborhood query
+on graph data. Nowadays information network are typically
 modeled as attributed graphs where the 
 vertexes correspond to objects and the edges capture the
 relationships between these objects. As vertexes embed a wealth
@@ -78,28 +78,44 @@ speedup in query processing.
 \subsection{$k$-Sketch Query for Sequence Data}
 %Rank-aware Streak Discovery in Time Series}
 The second piece of the thesis explores the neighborhood
-query for sequence data. In sequence data, an important
+query for sequence data. 
+In sequence data analysis, an important
 and revenue-generating task is to detect phenomenal patterns.
-An outstanding example of such patterns is the \emph{streak}
-which refers to an analytics applied on a consecutive portion of a sequence. 
+An outstanding neighborhood based pattern is the \emph{streak} which are constructed by aggregating
+temporally nearby data points for each subject.
+%
+%each \emph{streak} is an analytic function applied on
+%a subsequence of data.
+%
+% A \emph{streak} is constructed by treating
+%each temporally nearby data points
+%
+%for a data point is constructed by combing
+%data points that are temporally closed to it. Effectively, each
+%resulting \emph{streak} is a consecutive subsequence of the original sequence. Then
+%analytic functions are applied to each \emph{streak}.
+%
+%
+%An outstanding example of such patterns is the \emph{streak}
+%which refers to an analytics applied on a consecutive portion of a sequence. 
 Streak has been found useful in many time series applications,
 such as network monitoring, stock analysis
 and computational journalism. 
-However, the amount of streaks for each subject
+However, the amount of streaks
 is too huge (i.e., $O{N \choose 2}$ for a subject with $N$ data points) 
 to conduct effective analytics. Observed that
 many streaks share almost identical information, we are motivated 
 to propose a $k$-Sketch
 query to effectively select $k$ most representative streaks.
 
-The $k$-sketch query is built on a core concept named \emph{rank-aware streak}
-and the $k$ most representative streaks are chosen based on a novel scoring function
+The $k$-sketch query is built on a core concept named \emph{rank-aware streak},
+out of which $k$ representatives are 
+chosen based on a novel scoring function
 that balances the strikingness and the diversity. A \emph{rank-aware streak}
 enriches traditional streak by including the
 relative position of a streak among its cohort.
-Such a concept can be
-effectively modeled using our neighborhood functions and is not rare in real-life.
-For example, journalists often adopt the \emph{rank-aware} streak to promote
+Such a concept is not rare in real-life.
+For example, journalists often adopt the rank-aware streak to promote
 the attractiveness of their news:
 
 % For each subject,
@@ -147,12 +163,12 @@ in real life new reporting:}
 \item(Jul 22, 2011) Pelican Point recorded a maximum rainfall of 0.32 inches for \textbf{12 months}, making it the  \textbf{9th driest} places on earth\footnote{\url{http://www.livescience.com/30627-10-driest-places-on-earth.html}}.
 \end{enumerate}
  
-In the above examples, each news is a \emph{rank-aware} streak consisting of five components: a subject (e.g., Kobe Bryant, Stocks, Delhi), an event window (e.g., nine straight games, seventh consecutive days, past month), an aggregate function on an attribute
+In the above examples, each news is a rank-aware streak consisting of five elements: a subject (e.g., Kobe Bryant, Stocks, Delhi), an event window (e.g., nine straight games, seventh consecutive days, past month), an aggregate function on an attribute
 (e.g., minimum points, count of gains, average of degrees), a rank (e.g., fourth, first time, highest), and a
 historical dataset (e.g., all time list, seven years, since 1952). These indicators are summarized in
 Table~\ref{tbl:news-example}.
 
-The \emph{rank-aware} streak can be modeled using a nested neighborhood function. 
+The rank-aware streak can be formally described using a joint neighborhood function. 
 Let $e_s(t)$ denote the event of subject $s$ at time $t$. Then the rank-aware streaks are generated using neighborhood analytics in a two-step manner: 
 
 (1) a \emph{distance neighborhood} $\mathcal{N}_1(o_i,w)=\{o_j | o_i.t - o_j.t \leq w \}$ groups a consecutive $w$ events for each event. Let $\overline{v}$ be the aggregate value associated with $\mathcal{N}_1$, then the output of this step is a set of \emph{event windows} of the form  $n=\langle o_i, w, t, \overline{v} \rangle$.
@@ -195,17 +211,20 @@ Let $e_s(t)$ denote the event of subject $s$ at time $t$. Then the rank-aware st
 
 (2) a \emph{comparison neighborhood} $\mathcal{N}_2(n_i) = \{n_j | n_j.w = n_i.w \wedge n_i.\overline{v} \geq n_j.\overline{v} \}$ ranks a subject's event window among all other event windows with the same window size. The result of the this step is a tuple $\langle o_i, w, t, r \rangle$, where $r$ is the \emph{rank}.}
 
-It is easy to verify that $\mathcal{N}_2 \cdot \mathcal{N}_1$ results in the \emph{rank-aware streak}.
+%It is easy to verify that $\mathcal{N}_2 \cdot \mathcal{N}_1$ result in the rank-aware streaks.
 % is the \emph{rank-aware news themes}. Rooted from the \emph{rank-aware news themes}, we further address the problem 
 %of controlling the result size.
 %We propose
 %a novel concept named \emph{Sketch} to avoid outputting near-duplicate themes.
 %A sketch contains $k$ most representative rank-aware news themes under a scoring function that considers both strikingness and diversity.  Our objective is to discover sketches for each subject in the domain.
-With the concept of the \emph{rank-aware streak}, we study the problem of $k$-sketch in both
-offline and online scenarios, and propose various window-level 
+
+Besides proposing the rank-aware streak, we also technically 
+study how to efficiently support the \emph{$k$-Sketch} query in both
+offline and online scenarios. We propose various window-level 
 pruning techniques to find striking candidate steaks.
 Among those candidates, we then develop approximation
-methods, with theoretical bounds, to discover $k$-sketches. We conduct experiments on four real
+methods, with theoretical bounds, to discover $k$-sketches for each subject. 
+We conduct experiments on four real
 datasets, and the results demonstrate the efficiency and 
 effectiveness of our proposed algorithms: the running time
 achieves up to 500x speedup as compared to baseline and the quality of the
@@ -213,11 +232,15 @@ detected sketch is endorsed by the anonymous users
 from Amazon Mechanical Turk \footnote{\url{https://requester.mturk.com}}.
 
 \subsection{Co-Movement Pattern Query in Trajectory Data}
-The third piece of the thesis addresses the neighborhood
-query on trajectory data. In trajectory data, neighborhood
-function can effectively represent the movement patterns
-of objects which is useful in a wide
-spectrum of applications. 
+The third piece of the thesis studies the neighborhood
+query on trajectory data. An important mining task
+in trajectory domain is to discover the movement patterns
+of objects which is useful in a wide spectrum of applications.
+%
+%In the trajectory domain, neighborhood
+%functions can effectively model the movement patterns
+%of objects which is useful in a wide
+%spectrum of applications. 
 %
 %An important mining task in trajectory
 %data that has drawn many research attention is discovering
@@ -245,7 +268,7 @@ Figure~\ref{fig:related_work} is an example to demonstrate the concepts of vario
 
 These co-movement patterns can be uniformly described as a two-step neighborhood query as follows:
 	(1) $\mathcal{N}_1$ is a \emph{distance neighborhood} used to determine the spatial proximity of objects. For example,  flock and group patterns uses the \emph{disk-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_i,o_j) < r \}$ for each object. Convoy, swarm and platoon patterns uses the \emph{density-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_j,o_k) \leq \epsilon \wedge o_k \in \mathcal{N}_1(o_i)\}$.
-	(2) $\mathcal{N}_2$ is a comparison neighborhood used to determine the temporal constraints, i.e., $\mathcal{N}_2(o_i)=\{o_j, T | \exists t \in T, C_t(o_i) = C_t(o_j)\}$, where $C_t(\cdot)$ returns the cluster ID of an object at time $t$.
+	(2) $\mathcal{N}_2$ is a comparison neighborhood used to determine the temporal constraints, i.e., $\mathcal{N}_2(o_i)=\{o_j, T | \forall t \in T, C_t(o_i) = C_t(o_j)\}$, where $C_t(\cdot)$ returns the cluster ID of an object at time $t$.
 
 Based on the neighborhood unification, we propose a \emph{General Co-Movement Pattern} (GCMP)
 query to capture all existing co-movement patterns. In GCMP, we treat the proximity detection (i.e., $\mathcal{N}_1$) as
