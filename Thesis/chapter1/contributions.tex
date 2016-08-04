@@ -28,8 +28,8 @@ and \emph{topological} window is based on the \emph{comparison} neighborhood.
 In \emph{sequence data}, we leverage the nested \emph{distant} and \emph{comparison} neighborhoods 
 to design the $k$-sketch query in finding prominent rank-aware streaks.
 In \emph{trajectory}, we analyze existing movement patterns based
-on \emph{distance} and \emph{comparison} neighborhoods. Then we propose a general query
-to capture movement patterns built on top of the \emph{comparison} neighborhoods.
+on \emph{distance} and \emph{comparison} neighborhoods. Then we utilize the neighborhood unification to propose a general query
+which captures all related works.
 
 \subsection{Window Queries for Graph Data}
 The first piece of the thesis deals with neighborhood query
@@ -233,9 +233,7 @@ from Amazon Mechanical Turk \footnote{\url{https://requester.mturk.com}}.
 
 \subsection{Co-Movement Pattern Query in Trajectory Data}
 The third piece of the thesis studies the neighborhood
-query on trajectory data. An important mining task
-in trajectory domain is to discover the movement patterns
-of objects which is useful in a wide spectrum of applications.
+query on trajectory data. In trajectory domain, the neighborhoods of objects across multiple time snapshots collectively form a movement pattern. Due to its wide spectrum of applications, mining the movement patterns have attracted many research attention.
 %
 %In the trajectory domain, neighborhood
 %functions can effectively model the movement patterns
@@ -266,11 +264,12 @@ co-movement patterns that have been developed with more advanced constraints.
 Figure~\ref{fig:related_work} is an example to demonstrate the concepts of various co-movement patterns. The trajectory database consists of six moving objects and the temporal dimension is discretized into six snapshots. In each snapshot, we treat the clustering method as a black-box and assume that they generate the same clusters. Objects in proximity are grouped in the dotted circles. As aforementioned, there are three parameters to determine the co-movement patterns and the default settings in this example are $M=2$, $K=3$ and $L=2$. Both the \emph{flock} and the \emph{convoy} require the spatial clusters to last for at least $K$ consecutive  timestamps. Hence,$\langle o_3,o_4:1,2,3 \rangle$ and $\langle o_5,o_6:3,4,5 \rangle$  remains the only two candidates matching the patterns. The \textit{swarm} relaxes the pattern matching by discarding the temporal consecutiveness constraint. Thus, it generates many more candidates than the \textit{flock} and the \textit{convoy}. The \textit{group} and the \textit{platoon} add another constraint on local consecutiveness to retain meaningful patterns. For instance, $\langle o_1,o_2:1,2,4,5 \rangle$ is a pattern matching local consecutiveness because timestamps $(1,2)$ and $(4,5)$ are two segments with length no smaller than $L=2$. The difference between the \textit{group} and the \textit{platoon} is that the \textit{platoon} has an additional parameter $K$ to specify the minimum number of snapshots for the spatial clusters. This explains why $\langle o_3,o_4,o_5:2,3 \rangle$ is a \textit{group} pattern but not a \textit{platoon} pattern.
 
 
-These co-movement patterns can be uniformly described as a two-step neighborhood query as follows:
+As shown, there are various types of co-movement patterns facilitating different application needs and it is cumbersome to deploy and optimize each of the pattern discovery algorithms. Therefore, it calls for a general framework to provide versatile and efficient support of all these pattern discoveries. We observe that 
+these co-movement patterns can be uniformly described as a two-step neighborhood query as follows:
 	(1) $\mathcal{N}_1$ is a \emph{distance neighborhood} used to determine the spatial proximity of objects. For example,  flock and group patterns uses the \emph{disk-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_i,o_j) < r \}$ for each object. Convoy, swarm and platoon patterns uses the \emph{density-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_j,o_k) \leq \epsilon \wedge o_k \in \mathcal{N}_1(o_i)\}$.
 	(2) $\mathcal{N}_2$ is a comparison neighborhood used to determine the temporal constraints, i.e., $\mathcal{N}_2(o_i)=\{o_j, T | \forall t \in T, C_t(o_i) = C_t(o_j)\}$, where $C_t(\cdot)$ returns the cluster ID of an object at time $t$.
 
-Based on the neighborhood unification, we propose a \emph{General Co-Movement Pattern} (GCMP)
+Enlightened by the neighborhood unification, we propose a \emph{General Co-Movement Pattern} (GCMP)
 query to capture all existing co-movement patterns. In GCMP, we treat the proximity detection (i.e., $\mathcal{N}_1$) as
 a black box and only focus on the pattern detection (i.e., $\mathcal{N}_2$). It is notable that the GCMP
 query is able to detect any of the existing co-movement patterns by adopting different analytic functions.
@@ -284,4 +283,4 @@ query is able to detect any of the existing co-movement patterns by adopting dif
 %the spatial proximity of objects are given and focus on the second neighborhood function.
 
 
-Technical wise, we study how to efficiently processing GCMP in a MapReduce platform to gain scalability for large-scale trajectory databases. We propose two parallel frameworks: (1) TRPM, which partitions trajectories by replicating snapshots in the temporal domain. Within each partitions, a line-sweep method is developed to find all patterns. (2) SPARE, which partitions trajectories based on object's neighborhood. Within each partitions, a variant of Apriori enumerator is applied to generate all patterns. We then show the efficiency of both our methods in the Apache Spark platform with three real trajectory datasets upto 170 million points. The results show that SPARE achieves upto 14 times efficiency as compared to TRPM, and 112 times speedup as compared to the state-of-the-art centralized schemes.
+On the technical side, we study how to efficiently processing GCMP in a MapReduce platform to gain scalability for large-scale trajectory databases. In particular, we propose two parallel frameworks: (1) TRPM, which partitions trajectories by replicating snapshots in the temporal domain. Within each partitions, a line-sweep method is developed to find all patterns. (2) SPARE, which partitions trajectories based on object's neighborhood. Within each partitions, a variant of Apriori enumerator is applied to generate all patterns. We then show the efficiency of both our methods in the Apache Spark platform with three real trajectory datasets upto 170 million points. The results show that SPARE achieves upto 14 times efficiency as compared to TRPM, and 112 times speedup as compared to the state-of-the-art centralized schemes.
