@@ -15,7 +15,7 @@ sales. The window of season-3 is highlighted.}
 \end{figure}
 
 As shown in the figure, the sales report contains five attributes: 
-``Season'', ``Region'' and ``Sales'' are the original fields, ``$\mathtt{sum()}$'' and ``$\mathtt{avg()}$''
+``Season'', ``Region'' and ``Sales'' are the facts, ``$\mathtt{sum()}$'' and ``$\mathtt{avg()}$''
 are the analytics representing the running sum and average. A window function
 is represented by the $\mathtt{over}$ keyword. In this context, the window of a tuple $o_i$
 contains other tuples $o_j$ such that $o_i$ and $o_j$ are in the same ``region'' and $o_j$'s ``season'' is
@@ -26,7 +26,7 @@ Being aware of the success of the window function,
 SQL~11 standard incorporates ``$\mathtt{LEAD}$'' and ``$\mathtt{LAG}$'' 
 keywords which offer fine-grained specifications on a tuple's window.
 
-Despite the usefulness, there are few works reporting the window
+Despite the usefulness, there are very few works reporting the window
 analytics in the non-relational domain. This may dues to the
 usage of \emph{sorting} in relational windows. For example,
 in Figure~\ref{fig:window},

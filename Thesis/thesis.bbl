@@ -1,0 +1,198 @@
+\begin{thebibliography}{10}
+
+\bibitem{agrawal2009diversifying}
+Rakesh Agrawal, Sreenivas Gollapudi, Alan Halverson, and Samuel Ieong.
+\newblock Diversifying search results.
+\newblock In {\em Proceedings of the Second ACM International Conference on Web
+  Search and Data Mining}, pages 5--14. ACM, 2009.
+
+\bibitem{aung2010discovery}
+Htoo~Htet Aung and Kian-Lee Tan.
+\newblock Discovery of evolving convoys.
+\newblock In {\em International Conference on Scientific and Statistical
+  Database Management}, pages 196--213. Springer, 2010.
+
+\bibitem{bellamkonda2013adaptive}
+Srikanth Bellamkonda, Hua-Gang Li, Unmesh Jagtap, Yali Zhu, Vince Liang, and
+  Thierry Cruanes.
+\newblock Adaptive and big data scale parallel execution in oracle.
+\newblock {\em Proceedings of the VLDB Endowment}, 6(11):1102--1113, 2013.
+
+\bibitem{borodin2012max}
+Allan Borodin, Hyun~Chul Lee, and Yuli Ye.
+\newblock Max-sum diversification, monotone submodular functions and dynamic
+  updates.
+\newblock In {\em Proceedings of the 31st ACM SIGMOD-SIGACT-SIGAI symposium on
+  Principles of Database Systems}, pages 155--166. ACM, 2012.
+
+\bibitem{cao2012optimization}
+Yu~Cao, Chee-Yong Chan, Jie Li, and Kian-Lee Tan.
+\newblock Optimization of analytic window functions.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(11):1244--1255, 2012.
+
+\bibitem{chen2008graph}
+Chen Chen, Xifeng Yan, Feida Zhu, Jiawei Han, and S~Yu Philip.
+\newblock Graph olap: Towards online analytical processing on graphs.
+\newblock In {\em 2008 Eighth IEEE International Conference on Data Mining},
+  pages 103--112. IEEE, 2008.
+
+\bibitem{chen2015diversity}
+Lisi Chen and Gao Cong.
+\newblock Diversity-aware top-k publish/subscribe for text stream.
+\newblock In {\em Proceedings of the 2015 ACM SIGMOD International Conference
+  on Management of Data}, pages 347--362. ACM, 2015.
+
+\bibitem{cheng2012k}
+James Cheng, Zechao Shang, Hong Cheng, Haixun Wang, and Jeffrey~Xu Yu.
+\newblock K-reach: who is in your small world.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(11):1292--1303, 2012.
+
+\bibitem{douglas1973linesimplification}
+David~H Douglas and Thomas~K Peucker.
+\newblock Algorithms for the reduction of the number of points required to
+  represent a digitized line or its caricature.
+\newblock {\em Cartographica: The International Journal for Geographic
+  Information and Geovisualization}, 10(2):112--122, 1973.
+
+\bibitem{drosou2014diverse}
+Marina Drosou and Evaggelia Pitoura.
+\newblock Diverse set selection over dynamic data.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  26(5):1102--1116, 2014.
+
+\bibitem{ester1996density}
+Martin Ester, Hans-Peter Kriegel, J{\"o}rg Sander, Xiaowei Xu, et~al.
+\newblock A density-based algorithm for discovering clusters in large spatial
+  databases with noise.
+\newblock In {\em Kdd}, volume~96, pages 226--231, 1996.
+
+\bibitem{jinno2012paralleltpattern}
+Ryota Jinno, Kazuhiro Seki, and Kuniaki Uehara.
+\newblock Parallel distributed trajectory pattern mining using mapreduce.
+\newblock In {\em Cloud Computing Technology and Science (CloudCom), 2012 IEEE
+  4th International Conference on}, pages 269--273. IEEE, 2012.
+
+\bibitem{kalnis2005movingclusters}
+Panos Kalnis, Nikos Mamoulis, and Spiridon Bakiras.
+\newblock On discovering moving clusters in spatio-temporal data.
+\newblock In {\em International Symposium on Spatial and Temporal Databases},
+  pages 364--381. Springer, 2005.
+
+\bibitem{laube2005finding}
+Patrick Laube, Marc van Kreveld, and Stephan Imfeld.
+\newblock Finding remo—detecting relative motion patterns in geospatial
+  lifelines.
+\newblock In {\em Developments in spatial data handling}, pages 201--215.
+  Springer, 2005.
+
+\bibitem{laxman2007nonoverlapepisodes}
+Srivatsan Laxman, PS~Sastry, and KP~Unnikrishnan.
+\newblock A fast algorithm for finding frequent episodes in event streams.
+\newblock In {\em Proceedings of the 13th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 410--419. ACM, 2007.
+
+\bibitem{li2013onlinegroup}
+Xiaohui Li, Vaida Ceikute, Christian~S Jensen, and Kian-Lee Tan.
+\newblock Effective online group discovery in trajectory databases.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  25(12):2752--2766, 2013.
+
+\bibitem{li2015platoon}
+Yuxuan Li, James Bailey, and Lars Kulik.
+\newblock Efficient mining of platoon patterns in trajectory databases.
+\newblock {\em Data \& Knowledge Engineering}, 100:167--187, 2015.
+
+\bibitem{li2010swarm}
+Zhenhui Li, Bolin Ding, Jiawei Han, and Roland Kays.
+\newblock Swarm: Mining relaxed temporal moving object clusters.
+\newblock {\em Proceedings of the VLDB Endowment}, 3(1-2):723--734, 2010.
+
+\bibitem{mannila1997discepisodes}
+Heikki Mannila, Hannu Toivonen, and A~Inkeri Verkamo.
+\newblock Discovery of frequent episodes in event sequences.
+\newblock {\em Data mining and knowledge discovery}, 1(3):259--289, 1997.
+
+\bibitem{mondal2014eagr}
+Jayanta Mondal and Amol Deshpande.
+\newblock Eagr: Supporting continuous ego-centric aggregate queries over large
+  dynamic graphs.
+\newblock In {\em Proceedings of the 2014 ACM SIGMOD International Conference
+  on Management of Data}, pages 1335--1346. ACM, 2014.
+
+\bibitem{sultana2014incremental}
+Afroza Sultana, Naeemul Hassan, Chengkai Li, Jun Yang, and Cong Yu.
+\newblock Incremental discovery of prominent situational facts.
+\newblock In {\em 2014 IEEE 30th International Conference on Data Engineering},
+  pages 112--123. IEEE, 2014.
+
+\bibitem{tatti2012strictepisodes}
+Nikolaj Tatti and Boris Cule.
+\newblock Mining closed strict episodes.
+\newblock {\em Data Mining and Knowledge Discovery}, 25(1):34--66, 2012.
+
+\bibitem{tian2008efficient}
+Yuanyuan Tian, Richard~A Hankins, and Jignesh~M Patel.
+\newblock Efficient aggregation for graph summarization.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
+  on Management of data}, pages 567--580. ACM, 2008.
+
+\bibitem{wang2006grouppattern}
+Yida Wang, Ee-Peng Lim, and San-Yih Hwang.
+\newblock Efficient mining of group patterns from user movement data.
+\newblock {\em Data \& Knowledge Engineering}, 57(3):240--282, 2006.
+
+\bibitem{wang2014pagrol}
+Zhengkui Wang, Qi~Fan, Huiju Wang, Kian-Lee Tan, Divyakant Agrawal, and Amr
+  El~Abbadi.
+\newblock Pagrol: parallel graph olap over large-scale attributed graphs.
+\newblock In {\em 2014 IEEE 30th International Conference on Data Engineering},
+  pages 496--507. IEEE, 2014.
+
+\bibitem{wu2012one}
+You Wu, Pankaj~K Agarwal, Chengkai Li, Jun Yang, and Cong Yu.
+\newblock On one of the few objects.
+\newblock In {\em Proceedings of the 18th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 1487--1495. ACM, 2012.
+
+\bibitem{yan2010top}
+Xifeng Yan, Bin He, Feida Zhu, and Jiawei Han.
+\newblock Top-k aggregation queries over large networks.
+\newblock In {\em 2010 IEEE 26th International Conference on Data Engineering
+  (ICDE 2010)}, pages 377--380. IEEE, 2010.
+
+\bibitem{yu2010graph}
+Jeffrey~Xu Yu and Jiefeng Cheng.
+\newblock Graph reachability queries: A survey.
+\newblock In {\em Managing and Mining Graph Data}, pages 181--215. Springer,
+  2010.
+
+\bibitem{zemke2012s}
+Fred Zemke.
+\newblock What. s new in sql: 2011.
+\newblock {\em ACM SIGMOD Record}, 41(1):67--73, 2012.
+
+\bibitem{zhang2014discovering}
+Gensheng Zhang, Xiao Jiang, Ping Luo, Min Wang, and Chengkai Li.
+\newblock Discovering general prominent streaks in sequence data.
+\newblock {\em ACM Transactions on Knowledge Discovery from Data (TKDD)},
+  8(2):9, 2014.
+
+\bibitem{zhao2011graph}
+Peixiang Zhao, Xiaolei Li, Dong Xin, and Jiawei Han.
+\newblock Graph cube: on warehousing and olap multidimensional networks.
+\newblock In {\em Proceedings of the 2011 ACM SIGMOD International Conference
+  on Management of data}, pages 853--864. ACM, 2011.
+
+\bibitem{zheng2013gathering}
+Kai Zheng, Yu~Zheng, Nicholas~Jing Yuan, and Shuo Shang.
+\newblock On discovery of gathering patterns from trajectories.
+\newblock In {\em Data Engineering (ICDE), 2013 IEEE 29th International
+  Conference on}, pages 242--253. IEEE, 2013.
+
+\bibitem{zhou2010serialepisodes}
+Wenzhi Zhou, Hongyan Liu, and Hong Cheng.
+\newblock Mining closed episodes from event sequences efficiently.
+\newblock In {\em Pacific-Asia Conference on Knowledge Discovery and Data
+  Mining}, pages 310--318. Springer, 2010.
+
+\end{thebibliography}

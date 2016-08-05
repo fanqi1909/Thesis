@@ -4,7 +4,7 @@
 %nontrivial analytic functions. 
 In brief, this thesis entitles a twofold contribution.
 First, by sewing different $\mathcal{N}$s and $\mathcal{F}$s, 
-several novel analytic queries are proposed for 
+several novel neighborhood queries are proposed for 
 \emph{graph}, \emph{sequence data} and \emph{trajectory} domains respectively. 
 %three interesting
 %neighborhood analytic queries are proposed for \emph{graph}, \emph{time series} 
@@ -21,15 +21,15 @@ is a neighborhood analytic based on different $\mathcal{N}$ and $\mathcal{F}$ as
 \label{fig:thesis_roadmap}
 \end{figure}
 
-In a nutshell, we propose and enrich the neighborhood analytics in three data domains. 
-In \emph{graph}, we identify two types
-of window queries: \emph{k-hop} window is based on the \emph{distance} neighborhood
-and \emph{topological} window is based on the \emph{comparison} neighborhood. 
-In \emph{sequence data}, we leverage the nested \emph{distant} and \emph{comparison} neighborhoods 
-to design the $k$-sketch query in finding prominent rank-aware streaks.
+In a nutshell, we propose the neighborhood queries in three data domains. 
+In \emph{graph}, we identify two types of queries: \emph{k-hop window query} is based on the \emph{distance} neighborhood
+and \emph{topological window query} is based on the \emph{comparison} neighborhood. 
+In \emph{sequence data}, we propose a nested \emph{distant} and \emph{comparison} neighborhoods
+query named $k$-Sketch to finding striking rank-aware streaks.
 In \emph{trajectory}, we analyze existing movement patterns based
-on \emph{distance} and \emph{comparison} neighborhoods. Then we utilize the neighborhood unification to propose a general query
-which captures all related works.
+on \emph{distance} and \emph{comparison} neighborhoods and unify
+the existing works with a general pattern discovery query. Next, we present our contributions in detail for each of the data domains.
+
 
 \subsection{Window Queries for Graph Data}
 The first piece of the thesis deals with neighborhood query

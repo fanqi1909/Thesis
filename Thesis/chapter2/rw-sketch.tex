@@ -1,0 +1,84 @@
+\section{$k$-Sketch Query}\label{sec:related_work}
+In this section, we briefly review three closely related areas: automatic news detection, frequent episode mining and top-$k$ diversity query.
+
+\subsection{Automatic News Detection}
+Earlier works on automatic news theme generation were focused on finding interesting themes from a single event. For example, Sultana et al.~\cite{sultana2014incremental} proposed the \emph{Situational Fact} pattern, which is modeled as a skyline point under certain dimensions. Wu et al.~\cite{wu2012one} proposed the \emph{One-of-the-Few} concept to detect news themes with some rarities. Examples of candidate news themes for the above two patterns are illustrated in Table~\ref{tbl:related_works}.
+
+{\renewcommand{\arraystretch}{1.2} 
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Method} & \textbf{Example news theme}\\
+\hline
+Situational facts~\cite{sultana2014incremental} & \pbox{22cm}{\vspace{.3\baselineskip} Ellen's tweet generates 3.3M retweets\\ with 170,000 comments.\vspace{.3\baselineskip}} \\
+\hline
+One-of-the-few facts~\cite{wu2012one} & \pbox{22cm}{\vspace{.3\baselineskip}Perry is one of the three candidates \\  who received \$600k\vspace{.3\baselineskip}} \\
+\hline
+Prominent streak~\cite{zhang2014discovering} & Kobe scored 40+ in 9 straight games!  \\
+\hline
+Rank-aware theme & \pbox{22cm}{\vspace{.3\baselineskip}Kobe scored 40+ in 9 straight games\\ ranked 4th in NBA history!\vspace{.3\baselineskip}} \\
+\hline
+\end{tabular}
+\caption{Examples of different news themes}
+\label{tbl:related_works}
+\end{table}
+}
+
+Zhang et al.\cite{zhang2014discovering} proposed using prominent streak to generate interesting news themes.
+In \cite{zhang2014discovering}, a \emph{Prominent Streak} is characterized by a 2D point which represents the window length and the minimum value of all events in the window. The objective is to discover the non-dominated event windows for each subject, where the dominance relationship is defined among streaks of the same subject. Our model differs from \cite{zhang2014discovering} in two aspects. First, we look at the global prominence (quantified by the rank) among all subjects rather than local prominence (quantified by the dominance) within one subject. Second, our model provides the best $k$-sketch for each subject whereas \cite{zhang2014discovering} returns a dominating set which could be potentially large. 
+ 
+\subsection{Frequent Episode Mining}
+In time sequenced data mining, an episode~\cite{mannila1997discepisodes,
+zhou2010serialepisodes, tatti2012strictepisodes, laxman2007nonoverlapepisodes} is 
+defined as a collection of time sequenced events which occur together within a time window. The uniqueness of an episode is determined by the contained events. The objective is to discover episodes whose 
+occurrences exceeding a support threshold. 
+Our sketch discovery differs from the episode mining in three major aspects. First, an episode is associated with a categorical value while our sketch is defined on numerical values. Second, the episodes are selected based on the occurrence, while in sketch, news themes are generated in a rank-aware manner. Finally, episode mining does not restrict its output size, while sketch only outputs the best $k$ news themes. As such, episode mining techniques cannot be straightforwardly applied to sketch discovery.
+
+%First, episode concerns event types (alphabets), while streak concerns the analytic values. The mismatch makes episode mining inappropriate for sketch discovery since counting the occurrence based on analytic values is not meaningful. Second, candidate episode is selected based on the number of occurrence compared to a threshold, whereas candidate streak is based on the rank among other streaks with the same window size. The notion of rank does not straightforwardly apply to episodes thus making the problem different from sketch discovery. Third, in sketch discovery, we aim to find the best $k$ streaks, while in episode mining, there is no evaluation among episodes thus it does not fit the needs of sketch discovery.
+
+
+\subsection{Top-$k$ Diversity Query}
+Top-$k$ diversity queries~\cite{agrawal2009diversifying,borodin2012max,drosou2014diverse,chen2015diversity}
+aim to find a subset of objects to maximize a scoring function. The scoring function normally penalizes
+a subset if it contains similar elements. Our sketch discovery problem has two important distinctions
+ against the top-$k$ diversity queries.
+First, the inputs of the scoring function are known in advance in top-$k$ diversity queries; whereas in our problem, the ranks of event windows are unknown. Since their calculations are expensive, we need to devise efficient methods to compute the ranks.
+Second, existing methods for online diversity queries~\cite{borodin2012max,drosou2014diverse,chen2015diversity} only study
+the update on a single result set when a new event arrives. However our online sketch maintenance 
+incurs the problem of multiple sketch updates for each new event. Such a complex update pattern has not been studied yet and hence there is a need to develop efficient update scheme.
+
+%Recently, Chen et al.~\cite{chen2015diversity} studied the diversity-aware top-k publish/subscribe for text stream.  
+%Users subscribe text contents by 
+%issuing queries with keywords. Whenever a document arrives, the matching subscriptions will include such document 
+%if the inclusion of which leads to a better value of the ranking function defined. 
+%However the methods proposed in~\cite{chen2015diversity} cannot be applied to our sketch discovery due to the 
+%rank-aware feature of sketches. In our case, the sketches can still be affected
+%even when news candidates associated with an arrival event are not inserted to any subject's sketch. However, in ~\cite{chen2015diversity}, an incoming document will be either inserted to the results of some subscriptions or simply discarded. Thus a novel solution must be devised to handle the complex update pattern of sketch monitoring. 
+
+
+%Top-$k$ Diversity Query was proposed in~\cite{agrawal2009diversifying} in the information retrieval field
+%and has attracted huge amount of research attentions recently~\cite{angel2011efficient, chen2015diversity,huang2015top}.
+%In general, diversity-aware queries aim to find a subset of objects from the universal set
+%to maximize a scoring function. Such scoring function will penalize a subset if it contains similar objects.
+%One example is the maximum set coverage problem where the scoring function is the number of elements covered by a set of $k$ subsets.
+%Our sketch discovery problem has two
+%unique differences against the top-$k$ diversity problems.
+%First, in diversity queries, the inputs of the scoring function are known in advance, e.g., the elements covered by each subset;
+%whereas in sketch discovery the rank of each event window is unknown and expensive to compute. This motivates us to devise efficient
+%methods to compute the ranks.
+%Second, existing online diversity queries~\cite{borodin2012max,drosou2014diverse,chen2015diversity} only study efficient update on a single
+%diverse set when an event arrives. However our online sketch monitoring incurs the problem of multiple sketches update
+%for each new event. Such complex update patterns have not been studied yet and thus we propose an efficient update scheme.
+%
+%Recently, Chen et al.~\cite{chen2015diversity} studied the diversity-aware top-k publish/subscribe for text stream.  
+%Users subscribe text contents by 
+%issuing queries with keywords. Whenever a document arrives, the matching subscriptions will include such document 
+%if the inclusion of which leads to a better value of the ranking function defined. 
+%However the methods proposed in~\cite{chen2015diversity} cannot be applied to our online sketch monitoring due to the 
+%rank-aware feature of sketches. In our case, the sketches can still be affected
+%even when news candidates associated with an arrival event are not inserted to any subject's sketch. However, in ~\cite{chen2015diversity}, 
+% an incoming document will be either inserted to the results of some subscriptions or simply discarded. 
+%Thus a novel solution must be devised to handle the complex update pattern of sketch monitoring. 
+
+
