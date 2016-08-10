@@ -1,7 +1,108 @@
 \section{Graph Window Queries}
+
+\subsection{Graph OLAP}
+Traditional graph data analytics focus on
+graph OnLine Analytic Processing (OLAP)~\cite{zhao2011graph,wang2014pagrol,chen2008graph,tian2008efficient},
+which is different from Graph Window Queries.
+In a general model, graph OLAP applies analytics on each partition
+of the graph, where the partitions are created based on some
+attribute values of vertexes or edges. On the other hand, graph
+window queries aim to find the subgraph associated with each vertex
+and compute analytics over each subgraphs. Indeed, such differences also arise in the relational context, where different 
+techniques are developed to evaluate OLAP and window function queries.
+
+
+%In graph OLAP, information 
+%in a graph is summarized by partitioning the graph's nodes/edges (based on some attribute values) 
+%and computing aggregate values from each partition.
+%Graph window queries, on the other hand, compute aggregate values for each graph node w.r.t. 
+%the subgraph associated with the node.
+%Indeed, such differences also arise in the relational context, where different 
+%techniques are developed to evaluate OLAP and window function queries.
+%
+%
+%GWFs are also different from graph aggregation \cite{zhao2011graph,wang2014pagrol,chen2008graph,tian2008efficient} in graph OLAP.
+%In graph OLAP, information in a graph are summarized
+%by partitioning the graph's nodes/edges (based on some attribute values) and computing aggregate values for each partition.
+%GWFs, on the other hand, compute aggregate values for each graph node w.r.t. the subgraph associated with the node.
+%Indeed, such differences also arise in the relational context, where different 
+%techniques are developed to evaluate OLAP and window function queries.
+
+\subsection{Reachability Queries and Indexes}
+Classic reachability queries, which
+answer whether two vertexes are connected, have 
+been studied intensively in literature. 
+To facilitate fast query processing, many indexes are
+proposed~\cite{yu2010graph,cheng2012k}. Although our graph window queries
+can be built on top of the reachability queries, directly
+using these techniques is inefficient. For example, the
+most related reachability
+query to our $k$-hop window query is the $k$-reach query~\cite{cheng2012k} which
+test if an input pair of vertexes is within a $k$-hop distance. In order
+to compute the $k$-hop window query for $n$ vertexes, there would be $\theta(n^2)$
+reachability tests. This is clearly inefficient especially when graphs
+are with over millions of vertexes.
+
+%
+%Reachability queries, 
+%asking if two vertexes are connected, are important 
+%in supporting many useful analytics. 
+%Indexing techniques have been proposed to 
+%efficiently determine whether an input pair of vertices is within a distance of k-hops (e.g. k-reach index \cite{cheng2012k}) or reachable (e.g. reachability index \cite{yu2010graph}). However, such techniques are not efficient for computing the k-hop window or topological window for a set of $n$ vertices with a time complexity of $O(n^2)$. 
+
+\subsection{Top-$k$ Neighborhoods}
+In \cite{yan2010top}, the authors investigated the problem of finding the vertexes
+that have top-$k$ highest aggregate values over their $h$-hop neighbors. 
+This is similar to our $k$-hop queries while the difference is that they
+focus on providing pruning techniques to select $k$ best vertexes and our graph
+window query aims to compute the analytic values for each vertex. In our 
+setting, their techniques degrade to the non-index approach as described in Section~\ref{};
+
+%
+%They proposed mechanisms to prune the computation by using two properties: First, the locality between vertexes is used to propagate the upper-bound of aggregation; Second, the upper-bound value of aggregates can be estimated from the distribution of attribute values. However, all these pruning techniques are not applicable in our work, as we need to compute the aggregation value for every vertex. In such a scenario, techniques in \cite{yan2010top} degrade to the non-indexed approach as described in Section 4.
+
+\subsection{Egocentric Networks}
+Egocentric networks~\cite{} refer to the neighborhood structure of a vertex
+in a graph. There are many works have conducted structural studies on egocentric
+networks however they do not focus on efficient processing on data analytics inside
+the egocentric networks. Recently, Jayanta et.al. \cite{mondal2014eagr} 
+proposed an EAGR system to summarize attribute information among 
+each vertex's neighborhoods. They use the Frequent-Pattern Tree heuristic~\cite{} 
+to find the shared components among each vertex's neighborhoods. It starts by building an
+bipartite overlay graph to represent the vertex-neighbor mapping. Then it aims to
+find the bi-cliques in the overlay graph, where
+each bi-clique represents a set of vertexes whose neighborhood
+aggregates can be shared. Once a bi-clique is found, it is inserted back to the overlay graph as
+a virtual node to remove redundant edges. EAGR finds bi-cliques in iterations. During each iteration,
+it sorts each vertexes in overlay graph by their neighborhood information. Then the sorted vertices 
+are split into equal-sized chunks. For each chunk, it then builds a FP-Tree to mining the large bi-cliques. 
+As the algorithm iterates, the overlay graph evolves to be less dense. 
+
+
+The main drawback of EAGR is its demands of high memory usage on overlay construction. It
+requires the neighborhood information to be pre-computed, which is used in the sorting phase
+of each iteration. In EAGR the neighborhood information is assumed to be stored in memory.
+However, the assumption does not scale well for computing higher hop windows (such as k $\geq 2$). 
+For instance, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB mapping information for k=2 in adjacency list 
+representation. If the neighborhood information is resided in disk, the performance of EAGR will
+largely reduced. Similarly, if the neighborhood information is computed on-the-fly, EAGR needs
+to perform the computation in each iteration, which largely increases indexing time.
+
+We tackle this drawback by adapting a hash based approach that clusters each vertex based
+on its neighborhood similarity. During the hashing, the vertex's neighborhood information
+is computed on-the-fly. As compared to sorting based approach, we do not require vertex's neighborhood
+to be pre-reside in memory. In order to reduce the repetitive computation of vertex's neighborhood,
+we further propose an estimation based indexing construction algorithm that only require a vertex's small
+hop neighborhood to be computed during clustering. As our experiments show, our proposed methods 
+can perform well even when EAGR algorithm fails when neighborhood information overwhelms system's memory.
+To further reduce the neighborhood access, we adapted a Dense Block heuristic process each vertex
+in one pass. Experiments shows that the performance of our heuristic is comparable to EAGR's, but with
+much shorter indexing time.
+  
+
 %Window function was proposed in \cite{zemke2012s}, which is widely used in SQL data analytic. There are several optimization on standard window functions \cite{cao2012optimization, bellamkonda2013adaptive}. \cite{cao2012optimization} optimize window function via shared sorted components, and \cite{bellamkonda2013adaptive} optimized window function via partition. However, in \emph{GWF}, the sorting and partition is no longer required, thus their techniques are not applicable in the graph window context.
 %\remark{We haven't mention GWFs in introduction section, does this needs to be mentioned?}
-Our proposed graph window functions (GWFs) for graph databases is inspired by the usefulness of window functions in relational analytic queries
+\eat{Our proposed graph window functions (GWFs) for graph databases is inspired by the usefulness of window functions in relational analytic queries
 \cite{zemke2012s}.
 
 A window function in SQL typically specifies a set of partitioning attributes $A$ and an aggregation function $f$.
@@ -162,3 +263,4 @@ much shorter indexing time.
 
 %%{I added these aspects because Prof Yan mentioned about this point in the TAC meeting}
 %Our \emph{DB-Index} and \emph{I-Index} effectively compress the vertex-window mapping, which is conceptually similar to graph compression \cite{Fan2012QPG,Grabowski2014TSW,Toivonen2011CWG,Buehrer2008SPM:}. However, these techniques fail to work in our scenario, since they do not consider aggregation query preservation and they assume initial vertex-mapping is memory-resides.
+}

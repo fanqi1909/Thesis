@@ -1,6 +1,27 @@
 \chapter{Literature Review}
-%This chapter summarizes related literature to
-%our proposed queries.
+Our proposed neighborhood queries are inspired
+by the usefulness of window functions in relational analytic queries~\cite{zemke2012s}.
+A window function in SQL specifies a set of partitioning attributes 
+$A$ and an aggregation function $f$.
+Its evaluation first partitions the input records based on $A$ to compute 
+$f$ for each partition, and each input record is then associated with the aggregate 
+value corresponding to the partition that contains the record.
+Several optimization techniques \cite{cao2012optimization, bellamkonda2013adaptive}
+have also been developed to evaluate complex SQL queries 
+involving multiple window functions.
+
+However, the semantic and evaluation of the window function are restricted by the 
+relational model. As been analyzed previously, SQL window functions require
+tuples to be sorted in order to form individual windows. However such a need
+is hard to meet in other data domains. Therefore, optimization techniques
+that are developed for the relational model become inapplicable in other domains. 
+Nevertheless, there are quite a few works that related to the neighborhood
+queries that we have proposed and we summarize them in this section. 
+
+%are very different between relational and graph contexts.
+%Specifically, the partitions (i.e., subgraphs) associated with GWFs are not necessarily disjoint; thus,
+%the evaluation techniques developed for relational context \cite{cao2012optimization, bellamkonda2013adaptive} are not applicable to GWFs. %\remark{\cite{bellamkonda2013adaptive} focuses on utilizing partition to parallel window processing, and \cite{cao2012optimization} focuses on leveraging sorting among windows. However sorting and partitioning are no longer exists in GWFS, thus, their work are not applicable}
+
 \input{chapter2/rw-graph}
 \input{chapter2/rw-sketch}
 \input{chapter2/rw-trajectory}
