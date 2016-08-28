@@ -3,30 +3,48 @@
 %\documentclass[12pt,shieldcrest]{ociamthesis} % use older shield crest logo
 
 %load any additional packages
-\usepackage{amssymb,amsthm}
-\usepackage{graphics}
+\usepackage{amssymb,amsthm, amsmath}
+\usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{epsfig,epstopdf}
 \usepackage{subcaption}
 \usepackage{caption}
 \usepackage{pbox}
+\usepackage{algorithm,algpseudocode}
 \usepackage{url}
+\usepackage[normalem]{ulem}
+\usepackage{multirow,booktabs}
 
 \usepackage{todonotes}
 \usepackage{xcolor}
 
-\newcommand{\revised}[1]{{\color{red}{#1}}}
-\newcommand{\doubted}[1]{{\color{blue}{#1}}}
-\newcommand{\eat}[1]{ }
 
-\graphicspath{ {./Charts/} }
+
+\graphicspath{ {./Charts/}}
 \epstopdfsetup{outdir=./Charts/}
 
 \theoremstyle{definition}
 \newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section] % reset theorem numbering for each chapter
+\newtheorem{definition}{Definition}[section]
+\newtheorem{query}{Query}[section]
+\newtheorem{lemma}[theorem]{Lemma}
 
-\includeonly{chapter2/chapter2}
 
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\triu}{triu}
+\DeclareMathOperator*{\range}{range}
+\newcommand*{\argminl}{\argmin\limits}
+\newcommand*{\argmaxl}{\argmax\limits}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}} 
+\newcommand{\revised}[1]{{\color{red}{#1}}}
+\newcommand{\doubted}[1]{{\color{blue}{#1}}}
+\newcommand{\eat}[1]{ }
+\newcommand{\original}[1]{\sout{#1}}
+
+
+%\includeonly{chapter5/chapter5}
 
 %input macros (i.e. write your own macros file called mymacros.tex 
 %and uncomment the next line)
@@ -69,6 +87,7 @@
 \include{chapter2/chapter2}
 \include{chapter3/chapter3}
 \include{chapter4/chapter4}
+\include{chapter5/chapter5}
 \include{conclusions}
 
 %now enable appendix numbering format and include any appendices

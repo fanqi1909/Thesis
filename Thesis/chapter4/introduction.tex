@@ -1,0 +1,212 @@
+
+\section{Introduction}
+Today's journalists must pore over large amounts of data to discover interesting
+newsworthy themes. While such a task has traditionally been done manually,
+there is an increasing reliance on computational technology to reduce human
+labor and intervention to a minimum.
+To support automatic news theme discovery, early research efforts have focused on discovering newsworthy patterns derived 
+from a single event, such as the \emph{situational facts}~\cite{sultana2014incremental}, 
+\emph{one-of-few facts}~\cite{wu2012one} and FactsWatcher~\cite{hassan2014data}.
+Recently, Zhang et. al. proposed a new type of news theme pattern, named \emph{prominent streak}~\cite{zhang2014discovering}.
+A \emph{streak} corresponds to an event window with a sequence of consecutive events belonging to the same subject. Their goal is to discover all the non-dominated streaks to be news themes. However, the number of non-dominated streaks can be overwhelmingly large.
+%However, when applying \emph{prominent streaks} for news theme generation, the size of output themes could be overwhelmingly large because a streak is considered as a news theme as long as it is not dominated.
+%%%dx: people don't care what exactly are prominent streaks. This term appears too many times. I changed back to ``their goal is to...''
+
+In this paper, we study the automatic discovery of a novel news theme, named \emph{rank-aware} theme. Compared with previous works, 
+the rank-aware theme is able to capture the strikingness of an event window. We observe that such a rank-aware theme is an interesting pattern that has been frequently used:
+%%%TAN:i don't think reporters is the correct word (since these may not be by reporters - could be sports commentaries). So, suggest dropping this - leave it implicit.
+%%%TAN:i don't think advanced is the right word to use. try apt or appropriate or relevant
+
+%%%dx: since you don't tell in detail how you compare with other event windows and it is not easy to describe the comparison with one sentence, don't bring this up in introduction. It will just confuse others. People will get understood with the examples.
+
+
+%Recently, Zhang et. al. introduced the concept of \textit{prominent streaks}~\cite{zhang2014discovering}
+%to assist news theme generation. They define a streak to be \textit{a window of sequenced events belonging to the same subject}, and discover prominent streaks that are
+%not dominated by other streaks.
+%Such prominent streaks can
+%serve as news themes because the notion of prominence in-
+%dicates that no better streaks exist.
+% A streak of a subject is \textit{a window of sequenced events}
+%about the subject, and the prominent streaks are streaks which are not dominated by other
+%%streaks about the same subject.
+%Prominent streaks can serve as news themes for journalists to produce
+%interesting news because the prominence indicates that no better streaks exist.
+%However, as the prominence streak in~\cite{zhang2014discovering} only represents events belonging to the same subject,
+%it fails to capture comparisons among streaks of multiple subjects. Nevertheless, such
+%comparisons result in many interesting news themes in real world. For example,
+%which are common in many real world news themes. For example: 
+
+%However, prominent streaks only represent 
+%events belonging to the same subject, and fail to capture comparisons among multiple subjects, which are common in many interesting news themes. For example:
+
+\begin{enumerate}
+\setlength\itemsep{-0.05cm}
+\item(Feb 26, 2003) With 32 points, Kobe Bryant saw his 40+ scoring streak end at \textbf{nine} games,  tied with Michael Jordan for \textbf{fourth} place on the all-time list\footnote{http://www.nba.com/features/kobe\_40plus\_030221.html}. 
+
+\item(April 14, 2014) Stephen Curry has made 602 3-pointer attempts from beyond the arc,... are the \textbf{10th} most in NBA history in a season (\textbf{82 games})\footnote{http://www.cbssports.com/nba/eye-on-basketball/24525914/stephen-curry-makes-history-with-consecutive-seasons-of-250-3s}.
+
+\item (May 28, 2015) Stocks gained for the \textbf{seventh consecutive day} on Wednesday as the benchmark moved close to the 5,000 mark for \textbf{the first} time in seven years\footnote{http://www.zacks.com/stock/news/176469/china-stock-roundup-ctrip-buys-elong-stake-trina-solar-beats-estimates}.
+
+\item (Jun 9,  2014) Delhi has been witnessing a spell of hot weather  over the \textbf{past month}, with temperature hovering around 45 degrees Celsius, .... \textbf{highest} ever since 1952\footnote{http://www.dnaindia.com/delhi/report-delhi-records-highest-temperature-in-62-years-1994332}.
+
+\item(Jul 22, 2011) Pelican Point recorded a maximum rainfall of 0.32 inches for \textbf{12 months}, making it the  \textbf{9th driest} places on earth\footnote{http://www.livescience.com/30627-10-driest-places-on-earth.html}.
+\end{enumerate}
+
+In the above news themes, there are a subject (e.g., Kobe Bryant, Stocks, Delhi), an event window (e.g., nine straight games, seventh consecutive days, past month), an aggregate function on an attribute
+(e.g., minimum points, count of gains, average of degrees), a rank (e.g., fourth, first time, highest), and a
+historical dataset (e.g., all time list, seven years, since 1952). These news theme indicators are summarized in Table~\ref{tbl:news-example}. 
+%To limit the output size while maintaining the strikingness of news themes, 
+To avoid outputting near-duplicate news themes and control the result size,
+we further propose a novel concept named \emph{Sketch}. A sketch contains $k$ most representative rank-aware news themes under a scoring function that considers both strikingness and diversity. 
+Our objective is to discover sketches for each subject in the domain.
+%Then, our problem is formulated as \textit{Sketch Discovery} with a manageable size of news themes.
+
+
+%by observing the overlapped events represented by candidate themes, we further propose a novel scoring function $g$, which accounts for both rank and diversity, to select the best $k$ candidates for each subject. The chosen $k$ candidate themes are named as a .
+
+%the aggregate functions, window of sequenced events and the corresponding ranks based on the aggregated scores for these news.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{E.g.} & \textbf{Aggregate function} & \textbf{Event window} & \textbf{Rank} \\
+\hline
+1 & min(points) & 9 straight games & 4 \\
+\hline
+2 & sum(shot attempts) & 82 games & 10 \\
+%$\frac{\text{sum}(\cdot, \text{goal})}{\text{sum}(\cdot, \text{goal})+\text{sum}(\cdot, \text{miss})}$ & five game winning streak & 2
+\hline
+%2 & min($\cdot$, contracts) & 4 straight months & 1 \\
+%\hline
+3 & count(gains) & 7 consecutive days & 1 \\
+\hline
+4 & average(degree) & past months (30 days) & 1 \\
+\hline
+5 & max(raindrops) & 12 months & 9 \\
+\hline
+\end{tabular}
+\caption{News theme summary}
+\label{tbl:news-example}
+\end{table}
+
+%In this paper, we aim to discover such \emph{rank-aware} news themes which are failed to be captured by~\cite{zhang2014discovering}. In our settings, a potential news theme is modelled as a \emph{window of sequenced events} named \emph{Event Windows}, over which users are allowed to apply aggregate functions. Then event windows with the same window length are compared based on their aggregated values to generate respective rankings. By so doing, event windows with better ranks are deemed to be more striking. Such striking event windows are referred as \emph{Candidate Themes}.
+
+
+% we further propose the concept of \emph{Sketch}, which is a set of $k$ representative themes for a subject. 
+%We design a novel scoring function to account for both strikingness and diversity when choosing candidate themes. Such a function not only ensures the output size of each sketch is manageable,
+%but also avoids reporting near-duplicate themes whose corresponding event windows are similar. We name the problem
+%of computing sketches as \emph{Sketch Discovery}.
+
+
+%Unlike prominent streaks, the \textit{ranks} in each of
+%the above news theme is derived globally from \textit{all} subjects, which makes them more attractive.
+%Distinct from prominent streaks, the \textit{rank} in each above news theme is derived globally 
+%from all subjects, which brings more attractiveness. 
+%To discover such rank aware news themes,
+%we propose an enhanced streak, called \emph{Event Window}. In our settings, user may specify aggregate functions 
+%on event windows and all windows are ranked based on their aggregate value. Event windows with better ranks are considered to be newsworthy candidates themes.
+%In particular, we allow users
+%to define their own aggregate functions on a window of sequenced events, 
+%the aggregated value and those events form an \emph{Event Window}. Then event windows of all subjects
+%are compared based on their aggregate values to derive ranks. 
+%The windows with better ranks are considered to be newsworthy candidates. 
+%As the number of candidate themes may be large, 
+%we further propose the concept of \emph{Sketch}, which is a set of $k$ representative themes for a subject. 
+%We design a novel scoring function to account for both strikingness and diversity when choosing candidate themes. Such a function not only ensures the output size of each sketch is manageable,
+%but also avoids reporting near-duplicate themes whose corresponding event windows are similar. We name the problem
+%of computing sketches as \emph{Sketch Discovery}.
+
+%Therefore, based on sketch, reporters can conveniently obtain the most striking themes for each subject, like the $10$ best streaks in Michael Jordan's career\footnote{http://bleacherreport.com/articles/1069931-michael-jordan-the-10-greatest-games-of-his-airness}, for news writing.
+
+%%which is a set of $k$ most representative themes for each subject. 
+%We model a \emph{Sketch Discovery} problem which aims to select $k$ news themes while account for both stringiness and diversity. This
+
+%
+%a user-defined aggregate function is applied on each window of sequenced events.
+%The aggregated values from event windows of multiple subjects are compared to derive a rank. The windows with better ranks are considered to be more newsworthy. As the number of candidate themes may be large, 
+%we propose the concept of \emph{Sketch}, which is a set of $k$ most representative themes for each subject. We then model a \emph{Sketch Discovery} problem which aims to select $k$ news themes while account for both stringiness and diversity. This
+
+%This not only ensures the output size is manageable,
+%but also avoids reporting near-duplicate themes whose corresponding window of events are similar and highly ranked. Therefore, based on sketch, reporters can conveniently obtain the most striking themes for each subject, like the $10$ best streaks in Michael Jordan's career\footnote{http://bleacherreport.com/articles/1069931-michael-jordan-the-10-greatest-games-of-his-airness}, for news writing.
+
+We study the sketch discovery problem under both offline and online scenarios. 
+In the offline scenario, the objective is to efficiently discover the sketches for each subject 
+from historical data. 
+The major challenge lies in generating
+candidate themes from event windows. Since the number of event windows is quadratic, enumerating 
+all of them is not scalable. By leveraging the subadditivity among the upper bounds of event windows, we design two effective pruning techniques to facilitate efficient candidate theme generation.
+Furthermore, we note that generating exact sketches from candidate themes is expensive. Thus, we design an efficient $(1-1/e)$ approximation algorithm by exploiting submodularity of the sketch discovery problem.
+
+In the online scenario, fresh data is continuously fed into the system and our goal is to maintain the sketches for each subject up-to-date. When a new event about subject $s$ arrives, many event windows of various lengths can be derived. For each derived event window,
+not only the sketch of $s$ but also the sketches
+of other subjects may be affected. Dealing with such a complex updating pattern is non-trivial. 
+To efficiently support the update while maintaining the quality of sketches, we propose a $1/8$ approximation solution which only   
+examines $2k$ candidate themes for each subject whose sketch is affected. 
+
+
+
+
+
+%automatically detect newsworthy themes from the streaming data. 
+%In the offline scenario, the major challenge lies in generating
+%candidate themes. Given a sequence of events, the number of 
+%potential candidate themes is quadratic. Therefore, enumerating 
+%all possible candidate themes is not scalable.
+%By leveraging the fact that candidate themes
+%with larger window lengths can be estimated from those with smaller window lengths, 
+%we propose a two \emph{window-level} pruning techniques to facilitate efficient 
+%candidate theme generation. In addition, we note that finding exact sketches from candidate themes
+%is very inefficient. Through exploiting submodularity of the sketch discovery problem, 
+%we design a greedy algorithm with $(1-1/e)$ approximation ratio.
+%
+%%In particular, given a window length $w$, 
+%%\emph{visiting-window} and \emph{unseen-window} prunings are devised to prune 
+%%candidates with window length $w'=w$ and $w' > w$ respectively.
+%%Moreover, finding exact sketches from candidate themes may incur quadratic complexity as well. 
+%%Through exploiting submodularity of the sketch discovery problem, 
+%%we design a greedy algorithm with $(1-1/e)$ approximation ratio.
+%
+%In the online scenario, we monitor the arriving events and update
+%the sketches accordingly. A naive solution would invoke 
+%offline discovery as each event   to update sketches, 
+%which is trivially 
+%prohibitive for real-time response. However, designing an efficient
+%sketch update strategy is not an easy task. We notice
+%that given an arriving event for a subject $s$, 
+%not only the sketch of $s$ but also the sketches
+%of other subjects can be affected. To support such compound 
+%update patterns in real-time while not losing the quality of maintained 
+%sketches, we propose a $1/8$ approximation solution which only   
+%examines 2$k$ theme candidates for each subject whose sketch is 
+%affected. 
+
+Our contributions are hereby summarized as follows:
+\begin{itemize}
+\item We study the automatic discovery of a new type of news theme that is common in real-life reports but has not been addressed in previous works. We formulate it as a sketch discovery problem under a novel scoring function that considers both strikingness and diversity.
+%We propose the notion of rank-aware event window to model striking news themes 
+%which assist journalist
+%in news writing. We focus on news themes generated from analytic events and introduce the \emph{rank} to express the strikingness of a news theme. We then 
+%and formulate the automatic news discovery as a novel sketch discovery problem to produce the best $k$ news themes
+%while account for both strikingness and diversity.
+%
+%\item We focus on news themes that are originated from analytic data. Such type of news themes has recently been studied in the literature and is of importance in computational journalism. We then propose and formulate a novel sketch discovery problem, 
+%which is more expressive and practical than 
+%previous works, to automatically detect striking news themes.
+
+\item We study the sketch discovery problem in both online and offline scenarios. In the offline scenario, we propose two novel pruning techniques to efficiently generate candidate themes. Then we design a $1-1/e$ greedy algorithm to discover the sketches for each subject. In the online scenario, we propose a $1/8$ approximation solution to efficiently support the complex updating pattern as each new event arrives.
+
+\item We conduct extensive experiments 
+with four real datasets to evaluate the efficiency of our proposed algorithms. In the offline scenario,
+our solution is three orders of magnitude faster than baseline algorithms. While in the online scenario,
+our solution achieves up to a 500 times speedup. In addition, 
+we also perform an anonymous human study via Amazon Mechanical Turk\footnote{https://requester.mturk.com} platform,
+which shows the effectiveness of sketch in news theme generation.
+\end{itemize}
+
+The rest of the paper is organized as follows. In Section~\ref{sec:related_work},
+we summarize the related work. Section~\ref{sec:problem_definition} formulates the sketch discovery problem. Section~\ref{sec:offline} presents the algorithms for offline sketch discovery. Section~\ref{sec:online} describes the algorithms for
+processing and maintaining sketches in the online scenario.
+In Section~\ref{sec:experiment}, comprehensive experiments studies on both efficiency and effectiveness of our algorithms are conducted.
+Section~\ref{sec:discussion} discusses the extension of our methods. Finally,
+Section~\ref{sec:conclusion} concludes our paper.

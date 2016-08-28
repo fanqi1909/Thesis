@@ -1,28 +1,183 @@
 \relax 
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Efficient $k$-Sketch Discovery in Sequence Data}{14}}
+\citation{sultana2014incremental}
+\citation{wu2012one}
+\citation{hassan2014data}
+\citation{zhang2014discovering}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Efficient $k$-Sketch Discovery in Sequence Data}{65}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Introduction}{65}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces News theme summary\relax }}{67}}
+\newlabel{tbl:news-example}{{4.1}{67}}
+\citation{sultana2014incremental}
+\citation{wu2012one}
+\citation{sultana2014incremental}
+\citation{wu2012one}
+\citation{zhang2014discovering}
+\citation{zhang2014discovering}
+\citation{zhang2014discovering}
+\citation{zhang2014discovering}
+\citation{zhang2014discovering}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Related Work}{69}}
+\newlabel{sec:related_work}{{4.2}{69}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Automatic News Theme Detection}{69}}
+\newlabel{tbl:related_works}{{\caption@xref {tbl:related_works}{ on input line 23}}{69}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Examples of different news themes\relax }}{69}}
+\citation{mannila1997discepisodes}
+\citation{zhou2010serialepisodes}
+\citation{tatti2012strictepisodes}
+\citation{laxman2007nonoverlapepisodes}
+\citation{agrawal2009diversifying}
+\citation{borodin2012max}
+\citation{drosou2014diverse}
+\citation{chen2015diversity}
+\citation{borodin2012max}
+\citation{drosou2014diverse}
+\citation{chen2015diversity}
+\citation{allan1998line}
+\citation{brants2003asystem}
+\citation{ritter2012opendoamin}
+\citation{li2015social}
+\citation{Vuurens2015Onlinenews}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Frequent Episode Mining}{70}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Top-$k$ Diversity Query}{70}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Event Detection and Tracking}{71}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Problem Formulation}{71}}
+\newlabel{sec:problem_definition}{{4.3}{71}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces An illustration sketch discovery workflow. (A): various event windows are formed based on events' sequence IDs. (B): event windows with rank greater than $p$ are filtered. (C): best ranked event windows form candidate themes. (D): $k$-sketches are discovered for each subject from their candidate themes. (E): subject related news can be generated from each $k$-sketch. \relax }}{73}}
+\newlabel{fig:system_flow}{{4.1}{73}}
+\newlabel{eq:scoring_function}{{4.1}{74}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Notations used in this paper\relax }}{75}}
+\newlabel{tbl:notations}{{4.3}{75}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Offline Sketch Discovery}{75}}
+\newlabel{sec:offline}{{4.4}{75}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Candidate Theme Generation}{75}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.1}Overview of window pruning}{76}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.2}Visiting-window pruning}{77}}
+\newlabel{sec:visiting-window-bound}{{4.4.1.2}{77}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces Candidate Theme Generation Overview\relax }}{78}}
+\newlabel{algo:prune_overview}{{6}{78}}
+\newlabel{code:subj_selection}{{4}{78}}
+\newlabel{code:v_prune_start}{{5}{78}}
+\newlabel{code:v_prune_end}{{6}{78}}
+\newlabel{code:e_compute_start}{{7}{78}}
+\newlabel{code:e_compute_end}{{9}{78}}
+\newlabel{code:u_prune_start}{{11}{78}}
+\newlabel{code:u_prune_end}{{12}{78}}
+\newlabel{code:q_insert}{{14}{78}}
+\newlabel{lem:subaverage}{{4.4.1}{78}}
+\newlabel{eq:subadditivity}{{4.2}{78}}
+\newlabel{eq:cw_mini_1}{{4.3}{79}}
+\newlabel{eq:cw_mini_2}{{4.4}{79}}
+\newlabel{thm:visiting_window_bound}{{4.4.2}{79}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Illustration of fitting function $L$ on various aggregation functions; solid lines represent $G$ while dotted lines represent $L$. (a) fitting on min and average (b)fitting on max,sum and count.\relax }}{80}}
+\newlabel{fig:convex_exp}{{4.2}{80}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1.3}Unseen-window pruning}{80}}
+\newlabel{sec:useen-window-bound}{{4.4.1.3}{80}}
+\newlabel{thm:unseen_window_bound}{{4.4.3}{80}}
+\citation{Berg1997Computational}
+\newlabel{thm:window_prune}{{4.4.4}{81}}
+\citation{golab2009sequential}
+\citation{edwards2013partial}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces An illustration of window-level pruning techniques. Each square slice represents a set of event windows to be computed for a subject, where the column represents window length and the row represents the rank. The value in each cell is the aggregate result (i.e., $\overline  {v}$) for the corresponding event window.\relax }}{82}}
+\newlabel{fig:window_pruning}{{4.3}{82}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Sketch Computation}{82}}
+\newlabel{eq:gscore}{{4.7}{83}}
+\citation{Fisher1978An}
+\newlabel{thm:submodular}{{4.4.6}{84}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces Greedy Sketch Discovery\relax }}{84}}
+\newlabel{algo:greedy}{{7}{84}}
+\newlabel{code:greedy}{{5}{84}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Online Sketch Maintenance}{84}}
+\newlabel{sec:online}{{4.5}{84}}
+\citation{Alonerbuch2003The}
+\citation{Awerbuch1996Making}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {8}{\ignorespaces Online Query\relax }}{85}}
+\newlabel{algo:online_overview}{{8}{85}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Online Window Pruning}{86}}
+\newlabel{thm:online_bound}{{4.5.1}{86}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Sketch Maintenance}{87}}
+\newlabel{subsec:sketch_main}{{4.5.2}{87}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces The illustration of active updates and passive updates, the solid circle represent the original sketch, the dotted circle represent the updated sketch.\relax }}{88}}
+\newlabel{fig:sketch_maintenance}{{4.4}{88}}
+\citation{Saha2009On}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {9}{\ignorespaces UpdateSketches\relax }}{89}}
+\newlabel{algo:online_update}{{9}{89}}
+\newlabel{thm:online_quality}{{4.5.2}{89}}
+\citation{Lichman2013}
+\citation{choe2002freeway}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Experiments}{90}}
+\newlabel{sec:experiment}{{4.6}{90}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Statistics of datasets used in experiments\relax }}{91}}
+\newlabel{tbl:dataset}{{4.4}{91}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Offline Sketch Discovery}{91}}
+\newlabel{subsec:exp-offline}{{4.6.1}{91}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1.1}Candidate theme generation algorithms}{91}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1.2}Candidate themes generation with varying $p$}{92}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1.3}Candidate theme generation with varying $h$}{92}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Candidate theme generation in the offline scenario with varying $p$.\relax }}{93}}
+\newlabel{exp:offline_performance_vary_p}{{4.5}{93}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1.4}Sketch discovery with varying $k$}{93}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Candidate theme generation in the offline scenario with varying $h$.\relax }}{94}}
+\newlabel{exp:offline_performance_vary_n}{{4.6}{94}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Sketch discovery with varying $k$ in (ms)\relax }}{94}}
+\newlabel{exp:offline_greedy}{{4.5}{94}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Online Sketch Maintenance}{94}}
+\newlabel{subsec:exp-online}{{4.6.2}{94}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2.1}Query throughput with varying $p$}{95}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2.2}Query throughput with varying $k$}{95}}
+\citation{zhang2014discovering}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Throughput in online scenario with varying $p$.\relax }}{96}}
+\newlabel{exp:online_mining_vary_P}{{4.7}{96}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2.3}Query throughput with varying $h$}{96}}
+\citation{zhang2014discovering}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Throughput in online scenario with varying $k$.\relax }}{97}}
+\newlabel{exp:online_mining_vary_k}{{4.8}{97}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Comparison with Other Techniques}{97}}
+\newlabel{subsec:exp-survey}{{4.6.3}{97}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Throughput in online scenario with varying $h$.\relax }}{98}}
+\newlabel{exp:online_mining_vary_h}{{4.9}{98}}
+\citation{zhang2014discovering}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Efficiency comparison with existing technique\relax }}{100}}
+\newlabel{exp:sky_comp}{{4.10}{100}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Percentage of news considered as the most attractive.\relax }}{100}}
+\newlabel{exp:survey}{{4.11}{100}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Conclusion and Future works}{100}}
+\newlabel{sec:conclusion}{{4.7}{100}}
 \@setckpt{chapter4/chapter4}{
-\setcounter{page}{15}
-\setcounter{equation}{0}
+\setcounter{page}{102}
+\setcounter{equation}{8}
 \setcounter{enumi}{5}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
-\setcounter{footnote}{0}
+\setcounter{footnote}{12}
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{4}
-\setcounter{section}{0}
+\setcounter{section}{7}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{0}
-\setcounter{table}{0}
+\setcounter{figure}{11}
+\setcounter{table}{5}
+\setcounter{parentequation}{0}
 \setcounter{ContinuedFloat}{0}
 \setcounter{subfigure}{0}
 \setcounter{subtable}{0}
+\setcounter{float@type}{8}
+\setcounter{algorithm}{9}
+\setcounter{ALG@line}{13}
+\setcounter{ALG@rem}{0}
+\setcounter{ALG@nested}{0}
+\setcounter{ALG@Lnr}{2}
+\setcounter{ALG@blocknr}{10}
+\setcounter{ALG@storecount}{0}
+\setcounter{ALG@tmpcounter}{0}
 \setcounter{@todonotes@numberoftodonotes}{0}
 \setcounter{example}{0}
+\setcounter{theorem}{0}
+\setcounter{definition}{0}
+\setcounter{query}{0}
 }

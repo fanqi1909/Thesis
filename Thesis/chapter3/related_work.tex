@@ -1,0 +1,164 @@
+\section{Related Work}
+%Window function was proposed in \cite{zemke2012s}, which is widely used in SQL data analytic. There are several optimization on standard window functions \cite{cao2012optimization, bellamkonda2013adaptive}. \cite{cao2012optimization} optimize window function via shared sorted components, and \cite{bellamkonda2013adaptive} optimized window function via partition. However, in \emph{GWF}, the sorting and partition is no longer required, thus their techniques are not applicable in the graph window context.
+%\remark{We haven't mention GWFs in introduction section, does this needs to be mentioned?}
+Our proposed graph window functions (GWFs) for graph databases is inspired by the usefulness of window functions in relational analytic queries
+\cite{zemke2012s}.
+
+A window function in SQL typically specifies a set of partitioning attributes $A$ and an aggregation function $f$.
+Its evaluation first partitions the input records based on $A$ to compute $f$ for each partition,
+and each input record is then associated with the aggregate value corresponding to the partition that contains the record.
+Several optimization techniques \cite{cao2012optimization, bellamkonda2013adaptive}
+have also been developed to evaluate complex SQL queries involving multiple window functions.
+%by reducing the overall partitioning cost to evaluate the aggregation functions.
+%\remark{Need to also cite an earlier Oracle tech report.}
+
+%However, in \emph{GWF}, the sorting and partition is no longer required, thus their techniques are not applicable in the graph window context.
+However, the semantics and evaluation of window functions are very different between relational and graph contexts.
+Specifically, the partitions (i.e., subgraphs) associated with GWFs are not necessarily disjoint; thus,
+the evaluation techniques developed for relational context \cite{cao2012optimization, bellamkonda2013adaptive} are not applicable to GWFs. %\remark{\cite{bellamkonda2013adaptive} focuses on utilizing partition to parallel window processing, and \cite{cao2012optimization} focuses on leveraging sorting among windows. However sorting and partitioning are no longer exists in GWFS, thus, their work are not applicable}
+
+GWFs are also different from graph aggregation \cite{zhao2011graph,wang2014pagrol,chen2008graph,tian2008efficient} in graph OLAP.
+In graph OLAP, information in a graph are summarized
+by partitioning the graph's nodes/edges (based on some attribute values) and computing aggregate values for each partition.
+GWFs, on the other hand, compute aggregate values for each graph node w.r.t. the subgraph associated with the node.
+Indeed, such differences also arise in the relational context, where different 
+techniques are developed to evaluate OLAP and window function queries.
+
+In \cite{yan2010top}, the authors investigated the problem of finding the vertices that have top-k highest aggregate values over their h-hop neighbors. They proposed mechanisms to prune the computation by using two properties: First, the locality between vertices is used to propagate the upper-bound of aggregation; Second, the upper-bound value of aggregates can be estimated from the distribution of attribute values. However, all these pruning techniques are not applicable in our work, as we need to compute the aggregation value for every vertex. In such a scenario, techniques in \cite{yan2010top} degrade to the non-indexed approach as described in Section 4.
+%rather than finding the top-k values.  
+
+%\cite{cheng2012k} provided a \emph{K-Reach} index for fast determining whether two vertices can be reached within K-hop distance. However, \emph{K-Reach} index can not be directly used to support the k-hop window query due to its high overhead. Gathering the window of one vertex may involve $|V|$ reachability detections which results in the complexity of $O(|V|^2)$ to compute the windows for all the vertices, where $|V|$ is the number of vertices.}  
+
+Indexing techniques have been proposed to efficiently determine whether an input pair of vertices is within a distance of k-hops (e.g. k-reach index \cite{cheng2012k}) or reachable (e.g. reachability index \cite{yu2010graph}). However, such techniques are not efficient for computing the k-hop window or topological window for a set of $n$ vertices with a time complexity of $O(n^2)$. 
+
+
+
+%Indexing techniques \cite{yu2010graph,cheng2012k} is able to test whether a vertex belongs to another vertex's window. \cite{cheng2012k} proposed \emph{K-Reach} index which tests a whether an input pair of vertices is within a distance of k-hops, thus it can be used to compute \emph{k-hop} window. \cite{yu2010graph} surveys a wealth of \emph{Reachability Indices} which tests whether a input pair of vertices is reachable, thus it can be used to compute \emph{topological} window. However, those techniques are not efficient for computing either \emph{k-hop} or \emph{topological} window, since for a set of $n$ vertices, their complexity of forming window is of $O(n^2)$.
+
+% which efficiently determines whether an input pair of vertices is within a distance of k-hops. Thus \emph{K-Reach} is able to facilitate \emph{k-hop} window. While, \cite{yu2010graph} presents a survey of reachability indices which determine whether an input pair of vertices is connected. Thus, those techniques is able to facilitate \emph{topological} window. However, such techniques are not efficient for computing either \emph{k-hop} or \emph{topological} window, since for a set of $n$ vertices, their complexity of forming window is of $O(n^2)$.
+
+%Indexing techniques such as the \emph{K-Reach} index \cite{cheng2012k} have been proposed
+%to efficiently determine whether an input pair of vertices is within a distance of k-hops.  
+%However, such techniques are not efficient for computing the k-hop window for a set of $n$ vertices has a time complexity of $O(n^2)$.
+
+%However, \emph{K-Reach} index can not be directly used to support the k-hop window query due to its high overhead. Gathering the window of one vertex may involve $|V|$ reachability detections which results in the complexity of $O(|V|^2)$ to compute the windows for all the vertices, where $|V|$ is the number of vertices.}  
+%
+%use \emph{K-Reach} index to collect the windows of each vertex 
+%
+%it incurs high overhead to adopt \emph{K-Reach} index to gather the window for a k-hop window query. The reason is that  
+%
+%is unable to answer k-hop window query. To see this, for each vertex, $|V|$ reachability queries need to be performed in order to gather a window. The total running time of this approach is $O(|V|^2|R|)$, where $|R|$ is the cost for answering one reachability query. This is obvious not acceptable in terms of query performance.
+
+\eat{\cite{mondal2014eagr} proposed an EAGR system which evaluates neighborhood-based aggregation
+queries over low hops (k = 1). They follow a in-memory model and assume the k-hop information 
+for each vertex is pre-computed. Based on the neighborhood information, it first sort each vertex
+using lexicographic order. Then vertices are split into equal sized chunks. For each chunk, it 
+then builds a Frequent-Pattern Tree for iteratively mining the shared components between each vertex's 
+neighborhoods. Lastly, it builds an overlay graph based on the shared components for efficient computing.
+}
+
+\cite{mondal2014eagr} proposed an EAGR system, which uses the famous VNM heuristic and Frequent-Pattern
+Tree to find the shared component among each vertex's neighborhoods. It starts by building an
+overlay graph as a bipartite graph representing the vertex-neighbor mapping. Then it aims to
+find the bi-cliques in the overlay graph. Each bi-clique represents a set of vertices whose neighborhood
+aggregates can be shared. Once a bi-clique is found, it is inserted back to the overlay graph as
+a virtual node to remove redundant edges. EAGR find bicliques in iterations. During each iteration,
+it sorts each vertices in overlay graph by their neighborhood information. Then the sorted vertices 
+are split into equal-sized chunks. For each chunk, it then builds a FP-Tree to mining the large bi-cliques. 
+As the algorithm iterates, the overlay graph evolves to be less dense. 
+
+
+The main drawback of EAGR is its demands of high memory usage on overlay construction. It
+requires the neighborhood information to be pre-computed, which is used in the sorting phase
+of each iteration. In EAGR the neighborhood information is assumed to be stored in memory.
+However, the assumption does not scale well for computing higher hop windows (such as k $\geq 2$). 
+For instance, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB mapping information for k=2 in adjacency list 
+representation. If the neighborhood information is resided in disk, the performance of EAGR will
+largely reduced. Similarly, if the neighborhood information is computed on-the-fly, EAGR needs
+to perform the computation in each iteration, which largely increases indexing time.
+
+We tackle this drawback by adapting a hash based approach that clusters each vertex based
+on its neighborhood similarity. During the hashing, the vertex's neighborhood information
+is computed on-the-fly. As compared to sorting based approach, we do not require vertex's neighborhood
+to be pre-reside in memory. In order to reduce the repetitive computation of vertex's neighborhood,
+we further propose an estimation based indexing construction algorithm that only require a vertex's small
+hop neighborhood to be computed during clustering. As our experiments show, our proposed methods 
+can perform well even when EAGR algorithm fails when neighborhood information overwhelms system's memory.
+To further reduce the neighborhood access, we adapted a Dense Block heuristic process each vertex
+in one pass. Experiments shows that the performance of our heuristic is comparable to EAGR's, but with
+much shorter indexing time.
+  
+
+
+  
+
+%
+%\eat{The work that is most related to ours is 
+% \cite{mondal2014eagr} - referred as EAGR 
+%which examines the evaluation of neighborhood-based or ego-centric (similar to our k-hop window)
+%aggregation queries. 
+%Both EAGR and our DBIndex aim to speed up the aggregation computation by sharing the processing of the intersections among different windows. There are, however, two main differences between our work and EAGR.
+%First, while both EAGR and our approach are main-memory techniques, 
+%our approach is much more memory efficient and scalable than EAGR.
+%%which results in a high scalablity to support large-scale graphs. 
+%%The scalability limitation of EAGR arises due to its assumption that the mapping information about all vertices' windows must be precomputed and stored in main memory, and memory-inefficient data structure, Frequent Pattern Tree (FPT) adopted to construct the overlay graph. Note that FPT has almost the same high space requirement as the mapping information for a large k: for k-hop queries, in $O(|V|d^k)$ if represented as an adjacency lists and
+%The scalability limitation of EAGR arises due to its large memory requirement 
+%for both the mapping information for all vertex windows 
+%as well as a Frequent Pattern Tree (FPT) data structure used to construct an overlay graph. 
+%Each of these main-memory structures
+%has a space complexity of $O(nd^k)$ if represented as an adjacency lists and
+%$O(n^2)$ if represented as adjacency matrix,
+%for $k$-hop queries where $n$ denotes the number of vertices and $d$ denotes the average node degree. 
+%For instance, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB mapping information for k=2 in adjacency list representation; the size is even larger if a matrix representation is used. 
+%In contrast to EAGR, our approach is more scalable as it does not require the existence of the large mapping and data structure, and thus is more memory efficient. The peak memory usage for our algorithm is only around 8GB for such a large graph. 
+%Second, we formally define and propose a new type of query, topological window query and a new index I-Index, which are not covered in \cite{mondal2014eagr}. 
+%}
+
+
+%unlike our work, EAGR does not consider topological window queries.
+%While topological queries could be evaluated as a form of k-hop queries 
+%(by treating a node's topological neighborhood as its k-hop neighborhood),
+%we show that topological queries could be evaluated more efficiently using specialized techniques that take into account of the 
+%topological properties. 
+
+
+
+
+%EAGR further assumes that the information about each node's window, referred as the {\em mapping information}, has been precomputed
+%and stored in the main memory.
+%Based on the mapping information, EAGR further computes an index structure (known as overlay graph) in multiple iterations where each iteration builds one Frequent Pattern  (FP) Tree to construct the overlay graph. Note that the size of the FPTree is essentially the same as the mapping information.  
+%For $k$-hop queries, the space requirement for the mapping information could be very large for a large $k$:
+%$O(|V|d^k)$  if represented as an adjacency lists and
+%$O(|V|^2)$  if represented as adjacency matrix,
+%where $|V|$ denotes the number of graph vertices and $d$ denotes the average node degree. Under this high complexity, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB vertex-window mapping under 2-hop scenario in adjacency list representation. This size is even larger in a matrix representation due to the $O(|V|^2)$ space complexity of matrix.  The assumption of in-memory mapping limits the scalability of EAGR with respect to the number of hops. In contrast to EAGR, our approach is more scalable as it does not require the existence of the large mapping and thus is more memory efficient. The peak memory usage for our algorithm is only around 8GB for such large graph. 
+%Second, unlike our work, EAGR does not consider topological window queries.
+%While topological queries could be evaluated as a form of k-hop queries 
+%(by treating a node's topological neighborhood as its k-hop neighborhood),
+%we show that topological queries could be evaluated more efficiently using specialized techniques that take into account of the 
+%topological properties. We emphasize that our index can be directly used to handle dynamic graphs when the attribute changes as EAGR did. However, it is non-trivial to support structure changes. In EAGR, this was 
+%briefly discussed  without any experimental evaluation. We intend to study how to efficiently update indices in the presence of structural data updates as part of our future work. %%%we add this last point is to say why we dont study the dynamic graphs.  
+
+
+%The work that is most related to ours is 
+% \cite{mondal2014eagr} 
+%which examines the evaluation of continuous k-hop window (referred to as neighborhood-based or ego-centric) 
+%aggregation queries for dynamic graphs (i.e., in the presence of dynamic updates to the graph structure/attribute values). 
+%In [7], a scheme called EAGR is proposed to process these queries. Both EAGR and our work aim to speed up the aggregation computation by sharing the processing of the intersections among different windows. There are, however, two main differences between our work and EAGR.
+%First, while both EAGR and our approach are main-memory techniques,
+%which assume that the data graph fits in main memory,
+%EAGR further assumes that the information about each node's window, referred as the {\em mapping information}, has been precomputed
+%and stored in the main memory.
+%Based on the mapping information, EAGR further computes an index structure (known as overlay graph) in multiple iterations where each iteration builds one Frequent Pattern  (FP) Tree to construct the overlay graph. Note that the size of the FPTree is essentially the same as the mapping information.  
+%For $k$-hop queries, the space requirement for the mapping information could be very large for a large $k$:
+%$O(|V|d^k)$  if represented as an adjacency lists and
+%$O(|V|^2)$  if represented as adjacency matrix,
+%where $|V|$ denotes the number of graph vertices and $d$ denotes the average node degree. Under this high complexity, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB vertex-window mapping under 2-hop scenario in adjacency list representation. This size is even larger in a matrix representation due to the $O(|V|^2)$ space complexity of matrix.  The assumption of in-memory mapping limits the scalability of EAGR with respect to the number of hops. In contrast to EAGR, our approach is more scalable as it does not require the existence of the large mapping and thus is more memory efficient. The peak memory usage for our algorithm is only around 8GB for such large graph. 
+%Second, unlike our work, EAGR does not consider topological window queries.
+%While topological queries could be evaluated as a form of k-hop queries 
+%(by treating a node's topological neighborhood as its k-hop neighborhood),
+%we show that topological queries could be evaluated more efficiently using specialized techniques that take into account of the 
+%topological properties. We emphasize that our index can be directly used to handle dynamic graphs when the attribute changes as EAGR did. However, it is non-trivial to support structure changes. In EAGR, this was 
+%briefly discussed  without any experimental evaluation. We intend to study how to efficiently update indices in the presence of structural data updates as part of our future work.
+
+%%{I added these aspects because Prof Yan mentioned about this point in the TAC meeting}
+%Our \emph{DB-Index} and \emph{I-Index} effectively compress the vertex-window mapping, which is conceptually similar to graph compression \cite{Fan2012QPG,Grabowski2014TSW,Toivonen2011CWG,Buehrer2008SPM:}. However, these techniques fail to work in our scenario, since they do not consider aggregation query preservation and they assume initial vertex-mapping is memory-resides.
