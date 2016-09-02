@@ -1,15 +1,40 @@
 \section{Graph Window Queries}
 
-\subsection{Graph OLAP}
-Traditional graph data analytics focus on
-graph OnLine Analytic Processing (OLAP)~\cite{zhao2011graph,wang2014pagrol,chen2008graph,tian2008efficient},
-which is different from Graph Window Queries.
-In a general model, graph OLAP applies analytics on each partition
-of the graph, where the partitions are created based on some
-attribute values of vertexes or edges. On the other hand, graph
-window queries aim to find the subgraph associated with each vertex
-and compute analytics over each subgraphs. Indeed, such differences also arise in the relational context, where different 
-techniques are developed to evaluate OLAP and window function queries.
+\subsection{Graph Aggregation}
+Previous graph data analytics focus on graph aggregation~\cite{zhao2011graph,wang2014pagrol,chen2008graph,tian2008efficient},
+which are different from Graph Window Queries.
+In a general model, graph aggregation contains three stages: (1) partition
+graph based on attributes of vertex (and/or edges), (2) aggregate each
+partition to form an Aggregated Node, and (3) link each aggregate node to
+form an Aggregated Graph. An illustration of the Graph Aggregation is shown 
+in Figure~\ref{fig:rw-agg-window} (b). In the first stage, the input graph
+is partitioned based by the ``Gender'' attribute of vertexes. In the second
+stage, two aggregated nodes are formed, i.e., $M$ which contains nodes $A,D,E$
+and $F$ which contains nodes $B,C,F$. In the third stage, the links between 
+$M$ and $F$ are added, with the count on each links. 
+Graph Window Queries perform graph analytics from an different angle. In GWQ,
+the neighborhood structure of each vertex form overlapping partitions. Then,
+analytics are computed over each neighborhood structure. In the same example 
+of Figure~\ref{fig:rw-agg-window} (c), the neighborhood structure of $B$ and $E$
+are highlighted.  Due to the different
+nature of Graph Aggregation and GWQ, they could not model each other.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{chapter2/graphagg-window}
+\caption{Illustration of Graph Aggregation and Graph Window Queries. (a) is an example social network, (b) is graph aggregation, (c) is the window of vertexes $B$ and $E$.}
+\label{fig:rw-agg-window}
+\end{figure}
+
+%Traditional graph data analytics focus on
+%graph OnLine Analytic Processing (OLAP)~\cite{zhao2011graph,wang2014pagrol,chen2008graph,tian2008efficient},
+%which is different from Graph Window Queries.
+%In a general model, graph OLAP applies analytics on each partition
+%of the graph, where the partitions are created based on some
+%attribute values of vertexes or edges. On the other hand, graph
+%window queries aim to find the subgraph associated with each vertex
+%and compute analytics over each subgraphs. Indeed, such differences also arise in the relational context, where different 
+%techniques are developed to evaluate OLAP and window function queries.
 
 
 %In graph OLAP, information 
@@ -33,7 +58,8 @@ Classic reachability queries, which
 answer whether two vertexes are connected, have 
 been studied intensively in literature. 
 To facilitate fast query processing, many indexes are
-proposed~\cite{yu2010graph,cheng2012k}. Although our graph window queries
+proposed~\cite{yu2010graph,cheng2012k}. 
+Although our graph window queries
 can be built on top of the reachability queries, directly
 using these techniques is inefficient. For example, the
 most related reachability
@@ -64,34 +90,61 @@ setting, their techniques degrade to the non-index approach as described in Sect
 \subsection{Egocentric Networks}
 Egocentric networks~\cite{} refer to the neighborhood structure of a vertex
 in a graph. There are many works have conducted structural studies on egocentric
-networks however they do not focus on efficient processing on data analytics inside
+networks however they do not consider efficient processing of data analytics inside
 the egocentric networks. Recently, Jayanta et.al. \cite{mondal2014eagr} 
 proposed an EAGR system to summarize attribute information among 
-each vertex's neighborhoods. They use the Frequent-Pattern Tree heuristic~\cite{} 
-to find the shared components among each vertex's neighborhoods. It starts by building an
-bipartite overlay graph to represent the vertex-neighbor mapping. Then it aims to
-find the bi-cliques in the overlay graph, where
-each bi-clique represents a set of vertexes whose neighborhood
-aggregates can be shared. Once a bi-clique is found, it is inserted back to the overlay graph as
-a virtual node to remove redundant edges. EAGR finds bi-cliques in iterations. During each iteration,
-it sorts each vertexes in overlay graph by their neighborhood information. Then the sorted vertices 
-are split into equal-sized chunks. For each chunk, it then builds a FP-Tree to mining the large bi-cliques. 
-As the algorithm iterates, the overlay graph evolves to be less dense. 
+each vertex's neighborhoods. Their technique is to
+leverage the shared components among vertexes' neighborhoods structure which can be 
+mined via Frequent-Pattern Mining Tree (FP-Tree). Then, an overlay graph is 
+constructed to record the shared components.
+Technically, EAGR run in iterations and starts with the vertex-neighborhood mapping
+as the initial overlay graph. During each iteration,
+it sorts vertexes in an overlay graph according to their neighborhood information. 
+Then the sorted vertexes 
+are split into equal-sized chunks. For each chunk, 
+a FP-Tree is built to mining the largest shared components. 
+As the algorithm iterates, the overlay graph evolves to be sparser. 
 
+%Since EAGR runs in multiple iterations, it requires
+%to rebuilt the FP-Tree in every iterations.
+%of an overlay graph where
+%each 
+%
+%They use the Frequent-Pattern Tree heuristic~\cite{} 
+%to find the shared components among each vertex's neighborhoods. 
+%It starts by building an
+%bipartite overlay graph to represent the vertex-neighbor mapping.
+%Then it aims to
+%find the bi-cliques in the overlay graph, where
+%each bi-clique represents a set of vertexes whose neighborhood
+%aggregates can be shared. Once a bi-clique is found, it is inserted back to the overlay graph as
+%a virtual node to remove redundant edges. EAGR finds bi-cliques in iterations. During each iteration,
+%it sorts each vertexes in overlay graph by their neighborhood information. Then the sorted vertices 
+%are split into equal-sized chunks. For each chunk, it then builds a FP-Tree to mining the large bi-cliques. 
+%As the algorithm iterates, the overlay graph evolves to be less dense. 
+%
 
-The main drawback of EAGR is its demands of high memory usage on overlay construction. It
-requires the neighborhood information to be pre-computed, which is used in the sorting phase
-of each iteration. In EAGR the neighborhood information is assumed to be stored in memory.
-However, the assumption does not scale well for computing higher hop windows (such as k $\geq 2$). 
+The main drawback of EAGR is its high demands of memory resources 
+on the overlay construction. In terms of memory, EAGR assume the 
+initial vertex-neighbor mapping can be stored in memory. However, the assumption does not scale well for computing higher hop windows (such as k $\geq 2$). 
 For instance, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB mapping information for k=2 in adjacency list 
 representation. If the neighborhood information is resided in disk, the performance of EAGR will
-largely reduced. Similarly, if the neighborhood information is computed on-the-fly, EAGR needs
-to perform the computation in each iteration, which largely increases indexing time.
+largely reduced.  Another drawback of EAGR is its high computation cost since it requires to sort all vertexes 
+in a graph and build an FP-Tree in each iteration. When the graph has
+millions of vertexes, the indexing is largely slow down.
 
-We tackle this drawback by adapting a hash based approach that clusters each vertex based
+
+%It requires the neighborhood information to be pre-computed, which is then used in the sorting phase of each iteration. In EAGR, the neighborhood information is assumed to be stored in memory.
+%However, the assumption does not scale well for computing higher hop windows (such as k $\geq 2$). 
+%For instance, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB mapping information for k=2 in adjacency list 
+%representation. If the neighborhood information is resided in disk, the performance of EAGR will
+%largely reduced. Similarly, if the neighborhood information is computed on-the-fly, EAGR needs
+%to perform the computation in each iteration, which largely increases indexing time. 
+
+We tackle these drawbacks by adopting a hash based approach that clusters each vertex based
 on its neighborhood similarity. During the hashing, the vertex's neighborhood information
 is computed on-the-fly. As compared to sorting based approach, we do not require vertex's neighborhood
-to be pre-reside in memory. In order to reduce the repetitive computation of vertex's neighborhood,
+to be resided in memory. In order to reduce the repetitive computation of vertex's neighborhood,
 we further propose an estimation based indexing construction algorithm that only require a vertex's small
 hop neighborhood to be computed during clustering. As our experiments show, our proposed methods 
 can perform well even when EAGR algorithm fails when neighborhood information overwhelms system's memory.
