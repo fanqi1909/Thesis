@@ -33,24 +33,40 @@ the existing works with a general pattern discovery query. Next, we present our 
 
 \subsection{Window Queries for Graph Data}
 The first piece of the thesis deals with neighborhood query
-on graph data. Nowadays information network are typically
-modeled as attributed graphs where the 
-vertexes correspond to objects and the edges capture the
-relationships between these objects. As vertexes embed a wealth
-of information (e.g., user profiles in social networks), there are 
-emerging demands on analyzing these data to extract useful insights. 
-We propose the concept of \emph{window analytics} 
-for attributed graph and identify two types of such analytics as shown in the following examples:
+on graph data. We identify that there are a wealth information for many applications lying inside each vertex's neighborhoods. Thus, we are motivated to propose the Graph Window Queries to support neighborhoods based analytics in graphs. Two quick examples of the Graph Windows that we have identified are as follows:
+
+%
+%We propose Graph Window Queries to capture a wealth
+%of information from vertexes neighborhoods. 
+%
+%
+%Nowadays information network are typically
+%modeled as attributed graphs where the 
+%vertexes correspond to objects and the edges capture the
+%relationships between these objects. 
+%
+%
+%As vertexes embed a wealth
+%of information (e.g., user profiles in social networks), there are 
+%emerging demands on analyzing these data to extract useful insights. 
+%We propose the concept of \emph{window analytics} 
+%for attributed graph and identify two types of such analytics as shown in the following examples:
 
 \begin{example}[$k$-hop window]
-In a social network (such as Linked-In and Facebook etc.), users are normally modeled as vertexes and connectivity relationships are modeled as edges. In the social network scenario, it is of great interest to summarize the most relevant connections to each user such as the neighbors within $2$-hops. Some analytic queries such as summarizing the related connections' distribution among different companies, and computing age distribution of the related friends can be useful. In order to answer these queries, collecting data from every user's neighborhoods within 2-hop is necessary.
+In a social network (such as Linked-In and Facebook etc.), users are normally modeled as vertexes and connectivity relationships are modeled as edges. In LinkedIn, it is of great interest to summarize the potential connections of each user for the purpose of recommendation. These information are embedded in the $2$-hop neighborhoods of each user.
+%
+%In the social network scenario, it is of great interest to summarize the most relevant connections to each user such as the neighbors within $2$-hops.
+% Some analytic queries such as summarizing the related connections' distribution among different companies, and computing age distribution of the related friends can be useful. In order to answer these queries, collecting data from every user's neighborhoods within 2-hop is necessary.
 \end{example}
 \begin{example}[Topological window]
 In biological networks (such as Argocyc, Ecocyc etc.), genes, enzymes and proteins are vertexes and their
-dependencies in a pathway are edges. Because these networks are directed and acyclic, 
-in order to study the protein regulating process, one may be interested to find out the statistics of molecules in each protein production pathway. For each protein,we can traverse the 
-graph to find every other molecules that are in the upstream of its pathway.
-Then we can group and count the number of genes and enzymes among those molecules.
+dependencies in a pathway are edges. In biological study, it is of great interest to study the types of enzymes influencing each proteins. These information are contained in the upstream of each molecule's pathways.
+%
+%Because these networks are directed and acyclic, 
+%in order to study the protein regulating process, one may be interested to find out the statistics of molecules in each protein production pathway.
+% For each protein,we can traverse the 
+%graph to find every other molecules that are in the upstream of its pathway.
+%Then we can group and count the number of genes and enzymes among those molecules.
 \end{example}
 
 The two \emph{windows} shown in the examples are essentially neighborhood functions defined for each vertex. Specifically, let $G=(V:E:A)$ be an attributed graph, where $V$ is the set of vertexes, $E$ is the set of edges, and each vertex $v$ is associated as a multidimensional points $a_v \in A$ called attributes.
@@ -62,7 +78,7 @@ is a \emph{comparison} neighborhood function that captures
 the ancestors of a vertex in a directly acyclic graph.  The analytic function $\mathcal{F}$ is an aggregate function (sum, avg, etc.) on $A$.
 
 Apart from demonstrating the useful use-cases on these two windows, 
-we also investigate on supporting efficient window processing.  We propose
+we further investigate on supporting efficient window processing.  We propose
 two different types of indexes: Dense Block Index (DBIndex)
 and Inheritance Index (I-Index). The DBIndex and I-Index
 are specially optimized to support k-hop window and topological
