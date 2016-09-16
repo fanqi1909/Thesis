@@ -12,11 +12,29 @@ Htoo~Htet Aung and Kian-Lee Tan.
 \newblock In {\em International Conference on Scientific and Statistical
   Database Management}, pages 196--213. Springer, 2010.
 
+\bibitem{Awerbuch1996Making}
+Baruch Awerbuch, Yossi Azar, Amos Fiat, and Tom Leighton.
+\newblock Making commitments in the face of uncertainty: How to pick a winner
+  almost every time.
+\newblock In {\em Proceedings of the twenty-eighth annual ACM symposium on
+  Theory of computing}, pages 519--530. ACM, 1996.
+
+\bibitem{bao2013survey}
+Jie Bao, Yu~Zheng, David Wilkie, and Mohamed~F Mokbel.
+\newblock A survey on recommendations in location-based social networks.
+\newblock {\em ACM Transaction on Intelligent Systems and Technology}, 2013.
+
 \bibitem{bellamkonda2013adaptive}
 Srikanth Bellamkonda, Hua-Gang Li, Unmesh Jagtap, Yali Zhu, Vince Liang, and
   Thierry Cruanes.
 \newblock Adaptive and big data scale parallel execution in oracle.
 \newblock {\em Proceedings of the VLDB Endowment}, 6(11):1102--1113, 2013.
+
+\bibitem{bender2005lowest}
+Michael~A Bender, Mart{\'\i}n Farach-Colton, Giridhar Pemmasani, Steven Skiena,
+  and Pavel Sumazin.
+\newblock Lowest common ancestors in trees and directed acyclic graphs.
+\newblock {\em Journal of Algorithms}, 57(2):75--94, 2005.
 
 \bibitem{borodin2012max}
 Allan Borodin, Hyun~Chul Lee, and Yuli Ye.
@@ -24,6 +42,16 @@ Allan Borodin, Hyun~Chul Lee, and Yuli Ye.
   updates.
 \newblock In {\em Proceedings of the 31st ACM SIGMOD-SIGACT-SIGAI symposium on
   Principles of Database Systems}, pages 155--166. ACM, 2012.
+
+\bibitem{broder1997syntactic}
+Andrei~Z Broder, Steven~C Glassman, Mark~S Manasse, and Geoffrey Zweig.
+\newblock Syntactic clustering of the web.
+\newblock {\em Computer Networks and ISDN Systems}, 29(8):1157--1166, 1997.
+
+\bibitem{burt2009structural}
+Ronald~S Burt.
+\newblock {\em Structural holes: The social structure of competition}.
+\newblock Harvard university press, 2009.
 
 \bibitem{cao2012optimization}
 Yu~Cao, Chee-Yong Chan, Jie Li, and Kian-Lee Tan.
@@ -47,6 +75,24 @@ James Cheng, Zechao Shang, Hong Cheng, Haixun Wang, and Jeffrey~Xu Yu.
 \newblock K-reach: who is in your small world.
 \newblock {\em Proceedings of the VLDB Endowment}, 5(11):1292--1303, 2012.
 
+\bibitem{choe2002freeway}
+Tom Choe, Alexander Skabardonis, and Pravin Varaiya.
+\newblock Freeway performance measurement system: operational analysis tool.
+\newblock {\em Transportation Research Record: Journal of the Transportation
+  Research Board}, (1811):67--75, 2002.
+
+\bibitem{coppa2015data}
+Emilio Coppa and Irene Finocchi.
+\newblock On data skewness, stragglers, and mapreduce progress indicators.
+\newblock In {\em Proceedings of the Sixth ACM Symposium on Cloud Computing},
+  pages 139--152. ACM, 2015.
+
+\bibitem{czumaj2007faster}
+Artur Czumaj, Miros{\l}aw Kowaluk, and Andrzej Lingas.
+\newblock Faster algorithms for finding lowest common ancestors in directed
+  acyclic graphs.
+\newblock {\em Theoretical Computer Science}, 380(1):37--46, 2007.
+
 \bibitem{douglas1973linesimplification}
 David~H Douglas and Thomas~K Peucker.
 \newblock Algorithms for the reduction of the number of points required to
@@ -60,11 +106,36 @@ Marina Drosou and Evaggelia Pitoura.
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering},
   26(5):1102--1116, 2014.
 
+\bibitem{edwards2013partial}
+Katherine Edwards, Simon Griffiths, and William~Sean Kennedy.
+\newblock Partial interval set cover--trade-offs between scalability and
+  optimality.
+\newblock In {\em Approximation, Randomization, and Combinatorial Optimization.
+  Algorithms and Techniques}, pages 110--125. Springer, 2013.
+
 \bibitem{ester1996density}
 Martin Ester, Hans-Peter Kriegel, J{\"o}rg Sander, Xiaowei Xu, et~al.
 \newblock A density-based algorithm for discovering clusters in large spatial
   databases with noise.
 \newblock In {\em Kdd}, volume~96, pages 226--231, 1996.
+
+\bibitem{gudmundsson2006computing}
+Joachim Gudmundsson and Marc van Kreveld.
+\newblock Computing longest duration flocks in trajectory data.
+\newblock In {\em Proceedings of the 14th annual ACM international symposium on
+  Advances in geographic information systems}, pages 35--42. ACM, 2006.
+
+\bibitem{hassan2014data}
+Naeemul Hassan, Afroza Sultana, You Wu, Gensheng Zhang, Chengkai Li, Jun Yang,
+  and Cong Yu.
+\newblock Data in, fact out: automated monitoring of facts by factwatcher.
+\newblock {\em Proceedings of the VLDB Endowment}, 7(13):1557--1560, 2014.
+
+\bibitem{jeung2008discovery}
+Hoyoung Jeung, Man~Lung Yiu, Xiaofang Zhou, Christian~S Jensen, and Heng~Tao
+  Shen.
+\newblock Discovery of convoys in trajectory databases.
+\newblock {\em Proceedings of the VLDB Endowment}, 1(1):1068--1080, 2008.
 
 \bibitem{jinno2012paralleltpattern}
 Ryota Jinno, Kazuhiro Seki, and Kuniaki Uehara.
@@ -77,6 +148,18 @@ Panos Kalnis, Nikos Mamoulis, and Spiridon Bakiras.
 \newblock On discovering moving clusters in spatio-temporal data.
 \newblock In {\em International Symposium on Spatial and Temporal Databases},
   pages 364--381. Springer, 2005.
+
+\bibitem{keseler2005ecocyc}
+Ingrid~M Keseler, Julio Collado-Vides, Socorro Gama-Castro, John Ingraham,
+  Suzanne Paley, Ian~T Paulsen, Mart{\'\i}n Peralta-Gil, and Peter~D Karp.
+\newblock Ecocyc: a comprehensive database resource for escherichia coli.
+\newblock {\em Nucleic acids research}, 33(suppl 1):D334--D337, 2005.
+
+\bibitem{kwon2012skewtune}
+YongChul Kwon, Magdalena Balazinska, Bill Howe, and Jerome Rolia.
+\newblock Skewtune: mitigating skew in mapreduce applications.
+\newblock In {\em Proceedings of the 2012 ACM SIGMOD International Conference
+  on Management of Data}, pages 25--36. ACM, 2012.
 
 \bibitem{laube2005finding}
 Patrick Laube, Marc van Kreveld, and Stephan Imfeld.
@@ -96,6 +179,11 @@ Xiaohui Li, Vaida Ceikute, Christian~S Jensen, and Kian-Lee Tan.
 \newblock Effective online group discovery in trajectory databases.
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering},
   25(12):2752--2766, 2013.
+
+\bibitem{li2013managing}
+Xiaohui Li and Tan Kian-Lee.
+\newblock {\em Managing moving objects and their trajectories}.
+\newblock PhD thesis, National University of Singapore, 2013.
 
 \bibitem{li2015platoon}
 Yuxuan Li, James Bailey, and Lars Kulik.
@@ -119,6 +207,12 @@ Jayanta Mondal and Amol Deshpande.
 \newblock In {\em Proceedings of the 2014 ACM SIGMOD International Conference
   on Management of Data}, pages 1335--1346. ACM, 2014.
 
+\bibitem{pei2000closet}
+Jian Pei, Jiawei Han, Runying Mao, et~al.
+\newblock Closet: An efficient algorithm for mining frequent closed itemsets.
+\newblock In {\em ACM SIGMOD workshop on research issues in data mining and
+  knowledge discovery}, volume~4, pages 21--30, 2000.
+
 \bibitem{sultana2014incremental}
 Afroza Sultana, Naeemul Hassan, Chengkai Li, Jun Yang, and Cong Yu.
 \newblock Incremental discovery of prominent situational facts.
@@ -135,6 +229,18 @@ Yuanyuan Tian, Richard~A Hankins, and Jignesh~M Patel.
 \newblock Efficient aggregation for graph summarization.
 \newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
   on Management of data}, pages 567--580. ACM, 2008.
+
+\bibitem{vassilevska2004finding}
+Virginia Vassilevska and Ali Pinar.
+\newblock Finding nonoverlapping dense blocks of a sparse matrix.
+\newblock {\em Lawrence Berkeley National Laboratory}, 2004.
+
+\bibitem{wang2003closet+}
+Jianyong Wang, Jiawei Han, and Jian Pei.
+\newblock Closet+: Searching for the best strategies for mining frequent closed
+  itemsets.
+\newblock In {\em Proceedings of the ninth ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 236--245. ACM, 2003.
 
 \bibitem{wang2006grouppattern}
 Yida Wang, Ee-Peng Lim, and San-Yih Hwang.
@@ -160,11 +266,25 @@ Xifeng Yan, Bin He, Feida Zhu, and Jiawei Han.
 \newblock In {\em 2010 IEEE 26th International Conference on Data Engineering
   (ICDE 2010)}, pages 377--380. IEEE, 2010.
 
+\bibitem{yildirim2013dagger}
+Hilmi Yildirim, Vineet Chaoji, and Mohammed~J Zaki.
+\newblock Dagger: A scalable index for reachability queries in large dynamic
+  graphs.
+\newblock {\em arXiv preprint arXiv:1301.0977}, 2013.
+
 \bibitem{yu2010graph}
 Jeffrey~Xu Yu and Jiefeng Cheng.
 \newblock Graph reachability queries: A survey.
 \newblock In {\em Managing and Mining Graph Data}, pages 181--215. Springer,
   2010.
+
+\bibitem{zaharia2012resilient}
+Matei Zaharia, Mosharaf Chowdhury, Tathagata Das, Ankur Dave, Justin Ma, Murphy
+  McCauley, Michael~J Franklin, Scott Shenker, and Ion Stoica.
+\newblock Resilient distributed datasets: A fault-tolerant abstraction for
+  in-memory cluster computing.
+\newblock In {\em Proceedings of the 9th USENIX conference on Networked Systems
+  Design and Implementation}, pages 2--2. USENIX Association, 2012.
 
 \bibitem{zemke2012s}
 Fred Zemke.
@@ -188,6 +308,18 @@ Kai Zheng, Yu~Zheng, Nicholas~Jing Yuan, and Shuo Shang.
 \newblock On discovery of gathering patterns from trajectories.
 \newblock In {\em Data Engineering (ICDE), 2013 IEEE 29th International
   Conference on}, pages 242--253. IEEE, 2013.
+
+\bibitem{zheng2015trajectory}
+Yu~Zheng.
+\newblock Trajectory data mining: an overview.
+\newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},
+  6(3):29, 2015.
+
+\bibitem{zheng2011urban}
+Yu~Zheng, Yanchi Liu, Jing Yuan, and Xing Xie.
+\newblock Urban computing with taxicabs.
+\newblock In {\em Proceedings of the 13th international conference on
+  Ubiquitous computing}, pages 89--98. ACM, 2011.
 
 \bibitem{zhou2010serialepisodes}
 Wenzhi Zhou, Hongyan Liu, and Hong Cheng.
