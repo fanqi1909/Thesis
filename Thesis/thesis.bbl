@@ -43,6 +43,13 @@ Allan Borodin, Hyun~Chul Lee, and Yuli Ye.
 \newblock In {\em Proceedings of the 31st ACM SIGMOD-SIGACT-SIGAI symposium on
   Principles of Database Systems}, pages 155--166. ACM, 2012.
 
+\bibitem{briscoe2013determining}
+Erica~J Briscoe, D~Scott Appling, Rudolph~L Mappus~IV, and Heather Hayes.
+\newblock Determining credibility from social network structure.
+\newblock In {\em Proceedings of the 2013 IEEE/ACM International Conference on
+  Advances in Social Networks Analysis and Mining}, pages 1418--1424. ACM,
+  2013.
+
 \bibitem{broder1997syntactic}
 Andrei~Z Broder, Steven~C Glassman, Mark~S Manasse, and Geoffrey Zweig.
 \newblock Syntactic clustering of the web.
@@ -52,6 +59,12 @@ Andrei~Z Broder, Steven~C Glassman, Mark~S Manasse, and Geoffrey Zweig.
 Ronald~S Burt.
 \newblock {\em Structural holes: The social structure of competition}.
 \newblock Harvard university press, 2009.
+
+\bibitem{campanario2011empirical}
+Juan~Miguel Campanario.
+\newblock Empirical study of journal impact factors obtained using the
+  classical two-year citation window versus a five-year citation window.
+\newblock {\em Scientometrics}, 87(1):189--204, 2011.
 
 \bibitem{cao2012optimization}
 Yu~Cao, Chee-Yong Chan, Jie Li, and Kian-Lee Tan.
@@ -69,6 +82,13 @@ Lisi Chen and Gao Cong.
 \newblock Diversity-aware top-k publish/subscribe for text stream.
 \newblock In {\em Proceedings of the 2015 ACM SIGMOD International Conference
   on Management of Data}, pages 347--362. ACM, 2015.
+
+\bibitem{cheng2013tf}
+James Cheng, Silu Huang, Huanhuan Wu, and Ada Wai-Chee Fu.
+\newblock Tf-label: a topological-folding labeling scheme for reachability
+  querying in a large graph.
+\newblock In {\em Proceedings of the 2013 ACM SIGMOD International Conference
+  on Management of Data}, pages 193--204. ACM, 2013.
 
 \bibitem{cheng2012k}
 James Cheng, Zechao Shang, Hong Cheng, Haixun Wang, and Jeffrey~Xu Yu.
@@ -92,6 +112,14 @@ Artur Czumaj, Miros{\l}aw Kowaluk, and Andrzej Lingas.
 \newblock Faster algorithms for finding lowest common ancestors in directed
   acyclic graphs.
 \newblock {\em Theoretical Computer Science}, 380(1):37--46, 2007.
+
+\bibitem{dai2012predicting}
+Lianghao Dai, Jar-der Luo, Xiaoming Fu, and Zhichao Li.
+\newblock Predicting offline behaviors from online features: an ego-centric
+  dynamical network approach.
+\newblock In {\em Proceedings of the First ACM International Workshop on Hot
+  Topics on Interdisciplinary Social Networks Research}, pages 17--24. ACM,
+  2012.
 
 \bibitem{douglas1973linesimplification}
 David~H Douglas and Thomas~K Peucker.
@@ -125,11 +153,23 @@ Joachim Gudmundsson and Marc van Kreveld.
 \newblock In {\em Proceedings of the 14th annual ACM international symposium on
   Advances in geographic information systems}, pages 35--42. ACM, 2006.
 
+\bibitem{han2000mining}
+Jiawei Han, Jian Pei, and Yiwen Yin.
+\newblock Mining frequent patterns without candidate generation.
+\newblock In {\em ACM Sigmod Record}, volume~29, pages 1--12. ACM, 2000.
+
 \bibitem{hassan2014data}
 Naeemul Hassan, Afroza Sultana, You Wu, Gensheng Zhang, Chengkai Li, Jun Yang,
   and Cong Yu.
 \newblock Data in, fact out: automated monitoring of facts by factwatcher.
 \newblock {\em Proceedings of the VLDB Endowment}, 7(13):1557--1560, 2014.
+
+\bibitem{holsapple2003citation}
+Clyde~W Holsapple and Wenhong Luo.
+\newblock A citation analysis of influences on collaborative computing
+  research.
+\newblock {\em Computer Supported Cooperative Work (CSCW)}, 12(3):351--366,
+  2003.
 
 \bibitem{jeung2008discovery}
 Hoyoung Jeung, Man~Lung Yiu, Xiaofang Zhou, Christian~S Jensen, and Heng~Tao
@@ -195,10 +235,26 @@ Zhenhui Li, Bolin Ding, Jiawei Han, and Roland Kays.
 \newblock Swarm: Mining relaxed temporal moving object clusters.
 \newblock {\em Proceedings of the VLDB Endowment}, 3(1-2):723--734, 2010.
 
+\bibitem{ma2010ego}
+Huaiyu~Harry Ma, Steven Gustafson, Abha Moitra, and David Bracewell.
+\newblock Ego-centric network sampling in viral marketing applications.
+\newblock In {\em Mining and Analyzing Social Networks}, pages 35--51.
+  Springer, 2010.
+
+\bibitem{ma2008bringing}
+Nan Ma, Jiancheng Guan, and Yi~Zhao.
+\newblock Bringing pagerank to the citation analysis.
+\newblock {\em Information Processing \& Management}, 44(2):800--810, 2008.
+
 \bibitem{mannila1997discepisodes}
 Heikki Mannila, Hannu Toivonen, and A~Inkeri Verkamo.
 \newblock Discovery of frequent episodes in event sequences.
 \newblock {\em Data mining and knowledge discovery}, 1(3):259--289, 1997.
+
+\bibitem{marsden2002egocentric}
+Peter~V Marsden.
+\newblock Egocentric and sociocentric measures of network centrality.
+\newblock {\em Social networks}, 24(4):407--422, 2002.
 
 \bibitem{mondal2014eagr}
 Jayanta Mondal and Amol Deshpande.
@@ -253,6 +309,11 @@ Zhengkui Wang, Qi~Fan, Huiju Wang, Kian-Lee Tan, Divyakant Agrawal, and Amr
 \newblock Pagrol: parallel graph olap over large-scale attributed graphs.
 \newblock In {\em 2014 IEEE 30th International Conference on Data Engineering},
   pages 496--507. IEEE, 2014.
+
+\bibitem{wei2014reachability}
+Hao Wei, Jeffrey~Xu Yu, Can Lu, and Ruoming Jin.
+\newblock Reachability querying: An independent permutation labeling approach.
+\newblock {\em Proceedings of the VLDB Endowment}, 7(12):1191--1202, 2014.
 
 \bibitem{wu2012one}
 You Wu, Pankaj~K Agarwal, Chengkai Li, Jun Yang, and Cong Yu.

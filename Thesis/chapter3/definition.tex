@@ -17,10 +17,10 @@ The table shows the values of the five attributes (User, Age, Gender, Industry, 
 and there is one edge between a user X and another user Y if X and Y are connected in the social network.
 
 
-\begin{figure}[t]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{chapter3/attributed_graph.pdf}
-	\caption{Running Example of Social Graph. (a) provides the graph structure; (b) provides the attributes associated with the vertices of (a).} 
+	\caption{A miniature social graph. (a) the graph structure; (b) the attributes associated with the vertexes of (a).} 
 	\label{fig:attributed}
 \end{figure}
 
@@ -61,7 +61,7 @@ Intuitively, a k-hop window selects the neighboring vertices of a
 vertex within a  k-hop distance. 
 These neighboring vertices typically represent the most important 
 vertices to a vertex with regard to their structural relationship in a graph. 
-Thus, k-hop windows provide meaningful specifications for many applications, such as customer behavior analysis \cite{Briscoe2013Credit,Dai2012Predict} , digital marketing \cite{Ma2009Marketing} etc.
+Thus, k-hop windows provide meaningful specifications for many applications, such as customer behavior analysis \cite{briscoe2013determining,dai2012predicting} , digital marketing \cite{ma2010ego} etc.
 %\remark{Cite some papers here to justify.}
 
 As an example, in Fig.~\ref{fig:attributed}, the $1$-hop window of vertex \emph{E} is $\{A,C,E\}$ and the $2$-hop window of vertex \emph{E} is $\{A,B,C,D,E,F\}$.  
@@ -75,7 +75,7 @@ i.e., a vertex $u$ is in $W_t(v)$ iff there is directed path from $u$ to $v$ in 
 There are many directed acyclic graphs (DAGs) in real-world applications (such as biological networks, citation networks and dependency networks)
 where topological windows represent meaningful relationships that are of interest.
 For example, in a citation network where (X,Y) is an edge  iff paper $X$ cites paper $Y$, 
-the topological window of a paper represents the citation impact of that paper \cite{Ma2008Pagerank,Holsapple2003CAI,Campanario:2011ESJ}.
+the topological window of a paper represents the citation impact of that paper \cite{campanario2011empirical,holsapple2003citation,ma2008bringing}.
 
 As an example, Fig.~\ref{fig:topological} shows a small example of a Pathway Graph from a biological network. 
 The topological window of $E$ $W_t(E)$ is $\{A, B, C, D, E\}$ and $W_t(H)$ is $\{A, B, D, H\}$.
@@ -83,8 +83,8 @@ The topological window of $E$ $W_t(E)$ is $\{A, B, C, D, E\}$ and $W_t(H)$ is $\
 
 \begin{figure}[h]
 \centering
- \includegraphics[width=0.4\textwidth]{chapter3/dag.pdf}
-	\caption{Running Example of Pathway DAG. (a) provides the DAG structure; (b) provides the attributes associated with the vertices of (a).}
+ \includegraphics[width=0.8\textwidth]{chapter3/dag.pdf}
+	\caption{A miniature pathway DAG. (a) the DAG structure; (b) the attributes associated with the vertexes of (a).}
 	\label{fig:topological}
 \end{figure}
 

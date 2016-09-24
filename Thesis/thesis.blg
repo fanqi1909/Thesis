@@ -8,12 +8,26 @@ A level-1 auxiliary file: conclusions.aux
 A level-1 auxiliary file: appendix.aux
 The style file: plain.bst
 Database file #1: refs.bib
-Warning--I didn't find a database entry for "Briscoe2013Credit"
-Warning--I didn't find a database entry for "Dai2012Predict"
-Warning--I didn't find a database entry for "Ma2009Marketing"
-Warning--I didn't find a database entry for "Ma2008Pagerank"
-Warning--I didn't find a database entry for "Holsapple2003CAI"
-Warning--I didn't find a database entry for "Campanario:2011ESJ"
+Repeated entry---line 168 of file refs.bib
+ : @inproceedings{briscoe2013determining
+ :                                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 177 of file refs.bib
+ : @inproceedings{dai2012predicting
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 186 of file refs.bib
+ : @article{campanario2011empirical
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 197 of file refs.bib
+ : @article{holsapple2003citation
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 208 of file refs.bib
+ : @incollection{ma2010ego
+ :                        ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "allan1998line"
 Warning--I didn't find a database entry for "brants2003asystem"
 Warning--I didn't find a database entry for "ritter2012opendoamin"
@@ -36,5 +50,6 @@ Warning--I didn't find a database entry for "lee2011mining"
 Warning--I didn't find a database entry for "mooney2013sequential"
 Warning--I didn't find a database entry for "miliaraki2013mind"
 Warning--there's a number but no volume in choe2002freeway
+Warning--can't use both volume and number fields in han2000mining
 Warning--can't use both volume and number fields in pei2000closet
-(There were 29 warnings)
+(There were 5 error messages)

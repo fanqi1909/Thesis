@@ -1,11 +1,11 @@
 \section{Introduction}
 Information networks such as social networks, biological networks and
 phone-call networks are typically modeled as graphs \cite{chen2008graph}
-where the vertices correspond to objects and the edges
+where the vertexes correspond to objects and the edges
 capture the relationships between these objects.
 For instance, in social networks, every user is represented by
 a vertex and the friendship between two users is reflected by an edge between
-the vertices. In addition, a user's profile can be maintained as
+the vertexes. In addition, a user's profile can be maintained as
 the vertex's attributes. Such graphs contain a wealth of valuable 
 information which can be analyzed to discover interesting patterns. 
 For example, we can find the top-k influential users who can 
@@ -44,24 +44,24 @@ the graph structure information.
 Thus, we seek to formulate the notion of graph windows and to develop
 efficient algorithms to process them over large scaled graph structures. 
 
-We have identifed two instantiations of graph windows, namely 
+We have identified two instances of graph windows, namely 
 $k${\em -hop} and {\em topological} windows. 
 We first demonstrate these window semantics with the following examples. 
 \begin{example}
 \label{query:linkedin-2-hop-window}
-\emph{(k-hop window)} In a social network ( such as Linked-In and Facebook etc.), users are normally modeled as vertices and connectivity relationships are modeled as edges. In social network scenario, it is of great interest to summarize the most relevant connections to each user such as the neighbors within 2-hops. Some analytic queries such as summarizing the related connections' distribution among different companies, and computing age distribution of the related friends can be useful. In order to answer these queries, collecting data from every user's neighborhoods within 2-hop is necessary.
+\emph{(k-hop window)} In a social network ( such as Linked-In and Facebook etc.), users are normally modeled as vertexes and connectivity relationships are modeled as edges. In social network scenario, it is of great interest to summarize the most relevant connections to each user such as the neighbors within 2-hops. Some analytic queries such as summarizing the related connections' distribution among different companies, and computing age distribution of the related friends can be useful. In order to answer these queries, collecting data from every user's neighborhoods within 2-hop is necessary.
 \end{example}
 
 \begin{example}
 \label{query:bio-dag-window}
-\emph{(Topological window)} In biological networks ( such as Argocyc, Ecocyc etc.\cite{keseler2005ecocyc}), genes, enzymes and proteins are vertices and their dependency in a pathway are edges. Because these networks are directed 
+\emph{(Topological window)} In biological networks ( such as Argocyc, Ecocyc etc.\cite{keseler2005ecocyc}), genes, enzymes and proteins are vertexes and their dependency in a pathway are edges. Because these networks are directed 
 and acyclic, in order to study the protein regulating process, one may be 
 interested to find out the statistics of molecules in each protein 
 production pathway. For each protein, we can traverse the graph to find 
 every other molecule that is in the upstream of its pathway. Then we can group and count the number of genes and enzymes among those molecules. 
 \end{example}
 
-A common feature among these examples is that data aggregation is needed based on a set of vertices (which is the {\em graph window}) 
+A common feature among these examples is that data aggregation is needed based on a set of vertexes (which is the {\em graph window}) 
 defined according to each vertex.  To illustrate, in example \ref{query:linkedin-2-hop-window}, every user needs to gather data from its friends and friends-of-friends. 
 The \emph{2-hop neighbors} form its window. Likewise, in example \ref{query:bio-dag-window}, every protein needs to count the number of particular type of genes preceding it in the regulating pathway. For every protein, the set of
 \emph{preceding molecules} forms its window. 
