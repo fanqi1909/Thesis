@@ -9,7 +9,7 @@ $Q = (G, W, \Sigma, A)$, where $G = (V,E)$,
 is to dynamically compute the window $W(v)$ for each vertex $v \in V$ and
 its aggregation 
 $\Sigma_{v' \in W(v)} v'.A$ 
-independently from other vertices. We refer to this approach as \emph{Non-Indexed} method.
+independently from other vertexes. We refer to this approach as \emph{Non-Indexed} method.
 
 Given that many of the windows would share many common nodes (e.g., the k-hop windows of two adjacent nodes),
 such a simple approach would be very inefficient due to the lack of sharing of the aggregation computations. 
@@ -289,20 +289,20 @@ and
 \label{algo:identify}
 \end{algorithm}
 
-Fig.~\ref{fig:dbi-indexing} 
+Figure~\ref{fig:dbi-indexing} 
 illustrates the construction of the DBIndex with respect to the social graph in 
-Fig.~\ref{fig:attributed}(a) and 1-hop window using the MC algorithm.
-First, the set of graph vertices are partitioned into clusters using MinHash clustering;
-Fig.~\ref{fig:dbi-indexing}(a)
-shows that the set of vertices $V = \{A, B, C, D, E, F \}$ are partitioned into two clusters $C_1=\{A, B, C\}$ and $C_2=\{D, E, F\}$. 
+Figure~\ref{fig:attributed}(a) and 1-hop window using the MC algorithm.
+First, the set of graph vertexes are partitioned into clusters using MinHash clustering;
+Figure~\ref{fig:dbi-indexing}(a)
+shows that the set of vertexes $V = \{A, B, C, D, E, F \}$ are partitioned into two clusters $C_1=\{A, B, C\}$ and $C_2=\{D, E, F\}$. 
 
 For convenience, cluster 1 in 
-Fig.~\ref{fig:dbi-indexing}(b) shows for each $v \in C_1$, the set of vertices whose windows contain $v$;
+Figure~\ref{fig:dbi-indexing}(b) shows for each $v \in C_1$, the set of vertexes whose windows contain $v$;
 i.e., $\{u |\ v \in W(u)\}$.
 Similarly, Cluster 2 in Fig.~\ref{fig:dbi-indexing} (b)
-shows for each $v \in C_2$, the set of vertices whose windows contain $v$.
+shows for each $v \in C_2$, the set of vertexes whose windows contain $v$.
 Consider the identification of dense blocks in cluster $C_1$.
-As shown in Fig.~\ref{fig:dbi-indexing} (c), based on the notion of equivalence nodes,
+As shown in Figure~\ref{fig:dbi-indexing} (c), based on the notion of equivalence nodes,
 cluster $C_1$ is partitioned into three blocks of equivalent nodes:
 $B_1=\{A,D,F\}$, $B_2=\{B\}$, and $B_3\{C,E\}$.
 Among these three blocks, only
@@ -335,75 +335,9 @@ We find it is non-trivial to precisely analyze the complexity of Algorithm~\ref{
 \end{algorithmic}
 \label{algo:refine}
 \end{algorithm}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\eat{
-We adopt the \emph{MinHash} clustering  
-\cite{broder1997syntactic} 
-in index construction to discover the dense blocks. MinHash has been well known for its effectiveness of set clustering by using the Jaccard Coefficient. Our proposed MC approach to generate the index as follows: First, k min-wise independent functions are used to generate $k$ hash signatures for each window. Note that this is a general procedure in MinHash clustering. As all the vertex window mapping is large, we avoid materializing this mapping by dynamically computing the window for each vertex. The k-hop window collection for one vertex can be easily done by using the KBBFS. Once each window is collected, its $k$ hash signatures will be generated. We emphasize that once the signatures are generated, the window information can be safely erased from to memory. To store the signatures, it can be stored in a signature matrix in $V \times k$, where cell $(i,j)$ records the $j^{th}$ hash signature of window $i$. The signature matrix is then sorted based on the row values. 
-
-
-
-The first step clustering is conducted based on the sorted signature matrix. All the similar rows are clustered together. This clustering helps us identify all the similar windows. 
-
-Within each cluster, we further perform a fine-grained similarity check to discover the dense blocks among the similar windows. To do this, for each cluster, we build one clustered matrix, where each column corresponds to one window in the cluster. The window information can be obtained by via the KBBFS using the vertex. Over each clustered matrix, we adopt an iterative indexing scheme. The scheme works as follows: for each cluster, we create a \emph{clustered matrix} whose column maps each member of cluster, and each column contains the value of that window. Given the clustered matrix, we sort the matrix based on rows, then merge the rows with identical value. The merged row indexes are effectively a dense block, thus can be output. For unmerged portion of the matrix, we use the similar \emph{MinHash} to cluster them, and pass the newly created clusters to the next iteration. In implementation, we can ignore all the zero rows, which is more space friendly. The index creation algorithm is shown as in Algo. \ref{algo:k-hop-dbi}. 
-
-
-
-\begin{algorithm}
-\caption{DBIGen - Iterative DBI Index Creation }
-\begin{algorithmic}[1]
-%\FUNCTION $dbiGen$
-\REQUIRE $C$, \textbf{optional} $M$ \COMMENT{Window cluster, Lookup table}
-\GLOBAL $DBI$ \COMMENT{Dense Block Index}
-\STATE $DBI.window.add(C)$  \label{code:dbi-add-window}
-\STATE $CW$ \COMMENT{Clustered window}
-%\FORALL{$cluster \in C.clusters$} 
-	\STATE $CW \leftarrow [\ ][\ ]$ \label{code:dbi-window-partition-start}
-	\FORALL{$w \in C$}
-		\STATE $CW[\ ][w] \leftarrow M[w]\ ||\ getWindow(w)$
-	\ENDFOR \label{code:dbi-window-partition-end}
-	\STATE sort $CW$ by $rows$ \label{code:dbi-sort}
-	\FORALL{$row$ occurs twice in $rows$}
-		\STATE $block.addAll(row.index)$ \label{code:dbi-add-block-start} \COMMENT{Create new block}
-		\STATE $DBI.blocks.add(block)$
-		\FOR{$col$ with value $CM[row][col]$ is 1}
-			\STATE $DBI.links.add(col, block)$		
-		\ENDFOR \label{code:dbi-add-block-end}
-		\STATE $CW.remove(row)$ \label{code:dbi-remove-rows}
-	\ENDFOR
-	\FORALL{$c \in minHash(CW)$} \label{code:dbi-remain-min}
-		\IF{$c.size > 2$}
-			\STATE $dbiGen(c, CW)$ \label{code:dbi-recursive}
-		\ENDIF
-	\ENDFOR
-%\ENDFOR
-%\RETURN $DBI$
-\end{algorithmic}
-\label{algo:k-hop-dbi}
-\end{algorithm}
-
-Algo.~\ref{algo:k-hop-dbi} requires a cluster of window IDs as input. It optionally takes a lookup table from which the contents of a given window can be fetched. The algorithm starts with inserting window IDs into the window field of the global structure \emph{DBI}(Line~\ref{code:dbi-add-window}). Then $CW$ stores the clustered matrix for this cluster. It first attempts to get the information from the lookup table $M$, if failed, it calls $getWindow$ function which dynamically computes the window information. Then the $CW$ is sorted based on rows. For each rows with identical value, a dense block is created and recorded in \emph{DBI} (Line~\ref{code:dbi-add-block-start}-\ref{code:dbi-add-block-end}). Those rows then removed from $CW$ (Line~\ref{code:dbi-remove-rows}). The the remaining $CW$ is supplied to $minHash$ for clustering. For the new clusters with size greater than 2, it recursively calls Algo.~\ref{algo:k-hop-dbi}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-In order to reduce the memory usage of Algo.~\ref{algo:k-hop-dbi}, a corner case needs to be taken care of. In Algo.~\ref{algo:k-hop-dbi}, a clustered matrix $CM$ is used temporarily to expand the window information for the cluster. If the clusters generated from the first minhash is too large, we need to split the cluster into equal size. The split works since it preserves the similarity measure, that is if a cluster contains similar elements, after split, each of the resulting cluster also contains similar elements. The split reduces the memory burden. In Line.~\ref{code:dbi-recursive}, the $CW$ is optionally passed to the minHash. Since $CW$ is already in memory, it can be passed to the next recursive call safely without causing memory issue.
- 
-The hashing results in a $V \times k$ matrix, with cell $(i,j)$ being the $j^{th}$ hash signature of window $i$. The matrix is then sorted in row major order and subsequently is traversed in column order. During traversal, rows with identical values are grouped into the same cluster. The hashing complexity is $O(k|nnz|+w|V|)$, where $w$ is cost for computing each window , the sorting is of complexity $O(k|V|log|V|)$, and the clustering is of complexity $O(|V|)$. Since $k$ is a small constant, the complexity of clustering algorithm is of $O(w|V|+|nnz|+|V|log(|V|))$. 
-
-An example of \emph{MinHash} based \emph{DBIndex Indexing} is shown in Fig.~\ref{fig:dbi-indexing}. The top left part is the \emph{1-hop} window matrix for a attributed graph. The top right part is the partition result based on \emph{MinHash}. The bottom right part is the dense blocks identified by row condensing. And the bottom left part is the \emph{DBI} created based on the dense blocks.
-}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Estimated MinHash Clustering (EMC)}
 \label{sec:optimized}
-%\subsection{DBIndex Construction based on Estimated MinHash Clustering}
 
 The MC approach described in the previous section requires the window of each node (i.e., $W(v), v \in V$)
 to be computed twice in order to avoid the high space complexity of materializing all the windows in main memory.
@@ -437,11 +371,11 @@ However, our experimental results show that this reduction in quality is actuall
 
 \subsubsection {Justification of Heuristic}
 In the following, we show the theoretical justification of our heuristic: the Jaccard coefficient
-is increasing wrt number of hops for a large class of graphs. We 
-assume that the degree of vertices follows the same distribution, which is true in most
+is increasing with respect to the number of hops for a large class of graphs. We 
+assume that the degree of vertexes follows the same distribution, which is true in most
 real-networks and random graph models\footnote{E.g. Social network, Preferential Attachment model etc. follow
-power-law distribution. However, our analysis do not restrict on power-law distribution.}.  
-This implies we can analyze vertices 
+power-law distribution. However, our analysis works for other distribution as well.}.  
+This implies we can analyze vertexes 
 with their neighborhoods structure using a unified way. 
 
 We use $d_i$ to indicate the degree of vertex $i$. For any vertex pair $(u,v)$, their 
@@ -454,16 +388,16 @@ can be expressed as follows:
 
 To deduct the relationship between $J_k(u,v)$ and $J_{k+1}(u,v)$, we prove the following lemma first:
 \begin{theorem}
-Let $S$ be a collection of connected vertices, the number of newly discovered
-vertices by one-hop expansion from $S$ is bounded by a function on $|S|$.
+Let $S$ be a collection of connected vertexes, the number of newly discovered
+vertexes by one-hop expansion from $S$ is bounded by a function on $|S|$.
 \end{theorem}
 \begin{proof}
 Consider a random variable $Y_i$ indicate the newly 
-discovered vertices from one-hop expansion from vertex $i$. 
+discovered vertexes from one-hop expansion from vertex $i$. 
 Then the probability of $|Y_i|=y$ is can be analyzed as follows: there 
 are $d_i$ edges for vertex $i$. Since $|Y_i|$ is connected with $S$, one edge
 is fixed to link with a vertex in $S$. There are remaining $d_i-1$ edges with
-$y$ edges linked to the new vertices. In total, there are $|V|-1 \choose d_i -1$
+$y$ edges linked to the new vertexes. In total, there are $|V|-1 \choose d_i -1$
 combinations with $d_i$ edges. Therefore, the probability can be written as:
 \begin{equation}
 Prob(Y_i = y| v_i \in S) = \frac{{|S| -1 \choose d_i - y -1}{|V|-|S| \choose y}}{{|V|-1 \choose d_i -1}}
@@ -471,16 +405,16 @@ Prob(Y_i = y| v_i \in S) = \frac{{|S| -1 \choose d_i - y -1}{|V|-|S| \choose y}}
 Thus, the expectation of $Y_i$ is:
 \begin{equation}
 \begin{split}
-E(Y_i|v_i \in S) & = \Sigma( y * Prob(Y_i = y| v_i \in S) )\\
-	& = \Sigma_{y=1}^{y=d_i -1} ( \frac{{|S| -1 \choose d_i - y -1}{|V|-|S| \choose y}}{{|V|-1 \choose d_i -1}} * y )\\
-	& = \Sigma_{y=1}^{y=d_i -1} (\frac{{|S| -1 \choose d_i - y -1}{|V|-|S| -1 \choose y - 1}}{{|V|-1 \choose d_i -1}} * (|V|-|S|))\\
-	& = (|V|-|S|) * \Sigma_{y=1}^{y=d_i -1}\frac{{|S| -1 \choose d_i - y -1}{|V|-|S| -1 \choose y - 1}}{{|V|-1 \choose d_i -1}} \\
-	& = (|V|-|S|) * \frac{{|V|-2 \choose d_i - 2}}{{|V|-1 \choose d_i -1}} = \frac{(|V|-|S|)*(d_i-1)}{|V| - 1}
+E(Y_i|v_i \in S) & = \Sigma( y Prob(Y_i = y| v_i \in S) )\\
+	& = \Sigma_{y=1}^{y=d_i -1} ( \frac{{|S| -1 \choose d_i - y -1}{|V|-|S| \choose y}}{{|V|-1 \choose d_i -1}} y )\\
+	& = \Sigma_{y=1}^{y=d_i -1} (\frac{{|S| -1 \choose d_i - y -1}{|V|-|S| -1 \choose y - 1}}{{|V|-1 \choose d_i -1}}  (|V|-|S|))\\
+	& = (|V|-|S|)  \Sigma_{y=1}^{y=d_i -1}\frac{{|S| -1 \choose d_i - y -1}{|V|-|S| -1 \choose y - 1}}{{|V|-1 \choose d_i -1}} \\
+	& = (|V|-|S|)  \frac{{|V|-2 \choose d_i - 2}}{{|V|-1 \choose d_i -1}} = \frac{(|V|-|S|)(d_i-1)}{|V| - 1}
 \end{split}
 \end{equation}
-Taking the expectation over all vertices in $S$, we can find the expectation of $E(Y|S) = \frac{(|V|-|S|)*(\overline{d}-1)}{|V| - 1}$, 
+Taking the expectation over all vertexes in $S$, we can find the expectation of $E(Y|S) = \frac{(|V|-|S|)*(\overline{d}-1)}{|V| - 1}$, 
 where $\overline{d}$ is the average degree of the graph. We then define the event $X=\cup_{i=1}^{i=|S|} Y_i$, i.e. $X$ is the number
-of newly discovered vertices for one-hop expansion of entire $S$. By union bound, 
+of newly discovered vertexes for one-hop expansion of entire $S$. By union bound, 
 the expectation of $X$ is:
 \begin{equation} 
 \begin{split}
@@ -489,19 +423,18 @@ E(X|S) &= E(\cup_{i=1}^{i=|S|}Y_i|S) \\
 &= \frac{|S|(|V|-|S|)(\overline{d} -1)}{|V|-1} = f(|S|)
 \end{split}
 \end{equation}
-The bound is achieved when each vertices in $S$ discovers non-overlapping neighbors, such
-as in the case of tree structure. Therefore, the newly discovered vertices are tightly bounded 
+The bound is achieved when each vertex in $S$ discovers non-overlapping neighbors, such
+as in the case of tree structure. Therefore, the newly discovered vertexes are tightly bounded 
 by a quadratic function on $|S|$.
-\qed
 \end{proof}
 
-We thus use $f(m)$ to denote the number of newly discovered vertices
-from a base set of $m$ connected vertices. Since $u,v$ have 
+We thus use $f(m)$ to denote the number of newly discovered vertexes
+from a base set of $m$ connected vertexes. Since $u,v$ have 
 identical degree distribution, their expected value $S_u=E(|W_k(u)|)$
-and $S_v=E(|W_k(v)|)$ is likely to be the same, i.e. $S_u \cong S_v$.
+and $S_v=E(|W_k(v)|)$ are the same, i.e. $S_u = S_v$.
 We further use $\alpha = \frac{|C|}{|A|+|C|}$ to denote the portion of shared
 components in $u$'s $k$-hop neighborhood. Likewise, we use $\beta = \frac{|B|}{|B|+|C|}$ for 
-$W_k(v)$. Since vertices have identical degree distribution, $\alpha$ and $\beta$ are likely
+$W_k(v)$. Since vertexes have identical degree distribution, $\alpha$ and $\beta$ are likely
 to be the same, i.e. $\alpha \cong \beta$.
 Now, the $J_{k+1}(u,v)$ for ($k+1$)-hop can be represented as follows:
 \begin{equation}
@@ -511,17 +444,17 @@ J_{k+1}(u,v) & = \frac{|C_{k+1}|}{|A_{k+1}| + |B_{k+1}| + |C_{k+1}|} \\
 \end{split}
 \end{equation}
 , the $\Delta$ here is to compensate the doubly counted portion on the
-overlapping: $(A_{k+1} \cup B_{k+1}) \cap C_{k+1}$. Therefore, it subsequently follows:
+overlapping: $(A_{k+1} \cup B_{k+1}) \cap C_{k+1}$. Since $\Delta \geq 0$, by dropping the $\Delta$, it  follows:
 \begin{equation}
 \begin{split}
 J_{k+1}(u,v) & \geq \frac{|C_k| + \alpha * f(S_u) + \beta * f(S_v)}{|A_k| +|B_k| +|C_k| +f(S_u) +  f(S_v)}  \\
-		& \cong \frac{|C_k| + 2\alpha * f(S_u)}{|A_k|+|B_k|+|C_k| + 2 * f(S_u)}
+		& = \frac{|C_k| + 2\alpha * f(S_u)}{|A_k|+|B_k|+|C_k| + 2 * f(S_u)}
 \end{split}
 \end{equation}
 Due to the fact that $\alpha = \frac{|C_k|}{|C_k|+|A_k|} \geq \frac{|C_k|}{|A_k|+|B_k|+|C_k|}$, it follows:
 \begin{equation}
 \begin{split}
-	\frac{\alpha f(S_u)}{f(S_u)} & \geq \frac{|C_k|}{|A_k|+|B_k|+|C_k|} \Leftrightarrow \\
+	\frac{\alpha f(S_u)}{f(S_u)} & \geq \frac{|C_k|}{|A_k|+|B_k|+|C_k|} \Rightarrow \\
 	\frac{|C_k| + 2\alpha * f(S_u)}{|A_k|+|B_k|+|C_k| + 2 * f(S_u)} & \geq \frac{|C_k|}{|A_k|+|B_k|+|C_k|} \\
 	& = J_k(u,v)
 \end{split}
@@ -631,7 +564,7 @@ There are two types of updates for graph data: updates to the attribute values a
 Since the DBIndex is an index on the graph structure which is independent of the attribute values in the graph,
 the DBIndex is not affected by updates to the graph's attribute values.
 
-The efficient maintenance of the DBIndex in the presence of structural updates is challenging as a single structural change (e.g., adding an edge) could affect many vertex windows.  To balance the tradeoff between efficiency of index update and efficiency of query processing, 
+The efficient maintenance of the DBIndex in the presence of structural updates is challenging as a single structural change (e.g., adding an edge) could affect many vertex windows.  To balance the trade-off between efficiency of index update and efficiency of query processing, 
 we have adopted a two-phase approach to maintain the DBIndex.
 The first phase is designed to optimize update efficiency where the DBIndex is updated incrementally whenever there are structural updates to the graph.
 The incremental index update ensures that the updated index functions correctly but does not fully optimize the query efficiency of the updated index
@@ -639,42 +572,9 @@ in terms of maximizing the shared computations.
 The second phase is designed to optimize query efficiency where the DBIndex is periodically re-organized to maximize share computations.
 
 As an example of how the DBIndex is updated incrementally, consider a structural change where a new edge is added to the input graph.
-Let $S$ denote the subset of graph vertices whose windows have expanded (with additional vertices) as a result of the insertion of the new edge.
-Let $W'(v)$ denote the set of additional vertices in the vertex window of $v$ for each vertex $v \in S$.
+Let $S$ denote the subset of graph vertexes whose windows have expanded (with additional vertexes) as a result of the insertion of the new edge.
+Let $W'(v)$ denote the set of additional vertexes in the vertex window of $v$ for each vertex $v \in S$.
 Based on the identified changes to the vertex windows (i.e., $S$ and $\{W'(v) |\ v \in S\}$), 
 we construct a secondary DBIndex which is then merged into the primary DBIndex.
 As the identified changes are small relative to the entire graph and collection of vertex windows,
 the construction and merging of the secondary index can be processed efficiently relative to an index reorganization to fully optimize query efficiency.
-
-
-
-
-\eat{To reduce the overhead of window computations,
-our $EMC$ approach is equivalent to the MC approach except that  
-for the first round of window computations
-(line 3 in Algorithm \ref{algo:k-hop-dbi}),
-$EMC$ uses 1-hop windows to approximate $k$-hop windows for the purpose of clustering the nodes in $V$.
-Thus, the hash signatures used for partitioning $V$ are based on 1-hop windows.
-This approximation clearly has the advantage of improved time-efficicency as computing the
-1-hop window of a node $v$ requires only accessing the adjacent nodes of $v$. 
-The tradeoff for this improvement efficiency is that the ``quality'' of the dense blocks might be reduced (in terms of their sizes).
-However, our experimental results show that this reduction in quality is actually only marginal which makes this approximation a good tradeoff.}
-
-
-\eat{
-To formally describe our approximation, we denote $J_k(u,v)$ as the Jaccard coefficient for \emph{k-hop} window on $u,v$. We use $A,B,C$, to represent the set of $f(u)$-$f(v)$, $f(v)$-$f(u)$, and $f(u) \cap f(v)$ respectively. $J_k(u,v)$ can then be represented as $\frac{|C|}{|A|+|B|+|C|}$, where $|\centerdot|$ denotes the cardinality. Since the \emph{(k+1)-hop} window can be viewed as \emph{1-hop} BFS expansion from \emph{k-hop} window, the $J_{k+1}(u,v)$ can thus be averagely estimated as:
-\begin{equation} \label{eq:jacc-esimation}
-\begin{split}
-J_{k+1}(u,v) & = \frac{\alpha |C| + \Delta}{\beta |A|+ \beta |B|+\alpha |C| - \Delta} \\
-\end{split}
-\end{equation}  
-The $\alpha$ and $\beta$ are the expansion factor of $C$ and $A,B$ respectively. The expansion factor measures how much more new elements are joined into a set based on \emph{1-hop} expansion of original set. 
-The $\Delta$ is the increased intersection from \emph{1-hop} expansion of $A$ and $B$. On average, both $\alpha$ and $\beta$ are close to $d$, which is the average degree of the graph. This shows that $J_{k+1}(u,v) > J_{k}(u,v)$. In other words, if the windows are two vertices are clustered together in a lower k, they will be clustered together when k increases. 
-
-
-Using the aforementioned feature, we can conservatively estimate the dense block clustering of $k-hop$ window from \emph{j-hop} window where $j < k$. An extreme case is to use the $1-hop$ result to derive the $k-hop$. The advantage of using the $1-hop$ is that it is efficient to collect the window by the adjacent list and incurs less overhead to generate the signature. In this case, compared with the MC approach, only one k-hop KBBFS is needed which will highly improve the index construction time. The disadvantage of this approach is that some larger dense blocks may be lost. However, through our experiments, this loss of performance is marginal and acceptable in most of the cases. 
-
-As a high-level overview of the $EMC$ algorithm, it is a two-step approach to construct the $k-hop$ window index. First, it loads a smaller \emph{hop} window to supply \emph{MinHash} clustering. Second, it performs Algo.~\ref{algo:k-hop-dbi} to create \emph{DBI}. For the space limitation, we omit the detail discussion here. 
-}
-
-

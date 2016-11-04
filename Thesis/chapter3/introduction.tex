@@ -1,6 +1,7 @@
 \section{Introduction}
-Information networks such as social networks, biological networks and
-phone-call networks are typically modeled as graphs \cite{chen2008graph}
+Information networks such as social networks, 
+biological networks and phone-call networks are 
+typically modeled as graphs \cite{chen2008graph}
 where the vertexes correspond to objects and the edges
 capture the relationships between these objects.
 For instance, in social networks, every user is represented by
@@ -16,9 +17,9 @@ to develop effective and efficient mechanisms over graph data to draw out
 information from such data resources.
  
 Traditionally, in relational DBMS, window functions have been commonly
-used for data analytics \cite{cao2012optimization, bellamkonda2013adaptive}. Instead of performing analysis (e.g. ranking, 
-aggregate) over the entire data set, a window function returns for each 
-input tuple a value derived from applying the function over a window of 
+used for data analytics \cite{cao2012optimization, bellamkonda2013adaptive}. 
+Instead of performing analysis (e.g., ranking, aggregate) over the entire data set, 
+a window function returns for each input tuple a value derived from applying the function over a window of 
 neighboring tuples. For instance, users may be interested in finding 
 each employee's salary ranking within the department. Here,
 each tuple's neighbors are essentially records from the same department.
@@ -54,7 +55,7 @@ We first demonstrate these window semantics with the following examples.
 
 \begin{example}
 \label{query:bio-dag-window}
-\emph{(Topological window)} In biological networks ( such as Argocyc, Ecocyc etc.\cite{keseler2005ecocyc}), genes, enzymes and proteins are vertexes and their dependency in a pathway are edges. Because these networks are directed 
+\emph{(Topological window)} In biological networks (such as Argocyc, Ecocyc etc.\cite{keseler2005ecocyc}), genes, enzymes and proteins are vertexes and their dependency in a pathway are edges. Because these networks are directed 
 and acyclic, in order to study the protein regulating process, one may be 
 interested to find out the statistics of molecules in each protein 
 production pathway. For each protein, we can traverse the graph to find 
@@ -62,8 +63,8 @@ every other molecule that is in the upstream of its pathway. Then we can group a
 \end{example}
 
 A common feature among these examples is that data aggregation is needed based on a set of vertexes (which is the {\em graph window}) 
-defined according to each vertex.  To illustrate, in example \ref{query:linkedin-2-hop-window}, every user needs to gather data from its friends and friends-of-friends. 
-The \emph{2-hop neighbors} form its window. Likewise, in example \ref{query:bio-dag-window}, every protein needs to count the number of particular type of genes preceding it in the regulating pathway. For every protein, the set of
+defined according to each vertex.  To illustrate, in Example~\ref{query:linkedin-2-hop-window}, every user needs to gather data from its friends and friends-of-friends. 
+The \emph{2-hop neighbors} form its window. Likewise, in Example~\ref{query:bio-dag-window}, every protein needs to count the number of particular type of genes preceding it in the regulating pathway. For every protein, the set of
 \emph{preceding molecules} forms its window. 
 
 To support the analyses in the above-mentioned examples, we propose a new 
@@ -73,11 +74,11 @@ and is important in a graph context. Unlike the traditional window in SQL,
 we identify two types of useful graph windows according to the 
 graph structures, namely k-hop Window $W_{kh}$ and Topological Window $W_t$. 
 A k-hop window forms a window for one vertex by using its k-hop neighbors. 
-k-hop neighbors are important to one vertex, as these are the vertices 
-showing structural closeness as in Example 1. The k-hop neighbors window 
+k-hop neighbors are important to one vertex, as these are the vertexes 
+showing structural closeness as in Example~\ref{query:linkedin-2-hop-window}. The k-hop neighbors window 
 we define here is similar to the egocentric-network in network analysis \cite{burt2009structural} \cite{mondal2014eagr}. A topological window, on the
 other hand, forms a window for one vertex by using all its preceding 
-vertices in a directed acyclic graph. The preceding vertices of one vertex are normally those which influence the vertex in a network as illustrated in Example 2. 
+vertexes in a directed acyclic graph. The preceding vertexes of one vertex are normally those which influence the vertex in a network as illustrated in Example~\ref{query:bio-dag-window}. 
 
 To the best of our knowledge, existing graph databases or graph query languages do not directly support our proposed GWQ. There are two major challenges in processing GWQ. First, we need an efficient scheme to  calculate the window of each vertex. Second, we need
 efficient solutions to process the aggregation over a large number 
@@ -88,10 +89,10 @@ For $k$-hop window like query, the state-of-the-art processing algorithm
 is EAGR \cite{mondal2014eagr}. EAGR builds an overlay graph including 
 the shared components of different windows. This is done 
 in multiple iterations, each of which performs the following.
-First, EAGR sorts all the vertices according to their $k$-hop 
+First, EAGR sorts all the vertexes according to their $k$-hop 
 neighbors based on their lexicographic order. 
-Second, the sorted vertices are split into equal sized chunks each of which is further built as one frequent-pattern tree to mine the shared components. 
-However, EAGR requires all the vertices' $k$-hop 
+Second, the sorted vertexes are split into equal sized chunks each of which is further built as one frequent-pattern tree to mine the shared components. 
+However, EAGR requires all the vertexes' $k$-hop 
 neighbors to be pre-computed and resided in memory during 
 each sorting and mining operation;
 otherwise, EAGR incurs high computation overhead if the pre-computed structure needs to be shuffled to/from disk.
@@ -128,14 +129,14 @@ Our contributions are summarized as follows:
 \item{We propose a new type of graph analytic query, \emph{Graph Window Query} and formally define two graph windows: k-hop window and topological window. We illustrate how these window queries would help users better query and
 understand the graphs under these different semantics.}
 
-\item{ To support efficient query processing, we further propose two different types of indices: \emph{Dense Block Index} (DBIndex) and \emph{Inheritance Index} (I-Index). The
+\item{ To support efficient query processing, we further propose two different types of indexes: \emph{Dense Block Index} (DBIndex) and \emph{Inheritance Index} (I-Index). The
 \emph{DBIndex} and \emph{I-Index} are specially 
 optimized to support k-hop window and topological window query processing. 
 We develop the indices by integrating the window aggregation sharing techniques to salvage partial work done for efficient computation. In addition, we develop space and performance efficient techniques for index construction. 
 Compared to EAGR \cite{mondal2014eagr}, the state-of-the-art index method for k-hop window queries, our DBIndex is much more memory efficient and scalable towards handling the large-scale graphs. }
 
 \item{We perform extensive experiments over both real and synthetic datasets
-with hundreds of millions of vertices and edges on a single machine. Our experiments 
+with hundreds of millions of vertexes and edges on a single machine. Our experiments 
 indicate that our proposed index-based algorithms outperform the naive non-index
 algorithm 
 by up to four orders of magnitude. In addition, our experiments also show 

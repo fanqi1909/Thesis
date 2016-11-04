@@ -1,51 +1,54 @@
-\section{Neighborhood Analytic}
-By its self-describing name, neighborhood analytic aims to provide
-summaries of each object over its vicinity. In contrast to the global
-analytics which aggregates the entire collection of data as a whole, neighborhood
-analytic provides a personalized view on each object per se. Neighborhood
-data analytics originates from the window function defined in  SQL which is
+\section{Neighborhood Analytics}
+Followed by its self-descriptive name, neighborhood analytics aims to provide
+summaries of each object over its vicinity. In contrast to aggregating the entire collection of data as a whole, neighborhood
+analytic provides a personalized view for each object from its own perspective. Neighborhood
+data analytics originates from the window function defined in SQL which is
 illustrated in Figure~\ref{fig:window}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\linewidth]{window_example.pdf}
 \caption{A SQL window function computing running sum and average of
-sales. The window of season-3 is highlighted.} 
+sales. The window of tuple 3 is highlighted.} 
 \label{fig:window}
 \end{figure}
 
-As shown in the figure, the sales report contains five attributes: 
-``Season'', ``Region'' and ``Sales'' are the facts, ``$\mathtt{sum()}$'' and ``$\mathtt{avg()}$''
-are the analytics representing the running sum and average. A window function
+As shown in the figure, the sales report contains six columns: ``ID'',
+``Season'', ``Region'' and ``Sales'' are the \emph{facts}, ``$\mathtt{sum()}$'' and ``$\mathtt{avg()}$''
+are the \emph{analytics} representing the running sum and average. A window function
 is represented by the $\mathtt{over}$ keyword. In this context, the window of a tuple $o_i$
-contains other tuples $o_j$ such that $o_i$ and $o_j$ are in the same ``region'' and $o_j$'s ``season'' is
-prior to $o_i$'s. The window of season-$3$ for region-``West'' is highlighted.
-Apart from this example, there are many other 
-usages of the window function in the relational context. 
-Being aware of the success of the window function, 
-SQL~11 standard incorporates ``$\mathtt{LEAD}$'' and ``$\mathtt{LAG}$'' 
-keywords which offer fine-grained specifications on a tuple's window.
+contains other another tuple $o_j$ if $o_i$ and $o_j$ are in the same ``region'' and the``season'' of $o_j$ is
+prior to the season of $o_i$. The window of tuple-$3$ is highlighted.
+Apart from this example, there are also many other 
+usages of the window functions in the relational context~\cite{cao2012optimization}. 
+Being aware of the success of the window functions, 
+SQL~11~\cite{zemke2012s} standard incorporates ``$\mathtt{LEAD}$'' and ``$\mathtt{LAG}$'' 
+keywords to offer fine-grained specifications on a tuple's window.
 
-Despite the usefulness, there are very few works reporting the window
-analytics in the non-relational domain. This may dues to the
-usage of \emph{sorting} in relational windows. For example,
+Despite the usefulness, there are few works reporting
+the usage of window functions in data domains such as graphs, sequence data and trajectories.
+This may due to the
+requirement of \emph{sorting} in the window functions. For example,
 in Figure~\ref{fig:window},
 objects need to be sorted according to ``Season'', and then the window of
-each objects is implicitly formed. However, 
-in non-relational context, sorting may be ambiguous and even undefined.
+each objects is implicitly formed based on the sorted order. However, 
+in other data domains, sorting may be ambiguous and even undefined.
 
-To generalize the window function to other domains, we propose the neighborhood
-analytics in a broader context. Given a set of objects 
-(such as tuples in relational domain or vertexes in graph domain),
-the neighborhood analytic is a composite function
-$(\mathcal{F} \circ \mathcal{N})$ applied on every object. $\mathcal{N}$
-is the \emph{neighborhood function}, which contains the related objects of an object;
-$\mathcal{F}$ is an \emph{analytic function}, which could be aggregate, rank,
+To broaden the usages of the window functions in other data domains, we propose the \emph{neighborhood
+analytics} in a more general sense. Given a set of objects 
+(such as tuples in relational tables, vertexes in graphs, moving objects in trajectories),
+the neighborhood analytics is a composite function
+$(\mathcal{F} \circ \mathcal{N})$ applied on every object. Here, $\mathcal{N}$
+is the \emph{neighborhood function}, which contains the related objects (i.e., vicinity) of an object;
+$\mathcal{F}$ is the \emph{analytic function}, which could be aggregation, ranking,
 pattern matching, etc.
-Apparently, the relational window function is a special case of the
+Apparently, the SQL window function is a special case of the
 neighborhood analytics. For example, the window function in Figure~\ref{fig:window} 
 can be represented as $\mathcal{N}(o_i)=\{o_j | o_i.season > o_j.season \wedge o_i.region = o_j.region\}$
 and $\mathcal{F} = \mathtt{avg}$.
-Since the \emph{sorting} requirement is relaxed, our neighborhood analytics is able to
-enrich the semantic of relational window notations 
-and can be applied on many other domains.
+By relaxing the sorting constraint, neighborhood analytics gains an enriched 
+semantic and can be applied on many other data domains.
+
+%Since the \emph{sorting} requirement is relaxed, our neighborhood analytics is able to
+%enrich the semantic of relational window notations 
+%and can be applied on many other domains.

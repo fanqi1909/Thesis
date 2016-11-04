@@ -6,6 +6,19 @@ Rakesh Agrawal, Sreenivas Gollapudi, Alan Halverson, and Samuel Ieong.
 \newblock In {\em Proceedings of the Second ACM International Conference on Web
   Search and Data Mining}, pages 5--14. ACM, 2009.
 
+\bibitem{agrawal1994fast}
+Rakesh Agrawal, Ramakrishnan Srikant, et~al.
+\newblock Fast algorithms for mining association rules.
+\newblock In {\em Proc. 20th int. conf. very large data bases, VLDB}, volume
+  1215, pages 487--499, 1994.
+
+\bibitem{allan1998line}
+James Allan, Ron Papka, and Victor Lavrenko.
+\newblock On-line new event detection and tracking.
+\newblock In {\em Proceedings of the 21st annual international ACM SIGIR
+  conference on Research and development in information retrieval}, pages
+  37--45. ACM, 1998.
+
 \bibitem{aung2010discovery}
 Htoo~Htet Aung and Kian-Lee Tan.
 \newblock Discovery of evolving convoys.
@@ -42,6 +55,13 @@ Allan Borodin, Hyun~Chul Lee, and Yuli Ye.
   updates.
 \newblock In {\em Proceedings of the 31st ACM SIGMOD-SIGACT-SIGAI symposium on
   Principles of Database Systems}, pages 155--166. ACM, 2012.
+
+\bibitem{brants2003asystem}
+Thorsten Brants, Francine Chen, and Ayman Farahat.
+\newblock A system for new event detection.
+\newblock In {\em Proceedings of the 26th Annual International ACM SIGIR
+  Conference on Research and Development in Informaion Retrieval}, SIGIR '03,
+  pages 330--337, New York, NY, USA, 2003. ACM.
 
 \bibitem{briscoe2013determining}
 Erica~J Briscoe, D~Scott Appling, Rudolph~L Mappus~IV, and Heather Hayes.
@@ -101,11 +121,10 @@ Tom Choe, Alexander Skabardonis, and Pravin Varaiya.
 \newblock {\em Transportation Research Record: Journal of the Transportation
   Research Board}, (1811):67--75, 2002.
 
-\bibitem{coppa2015data}
-Emilio Coppa and Irene Finocchi.
-\newblock On data skewness, stragglers, and mapreduce progress indicators.
-\newblock In {\em Proceedings of the Sixth ACM Symposium on Cloud Computing},
-  pages 139--152. ACM, 2015.
+\bibitem{cohen2011computational}
+Sarah Cohen, Chengkai Li, Jun Yang, and Cong Yu.
+\newblock Computational journalism: A call to arms to database researchers.
+\newblock In {\em CIDR}, volume 2011, pages 148--151, 2011.
 
 \bibitem{czumaj2007faster}
 Artur Czumaj, Miros{\l}aw Kowaluk, and Andrzej Lingas.
@@ -225,6 +244,11 @@ Xiaohui Li and Tan Kian-Lee.
 \newblock {\em Managing moving objects and their trajectories}.
 \newblock PhD thesis, National University of Singapore, 2013.
 
+\bibitem{li2015social}
+Xuefei Li, Hongyun Cai, Zi~Huang, Yang Yang, and Xiaofang Zhou.
+\newblock Social event identification and ranking on flickr.
+\newblock {\em World Wide Web}, 18(5):1219--1245, 2015.
+
 \bibitem{li2015platoon}
 Yuxuan Li, James Bailey, and Lars Kulik.
 \newblock Efficient mining of platoon patterns in trajectory databases.
@@ -234,6 +258,12 @@ Yuxuan Li, James Bailey, and Lars Kulik.
 Zhenhui Li, Bolin Ding, Jiawei Han, and Roland Kays.
 \newblock Swarm: Mining relaxed temporal moving object clusters.
 \newblock {\em Proceedings of the VLDB Endowment}, 3(1-2):723--734, 2010.
+
+\bibitem{li2010miningperiodic}
+Zhenhui Li, Bolin Ding, Jiawei Han, Roland Kays, and Peter Nye.
+\newblock Mining periodic behaviors for moving objects.
+\newblock In {\em Proceedings of the 16th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 1099--1108. ACM, 2010.
 
 \bibitem{ma2010ego}
 Huaiyu~Harry Ma, Steven Gustafson, Abha Moitra, and David Bracewell.
@@ -291,6 +321,25 @@ Virginia Vassilevska and Ali Pinar.
 \newblock Finding nonoverlapping dense blocks of a sparse matrix.
 \newblock {\em Lawrence Berkeley National Laboratory}, 2004.
 
+\bibitem{Vuurens2015Onlinenews}
+Jeroen~B.P. Vuurens, Arjen~P. de~Vries, Roi Blanco, and Peter Mika.
+\newblock Online news tracking for ad-hoc information needs.
+\newblock In {\em Proceedings of the 2015 International Conference on The
+  Theory of Information Retrieval}, ICTIR '15, pages 221--230, New York, NY,
+  USA, 2015. ACM.
+
+\bibitem{walenz2014finding}
+Brett Walenz, You~Will Wu, Seokhyun~Alex Song, Emre Sonmez, Eric Wu, Kevin Wu,
+  Pankaj~K Agarwal, Jun Yang, Naeemul Hassan, Afroza Sultana, et~al.
+\newblock Finding, monitoring, and checking claims computationally based on
+  structured data.
+\newblock In {\em Computation+ Journalism Symposium}, 2014.
+
+\bibitem{Walenz:2016:PAD:3007328.3007330}
+Brett Walenz and Jun Yang.
+\newblock Perturbation analysis of database queries.
+\newblock {\em Proc. VLDB Endow.}, 9(14):1635--1646, October 2016.
+
 \bibitem{wang2003closet+}
 Jianyong Wang, Jiawei Han, and Jian Pei.
 \newblock Closet+: Searching for the best strategies for mining frequent closed
@@ -333,6 +382,12 @@ Hilmi Yildirim, Vineet Chaoji, and Mohammed~J Zaki.
   graphs.
 \newblock {\em arXiv preprint arXiv:1301.0977}, 2013.
 
+\bibitem{yoo2006joinless}
+Jin~Soung Yoo and Shashi Shekhar.
+\newblock A joinless approach for mining spatial colocation patterns.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  18(10):1323--1337, 2006.
+
 \bibitem{yu2010graph}
 Jeffrey~Xu Yu and Jiefeng Cheng.
 \newblock Graph reachability queries: A survey.
@@ -371,6 +426,12 @@ Kai Zheng, Yu~Zheng, Nicholas~Jing Yuan, and Shuo Shang.
   Conference on}, pages 242--253. IEEE, 2013.
 
 \bibitem{zheng2015trajectory}
+Yu~Zheng.
+\newblock Trajectory data mining: an overview.
+\newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},
+  6(3):29, 2015.
+
+\bibitem{zheng2015survey}
 Yu~Zheng.
 \newblock Trajectory data mining: an overview.
 \newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},

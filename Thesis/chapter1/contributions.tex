@@ -1,11 +1,8 @@
 \section{Contributions}
-%This thesis strives to showcase the usefulness of the neighborhood
-%concepts and address the efficiency issues when adopting with
-%nontrivial analytic functions. 
 In brief, this thesis entitles a twofold contribution.
 First, by sewing different $\mathcal{N}$s and $\mathcal{F}$s, 
-several novel neighborhood queries are proposed for 
-\emph{graph}, \emph{sequence data} and \emph{trajectory} domains respectively. 
+several novel neighborhood based queries are proposed for 
+\emph{graph}, \emph{sequence data} and \emph{trajectory} respectively. 
 %three interesting
 %neighborhood analytic queries are proposed for \emph{graph}, \emph{time series} 
 %and \emph{trajectory} domains respectively. 
@@ -17,21 +14,31 @@ The roadmap of this thesis is shown in Figure~\ref{fig:thesis_roadmap}.
 \centering
 \includegraphics[width=0.8\linewidth]{thesis_roadmap.pdf}
 \caption{The road map of this thesis. There are three major contributions as highlighted in the center. Each contribution
-is a neighborhood analytic based on different $\mathcal{N}$ and $\mathcal{F}$ as indicated by arrows.} 
+is a neighborhood based analytics with different $\mathcal{N}$ and $\mathcal{F}$ as indicated by arrows.} 
 \label{fig:thesis_roadmap}
 \end{figure}
 
-In a nutshell, we propose the neighborhood queries in three data domains. 
-In \emph{graph}, we identify two types of queries: \emph{k-hop window query} is based on the \emph{distance} neighborhood
-and \emph{topological window query} is based on the \emph{comparison} neighborhood. 
-In \emph{sequenced events}, we design a nested \emph{distant} and \emph{comparison} neighborhoods based pattern called \emph{rank-aware streak}, and propose a $k$-Sketch query to select the most representative rank-aware streaks.
-In \emph{trajectory}, we analyze existing movement patterns based
-on \emph{distance} and \emph{comparison} neighborhoods and unify
-the existing works with a general pattern discovery query. In the following parts of this section, we present our contributions in detail for each of the data domains.
+In a nutshell, we propose three neighborhood based queries in respective data domains. 
+In \emph{graph}, we define the Graph Window Query which summarize the vicinity of each vertex.
+The query utilize the both distance neighborhood and comparison neighborhood to facilitate both
+general graphs and direct acyclic graphs.
+%
+%two types of queries: \emph{k-hop window query} is based on the \emph{distance} neighborhood
+%and \emph{topological window query} is based on the \emph{comparison} neighborhood. 
+In \emph{sequenced data}, we propose a $k$-Sketch Query to summarize a subject's history. The $k$-Sketch query is on
+the basis of a nested \emph{distant} and \emph{comparison} neighborhoods based pattern called \emph{rank-aware streak}.
+%
+% we design a nested \emph{distant} and \emph{comparison} neighborhoods based pattern called \emph{rank-aware streak}, and propose a $k$-Sketch query to select the most representative rank-aware streaks.
+In \emph{trajectory}, we propose a General Co-movement Pattern (GCMP) Query to discover co-moving behaviors among moving objects. The GCMP query leverage the neighborhood notion to unify existing co-moving patterns.
+%
+%we analyze existing movement patterns based
+%on \emph{distance} and \emph{comparison} neighborhoods and unify
+%the existing works with a general pattern discovery query. 
+In the following parts of this section, we present our contributions in detail.
 
 
-\subsection{Window Queries for Graph Data}
-The first piece of the thesis deals with neighborhood query
+\subsection{Graph Window Queries}
+The first piece of the thesis deals with neighborhood analytics
 on graph data. Nowadays information network are typically
 modeled as attributed graphs where the 
 vertexes correspond to objects and the edges capture the
@@ -41,18 +48,37 @@ emerging demands on analyzing these data to extract useful insights.
 We propose the concept of \emph{window analytics} 
 for attributed graph and identify two types of such analytics as shown in the following examples:
 
-\begin{example}[$k$-hop window]
-In a social network (such as Linked-In and Facebook etc.), users are normally modeled as vertexes and connectivity relationships are modeled as edges. In the social network scenario, it is of great interest to summarize the most relevant connections to each user such as the neighbors within $2$-hops. Some analytic queries such as summarizing the related connections' distribution among different companies, and computing age distribution of the related friends can be useful. In order to answer these queries, collecting data from every user's neighborhoods within 2-hop is necessary.
-\end{example}
-\begin{example}[Topological window]
-In biological networks (such as Argocyc, Ecocyc etc.), genes, enzymes and proteins are vertexes and their
-dependencies in a pathway are edges. Because these networks are directed and acyclic, 
-in order to study the protein regulating process, one may be interested to find out the statistics of molecules in each protein production pathway. For each protein,we can traverse the 
-graph to find every other molecules that are in the upstream of its pathway.
-Then we can group and count the number of genes and enzymes among those molecules.
-\end{example}
+\textbf{$k$-hop Window:} The $k$-hop neighbors of a vertex form
+its $k$-hop window. Since the $k$-hop neighbors are the most structurally
+relevant vertexes to the vertex, analytics on the information from the $k$-hop window
+would be beneficial. Typical analytic queries include summarizing the related connections' distribution among different companies, and computing age distribution of the related friends can be useful.
+%In a social network (such as LinkedIn and Facebook etc.), users are normally modeled as vertexes and connectivity relationships are modeled as edges. In the social network scenario, it is of great interest to summarize the most relevant connections to each user such as the neighbors within $2$-hops. Some analytic queries such as summarizing the related connections' distribution among different companies, and computing age distribution of the related friends can be useful. In order to answer these queries, collecting data from every user's neighborhoods within 2-hop is necessary.
+%\end{example}
 
-The two \emph{windows} shown in the examples are essentially neighborhood functions defined for each vertex. Specifically, let $G=(V:E:A)$ be an attributed graph, where $V$ is the set of vertexes, $E$ is the set of edges, and each vertex $v$ is associated as a multidimensional points $a_v \in A$ called attributes.
+\textbf{Topological Window:} The topological neighbors are defined
+in the context of Directed Acyclic Graph (DAG). In DAGs,
+topological neighbors are composed of all the ascendant vertexes of a vertex. 
+The topological neighbors represent the most influential vertexes of a given vertex.
+Since DAGs are often found in biological networks, topological window would
+be helpful to analyze the the statistics of molecules of each biological proteins' pathway.
+%Since the topological neighbors , analytics
+%on the topological window would benefit the deeper understanding of the 
+%network.
+%DAGs are often found
+%in biological networks and citation networks. 
+% The topological neighbors
+%represent the influences from the source vertex to the given vertex, thus
+%analytics over topological window would be interesting.
+
+%\begin{example}[Topological window]
+%In biological networks (such as Argocyc, Ecocyc etc.), genes, enzymes and proteins are vertexes and their
+%dependencies in a pathway are edges. Because these networks are directed and acyclic, 
+%in order to study the protein regulating process, one may be interested to find out the statistics of molecules in each protein production pathway. For each protein,we can traverse the 
+%graph to find every other molecules that are in the upstream of its pathway.
+%Then we can group and count the number of genes and enzymes among those molecules.
+%\end{example}
+
+The two \emph{windows} shown in the above examples are essentially neighborhood functions defined for each vertex. Specifically, let $G=(V,E,A)$ be an attributed graph, where $V$ is the set of vertexes, $E$ is the set of edges, and each vertex $v$ is associated as a multidimensional points $a_v \in A$ called attributes.
 The \emph{k-hop} window is a \emph{distance} neighborhood function, 
 i.e., $\mathcal{N}_1(v,k)= \{u|\mathtt{dist}(v,u) \leq k\}$, 
 which captures the vertexes that are $k$-hop nearby. 
@@ -61,10 +87,10 @@ is a \emph{comparison} neighborhood function that captures
 the ancestors of a vertex in a directly acyclic graph.  The analytic function $\mathcal{F}$ is an aggregate function (sum, avg, etc.) on $A$.
 
 Apart from demonstrating the useful use-cases on these two windows, 
-we also investigate on supporting efficient window processing.  We propose
+we also investigate on supporting efficient Graph Window Query processing.  We propose
 two different types of indexes: Dense Block Index (DBIndex)
 and Inheritance Index (I-Index). The DBIndex and I-Index
-are specially optimized to support k-hop window and topological
+are specially optimized to support $k$-hop window and topological
 window processing. These indexes
 integrate the aggregation process with partial work sharing techniques
 to achieve efficient computation.
@@ -74,25 +100,35 @@ of indexing time as compared to the state-of-the-art competitor and upto 10x
 speedup in query processing. 
 
 
-\subsection{$k$-Sketch Query on Sequenced Events}
-The second piece of the thesis explores the neighborhood
-query for sequenced events. 
-In sequenced events analysis, an important
-and revenue-generating task is to detect sensational patterns.
-An outstanding example of such patterns is the \emph{streak}~\cite{zhang2014discovering}. 
-Streak is commonly used in many sequenced applications,
-such as network monitoring, stock analysis
-and sport reporting. For example, streaks may be of the following forms in stock and sports scenarios:
-\begin{enumerate}
-	\item{[STOCK]:``Apple Inc. has an average price of USD 115.5 in the last week''}
-	\item{[SPORTS]: ``Kobe has scored at least 60 points in three straight games' }
-\end{enumerate}
-% in stock analysis,
-%a streak could be ``Apple Inc. has an average price of USD 115.5 in the last week''.
-%In computational journalism, a streak could be ``Kobe has scored at least 60 points in three straight games''.
-Basically, a \emph{streak} is constructed from two concepts: an \emph{aggregate function} (e.g., average, min)
-applied on a \emph{(time) window} of events (e.g., seven days, three games). In fact, a \emph{streak} can be simply modeled as a neighborhood query for an event, where the neighborhood function returns the time window.
+\subsection{$k$-Sketch Query on Sequence Data}
+The second piece of this thesis explores the neighborhood analytics on sequence data. 
+%In sequence data analysis, 
+As part of the sequence data analysis,
+summarizing a subject's history with sensational patterns
+is an important and revenue-generating task in a plethora of applications 
+such as computational journalism~\cite{cohen2011computational,zhang2014discovering}, automatic fact checking~\cite{hassan2014data,walenz2014finding}, and perturbation analysis~\cite{Walenz:2016:PAD:3007328.3007330}.
+%
+%an important and revenue-generating task is to
+%summarize a subject's history using sensational patterns.
+An outstanding example of such patterns is the \emph{streak}~\cite{zhang2014discovering},
+which is commonly found in stock
+and sports reports. For instance:
 
+%For example, streaks may be of the following forms in stock and sports scenarios:
+
+%Streak is commonly used in many sequenced applications,
+%such as network monitoring, stock analysis
+%and sport reporting. For example, streaks may be of the following forms in stock and sports scenarios:
+\begin{enumerate}
+	\item{[STOCK]:``Apple Inc. has an \emph{average} price of USD 115.5 in the \emph{last week}''}
+	\item{[SPORTS]: ``Kobe has scored \emph{at least} 60 points in \emph{three straight games}'' }
+\end{enumerate}
+In general, a streak is constructed from two concepts: an \emph{aggregate function} (e.g., average, min)
+applied on \emph{consecutive events} (e.g., seven days, three games). 
+%Indeed, a streak an be simply modeled as a neighborhood query.
+However, the streak itself does not embed the strikingness information, which is limited
+to represent a sensational pattern. 
+%
 %
 %is a neighborhood query defined for an event where the neighborhood range is the window the event belongs to.
 %%
@@ -102,72 +138,99 @@ applied on a \emph{(time) window} of events (e.g., seven days, three games). In 
 %
 %Since the streak is aggregated based on the
 %closeness of events in the time domain (i.e., time window), it can be viewed as a neighborhood query where the neighborhood function is defined by the time distance, and the analytic function can be any aggregate function.
-
-However, it is challenging to directly leverage streaks to discover sensational patterns because
-the strikingness of a streak is missing.
+%However, it is challenging to directly leverage streaks to discover sensational patterns because
+%the strikingness of a streak is missing.
 %A direct challenge in discovering phenomenal patterns using streak is
 %how to quantify the strikingness of a streak.
-For example, \emph{Streak 1} would not be striking if all NBA players score over 60 points. 
-On the contrary, knowing that NBA players in average only score 20 points, then \emph{Streak 1} is quite striking. In general, the strikingness of a streak should be measured by comparing with other streaks.
-Based on this idea, we propose a \emph{rank-aware streak} that measures the strikingness of
-a streak by comparing among all streaks under same condition (i.e., window length).
+For example, \emph{Streak 2} would not be striking if all NBA players were able to score over 60 points. 
+On the contrary, knowing that most NBA players only score 20 points in a game,
+\emph{Streak 2} is indeed quite striking. 
+Therefore, the strikingness of a streak should be measured by comparing with other streaks.
+Based on this observation, we propose a rank-aware pattern named \emph{ranked-streak} which measures the strikingness of
+a streak by comparing among all streaks under same condition (i.e., streak length).
 
-
-Technically, the rank-aware streak is formed using a joint neighborhood function. 
-Let $e_s(t)$ denote the event of subject $s$ at time $t$. Then the rank-aware streaks are generated using neighborhood analytics in a two-step manner: 
+Technically, the ranked-streak can be viewed as a joint neighborhood function. 
+Let $e_s(t)$ denote the event of subject $s$ at time $t$. Then the ranked-streaks are generated using neighborhood functions in a two-step manner: 
 
 \begin{enumerate}
 \item {a \emph{distance neighborhood} $\mathcal{N}_1(o_i,w)=\{o_j | o_i.t - o_j.t \leq w \}$ groups a consecutive $w$ events for each event. Let $\overline{v}$ be the aggregate value associated with $\mathcal{N}_1$, then the output of this step is a set of \emph{streak}s of the form  $n=\langle o_i, w, t, \overline{v} \rangle$.}
-\item {a \emph{comparison neighborhood} $\mathcal{N}_2(n_i) = \{n_j | n_j.w = n_i.w \wedge n_i.\overline{v} \geq n_j.\overline{v} \}$ ranks a subject's streak among all other streaks with the same window length. The result of this step is a tuple $\langle o_i, w, t, r \rangle$, where $r$ is the \emph{rank}.}
+\item {a \emph{comparison neighborhood} $\mathcal{N}_2(n_i) = \{n_j | n_j.w = n_i.w \wedge n_i.\overline{v} \geq n_j.\overline{v} \}$ ranks a subject's streak among all other streaks with the same streak length. The result of this step is a tuple $\langle o_i, w, t, r \rangle$, where $r$ is the \emph{rank}.}
 \end{enumerate}
 %(1) a \emph{distance neighborhood} $\mathcal{N}_1(o_i,w)=\{o_j | o_i.t - o_j.t \leq w \}$ groups a consecutive $w$ events for each event. Let $\overline{v}$ be the aggregate value associated with $\mathcal{N}_1$, then the output of this step is a set of \emph{streak}s of the form  $n=\langle o_i, w, t, \overline{v} \rangle$.
 %
 %(2) a \emph{comparison neighborhood} $\mathcal{N}_2(n_i) = \{n_j | n_j.w = n_i.w \wedge n_i.\overline{v} \geq n_j.\overline{v} \}$ ranks a subject's streak among all other streaks with the same window length. The result of this step is a tuple $\langle o_i, w, t, r \rangle$, where $r$ is the \emph{rank}.
 %
 
-As the rank-aware streak contains the position of the streak among its cohort, it provides a quantitative measure of the strikingness.
-For example, the rank-aware
-version of \emph{Streak 1} would be ``Kobe has scored at least 60 points in three straight games, which is best in the league''.  This clearly suggests that \emph{Streak 1} is striking.
+As the ranked-streak contains the relative position of the streak among its cohort, it provides a quantitative measure of the strikingness.
+For example, the rank-aware version of \emph{Streak 2} would be ``Kobe has scored at least 60 points in three straight games, which is best in the league''.  This clearly suggests that \emph{Streak 2} is striking.
 %
 
-A prominent drawback of streak is that the amount of streaks
-%Another challenge  the pattern discovery is that the amount of streaks
-for a subject is huge. For a subject with $N$ events,
-there are $O{N\choose 2}$ streaks as well as rank-aware streaks. 
-In real life, ``Kobe'' has played $1000$ games which may produce near half million streaks.
-Such a large number clearly poses difficulties for pattern discoveries.
-%for selecting phenomen streaks. 
-Nevertheless, we observe that many streaks share almost identical information. For example, when Kobe scored 81 points
-in one game, this single-event streak ranks number 1 among all streaks. Subsequently, the streaks with size 3 (i.e., 3 straight games afterwards) ranked number 10. Thus reporting this
-streak only provide redundant striking information (i.e., the 81 point game).
-Based on this observation, we
-propose a $k$-Sketch query to select the $k$ most \emph{representative streaks} via a novel scoring function that considers both strikingness and diversity of streaks.
+On the basis of the ranked-streaks, we study the problem of effectively summarizing
+a subject history. We notice that, for a subject with $n$ events, there
+are $O{n \choose 2}$ streaks. 
+In real life, ``Kobe'' has played $1,000$ games which may produce near half million streaks.
+Such a large number of streaks is too overwhelming to represent a subject's history. Hence,
+we are motivated to propose a $k$-Sketch query that selects $k$ ranked-streaks which best represent
+a subject's history. To find the qualified streaks, we design a novel scoring which
+considers both the events covered of the streaks and the ranks of the streaks.
+% under a novel scoring function. Our scoring function
+%considers both the events covered of the streaks and the ranks of the streaks.
+
+%A prominent drawback of streak is that the amount of streaks
+%%Another challenge  the pattern discovery is that the amount of streaks
+%for a subject is huge. For a subject with $N$ events,
+%there are $O{N\choose 2}$ streaks as well as rank-aware streaks. 
+%In real life, ``Kobe'' has played $1000$ games which may produce near half million streaks.
+%Such a large number clearly poses difficulties for pattern discoveries.
+%%for selecting phenomen streaks. 
+%Nevertheless, we observe that many streaks share almost identical information. For example, when Kobe scored 81 points
+%in one game, this single-event streak ranks number 1 among all streaks. Subsequently, the streaks with size 3 (i.e., 3 straight games afterwards) ranked number 10. Thus reporting this
+%streak only provide redundant striking information (i.e., the 81 point game).
+%Based on this observation, we
+%propose a $k$-Sketch query to select the $k$ most \emph{representative streaks} via a novel scoring function that considers both strikingness and diversity of streaks.
 %
 %Our $k$-Sketch query is based on a novel scoring function that consider both the 
 %stringness and the diversity of the streaks. 
 
 In this thesis, we extensively study
 the technical issues in processing $k$-Sketch queries in both online and offline scenarios.
-%
-%
-%Besides proposing the rank-aware streak, we also technically 
-%study how to efficiently support the \emph{$k$-Sketch} query in both
-%offline and online scenarios. We propose various window-level 
-%pruning techniques to find striking candidate steaks.
-%Among those candidates, we then develop approximation
-%methods, with theoretical bounds, to discover $k$-sketches for each subject. 
-Furthermore, we conduct experiments on four real
-datasets, and the results demonstrate the efficiency and 
+In the offline scenario, we design two pruning techniques which largely
+reduces the streaks enumerated in generating ranked-streaks. Then, we adopt a
+$(1-1/e)$-approximate sketch selection algorithm by utilizing the 
+submodularity of the $k$-Sketch query. In the online scenario, we design
+an \emph{online-streak bound} to avoid evaluating many unnecessary streaks. Furthermore,
+we propose a $1/8$-approximate algorithm to facilitate efficient sketch maintenance.
+In the experimental study, we compare our solutions with baselines using
+four real datasets, and the results demonstrate the efficiency and 
 effectiveness of our proposed algorithms: the running time
 achieves up to 500x speedup as compared to baseline and the quality of the
 detected sketch is endorsed by the anonymous users
-from Amazon Mechanical Turk \footnote{\url{https://requester.mturk.com}}.
+from Amazon Mechanical Turk\footnote{\url{https://requester.mturk.com}}. 
+%
+%, our techniques is confirmed by the experiments on four 
+%real datasets. And the effectiveness of our $k$-Sketch query is endorsed
+%by the anonymous users from Amazon Mechanical Turk\footnote{\url{https://requester.mturk.com}}.
 
-\subsection{Co-Movement Pattern Query in Trajectory Data}
+%%
+%%Besides proposing the rank-aware streak, we also technically 
+%%study how to efficiently support the \emph{$k$-Sketch} query in both
+%%offline and online scenarios. We propose various window-level 
+%%pruning techniques to find striking candidate steaks.
+%%Among those candidates, we then develop approximation
+%%methods, with theoretical bounds, to discover $k$-sketches for each subject. 
+%Furthermore, we conduct experiments on four real
+%datasets, and the results demonstrate the efficiency and 
+%effectiveness of our proposed algorithms: the running time
+%achieves up to 500x speedup as compared to baseline and the quality of the
+%detected sketch is endorsed by the anonymous users
+%from Amazon Mechanical Turk \footnote{\url{https://requester.mturk.com}}.
+
+\subsection{Co-Movement Pattern Query on Trajectory Data}
 The third piece of the thesis studies the neighborhood
-query on the trajectory domain. 
-In the trajectory domain, an important
-mining task is to discover traveling patterns among moving objects. In trajectory domain, the traveling pattern is often determined by the neighborhoods of moving objects. One of the prominent examples is the \emph{co-movement pattern}~\cite{li2013managing,zheng2015trajectory}.
+analytics in the trajectory domain. 
+In the trajectory analysis, an important
+mining task is to discover traveling patterns among moving objects. 
+A traveling pattern is often determined by the neighborhoods of moving objects. One of the prominent examples is the \emph{co-movement pattern}~\cite{li2013managing,zheng2015trajectory}.
 A co-movement pattern refers to a group of moving objects traveling together for a certain period of time. A pattern is significant if the group size exceeds $M$ and the length of duration exceeds $K$. 
 The group is defined based on the spatial proximity of objects, which 
 can be seen as the spatial neighbors of each object.
@@ -253,19 +316,34 @@ can be seen as the spatial neighbors of each object.
 
 %As shown, there are various types of co-movement patterns facilitating different application needs and 
 
-Rooted from the basic movement definition and driven by different mining applications, there are several instances of co-movement patterns that have been developed with more advanced constraints. 
-However current solutions~\cite{gudmundsson2006computing, jeung2008discovery, li2010swarm,wang2006grouppattern,li2015platoon} are tailored for individual patterns and it is cumbersome to deploy and optimize each of the algorithm. Therefore, there is a need on a general framework which provides versatile and efficient support of all these pattern discoveries. 
+Rooted from the basic movement definition and driven by different mining applications, there are several instances of co-movement patterns that have been developed with more advanced constraints, namely \emph{flock}~\cite{gudmundsson2006computing}, \emph{convoy}~\cite{jeung2008discovery}, \emph{swarm}~\cite{li2010swarm}, 
+\emph{group}~\cite{wang2006grouppattern} and \emph{platoon}~\cite{li2015platoon}. 
+However, these solutions are tailored for each individual pattern and it is cumbersome to deploy and optimize each of the algorithm in real applications. Therefore, there 
+calls for a general framework which provides versatile and efficient support of all these pattern discoveries. 
 
-We observe that 
-these co-movement patterns can be uniformly represented as a two-step neighborhood query as follows:
+We observe that these co-movement patterns can be uniformly represented as a two-step neighborhood analytics as follows:
+	
 	(1) $\mathcal{N}_1$ is a \emph{distance neighborhood} used to determine the spatial proximity of objects. For example,  flock~\cite{gudmundsson2006computing} and group~\cite{wang2006grouppattern} patterns uses the \emph{disk-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_i,o_j) < r \}$ for each object. Convoy~\cite{jeung2008discovery}, swarm~\cite{li2010swarm} and platoon~\cite{li2015platoon} patterns uses the \emph{density-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_j,o_k) \leq \epsilon \wedge o_k \in \mathcal{N}_1(o_i)\}$.
+	
 	(2) $\mathcal{N}_2$ is a comparison neighborhood used to determine the temporal constraints, i.e., $\mathcal{N}_2(o_i)=\{o_j, T | \forall t \in T, C_t(o_i) \equiv C_t(o_j)\}$, where $C_t(\cdot)$ returns the neighborhoods (i.e., $N_1$) of an object at time $t$.
 
-Enlightened by the neighborhood unification, we propose a \emph{General Co-Movement Pattern} (GCMP)
-query to capture all existing co-movement patterns. In GCMP, we treat the proximity detection (i.e., $\mathcal{N}_1$) as
-a black box and only focus on the pattern detection (i.e., $\mathcal{N}_2$). It is notable that the GCMP
-query is able to detect any of the existing co-movement patterns by adopting different analytic functions.
+Enlightened by the neighborhood based unification, we propose a \emph{General Co-Movement Pattern} (GCMP)
+query to capture all existing co-movement patterns in one shot. In GCMP, we treat the proximity detection (i.e., $\mathcal{N}_1$) as
+a black box and only focus on the pattern detection (i.e., $\mathcal{N}_2$). By adopting different analytic functions, GCMP
+query is able to detect any of the existing patterns.
+%
+%It is notable that the GCMP
+%query is able to detect any of the existing co-movement patterns by adopting different analytic functions.
 
 
 
-On the technical side, we study how to efficiently processing GCMP in modern MapReduce platform (i.e., Apache Spark) to gain scalability for large-scale trajectory databases. In particular, we propose two parallel frameworks: (1) TRPM, which partitions trajectories by replicating snapshots in the temporal domain. Within each partitions, a line-sweep method is developed to find all patterns. (2) SPARE, which partitions trajectories based on object's neighborhood. Within each partitions, a variant of Apriori enumerator is applied to generate all patterns. We then show the efficiency of both our methods in the Apache Spark platform with three real trajectory datasets upto 170 million points. The results show that SPARE achieves upto 14 times efficiency as compared to TRPM, and 112 times speedup as compared to the state-of-the-art centralized schemes.
+On the technical side, we study how to efficiently processing GCMP query 
+on the modern parallel platform (i.e., Apache Spark) to
+gain scalability over large-scale trajectories. 
+In particular, we propose two parallel frameworks: (1) TRPM, which partitions trajectories by replicating snapshots in the temporal domain. Within each partitions, a line-sweep method is developed to find all patterns. 
+(2) SPARE, which partitions trajectories based on object's neighborhood. Within each partitions, a variant of Apriori enumerator is applied to generate all patterns. 
+We deploy the two solutions in our in-house cluster with 11 machines. The experiments on three
+real trajectory datasets upto 170 million data points confirms the scalability and efficiency 
+of our methods.
+%
+%We then show the efficiency of both our methods in the Apache Spark platform with three real trajectory datasets upto 170 million points. The results show that SPARE achieves upto 14 times efficiency as compared to TRPM, and 112 times speedup as compared to the state-of-the-art centralized schemes.

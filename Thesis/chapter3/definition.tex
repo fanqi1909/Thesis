@@ -12,7 +12,7 @@ Each node/edge is associated with a (possibly empty) set of attribute-value pair
 %Let $G = (V,E,A)$ be an attribute graph, where $V$ is  its vertex set, $E$ is its edge set and $A$ is its attribute set respectively. An edge $e(u,v) \in E$ indicates that $u$ is linked to $v$, where $u \in V$ and $v \in V$. For every vertex in the graph, there exists one multidimensional vector in $A$ representing the attributes of the vertex. i.e. $\forall v \in V, \exists a(v)=(a_1,a_2..,a_k) \in A$.
 %\end{defn} 
 
-Fig.~\ref{fig:attributed} shows an undirected graph representing a social network that we will use as our running example in this paper. 
+Figure~\ref{fig:attributed} shows an undirected graph representing a social network that we will use as our running example in this paper. 
 The table shows the values of the five attributes (User, Age, Gender, Industry, and Number of posts) associated with each vertex. For convenience, each node is labeled with its user attribute value;
 and there is one edge between a user X and another user Y if X and Y are connected in the social network.
 
@@ -44,7 +44,7 @@ In the following, we introduce two useful types of window specification (i.e., $
 \emph{k-hop window} and \emph{topological window}.
 
 
-\begin{definition}[K-hop Window] 
+\begin{definition}[$k$-hop Window] 
 Given a vertex $v$ in a data graph $G$, 
 the $k$-hop window of $v$, denoted by $W_{kh}(v)$ (or $W(v)$ when there is no ambiguity),
 is the set of neighbors of $v$ in $G$ which can be reached within $k$ hops.
@@ -64,7 +64,7 @@ vertices to a vertex with regard to their structural relationship in a graph.
 Thus, k-hop windows provide meaningful specifications for many applications, such as customer behavior analysis \cite{briscoe2013determining,dai2012predicting} , digital marketing \cite{ma2010ego} etc.
 %\remark{Cite some papers here to justify.}
 
-As an example, in Fig.~\ref{fig:attributed}, the $1$-hop window of vertex \emph{E} is $\{A,C,E\}$ and the $2$-hop window of vertex \emph{E} is $\{A,B,C,D,E,F\}$.  
+As an example, in Figure~\ref{fig:attributed}, the $1$-hop window of vertex \emph{E} is $\{A,C,E\}$ and the $2$-hop window of vertex \emph{E} is $\{A,B,C,D,E,F\}$.  
 
 \begin{definition}[Topological Window] 
 Given a vertex $v$ in a DAG $G$, the topological window of $v$, denoted by $W_t(v)$,
@@ -77,7 +77,7 @@ where topological windows represent meaningful relationships that are of interes
 For example, in a citation network where (X,Y) is an edge  iff paper $X$ cites paper $Y$, 
 the topological window of a paper represents the citation impact of that paper \cite{campanario2011empirical,holsapple2003citation,ma2008bringing}.
 
-As an example, Fig.~\ref{fig:topological} shows a small example of a Pathway Graph from a biological network. 
+As an example, Figure~\ref{fig:topological} shows a small example of a Pathway Graph from a biological network. 
 The topological window of $E$ $W_t(E)$ is $\{A, B, C, D, E\}$ and $W_t(H)$ is $\{A, B, D, H\}$.
 
 
@@ -99,6 +99,7 @@ In this paper, we focus on graph window queries with a single window
 function that is either a k-hop or topological window. 
 The evaluation of complex graph window queries with multiple window 
 functions can be naively processed as a sequence of window functions one
-after another. We leave the optimization of processing multiple
+after another. 
+We leave the optimization of processing multiple
 window functions for further study in the future.
 

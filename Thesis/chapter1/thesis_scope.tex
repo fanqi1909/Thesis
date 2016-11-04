@@ -2,18 +2,22 @@
 In this thesis, we explore the neighborhood analytics in
 three prevalent data domains, namely \textbf{attributed graph},
 \textbf{sequence data} and \textbf{trajectory}. 
-Since the neighborhood analytics could be very broad,
-this thesis only focus on the following 
-two intuitive neighborhood functions:
+To provide useful analytics, we define the following
+two intuitive instances of the neighborhood function:
+%Since the neighborhood analytics could be very broad,
+%this thesis only focus on the following 
+%two intuitive neighborhood functions:
 
 \textbf{Distance Neighborhood}: the neighborhood is defined based on numeric distance, that is $\mathcal{N}(o_i,K) = \{o_j | \mathtt{dist}(o_i,o_j) \leq K \}$, where $\mathtt{dist}$ is a distance function and $K$ is a distance threshold.
 
 \textbf{Comparison Neighborhood}: the neighborhood is defined based on the comparison of objects, that is $\mathcal{N}(o) = \{o_i | o.a_m \ \mathtt{cmp} \ o_i.a_m\}$, where $a_m$ is an attribute of object
-and $\mathtt{cmp}$ is a binary comparator.
+and $\mathtt{cmp}$ is a binary comparator (i.e., $=,<,>,\leq,\neq,\geq$).
 
-There could be other types of neighborhood functions with different level of granularity. 
-However, despite the simpleness of these two neighborhood functions, they 
-are indeed versatile in representing many useful analytics.
+Despite the simpleness of the these two neighborhood functions, they can weave many useful analytics as we shall see in the remaining part of the thesis.
+%
+%There could be other types of neighborhood functions with different constraints. 
+%However, despite the simpleness of these two neighborhood functions, they 
+%are indeed versatile in representing many useful analytics.
 
 %In particular, we looked at three most prevalent data domains, namely \textbf{attributed graph},
 %\textbf{time series} and \textbf{trajectory}. 

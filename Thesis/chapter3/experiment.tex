@@ -34,7 +34,7 @@ All algorithms are implemented in Java and run under JRE 1.6.
 \rule[-1ex]{0pt}{2.5ex} Stanford-web & directed & 281,903 &  2,312,497 \\ 
 \hline 
 \end{tabular}
-\caption{Large Scale Real Data}
+\caption{Large-scale real datasets}
 \label{tab:realdata}
 \end{table}
 
@@ -56,25 +56,26 @@ by using the SUM() as the aggregate function over the integer attribute in each 
 
 \begin{figure*}[t]
 \centering
-\begin{subfigure}{0.23\textwidth}
+\begin{subfigure}{0.45\textwidth}
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/effectiveness/amazon_index_time.pdf}
-  \caption{Index Built on Amazon}
+  \caption{Index built on Amazon}
 \end{subfigure}
-\begin{subfigure}{0.23\textwidth}
+\begin{subfigure}{0.45\textwidth}
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/effectiveness/stanford_index_time.pdf}
-  \caption{Index Built on Stanford-web}
+  \caption{Index built on Stanford-web}
 \end{subfigure}
-\begin{subfigure}{0.23\textwidth}
+
+\begin{subfigure}{0.45\textwidth}
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/effectiveness/amazon_index_size.pdf}
-  \caption{Index Size on Amazon}
+  \caption{Index size on Amazon}
 \end{subfigure}
-\begin{subfigure}{0.23\textwidth}
+\begin{subfigure}{0.45\textwidth}
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/effectiveness/stanford_index_size.pdf}
-  \caption{Index Size on Stanford-web}
+  \caption{Index size on Stanford-web}
 \end{subfigure}
-\caption{Index Construction Analysis for EMC and MC. (a) and (b) 
+\caption{Index construction analysis for EMC and MC. (a) and (b) 
 depict the index time for the Amazon and Stanford-web networks; 
-(c) and (d) shows the index size for the Amazon and Stanford-web datasets}
+(c) and (d) show the index size for the Amazon and Stanford-web datasets}
 \label{fig:index_analysis_emc_mc}
 \end{figure*}
 
@@ -91,7 +92,7 @@ of at most $k$ hops from vertex $v$ to vertex $u$.
 } For queries with hop count larger than 1, 
 EMC uses 1-hop information for the initial clustering. 
 
-\textbf{Index Construction. } Figs.~\ref{fig:index_analysis_emc_mc} 
+\textbf{Index Construction. } Figures~\ref{fig:index_analysis_emc_mc} 
 (a) and (b) compare the index construction time between MC and EMC 
 when we vary the windows from 1-hop to 4-hop for the Amazon and Stanford-web 
 graphs respectively. To better understand the time difference, 
@@ -103,10 +104,10 @@ This is expected as a larger hop count results in a larger window size
 and the BFS and computation time increase correspondingly. 
 Second, as the hop count increases, the difference between the
 index time of EMC and that of MC widens. 
-For instance, as shown in Figs.~\ref{fig:index_analysis_emc_mc}(a) and (b), for the 4-hop window queries, compared to MC, 
+For instance, as shown in Figures~\ref{fig:index_analysis_emc_mc}(a) and (b), for the 4-hop window queries, compared to MC, 
 EMC can save $62\%$ and $66\%$ construction time for the Amazon and Stanford-Web datasets respectively.
 EMC benefits from both the low MinHash cost and low BFS cost. 
-From Figs.~\ref{fig:index_analysis_emc_mc} (a) and (b), 
+From Figures~\ref{fig:index_analysis_emc_mc} (a) and (b), 
 we can see that the MinHash cost of MC increases as the number of hops 
 increases, while that for EMC remains almost the same as the 1-hop case. 
 This shows that the cost of MinHash becomes more significant for larger windows. 
@@ -114,7 +115,7 @@ Thus, using 1-hop clustering for larger hop counts reduces the MinHash cost
 in EMC. Similarly, as EMC saves on BFS cost for k-hop queries where $k > 1$, 
 the BFS cost of EMC is much smaller than that of MC as well. 
 
-\textbf{Index Size.} Figs.~\ref{fig:index_analysis_emc_mc} (c) and (d) 
+\textbf{Index Size.} Figures~\ref{fig:index_analysis_emc_mc} (c) and (d) 
 present the effect of hop counts on the index size for the Amazon and Stanford-web 
 datasets respectively. The y-axis shows the index ratio which is the index size over the original graph size. The insights we derive are: 
 First, the index size is rather small compared to the original graph - it
@@ -130,7 +131,7 @@ This is because the Amazon dataset is undirected while the Stanford-web dataset
 is directed. For the Stanford-web dataset, since we use directed k-hop windows, the window size is naturally smaller. 
 
 \textbf{Query Performance.}       
-Figs.~\ref{fig:khop_effective_query_time} (a) and (b)
+Figures~\ref{fig:khop_effective_query_time} (a) and (b)
 present the query time of MC and EMC 
 on the two datasets respectively 
 as we vary the number of hops from 1 to 4.
@@ -170,14 +171,14 @@ our experimental evaluations.
 \begin{subfigure}{0.48\linewidth}
 \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/effectiveness/amazon_query_time.pdf}
-  \caption{Amazon Graph}
+  \caption{Amazon graph}
 \end{subfigure}%
 \begin{subfigure}{0.48\linewidth}
 \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/effectiveness/stanford_query_time.pdf}
-  \caption{Stanford-web Graph}
+  \caption{Stanford-web graph}
 \end{subfigure}
-\caption{Query Performance Comparison of MC and EMC}
+\caption{Query performance comparison of MC and EMC}
 \label{fig:khop_effective_query_time}
 \end{figure}
 
@@ -194,9 +195,9 @@ We first study the index construction and
 query time performance of DBIndex and EAGR for 1-hop and 2-hop windows 
 using 6 real datasets: DBLP, Youtube, Livejournal, Google, Pokec and Orkut. 
 The results for 1-hop window and 2-hop window are presented
-in Figs.~\ref{fig:1-hop-real} and~\ref{fig:2-hop-real} 
+in Figures~\ref{fig:1-hop-real} and~\ref{fig:2-hop-real} 
 respectively. 
-As shown in Figs.~\ref{fig:1-hop-real}(a) and~\ref{fig:2-hop-real}(a), both DBIndex and EAGR can build the index for all
+As shown in Figures~\ref{fig:1-hop-real}(a) and~\ref{fig:2-hop-real}(a), both DBIndex and EAGR can build the index for all
 the real datasets for 1-hop but EAGR ran out of the memory for 2-hop window queries on LiveJournal and Orkut datasets. This further confirms that EAGR incurs 
 high memory usage as it needs to build the FPT and 
 maintain the vertex-window mapping information. We also observe that 
@@ -205,7 +206,7 @@ We emphasize that the time is shown in logarithmic scale.
 For instance, for Orkut dataset, EAGR takes 4 hours to build the index 
 while DBIndex only takes 33 minutes. 
 
-Fig.~\ref{fig:1-hop-real} (b) and Fig.~\ref{fig:2-hop-real} (b) 
+Figure~\ref{fig:1-hop-real} (b) and Figure~\ref{fig:2-hop-real} (b) 
 show the query performance for 1-hop and 2-hop queries respectively. 
 The results indicate that the query performance is comparable. 
 For most of the datasets, DBIndex is faster than EAGR.
@@ -215,7 +216,7 @@ Youtube and LiveJournal datasets and 2-hop queries on Youtube dataset, DBIndex i
 that these datasets are very sparse graphs where the intersections among windows are naturally small. For very sparse graphs, 
 both DBIndex and EAGR are unable to find much computation sharing. In this case, the performance of DBIndex and EAGR is very close. For instance, in the worse case for livejournal, DBIndex is 9\% slower than EAGR where the actual time difference remains tens of millionseconds.    
  
-Another insight we gain is that as expected, compared to Fig.~\ref{fig:1-hop-real} (b), 
+Another insight we gain is that as expected, compared to Figure~\ref{fig:1-hop-real} (b), 
 2-hop query runs faster for both algorithms. This is because there is more computation sharing for 2-hop window query. 
 
 In summary, 
@@ -243,12 +244,12 @@ performance than EAGR.
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/real_data/real_index_time_h2.pdf}
-  \caption{Index Construction}
+  \caption{Index construction}
 \end{subfigure}
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/real_data/real_query_time_h2.pdf}
-  \caption{Query Performance}
+  \caption{Query performance}
 \end{subfigure}
 \caption{Comparison between DBIndex and EAGR for 2-hop query}
 \label{fig:2-hop-real}
@@ -263,7 +264,7 @@ we generated synthetic datasets using the SNAP generator.
 
 \textbf{Impact of Number of Vertices.} First, we study how the performance 
 changes when we fix the degree \footnote{Degree means average degree of the graph. The generated graph is of Erdos-Renyi model } at 10 and vary the number of vertices from 
-2M to 10M. Figs.~\ref{fig:khop_d10_h1} (a) and (b) show
+2M to 10M. Figures~\ref{fig:khop_d10_h1} (a) and (b) show
 the execution time for index construction and query performance respectively.
 From the results, we can see that DBIndex outperforms EAGR in
 both index construction and query performance. For the graph with 
@@ -279,14 +280,14 @@ DBIndex is not only scalable, but offers acceptable performance..
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/d10h1_index.pdf}
-  \caption{Index Construction}
+  \caption{Index construction}
 \end{subfigure}
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/d10h1_time.pdf}
-  \caption{Query Performance}
+  \caption{Query performance}
 \end{subfigure}%
-\caption{Impact of number of vertices }
+\caption{Impact of number of vertexes }
 \label{fig:khop_d10_h1}
 \end{figure}
 
@@ -295,31 +296,31 @@ DBIndex is not only scalable, but offers acceptable performance..
 \begin{subfigure}{0.46\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/varyd_index_2M.pdf}
-  \caption{Index Construction}
+  \caption{Index construction}
 \end{subfigure}
 \begin{subfigure}{0.50\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/varyd_query_2M.pdf}
-  \caption{Query Performance}
+  \caption{Query performance}
 \end{subfigure}
 \begin{subfigure}{0.50\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/varyd_index_2M_h2.pdf}
-  \caption{Index Construction}
+  \caption{Index construction}
 \end{subfigure}
 \begin{subfigure}{0.46\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/varyd_query_2M_h2.pdf}
-  \caption{Query Performance}
+  \caption{Query performance}
 \end{subfigure}
-\caption{Impact of Degree over Sparse Graphs over 2M vertices. (a) and (b) are the results for 1-hop query; (c) and (d) are the results for 2-hop query. }
+\caption{Impact of degree over sparse graphs over 2M vertexes. (a) and (b) are the results for 1-hop query; (c) and (d) are the results for 2-hop query. }
 \label{fig:khop_v2m}
 \end{figure}
 
-\textbf{Impact of Degree over Sparse Graphs.} Our proposed DBIndex is effective when there is significant overlap between windows of neigboring nodes. As such, it is interesting to study how it performs for sparse graph where the nodes may not share many common neigbors. So, in these experiments, 
+\textbf{Impact of Degree over Sparse Graphs.} Our proposed DBIndex is effective when there is significant overlap between windows of neighboring nodes. As such, it is interesting to study how it performs for sparse graph where the nodes may not share many common neighbors. So, in these experiments, 
 we study the impact of degree when the graph is relatively sparse.
-We fix the number vertices of 2M and vary the vertex degree from 5 to 30. 
-Figs.~\ref{fig:khop_v2m} (a) and (c) present the results 
+We fix the number vertexes of 2M and vary the vertex degree from 5 to 30. 
+Figures~\ref{fig:khop_v2m} (a) and (c) present the results 
 on index construction for 1-hop and 2-hop queries respectively. 
 For 1-hop queries, as degree increases, the time for index
 construction also increases. 
@@ -331,37 +332,37 @@ a degree 5 sparse graph, the initial vertex-mapping can be as large
 as 90GB in a linked list manner, which exceeds the available memory. 
 Note that the size becomes even larger when it is stored in a matrix manner.
 Therefore, we can only show the results of DBIndex. 
-In Fig.~\ref{fig:khop_v2m} (c), indexing time of DBIndex increases as the 
+In Figure~\ref{fig:khop_v2m} (c), indexing time of DBIndex increases as the 
 degree increases. This is expected as a bigger degree  
 increases the overhead of graph traversal time to collect the window. 
 
 
-Fig.~\ref{fig:khop_v2m} (b) and (d)
+Figures~\ref{fig:khop_v2m} (b) and (d)
 show the results on query time 
 for 1-hop and 2-hop queries respectively. 
 We observe a similar pattern for the index construction time:
 for 1-hop queries, the query time increases with increasing degree
-but at a much slower rate than EAGR; for 2-hop queries, we observe in Fig.~\ref{fig:khop_v2m} (d) that the
+but at a much slower rate than EAGR; for 2-hop queries, we observe in Figure~\ref{fig:khop_v2m} (d) that the
 query performance of DBIndex hovers around 100ms, which is much 
 smaller than that of 1-hop query performance. 
 This is because there are more dense blocks in the 2-hop case, 
 in which case the query time can be faster compared to the 1-hop case. 
 
 \textbf{Impact of Degree over Dense Graphs.} We study the 
-impact of degree over very dense graphs with 200k vertices 
+impact of degree over very dense graphs with 200k vertexes 
 when the degree changes from 80 to 200. 
-Figs.~\ref{fig:khop_v200k} (a) and (c) show
+Figures~\ref{fig:khop_v200k} (a) and (c) show
 the execution time for index construction 
 for 1-hop and 2-hop queries respectively. From the results, 
 we can see that DBIndex performs well for dense graphs as well. 
 As the degree increases, EAGR's performance degrades much faster than DBIndex. For 2-hop queries,
-as shown in Figs.~\ref{fig:khop_v200k} (b) and (d), EAGR is only able to work on 
+as shown in Figures~\ref{fig:khop_v200k} (b) and (d), EAGR is only able to work on 
 the dataset with degree 80 due to the memory issue. 
-Even though the number of vertices is relatively small (only 200k), 
+Even though the number of vertexes is relatively small (only 200k), 
 the number of edges is very large when the degree becomes big 
 (e.g. 40M edges with degree of 200). 
 
-Figs.~\ref{fig:khop_v200k} 
+Figures~\ref{fig:khop_v200k} 
 (b) and (d) show the results on query performance 
 for 1-hop and 2-hop queries respectively. 
 The results are consistent with that for sparse graphs
@@ -396,7 +397,7 @@ create a large amount of intermediate data in memory.
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/varyd_query_200k_h2.pdf}
   \caption{Query Performance }
 \end{subfigure}
-\caption{Impact of Degree over Dense Graphs over 200K Vertices. (a) and (b) are the results for 1-hop query; (c) and (d) are the results for 2-hop query. }
+\caption{Impact of degree over dense graphs over 200K vertexes. (a) and (b) are the results for $1$-hop query; (c) and (d) are the results for $2$-hop query. }
 \label{fig:khop_v200k}
 \end{figure}
 
@@ -426,37 +427,37 @@ window in both index construction and query performance. Therefore, in the follo
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/topoeffect/comp/top_index_time_v30k.pdf}
-  \caption{Index Construction}
+  \caption{Index construction}
 \end{subfigure}
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/topoeffect/comp/top_query_time_v30k.pdf}
-  \caption{Query Performance}
+  \caption{Query performance}
 \end{subfigure}
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/topoeffect/comp/top_index_time_v60k.pdf}
-  \caption{Index Construction}
+  \caption{Index construction}
 \end{subfigure}
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/topoeffect/comp/top_query_time_v60k.pdf}
-  \caption{Query Performance}
+  \caption{Query performance}
 \end{subfigure}
-\caption{Impact of Degree. (a) and (b) are the results for 30K vertices; (c) and (d) are the results for 60K vertices.}
+\caption{Impact of degree. (a) and (b) are the results for 30K vertexes; (c) and (d) are the results for 60K vertexes.}
 \label{fig:pi_effect}
 \end{figure}
 
 
-\textbf{Impact of Number of Vertices.} Next, we study how the performance of I-Index 
- is affected when we fix the degree and vary the number of vertices from 50k to 350K. 
-Figs.~\ref{fig:pi_effect2} (a) and (c) show the index construction time when we fix the degree to 
-10 and 20 respectively. From the results, we see that the construction time increases while the number of vertex increases and the construction time of a high degree graph is longer than that for low degree graphs. Figs.~\ref{fig:pi_effect2} (b) and (d) show the query time when we fix the degree to 10 and 20 respectively. 
-As shown, the degree affects the query processing time - when the degree increases, the query time increases as well. We also observe that the query time is increasing linearly when the number of vertices increases. This shows the I-Index has good scalability.  
+\textbf{Impact of Number of Vertexes.} Next, we study how the performance of I-Index 
+ is affected when we fix the degree and vary the number of Vertexes from 50k to 350K. 
+Figures~\ref{fig:pi_effect2} (a) and (c) show the index construction time when we fix the degree to 
+10 and 20 respectively. From the results, we see that the construction time increases while the number of vertex increases and the construction time of a high degree graph is longer than that for low degree graphs. Figures~\ref{fig:pi_effect2} (b) and (d) show the query time when we fix the degree to 10 and 20 respectively. 
+As shown, the degree affects the query processing time - when the degree increases, the query time increases as well. We also observe that the query time is increasing linearly when the number of Vertexes increases. This shows the I-Index has good scalability.  
 
-\textbf{Index Size.} Fig.~\ref{fig:top-index-size} presents
+\textbf{Index Size.} Figure~\ref{fig:top-index-size} presents
 the index size ratio (i.e. size of index divided by the size of original graph) under different degrees from 3 to 20. 
-There are four different sizes of data used with 100k, 150k, 200k and 300k vertices.  
+There are four different sizes of data used with 100k, 150k, 200k and 300k vertexes.  
 For every vertex setting, the index size maintains the same trend in various degrees. The index size is linear to the input graph size. 
 As a graph gets denser, the difference field of the I-Index
 effectively shrinks. Thus, the index size in turn becomes smaller, which explains the bends in the figure.
@@ -466,24 +467,24 @@ effectively shrinks. Thus, the index size in turn becomes smaller, which explain
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/topoeffect/comp/top_scale_index_d10.pdf}
-  \caption{Index Construction }
+  \caption{Index construction }
 \end{subfigure}
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/topoeffect/comp/top_scale_query_d10.pdf}
-  \caption{Query Performance}
+  \caption{Query performance}
 \end{subfigure}
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/topoeffect/comp/top_scale_index_d20.pdf}
-  \caption{Index Construction}
+  \caption{Index construction}
 \end{subfigure}
 \begin{subfigure}{0.48\linewidth}
   \centering
   \includegraphics[width=\textwidth]{chapter3/exp/topoeffect/comp/top_scale_query_d20.pdf}
-  \caption{Query Performance}
+  \caption{Query performance}
 \end{subfigure}
-\caption{Impact of the number of vertices with a fixed degree. (a) and (b) 
+\caption{Impact of the number of vertexes with a fixed degree. (a) and (b) 
 are the results for the graphs with degree 10; (c) and (d) 
 are the graphs with degree 20. }
 \label{fig:pi_effect2}
@@ -492,7 +493,7 @@ are the graphs with degree 20. }
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{chapter3/exp/topoeffect/comp/top_scale_index_size.pdf}
-\caption{Index Ratio of Inheritance-Index}
+\caption{Index ratio of I-Index}
 \label{fig:top-index-size}
 \end{figure}
 

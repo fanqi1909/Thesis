@@ -1,31 +1,50 @@
 \chapter{Introduction}
 With the maturity of database technologies, nowadays
-applications collect data in all domains at an
-unprecedented scale. For example, billions of 
+applications collect and store data from all domains 
+at unprecedented scale. For example, billions of 
 social network users and their activities are collected in the form
-of \emph{graphs}; Thousand sensor reports are collected per second
-in the form of \emph{time series}; Hundreds of millions of temporal-locations
-are collected as \emph{trajectories}, to name just a few. Flooded by the
-tremendous amount of data, it is emerging to 
-provide useful and efficient analytics for various data domains.
-Traditional SQL analytics which comprises 
-of operations (such as, partition, sorting and aggregation) in the relational domain
-become limited in non-structured domains.
-In SQL context, interesting analytics such as graph traversal and pattern detection
-often involve complex joins which are very hard to optimize 
-without domain knowledge.
-In this thesis, we explore the neighborhood data analytic, which
-in SQL is expressed by the window function,
-on different domains and demonstrate how to efficiently deploy
-neighborhood analytic to gain useful insights.
+of \emph{graphs}; Thousands of sensor ticks are collected every second
+in the form of \emph{time series}; Hundreds of millions of spatiotemporal points
+are collected as \emph{trajectories}.
+Flooded by the tremendous amount of data, 
+it is emerging to efficiently conduct analytics to discover useful insights.
+However, traditional SQL analytics which comprises 
+of primary operations (e.g., partition, sorting and aggregation) 
+becomes limited in coping with domain-specific analytics 
+such as graph traversal and pattern detection. 
+In practice, expressing these domain-specific 
+analytics using SQL query often involves 
+complex joins which are hard to optimize. 
+In this thesis, we bring to light the \emph{neighborhood analytics} which
+originates from the recognized SQL window functions. We study
+the usage of \emph{neighborhood analytics} in different data domains
+and design efficient algorithms to cope with nowadays data sizes.
+
+%In this thesis, we explore an important type of 
+%SQL analytics named \emph{window function}
+%in supporting domain-specific analytics. 
+%To this end, we generalize
+%the window function to the \emph{neighborhood analytics} and propose
+%three particular queries of such analytics in different domains.
+%
+%neighborhood-based domain-specific queries.
+%Furthermore, we address the technical issues on how to
+%efficiently process these neighborhood-based queries with regard to nowadays data sizes.
+% efficiently
+%process these neighborhood-based queries.
+
+%which is expressive
+%in many data domains. Furthermore, we address the technical issues on 
 
 \input{chapter1/neighborhood_analytic}
 \input{chapter1/thesis_scope}
-\input{chapter1/contributions}
+\input{chapter1/contributions} 
 
 
 \section{Thesis Organization}
-The remaining part of the thesis are organized as follows: in Chapter 2, we summarize related literature on our
-proposed neighborhood based queries in different data domains. In Chapter 3, we present the window function on graph data. In Chapter 4, we present the $k$-sketch query on sequence data.
-In Chapter 5, we present a pattern mining framework on trajectory data. 
+The rest of the thesis is organized as follows: in Chapter 2, we review the literature related
+to our proposed queries in different data domains.
+In Chapter 3, we present the Graph Window Query on graph data. 
+In Chapter 4, we present the $k$-Sketch Query on sequence data.
+In Chapter 5, we present the General Co-Movement Pattern Query on trajectory data. 
 Chapter 6 summarizes this thesis and highlights future directions.

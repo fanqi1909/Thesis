@@ -2,111 +2,110 @@
 \citation{chen2008graph}
 \citation{cao2012optimization}
 \citation{bellamkonda2013adaptive}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Towards Window Analytics on Large-scale Graphs}{20}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Towards Window Analytics on Large-scale Graphs}{21}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Introduction}{20}}
-\newlabel{query:linkedin-2-hop-window}{{3.1.1}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Introduction}{21}}
+\newlabel{query:linkedin-2-hop-window}{{3.1.1}{22}}
 \citation{keseler2005ecocyc}
 \citation{burt2009structural}
 \citation{mondal2014eagr}
-\newlabel{query:bio-dag-window}{{3.1.2}{22}}
+\newlabel{query:bio-dag-window}{{3.1.2}{23}}
 \citation{mondal2014eagr}
 \citation{mondal2014eagr}
 \citation{mondal2014eagr}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Problem Formulation}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A miniature social graph. (a) the graph structure; (b) the attributes associated with the vertexes of (a).\relax }}{25}}
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:attributed}{{3.1}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Problem Formulation}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A miniature social graph. (a) the graph structure; (b) the attributes associated with the vertexes of (a).\relax }}{26}}
+\newlabel{fig:attributed}{{3.1}{26}}
 \citation{briscoe2013determining}
 \citation{dai2012predicting}
 \citation{ma2010ego}
 \citation{campanario2011empirical}
 \citation{holsapple2003citation}
 \citation{ma2008bringing}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces A miniature pathway DAG. (a) the DAG structure; (b) the attributes associated with the vertexes of (a).\relax }}{27}}
-\newlabel{fig:topological}{{3.2}{27}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Dense Block Index}{28}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Query Processing using DBIndex}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces A miniature pathway DAG. (a) the DAG structure; (b) the attributes associated with the vertexes of (a).\relax }}{28}}
+\newlabel{fig:topological}{{3.2}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Dense Block Index}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Query Processing using DBIndex}{30}}
 \citation{vassilevska2004finding}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Window Query Processing using DBIndex. (a) provides the DBIndex for 1-hop window query in Fig.\nobreakspace  {}3.1\hbox {}; (b) shows the partial aggregate results based on the dense block; (c) provides the final aggregate value of each window. \relax }}{30}}
-\newlabel{fig:dbi_agg}{{3.3}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}DBIndex\ Construction}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Window Query Processing using DBIndex. (a) provides the DBIndex for 1-hop window query in Fig.\nobreakspace  {}3.1\hbox {}; (b) shows the partial aggregate results based on the dense block; (c) provides the final aggregate value of each window. \relax }}{31}}
+\newlabel{fig:dbi_agg}{{3.3}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}DBIndex\ Construction}{31}}
 \citation{broder1997syntactic}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.1}MinHash Clustering (MC)}{31}}
-\newlabel{eq:jacc_sim}{{3.1}{31}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces DBIndex Construction over Social Graph in Fig.\nobreakspace  {}3.1\hbox {}. (a) shows two clusters after MinHash clustering; (b) shows the window information of involved vertices within each cluster; (c) shows the dense blocks within each cluster; (d) provides the final DBIndex.\relax }}{32}}
-\newlabel{fig:dbi-indexing}{{3.4}{32}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces CreateDBIndex\relax }}{33}}
-\newlabel{algo:k-hop-dbi}{{1}{33}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces IdentifyDenseBlocks\relax }}{35}}
-\newlabel{algo:identify}{{2}{35}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces RefineCluster\relax }}{36}}
-\newlabel{algo:refine}{{3}{36}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.2}Estimated MinHash Clustering (EMC)}{36}}
-\newlabel{sec:optimized}{{3.3.2.2}{36}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.3}Justification of Heuristic}{37}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Handling Updates}{40}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces I-Index Construction over the Pathway DAG in Fig.\nobreakspace  {}3.2\hbox {}. (a) shows the DAG structure; (b) provides the inheritance relationship discovered during the index construction; (c) shows the final I-Index.\relax }}{41}}
-\newlabel{fig:diff-index}{{3.5}{41}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Inheritance Index}{42}}
-\newlabel{thm:containment}{{3.4.1}{42}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Index Construction}{43}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Query Processing using I-Index}{44}}
-\newlabel{alg:piconstruction}{{\caption@xref {alg:piconstruction}{ on input line 116}}{45}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces CreateI-Index\relax }}{45}}
-\newlabel{algo:tp-step1-start}{{7}{45}}
-\newlabel{algo:tp-step1-stop}{{12}{45}}
-\newlabel{algo:tp-step2-start}{{16}{45}}
-\newlabel{algo:tp-step2-stop}{{18}{45}}
-\newlabel{algo:piconstruction}{{4}{45}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces QueryProcessingOverIIndex\relax }}{46}}
-\newlabel{code:dstw-index-tp1}{{2}{46}}
-\newlabel{code:dstw-index-tp2}{{7}{46}}
-\newlabel{alg:dstw-index}{{5}{46}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Handling Updates}{46}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.1}MinHash Clustering (MC)}{32}}
+\newlabel{eq:jacc_sim}{{3.1}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces DBIndex Construction over Social Graph in Fig.\nobreakspace  {}3.1\hbox {}. (a) shows two clusters after MinHash clustering; (b) shows the window information of involved vertices within each cluster; (c) shows the dense blocks within each cluster; (d) provides the final DBIndex.\relax }}{33}}
+\newlabel{fig:dbi-indexing}{{3.4}{33}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces CreateDBIndex\relax }}{34}}
+\newlabel{algo:k-hop-dbi}{{1}{34}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces IdentifyDenseBlocks\relax }}{36}}
+\newlabel{algo:identify}{{2}{36}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces RefineCluster\relax }}{37}}
+\newlabel{algo:refine}{{3}{37}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.2}Estimated MinHash Clustering (EMC)}{37}}
+\newlabel{sec:optimized}{{3.3.2.2}{37}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2.3}Justification of Heuristic}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Handling Updates}{41}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces I-Index Construction over the Pathway DAG in Figure\nobreakspace  {}3.2\hbox {}. (a) shows the DAG structure; (b) provides the inheritance relationship discovered during the index construction; (c) shows the final I-Index.\relax }}{42}}
+\newlabel{fig:diff-index}{{3.5}{42}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Inheritance Index}{43}}
+\newlabel{thm:containment}{{3.4.1}{43}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Index Construction}{44}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Query Processing using I-Index}{45}}
+\newlabel{alg:piconstruction}{{\caption@xref {alg:piconstruction}{ on input line 116}}{46}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces CreateI-Index\relax }}{46}}
+\newlabel{algo:tp-step1-start}{{7}{46}}
+\newlabel{algo:tp-step1-stop}{{12}{46}}
+\newlabel{algo:tp-step2-start}{{16}{46}}
+\newlabel{algo:tp-step2-stop}{{18}{46}}
+\newlabel{algo:piconstruction}{{4}{46}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces QueryProcessingOverIIndex\relax }}{47}}
+\newlabel{code:dstw-index-tp1}{{2}{47}}
+\newlabel{code:dstw-index-tp2}{{7}{47}}
+\newlabel{alg:dstw-index}{{5}{47}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Handling Updates}{47}}
 \citation{bender2005lowest}
 \citation{czumaj2007faster}
 \citation{yildirim2013dagger}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Experimental Evaluation}{47}}
-\newlabel{sec:experiments}{{3.5}{47}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Updates on \emph  {I-Index}. Cloud shape indicate the nodes in the subgraph between the endpoint nodes. The dashed circle indicate the affected range of updates. The bold arrow indicates the $PID$ field \emph  {I-Index}\relax }}{48}}
-\newlabel{fig:dag_update}{{3.6}{48}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Large Scale Real Data\relax }}{48}}
-\newlabel{tab:realdata}{{3.1}{48}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Experimental Evaluation}{48}}
+\newlabel{sec:experiments}{{3.5}{48}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Updates on \emph  {I-Index}. Cloud shape indicate the nodes in the subgraph between the endpoint nodes. The dashed circle indicate the affected range of updates. The bold arrow indicates the $PID$ field \emph  {I-Index}\relax }}{49}}
+\newlabel{fig:dag_update}{{3.6}{49}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Large-scale real datasets\relax }}{49}}
+\newlabel{tab:realdata}{{3.1}{49}}
 \citation{yildirim2013dagger}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Index Construction Analysis for EMC and MC. (a) and (b) depict the index time for the Amazon and Stanford-web networks; (c) and (d) shows the index size for the Amazon and Stanford-web datasets\relax }}{49}}
-\newlabel{fig:index_analysis_emc_mc}{{3.7}{49}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Comparison between MC and EMC}{49}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Index construction analysis for EMC and MC. (a) and (b) depict the index time for the Amazon and Stanford-web networks; (c) and (d) show the index size for the Amazon and Stanford-web datasets\relax }}{50}}
+\newlabel{fig:index_analysis_emc_mc}{{3.7}{50}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Comparison between MC and EMC}{51}}
 \citation{mondal2014eagr}
 \citation{mondal2014eagr}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Query Performance Comparison of MC and EMC\relax }}{52}}
-\newlabel{fig:khop_effective_query_time}{{3.8}{52}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Comparison between DBIndex and EAGR}{52}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2.1}Real Datasets}{52}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2.2}Synthetic Datasets}{53}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison between DBIndex and EAGR for 1-hop query\relax }}{54}}
-\newlabel{fig:1-hop-real}{{3.9}{54}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparison between DBIndex and EAGR for 2-hop query\relax }}{54}}
-\newlabel{fig:2-hop-real}{{3.10}{54}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Impact of number of vertices \relax }}{55}}
-\newlabel{fig:khop_d10_h1}{{3.11}{55}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Impact of Degree over Sparse Graphs over 2M vertices. (a) and (b) are the results for 1-hop query; (c) and (d) are the results for 2-hop query. \relax }}{56}}
-\newlabel{fig:khop_v2m}{{3.12}{56}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces Impact of Degree over Dense Graphs over 200K Vertices. (a) and (b) are the results for 1-hop query; (c) and (d) are the results for 2-hop query. \relax }}{57}}
-\newlabel{fig:khop_v200k}{{3.13}{57}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Evaluation of I-Index}{57}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Impact of Degree. (a) and (b) are the results for 30K vertices; (c) and (d) are the results for 60K vertices.\relax }}{59}}
-\newlabel{fig:pi_effect}{{3.14}{59}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Impact of the number of vertices with a fixed degree. (a) and (b) are the results for the graphs with degree 10; (c) and (d) are the graphs with degree 20. \relax }}{60}}
-\newlabel{fig:pi_effect2}{{3.15}{60}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Conclusion and Future Work}{60}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Query performance comparison of MC and EMC\relax }}{53}}
+\newlabel{fig:khop_effective_query_time}{{3.8}{53}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Comparison between DBIndex and EAGR}{54}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2.1}Real Datasets}{54}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison between DBIndex and EAGR for 1-hop query\relax }}{55}}
+\newlabel{fig:1-hop-real}{{3.9}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparison between DBIndex and EAGR for 2-hop query\relax }}{55}}
+\newlabel{fig:2-hop-real}{{3.10}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Impact of number of vertexes \relax }}{56}}
+\newlabel{fig:khop_d10_h1}{{3.11}{56}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2.2}Synthetic Datasets}{56}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Impact of degree over sparse graphs over 2M vertexes. (a) and (b) are the results for 1-hop query; (c) and (d) are the results for 2-hop query. \relax }}{57}}
+\newlabel{fig:khop_v2m}{{3.12}{57}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces Impact of degree over dense graphs over 200K vertexes. (a) and (b) are the results for $1$-hop query; (c) and (d) are the results for $2$-hop query. \relax }}{59}}
+\newlabel{fig:khop_v200k}{{3.13}{59}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Evaluation of I-Index}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Impact of degree. (a) and (b) are the results for 30K vertexes; (c) and (d) are the results for 60K vertexes.\relax }}{60}}
+\newlabel{fig:pi_effect}{{3.14}{60}}
 \citation{wang2014pagrol}
 \citation{zhao2011graph}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces Index Ratio of Inheritance-Index\relax }}{61}}
-\newlabel{fig:top-index-size}{{3.16}{61}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Conclusion and Future Work}{61}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Impact of the number of vertexes with a fixed degree. (a) and (b) are the results for the graphs with degree 10; (c) and (d) are the graphs with degree 20. \relax }}{62}}
+\newlabel{fig:pi_effect2}{{3.15}{62}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces Index ratio of I-Index\relax }}{63}}
+\newlabel{fig:top-index-size}{{3.16}{63}}
 \@setckpt{chapter3/chapter3}{
-\setcounter{page}{62}
+\setcounter{page}{64}
 \setcounter{equation}{9}
 \setcounter{enumi}{2}
 \setcounter{enumii}{0}
@@ -127,6 +126,7 @@
 \setcounter{ContinuedFloat}{0}
 \setcounter{subfigure}{0}
 \setcounter{subtable}{0}
+\setcounter{nlinenum}{0}
 \setcounter{float@type}{8}
 \setcounter{algorithm}{5}
 \setcounter{ALG@line}{11}

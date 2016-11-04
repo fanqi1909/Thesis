@@ -1,7 +1,7 @@
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.8\textwidth]{chapter3/di_indexing.pdf}
-	\caption{I-Index Construction over the Pathway DAG in Fig.~\ref{fig:topological}. (a) shows the DAG structure; (b) provides the inheritance relationship discovered during the index construction; (c) shows the final I-Index.}
+	\caption{I-Index Construction over the Pathway DAG in Figure~\ref{fig:topological}. (a) shows the DAG structure; (b) provides the inheritance relationship discovered during the index construction; (c) shows the final I-Index.}
 	\label{fig:diff-index}
 \end{figure}
 
@@ -24,9 +24,9 @@ In a DAG, if vertex u is the ancestor of vertex v, the topological window of $v$
 In a DAG, if $u$ is the ancestor of $v$, then $u \leadsto v$. $\forall w \in W_t(u)$, then $w \leadsto u$. As $u \leadsto v$, then $w \leadsto v$. Thus, $w \in W_t(v)$ and the theorem is proved.   
 \end{proof}
 
-Let us consider the BioPathway graph in Fig.~\ref{fig:topological} as
+Let us consider the BioPathway graph in Figure~\ref{fig:topological} as
 an example.
-Fig.~\ref{fig:diff-index} (a) shows its abstract DAG. In (a), 
+Figure~\ref{fig:diff-index} (a) shows its abstract DAG. In (a), 
 D is the ancestor of E. In addition, we can see that the window of $D$, 
 $W_t(D)$ is $\{A, B, D\}$ and the window of $E$, $W_t(E)$ is $\{A, B, D, C, E\}$. It is easy to see that $W_t(D) \subset W_t(E)$. 
 
@@ -41,7 +41,7 @@ $W_t(u)$ and $W_t(v)$. We note that in a DAG, it is possible for $u$ to have
 multiple parents, $v_1, \cdots, v_k$. In this case, the parent
 which has the smallest difference with $u$ can be used; where there
 is a tie, it is arbitrarily broken.
-We refer to this parent as the {\em closest} parent. For instance, in Fig.~\ref{fig:diff-index} (a), instead of maintaining 
+We refer to this parent as the {\em closest} parent. For instance, in Figure~\ref{fig:diff-index} (a), instead of maintaining 
 $\{A, B, D, C\}$ for $W_t(E)$, it can simply maintain the difference 
 to $W_t(D)$ which is $\{C\}$. This is clearly more space efficient.
 
@@ -51,7 +51,7 @@ aggregate result of its closest parent, $v$.
 Referring to our example, the aggregation result of $W_t(D)$ can be 
 simply passed or inherited to $W_t(E)$ and further aggregated with the difference 
 set ($\{C\}$) in $W_t(E)$ to generate the aggregate value for $W_t(E)$. 
-Fig.~\ref{fig:diff-index} (b) indicates the inheritance relationship that 
+Figure~\ref{fig:diff-index} (b) indicates the inheritance relationship that 
 the values of the father can be inherited to the child in the tree. 
 
 Thus, we propose a new structure, called the \textbf{inheritance index}, 
@@ -69,8 +69,8 @@ WD($v$), we can derive $W_t(v)$.
 Likewise, we can retrieve the aggregation result of $u$ 
 which can be reused to compute $v$'s aggregation result.
 
-Fig.~\ref{fig:diff-index}(c) shows the I-index of our example
-in Fig.~\ref{fig:diff-index}(a). In the figure, I-Index
+Figure~\ref{fig:diff-index}(c) shows the I-index of our example
+in Figure~\ref{fig:diff-index}(a). In the figure, I-Index
 is represented in a table format; 
 the second column is the PID and the third indicates the WD. 
 
@@ -173,7 +173,7 @@ parent's aggregate value and window difference sets.
 This avoids repeated aggregate computation and achieves 
 the goal of computation sharing between a vertex and its parent. 
 In so doing, the computation overhead can be further reduced. 
-Take the index  provided in Fig.~\ref{fig:diff-index} (c) as an example, 
+Take the index  provided in Figure~\ref{fig:diff-index} (c) as an example, 
 assume the query wants to calculate the sum value over each window 
 for every vertex. As a comparison, the number of add operations 
 are 33, 22, 16 for the cases without any index, 
@@ -213,40 +213,36 @@ in various graph conditions. We defer the discussion to Section 6.
 %\eat{
 We cover the updates handling in this section. For attribute updates, \emph{I-Index} is not affected since \emph{I-Index} is only structure related. Structure updates on \emph{I-Index} consists of node updates and edge updates. It is easy to handle the case where an isolated node is added or delete, since it does not affect any other nodes in the graph. Adding (resp. deleting) a node with edges can be done via edge insertions (resp. deletions). Here we focus on describing single edge insertion and deletion. We use $I$ to denote the \emph{I-index} and $I(v)$ to denote the index entry of $v$. 
 
-During an update of edge $e(s,t)$, there are two types of vertices are affected. The first type contains single node $t$, which is the endpoint of edge $e$. The second type of nodes contains all the descendants of $t$. There are altogether four special cases needs to be consider during the updates. We illustrate the four cases with aids of Fig.~\ref{fig:dag_update}. In Fig.~\ref{fig:dag_update}, the dashed edge $e(s,t)$ is the edge to be updated (added or deleted). The node $u$ is the \emph{lowest common ancestor}(LCA) of $t$ and $s$. The cloud shape $A$ and $B$ are nodes in between of $u,s$ and $u,t$. Since $u$ is the \emph{LCA}, $A$ and $B$ are thus disjoint. Bold edge $e(c,d)$ indicate that $I(d).PID$ is $c$. We distinguish and handle the four cases as follows:
+During an update of edge $e(s,t)$, there are two types of vertices are affected. The first type contains single node $t$, which is the endpoint of edge $e$. The second type of nodes contains all the descendants of $t$. There are altogether four special cases needs to be consider during the updates. We illustrate the four cases with aids of Figure~\ref{fig:dag_update}. In Figure~\ref{fig:dag_update}, the dashed edge $e(s,t)$ is the edge to be updated (added or deleted). The node $u$ is the \emph{lowest common ancestor}(LCA) of $t$ and $s$. The cloud shape $A$ and $B$ are nodes in between of $u,s$ and $u,t$. Since $u$ is the \emph{LCA}, $A$ and $B$ are thus disjoint. Bold edge $e(c,d)$ indicate that $I(d).PID$ is $c$. We distinguish and handle the four cases as follows:
 
-\textbf{Case I ($I(t).PID = s$)}: As shown in Fig.~\ref{fig:dag_update} (a), during deletion, $t$ needs to choose a parent from $A$ to be its $I(t).PID$. $I(t).WD$ needs to be updated accordingly. In this case, no insertion needs to be considered since if there is no edge between $s$ and $t$, $I(t).PID$ cannot be $s$. 
+\textbf{Case I ($I(t).PID = s$)}: As shown in Figure~\ref{fig:dag_update} (a), during deletion, $t$ needs to choose a parent from $A$ to be its $I(t).PID$. $I(t).WD$ needs to be updated accordingly. In this case, no insertion needs to be considered since if there is no edge between $s$ and $t$, $I(t).PID$ cannot be $s$. 
 
-\textbf{Case II ($I(t).PID \neq s$)}: As shown in Fig.~\ref{fig:dag_update} (b), during insertion, $B$ needs to be excluded from $I(t).WD$. During deletion, any node in $B$ that cannot reach $t$ needs to be included in $I(t).WD$. Since $A$ and $B$ are disjoint, every node in $B$ needs to be removed from $I(t).WD$
+\textbf{Case II ($I(t).PID \neq s$)}: As shown in Figure~\ref{fig:dag_update} (b), during insertion, $B$ needs to be excluded from $I(t).WD$. During deletion, any node in $B$ that cannot reach $t$ needs to be included in $I(t).WD$. Since $A$ and $B$ are disjoint, every node in $B$ needs to be removed from $I(t).WD$
 
-\textbf{Case III ($t \leadsto I(v).PID$)}: As shown in Fig.~\ref{fig:dag_update} (c), during insertion, any node in $B$ needs to be removed from $I(v).WD$. During deletion, any node in $B$ that reaches $v$ but cannot reach $a$ needs to be added to $I(v).WD$.
+\textbf{Case III ($t \leadsto I(v).PID$)}: As shown in Figure~\ref{fig:dag_update} (c), during insertion, any node in $B$ needs to be removed from $I(v).WD$. During deletion, any node in $B$ that reaches $v$ but cannot reach $a$ needs to be added to $I(v).WD$.
 
-\textbf{Case IV ($t \nrightarrow I(v).PID$)}: As shown in Fig.~\ref{fig:dag_update} (d), during insertion, any node in $B$ that cannot reach $r$ needs to be included into $I(v).WD$. During deletion, any node in $B$ that cannot reach $v$ needs to be excluded from $I(v).WD$.
+\textbf{Case IV ($t \nrightarrow I(v).PID$)}: As shown in Figure~\ref{fig:dag_update} (d), during insertion, any node in $B$ that cannot reach $r$ needs to be included into $I(v).WD$. During deletion, any node in $B$ that cannot reach $v$ needs to be excluded from $I(v).WD$.
 
 During structure updates, essential operations are computing $A,B$ and performing reachability queries. Computing $A,B$ can be done via existing techniques such as \cite{bender2005lowest,czumaj2007faster} while reachability query can be supported by indexing methods such as \cite{yildirim2013dagger}. We defer exploring for more efficient updating algorithms to future work 
 
 
 \begin{figure*}[t]
 \centering
-\begin{subfigure}{0.20\linewidth}
-\centering
+\begin{subfigure}{0.22\linewidth}
   \includegraphics[width=\textwidth]{chapter3/dag_update_1.pdf}
-  \caption{Edge Update Case 1}
+  \caption{Case 1}
 \end{subfigure}%
-\begin{subfigure}{0.20\linewidth}
-\centering
+\begin{subfigure}{0.22\linewidth}
   \includegraphics[width=\textwidth]{chapter3/dag_update_2.pdf}
-  \caption{Edge Update Case 2}
+  \caption{ Case 2}
 \end{subfigure}
-\begin{subfigure}{0.19\linewidth}
-\centering
+\begin{subfigure}{0.205\linewidth}
   \includegraphics[width=\textwidth]{chapter3/dag_update_3.pdf}
-  \caption{Edge Update Case 3}
+  \caption{Case 3}
 \end{subfigure}
-\begin{subfigure}{0.20\linewidth}
-\centering
+\begin{subfigure}{0.22\linewidth}
   \includegraphics[width=\textwidth]{chapter3/dag_update_4.pdf}
-  \caption{Edge Update Case 4}
+  \caption{Case 4}
 \end{subfigure}
 \caption{Updates on \emph{I-Index}. Cloud shape indicate the nodes in the subgraph between the endpoint nodes. The dashed circle indicate the affected range of updates. The bold arrow indicates the $PID$ field \emph{I-Index}}
 \label{fig:dag_update}

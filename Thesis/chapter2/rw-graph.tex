@@ -8,7 +8,7 @@ graph based on attributes of vertex (and/or edges), (2) aggregate each
 partition to form Aggregated Nodes, and (3) link each aggregate node to
 form one Aggregated Graph. An illustration of the Graph Aggregation is shown 
 in Figure~\ref{fig:rw-agg-window} (b). In the first step, the input graph
-is partitioned on the``Gender'' attribute of vertexes which results in two partitions. In the second
+is partitioned on the``Gender'' attribute of vertex which results in two partitions. In the second
 step, two aggregated nodes are formed, i.e., $M$ (stands for Male) containing nodes $A,D,E$
 and $F$ (stands for female) containing nodes $B,C,F$. In the third step, the links between 
 $M$ and $F$ are added, with the ``count'' attached on each links. 
@@ -24,8 +24,8 @@ and they could not model each other.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{chapter2/graphagg-window}
-\caption{Illustration of Graph Aggregation and Graph Window Queries. (a) is an example social network, (b) is graph aggregation, (c) is the window of vertexes $B$ and $E$.}
+\includegraphics[width=0.8\textwidth]{chapter2/graphagg-window}
+\caption{Illustration of Graph Aggregation and Graph Window Queries. (a) is an example social network, (b) is graph aggregation, (c) are the windows of vertexes $B$ and $E$.}
 \label{fig:rw-agg-window}
 \end{figure}
 
@@ -86,7 +86,7 @@ This is similar to our $k$-hop query, while the difference is that they
 focus on providing pruning techniques to select the $k$ best vertexes and our graph
 window query aims to compute the analytics for each vertex. Therefore,
 in our setting, the pruning techniques in~\cite{yan2010top} does not take effect
-and would be equivalent to the non-indexed approach as described in Section~\ref{sec:graph:non-index}.
+and would be equivalent to the non-indexed approach.% as described in Section~\ref{sec:graph:non-index}.
 %This is similar to our $k$-hop queries while the difference is that they
 %focus on providing pruning techniques to select $k$ best vertexes and our graph
 %window query aims to compute the analytic values for each vertex. In our 
