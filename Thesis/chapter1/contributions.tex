@@ -1,5 +1,5 @@
 \section{Contributions}
-In brief, this thesis entitles a twofold contribution.
+In brief, the contribution of this thesis is twofold.
 First, by sewing different $\mathcal{N}$s and $\mathcal{F}$s, 
 several novel neighborhood based queries are proposed for 
 \emph{graph}, \emph{sequence data} and \emph{trajectory} respectively. 
@@ -8,7 +8,7 @@ several novel neighborhood based queries are proposed for
 %and \emph{trajectory} domains respectively. 
 Second, this thesis
 deals with the efficiency issues in deploying the corresponding analytic queries to
-handle data of nowadays scale.
+handle data of large scale data.
 The roadmap of this thesis is shown in Figure~\ref{fig:thesis_roadmap}.
 \begin{figure}[h]
 \centering
@@ -19,14 +19,13 @@ is a neighborhood based analytics with different $\mathcal{N}$ and $\mathcal{F}$
 \end{figure}
 
 In a nutshell, we propose three neighborhood based queries in respective data domains. 
-In \emph{graph}, we define the Graph Window Query which summarize the vicinity of each vertex.
-The query utilize the both distance neighborhood and comparison neighborhood to facilitate both
+In \emph{graph}, we define the Graph Window Query which summarizes the vicinity of each vertex.
+The query utilizes both distance neighborhood and comparison neighborhood to facilitate both
 general graphs and direct acyclic graphs.
 %
 %two types of queries: \emph{k-hop window query} is based on the \emph{distance} neighborhood
 %and \emph{topological window query} is based on the \emph{comparison} neighborhood. 
-In \emph{sequenced data}, we propose a $k$-Sketch Query to summarize a subject's history. The $k$-Sketch query is on
-the basis of a nested \emph{distant} and \emph{comparison} neighborhoods based pattern called \emph{rank-aware streak}.
+In \emph{sequenced data}, we propose a $k$-Sketch Query to summarize a subject's history. The $k$-Sketch query builds on a nested \emph{distant} and \emph{comparison} neighborhood based pattern called \emph{rank-aware streak}.
 %
 % we design a nested \emph{distant} and \emph{comparison} neighborhoods based pattern called \emph{rank-aware streak}, and propose a $k$-Sketch query to select the most representative rank-aware streaks.
 In \emph{trajectory}, we propose a General Co-movement Pattern (GCMP) Query to discover co-moving behaviors among moving objects. The GCMP query leverage the neighborhood notion to unify existing co-moving patterns.
@@ -87,7 +86,7 @@ is a \emph{comparison} neighborhood function that captures
 the ancestors of a vertex in a directly acyclic graph.  The analytic function $\mathcal{F}$ is an aggregate function (sum, avg, etc.) on $A$.
 
 Apart from demonstrating the useful use-cases on these two windows, 
-we also investigate on supporting efficient Graph Window Query processing.  We propose
+we also investigate how Graph Window Query processing can be efficiently supported.  We propose
 two different types of indexes: Dense Block Index (DBIndex)
 and Inheritance Index (I-Index). The DBIndex and I-Index
 are specially optimized to support $k$-hop window and topological
@@ -228,7 +227,7 @@ from Amazon Mechanical Turk\footnote{\url{https://requester.mturk.com}}.
 \subsection{Co-Movement Pattern Query on Trajectory Data}
 The third piece of the thesis studies the neighborhood
 analytics in the trajectory domain. 
-In the trajectory analysis, an important
+In trajectory analysis, an important
 mining task is to discover traveling patterns among moving objects. 
 A traveling pattern is often determined by the neighborhoods of moving objects. One of the prominent examples is the \emph{co-movement pattern}~\cite{li2013managing,zheng2015trajectory}.
 A co-movement pattern refers to a group of moving objects traveling together for a certain period of time. A pattern is significant if the group size exceeds $M$ and the length of duration exceeds $K$. 
@@ -337,7 +336,7 @@ query is able to detect any of the existing patterns.
 
 
 
-On the technical side, we study how to efficiently processing GCMP query 
+On the technical side, we study how to efficiently process GCMP query 
 on the modern parallel platform (i.e., Apache Spark) to
 gain scalability over large-scale trajectories. 
 In particular, we propose two parallel frameworks: (1) TRPM, which partitions trajectories by replicating snapshots in the temporal domain. Within each partitions, a line-sweep method is developed to find all patterns. 

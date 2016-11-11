@@ -9,6 +9,7 @@
 \usepackage{epsfig,epstopdf}
 \usepackage{subcaption}
 \usepackage{caption}
+\usepackage[nocompress]{cite}
 \usepackage{multirow}
 \usepackage{makecell}
 %\usepackage{pbox}
@@ -46,7 +47,7 @@
 \newcommand{\original}[1]{\sout{#1}}
 
 
-\includeonly{chapter1/chapter1, chapter2/chapter2}
+\includeonly{chapter4/chapter4, appendix}
 
 %input macros (i.e. write your own macros file called mymacros.tex 
 %and uncomment the next line)
@@ -93,8 +94,7 @@
 \include{conclusions}
 
 %now enable appendix numbering format and include any appendices
-\appendix
-\include{appendix}
+
 
 %next line adds the Bibliography to the contents page
 \addcontentsline{toc}{chapter}{Bibliography}
@@ -102,6 +102,9 @@
 %\renewcommand{\bibname}{References}
 \bibliography{refs}        %use a bibtex bibliography file refs.bib
 \bibliographystyle{plain}  %use the plain bibliography style
+
+\appendix
+\include{appendix}
 
 \end{document}
 

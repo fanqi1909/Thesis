@@ -1,7 +1,7 @@
 \section{Introduction}
 Information networks such as social networks, 
-biological networks and phone-call networks are 
-typically modeled as graphs \cite{chen2008graph}
+biological networks, and phone-call networks are 
+typically modeled as graphs~\cite{chen2008graph},
 where the vertexes correspond to objects and the edges
 capture the relationships between these objects.
 For instance, in social networks, every user is represented by
@@ -9,7 +9,7 @@ a vertex and the friendship between two users is reflected by an edge between
 the vertexes. In addition, a user's profile can be maintained as
 the vertex's attributes. Such graphs contain a wealth of valuable 
 information which can be analyzed to discover interesting patterns. 
-For example, we can find the top-k influential users who can 
+For example, we can find the top-$k$ influential users who can 
 reach the most number of friends within 2 hops. With increasingly
 larger network sizes, it is becoming significantly challenging to 
 query, analyze and process these graph data. Therefore, there is an urgent need 
@@ -17,11 +17,11 @@ to develop effective and efficient mechanisms over graph data to draw out
 information from such data resources.
  
 Traditionally, in relational DBMS, window functions have been commonly
-used for data analytics \cite{cao2012optimization, bellamkonda2013adaptive}. 
+used for data analytics~\cite{cao2012optimization, bellamkonda2013adaptive}. 
 Instead of performing analysis (e.g., ranking, aggregate) over the entire data set, 
-a window function returns for each input tuple a value derived from applying the function over a window of 
-neighboring tuples. For instance, users may be interested in finding 
-each employee's salary ranking within the department. Here,
+a window function returns for each input tuple a value derived from applying the function 
+to a window of neighboring tuples. For instance, users may be interested in finding 
+each employee's salary ranking within the department. Here, 
 each tuple's neighbors are essentially records from the same department.
 
 %Interestingly, we find that the locality feature in graph scenario has even more importance than in relational data. In graph data, the graph structure indicates the relationship among different objects. In graph analysis, it is often useful to quantify a structural range to each vertex and perform analytic over the range. For instance, in a social network, it is important to detect one person's social position and influence in his/her social community. In this paper, we are motivated to extend the window queries in traditional SQL into the graph analysis. However, the window definition in the SQL is no longer applicable in graph context, as it does not capture the graph structure information which has a strong meaning in the graph data. 
@@ -30,27 +30,27 @@ Interestingly, the notion of window functions turns out to be not uncommon
 in graph data. For instance, in a social network, it is important to detect 
 a person's social position and influence among his/her social community. 
 The ``social community'' of the person is essentially his/her ``window'' 
-comprising neighbors derived from his/her k-hop friends.
+comprising neighbors derived from his/her $k$-hop friends.
 However, as illustrated in this example, the structure of a graph
-plays a critical role in determining the neighboring data of a vertex.
+plays a critical role in determining the neighborhood of a vertex.
 In fact, it is often useful to quantify a structural range to each vertex 
 and then perform analytics over the range. 
 Surprisingly, though such a concept of window functions has been widely
 used, the notion has not been explicitly formulated. 
-In this paper, we are motivated to extend the window queries in traditional 
+In this chapter, we are motivated to extend the window queries in traditional 
 SQL for supporting graph analysis. However, the window definition in 
 SQL is no longer applicable in a graph context, as it does not capture 
 the graph structure information.
-% which has a strong meaning in the graph data. 
 Thus, we seek to formulate the notion of graph windows and to develop
 efficient algorithms to process them over large scaled graph structures. 
 
 We have identified two instances of graph windows, namely 
-$k${\em -hop} and {\em topological} windows. 
+{\em $k$-hop} and {\em topological} windows. 
 We first demonstrate these window semantics with the following examples. 
 \begin{example}
 \label{query:linkedin-2-hop-window}
-\emph{(k-hop window)} In a social network ( such as Linked-In and Facebook etc.), users are normally modeled as vertexes and connectivity relationships are modeled as edges. In social network scenario, it is of great interest to summarize the most relevant connections to each user such as the neighbors within 2-hops. Some analytic queries such as summarizing the related connections' distribution among different companies, and computing age distribution of the related friends can be useful. In order to answer these queries, collecting data from every user's neighborhoods within 2-hop is necessary.
+\emph{(k-hop window)} In a social network (such as LinkedIn and Facebook), users are normally modeled as vertexes and connectivity relationships are modeled as edges. In such a scenario, it is of great interest to summarize the most relevant connections to each user such as the neighbors within 2-hops. Some analytic queries such as summarizing
+related connections' distribution among different companies, and computing age distribution of the related friends can be useful. In order to answer these queries, collecting data from every user's neighborhoods within 2-hop is necessary.
 \end{example}
 
 \begin{example}
@@ -59,92 +59,97 @@ We first demonstrate these window semantics with the following examples.
 and acyclic, in order to study the protein regulating process, one may be 
 interested to find out the statistics of molecules in each protein 
 production pathway. For each protein, we can traverse the graph to find 
-every other molecule that is in the upstream of its pathway. Then we can group and count the number of genes and enzymes among those molecules. 
+every molecule that is in the upstream of its pathway. Then we summarize the number of genes and enzymes among those molecules. 
 \end{example}
 
-A common feature among these examples is that data aggregation is needed based on a set of vertexes (which is the {\em graph window}) 
-defined according to each vertex.  To illustrate, in Example~\ref{query:linkedin-2-hop-window}, every user needs to gather data from its friends and friends-of-friends. 
-The \emph{2-hop neighbors} form its window. Likewise, in Example~\ref{query:bio-dag-window}, every protein needs to count the number of particular type of genes preceding it in the regulating pathway. For every protein, the set of
+A common feature among these examples is that data aggregation is required for a set of vertexes (which is the {\em graph window}) 
+defined according to each vertex.  To illustrate, in Example~\ref{query:linkedin-2-hop-window}, every user needs to gather data from his/her friends and friends-of-friends. 
+The \emph{2-hop neighbors} form its window. Likewise, in Example~\ref{query:bio-dag-window}, every protein needs to count the number of particular type of genes preceding it in the regulating pathway. For every protein, the
 \emph{preceding molecules} forms its window. 
 
-To support the analyses in the above-mentioned examples, we propose a new 
+To support the analytics in the above-mentioned examples, we propose a new 
 type of query, \emph{Graph Window Query} (GWQ in short),
 over a data graph. \emph{GWQ} is defined with respect to a graph structure 
 and is important in a graph context. Unlike the traditional window in SQL, 
 we identify two types of useful graph windows according to the 
-graph structures, namely k-hop Window $W_{kh}$ and Topological Window $W_t$. 
-A k-hop window forms a window for one vertex by using its k-hop neighbors. 
-k-hop neighbors are important to one vertex, as these are the vertexes 
-showing structural closeness as in Example~\ref{query:linkedin-2-hop-window}. The k-hop neighbors window 
-we define here is similar to the egocentric-network in network analysis \cite{burt2009structural} \cite{mondal2014eagr}. A topological window, on the
-other hand, forms a window for one vertex by using all its preceding 
-vertexes in a directed acyclic graph. The preceding vertexes of one vertex are normally those which influence the vertex in a network as illustrated in Example~\ref{query:bio-dag-window}. 
+graph structures, namely $k$-hop Window $W_{kh}$ and Topological Window $W_t$. 
+A $k$-hop window forms a window for one vertex by using its $k$-hop neighbors. 
+$k$-hop neighbors are important to one vertex, as these are the vertexes 
+showing structural closeness as in Example~\ref{query:linkedin-2-hop-window}. The $k$-hop window 
+we define here is similar to the egocentric-network in network analysis~\cite{burt2009structural,mondal2014eagr}. 
+A topological window, on the other hand, forms a window for one vertex from its ancestry in a directed acyclic graph. The ancestors of one vertex are normally those which influence the vertex in a network as illustrated in Example~\ref{query:bio-dag-window}. 
 
-To the best of our knowledge, existing graph databases or graph query languages do not directly support our proposed GWQ. There are two major challenges in processing GWQ. First, we need an efficient scheme to  calculate the window of each vertex. Second, we need
+To the best of our knowledge, existing graph databases or graph query languages
+do not directly support our proposed GWQ. There are two major challenges 
+in processing GWQ. First, we need an efficient scheme to  
+calculate the window of each vertex. Second, we need
 efficient solutions to process the aggregation over a large number 
 of windows that may overlap. This offers opportunities to share the 
 computation. However, it is non-trivial to address these two challenges.  
 
-For $k$-hop window like query, the state-of-the-art processing algorithm
-is EAGR \cite{mondal2014eagr}. EAGR builds an overlay graph including 
-the shared components of different windows. This is done 
-in multiple iterations, each of which performs the following.
-First, EAGR sorts all the vertexes according to their $k$-hop 
-neighbors based on their lexicographic order. 
-Second, the sorted vertexes are split into equal sized chunks each of which is further built as one frequent-pattern tree to mine the shared components. 
-However, EAGR requires all the vertexes' $k$-hop 
+For $k$-hop window query, the closest processing algorithm is EAGR~\cite{mondal2014eagr}.
+%
+% the state-of-the-art processing algorithm
+%is EAGR \cite{mondal2014eagr}. 
+EAGR leverage the overlap graph to represent the shared
+components among different windows.
+This is done in multiple iterations, each of which performs the following.
+First, EAGR sorts all vertexes according to their $k$-hop 
+neighbors in lexicographic order. 
+Second, the sorted vertexes are split into equal-sized chunks 
+each of which is used to construct one frequent-pattern tree 
+to mine the shared components. 
+However, EAGR requires all vertexes' $k$-hop 
 neighbors to be pre-computed and resided in memory during 
 each sorting and mining operation;
-otherwise, EAGR incurs high computation overhead if the pre-computed structure needs to be shuffled to/from disk.
+otherwise, EAGR incurs high computation overhead due to secondary storage accesses(e.g., disk I/Os).
 This limits the efficiency and scalability of EAGR.
- For instance, 
-a LiveJournal social network graph\footnote{Available at http://snap.stanford.edu/data/index.html, which is used in \cite{mondal2014eagr}} 
-(4.8M vertices, 69M edges) generates over 100GB neighborhood information 
-for k=2 in adjacency list representation. In addition, the overlay graph construction is not a one-time task,
-but periodically performed after a certain number of structural updates in order to maintain the overlay quality. The high memory consumption renders the scheme impractical 
-when $k$ and the graph size increases.
+For instance, a LiveJournal social network graph\footnote{Available at http://snap.stanford.edu/data/index.html, which is used in~\cite{mondal2014eagr}} 
+(4.8M vertexes, 69M edges) generates over 100GB neighborhood information 
+for $k=2$ in adjacency list representation. 
+In addition, the overlay graph construction is not a one-time task,
+but periodically performed after a certain number of structural updates 
+in order to maintain the quality. 
+The high memory consumption renders the scheme impractical when $k$ and the graph size increases.
 
-In this paper,
-we propose \textit{Dense Block Index (DBIndex)} 
-to process queries efficiently.
+In this chapter,
+we propose \emph{Dense Block Index (DBIndex)} 
+to process the two graph window queries efficiently.
 Like EAGR, DBIndex seeks to exploit common
 components among different windows to salvage 
 partial work done. However, unlike EAGR,
 we identify the window similarity utilizing a hash-based 
-clustering technique instead of sorting. This ensures 
+clustering technique. This ensures 
 efficient memory usage, as the window information of each vertex can 
-be computed on-the-fly. On the basis of the clusters, we develop different optimizations 
-to extract the shared components which result in an efficient index construction. 
-
+be computed on-the-fly. On the basis of the clusters, we develop different 
+optimization techniques to extract the shared components
+which result in an efficient index construction. 
+%
 Moreover, we provide another \emph{Inheritance Index (I-Index)} tailored 
 to topological window query. I-Index differentiates itself from
 DBIndex by integrating more descendant-ancestor relationships 
-to reduce repetitive computations. This results in
-%to reduce the repetitive computation. This results in
+to reduce repetitive computations. This results in 
 more efficient index construction and query processing.  
 
  
-Our contributions are summarized as follows:
+Our contributions of this chapter are summarized as follows:
 \begin{itemize}
-\item{We propose a new type of graph analytic query, \emph{Graph Window Query} and formally define two graph windows: k-hop window and topological window. We illustrate how these window queries would help users better query and
+\item{We propose a new type of graph analytics, \emph{Graph Window Query} and formally define two graph windows: $k$-hop window and topological window. We illustrate how these window queries would help users better query and
 understand the graphs under these different semantics.}
 
-\item{ To support efficient query processing, we further propose two different types of indexes: \emph{Dense Block Index} (DBIndex) and \emph{Inheritance Index} (I-Index). The
+\item{To support efficient query processing, we further propose two different types of indexes: \emph{Dense Block Index} (DBIndex) and \emph{Inheritance Index} (I-Index). The
 \emph{DBIndex} and \emph{I-Index} are specially 
-optimized to support k-hop window and topological window query processing. 
-We develop the indices by integrating the window aggregation sharing techniques to salvage partial work done for efficient computation. In addition, we develop space and performance efficient techniques for index construction. 
-Compared to EAGR \cite{mondal2014eagr}, the state-of-the-art index method for k-hop window queries, our DBIndex is much more memory efficient and scalable towards handling the large-scale graphs. }
+optimized to support $k$-hop window and topological window query processing. 
+We develop the indexes by integrating the window aggregation sharing techniques to salvage partial work done for efficient computation. In addition, we develop space and performance efficient techniques for index construction. 
+%Compared to EAG~\cite{mondal2014eagr}, the state-of-the-art index method for $k$-hop window queries, our DBIndex is much more memory efficient and scalable towards handling the large-scale graphs.
+}
 
 \item{We perform extensive experiments over both real and synthetic datasets
 with hundreds of millions of vertexes and edges on a single machine. Our experiments 
 indicate that our proposed index-based algorithms outperform the naive non-index
-algorithm 
-by up to four orders of magnitude. In addition, our experiments also show 
-that DBIndex is superior over EAGR in terms of both
-scalability and efficiency. In particular, 
-DBIndx saves up to 80\% of indexing time as 
-compared to EAGR, 
-and performs well even when EAGR fails due
-to memory limitations. 
+algorithm by upto four orders of magnitude. In addition, our experiments also show 
+that DBIndex is superior over EAGR in terms of both scalability and efficiency. 
+In particular, DBIndx saves up to 80\% of indexing time as compared to EAGR, 
+and performs well even when EAGR fails due to memory limitations. 
 }
 \end{itemize}

@@ -1,7 +1,7 @@
 \section{Graph Window Queries}
 
 \subsection{Graph Aggregation}
-Previous graph data analytics focus on graph aggregation~\cite{zhao2011graph,wang2014pagrol,chen2008graph,tian2008efficient},
+Works on graph data analytics have focused  on graph aggregation~\cite{zhao2011graph,wang2014pagrol,chen2008graph,tian2008efficient},
 which are different from Graph Window Queries (GWQ).
 In a general model, graph aggregation comprises three steps: (1) partition
 graph based on attributes of vertex (and/or edges), (2) aggregate each
@@ -25,7 +25,7 @@ and they could not model each other.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{chapter2/graphagg-window}
-\caption{Illustration of Graph Aggregation and Graph Window Queries. (a) is an example social network, (b) is graph aggregation, (c) are the windows of vertexes $B$ and $E$.}
+\caption{Illustration of \emph{Graph Aggregation} and \emph{Graph Window Queries}. (a) is an example social network, (b) is graph aggregation, (c) are the windows of vertexes $B$ and $E$.}
 \label{fig:rw-agg-window}
 \end{figure}
 
@@ -67,7 +67,7 @@ can be built on top of the reachability queries, directly
 using these techniques is inefficient. For example, the
 most related reachability
 query to our $k$-hop window query is the $k$-reach query~\cite{cheng2012k} which
-test if an input pair of vertexes is within a $k$-hop distance. In order
+tests if an input pair of vertexes is within a $k$-hop distance. In order
 to compute the $k$-hop window query for $n$ vertexes, there would be $\theta(n^2)$
 reachability tests. This would be inefficient on graphs
 with over millions of vertexes.
@@ -99,12 +99,11 @@ and would be equivalent to the non-indexed approach.% as described in Section~\r
 Egocentric networks~\cite{ma2010ego,marsden2002egocentric} 
 have been playing an important role in network study. The egocentric networks
 refer to the neighborhood structure of each vertex
-in a graph. Although there are many works have studied on egocentric
-networks in structural analysis, they do not consider efficient processing 
-of data analytics (e.g., aggregation) within each egocentric networks. 
+in a graph. Although many works have studied structural analysis on egocentric networks, they do not consider efficient processing 
+of data analytics (e.g., aggregation) within each egocentric network. 
 Recently, Jayanta et.al. \cite{mondal2014eagr} 
 proposed an EAGR system to summarize attribute information among 
-each vertex's neighborhoods. Their technique is to build an overlay graph 
+each vertex's neighborhoods. Their technique builds an overlay graph 
 to leverage the shared components among vertexes' neighborhoods structures to
 boost query processing.
 %
@@ -143,13 +142,13 @@ As the algorithm iterates, the overlay graph evolves to be sparser.
 %
 
 The main drawback of EAGR is its high demands of resources 
-on the overlay construction. In terms of memory cost, EAGR assume the 
+on the overlay construction. In terms of memory cost, EAGR assumes the 
 initial vertex-neighbor mapping can be stored in memory. However, the assumption does not scale well for computing higher hop windows (such as k $\geq 2$). 
 For instance, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB mapping information for k=2 in adjacency list 
 representation. If the neighborhood information is resided in disk, the performance of EAGR will
 largely reduced.  In terms of computational cost, EAGR requires to sort all vertexes 
 in a graph and build an FP-Tree in each iteration. When the graph has
-millions of vertexes, the indexing is largely slow down.
+millions of vertexes, the construction of the index is largely slow down.
 
 %It requires the neighborhood information to be pre-computed, which is then used in the sorting phase of each iteration. In EAGR, the neighborhood information is assumed to be stored in memory.
 %However, the assumption does not scale well for computing higher hop windows (such as k $\geq 2$). 

@@ -4,26 +4,26 @@ In this section, we briefly review three closely related areas: automatic news t
 \subsection{Automatic News Theme Detection}
 Earlier works on automatic news theme generation were focused on finding interesting themes from a single event. For example, Sultana et al.~\cite{sultana2014incremental} proposed the \emph{Situational Fact} pattern, which is modeled as a skyline point under certain dimensions. Wu et al.~\cite{wu2012one} proposed the \emph{One-of-the-Few} concept to detect news themes with some rarities. Examples of candidate news themes for the above two patterns are illustrated in Table~\ref{tbl:related_works}.
 
-{\renewcommand{\arraystretch}{1.2} 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|}
-\hline
+\caption{Examples of different news themes}
+\begin{tabular}{|l|p{10cm}|}
+\hline 
 \textbf{Method} & \textbf{Example news theme}\\
 \hline
-Situational facts~\cite{sultana2014incremental} & \pbox{22cm}{\vspace{.3\baselineskip} Ellen's tweet generates 3.3M retweets\\ with 170,000 comments.\vspace{.3\baselineskip}} \\
+Situational facts~\cite{sultana2014incremental} & Damon Stoudamire scored 54
+points on January 14, 2005. It is the highest score in history made
+by any Trail Blazer. \\
 \hline
-One-of-the-few facts~\cite{wu2012one} & \pbox{22cm}{\vspace{.3\baselineskip}Perry is one of the three candidates \\  who received \$600k. \vspace{.3\baselineskip}} \\
+One-of-the-$\tau$ facts~\cite{wu2012one} & Jordan, Chamberlain, James, Baylor and Pettit are the five players with highest points and rebounds in NBA history. \\
 \hline
-Prominent streak~\cite{zhang2014discovering} & Kobe scored 40+ in 9 straight games!  \\
+Prominent streaks~\cite{zhang2014discovering} & \makecell[l]{ 1.Kobe scored 40+ in 9 straight games,\\ first in his career! \\  2.Kobe scored 50+ in 4 straight games, \\first in his career!\\  3...} \\
 \hline
-Rank-aware theme & \pbox{22cm}{\vspace{.3\baselineskip}Kobe scored 40+ in 9 straight games\\ ranked 4th in NBA history!\vspace{.3\baselineskip}} \\
+$k$-Sketch & \makecell[l]{1.Kobe scored 40+ in 9 straight games, \\ ranked 4th in NBA history! \\  2.Kobe scored 50+ in 4 straight games, \\ ranked 1st in NBA history.  \\ 3....} \\
 \hline
 \end{tabular}
 \label{tbl:related_works}
-\caption{Examples of different news themes}
 \end{table}
-}
 
 Zhang et al.\cite{zhang2014discovering} proposed using prominent streaks to generate interesting news themes.
 In \cite{zhang2014discovering}, a \emph{Prominent Streak} is characterized by a 2D point which represents the window length and the minimum value of all events in the window. The objective is to discover the non-dominated event windows for each subject, where the dominance relationship is defined among streaks of the same subject. Our model differs from \cite{zhang2014discovering} in two aspects. First, we look at the global prominence (quantified by the rank) among all subjects rather than local prominence (quantified by the dominance) within one subject. Second, our model provides the best $k$-sketch for each subject whereas \cite{zhang2014discovering} returns a dominating set which could be potentially large. 

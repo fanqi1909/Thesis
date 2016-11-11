@@ -10,7 +10,7 @@ with the corresponding records.
 %Its evaluation first partitions the input records based on $A$ to compute 
 %$f$ for each partition, and each input record is then associated with the aggregate 
 %value corresponding to the partition that contains the record.
-Several optimization techniques~\cite{cao2012optimization, bellamkonda2013adaptive}
+Several optimization techniques~\cite{bellamkonda2013adaptive,cao2012optimization }
 have been developed to evaluate complex SQL queries 
 involving multiple window functions.
 
@@ -18,7 +18,7 @@ However, the semantic and evaluation of the window function are restricted.
  In SQL window functions, tuples need to be sorted in order to form individual partitions (i.e., windows).
 In fact, such a need is hard to meet in other data domains. Therefore, optimization techniques
 that are developed for the relational model become inapplicable in other data domains. 
-Nevertheless, there are quite a few works that related to our proposed neighborhood based
+Nevertheless, there are quite a few works that are related to our proposed neighborhood based
 queries and we review them in this section. 
 
 %are very different between relational and graph contexts.

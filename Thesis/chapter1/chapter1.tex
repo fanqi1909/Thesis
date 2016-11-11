@@ -1,24 +1,24 @@
 \chapter{Introduction}
-With the maturity of database technologies, nowadays
-applications collect and store data from all domains 
+With the maturity of database technologies, many applications today collect and store data from all domains 
 at unprecedented scale. For example, billions of 
 social network users and their activities are collected in the form
 of \emph{graphs}; Thousands of sensor ticks are collected every second
 in the form of \emph{time series}; Hundreds of millions of spatiotemporal points
 are collected as \emph{trajectories}.
 Flooded by the tremendous amount of data, 
-it is emerging to efficiently conduct analytics to discover useful insights.
-However, traditional SQL analytics which comprises 
-of primary operations (e.g., partition, sorting and aggregation) 
-becomes limited in coping with domain-specific analytics 
+it is becoming increasingly critical to efficiently
+conduct analytics to discover useful insights.
+However, traditional SQL analytics, which comprises 
+primary operations (e.g., partition, sorting and aggregation),
+is unable to cope  with domain-specific analytics 
 such as graph traversal and pattern detection. 
 In practice, expressing these domain-specific 
 analytics using SQL query often involves 
 complex joins which are hard to optimize. 
-In this thesis, we bring to light the \emph{neighborhood analytics} which
+In this thesis, we introduce the concept of \emph{neighborhood analytics} which
 originates from the recognized SQL window functions. We study
 the usage of \emph{neighborhood analytics} in different data domains
-and design efficient algorithms to cope with nowadays data sizes.
+and design efficient algorithms to cope with today's big data.
 
 %In this thesis, we explore an important type of 
 %SQL analytics named \emph{window function}
@@ -48,3 +48,7 @@ In Chapter 3, we present the Graph Window Query on graph data.
 In Chapter 4, we present the $k$-Sketch Query on sequence data.
 In Chapter 5, we present the General Co-Movement Pattern Query on trajectory data. 
 Chapter 6 summarizes this thesis and highlights future directions.
+
+The research in this thesis has led to numerous publications. The work in Chapter 3 was published in .... The results of Chapter 4 was reported in .... Finally, the findings in Chapter 5 has been accepted for publication  in ...
+
+

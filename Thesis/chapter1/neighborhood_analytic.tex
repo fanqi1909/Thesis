@@ -1,5 +1,5 @@
 \section{Neighborhood Analytics}
-Followed by its self-descriptive name, neighborhood analytics aims to provide
+Neighborhood analytics aims to provide
 summaries of each object over its vicinity. In contrast to aggregating the entire collection of data as a whole, neighborhood
 analytic provides a personalized view for each object from its own perspective. Neighborhood
 data analytics originates from the window function defined in SQL which is
@@ -17,7 +17,7 @@ As shown in the figure, the sales report contains six columns: ``ID'',
 ``Season'', ``Region'' and ``Sales'' are the \emph{facts}, ``$\mathtt{sum()}$'' and ``$\mathtt{avg()}$''
 are the \emph{analytics} representing the running sum and average. A window function
 is represented by the $\mathtt{over}$ keyword. In this context, the window of a tuple $o_i$
-contains other another tuple $o_j$ if $o_i$ and $o_j$ are in the same ``region'' and the``season'' of $o_j$ is
+contains another tuple $o_j$ if $o_i$ and $o_j$ are in the same ``region'' and the``season'' of $o_j$ is
 prior to the season of $o_i$. The window of tuple-$3$ is highlighted.
 Apart from this example, there are also many other 
 usages of the window functions in the relational context~\cite{cao2012optimization}. 
@@ -27,12 +27,12 @@ keywords to offer fine-grained specifications on a tuple's window.
 
 Despite the usefulness, there are few works reporting
 the usage of window functions in data domains such as graphs, sequence data and trajectories.
-This may due to the
+This may be due to the
 requirement of \emph{sorting} in the window functions. For example,
 in Figure~\ref{fig:window},
 objects need to be sorted according to ``Season'', and then the window of
-each objects is implicitly formed based on the sorted order. However, 
-in other data domains, sorting may be ambiguous and even undefined.
+each object is implicitly formed based on the sorted order. However, 
+in domains like graphs and time series data, sorting may be ambiguous and even undefined.
 
 To broaden the usages of the window functions in other data domains, we propose the \emph{neighborhood
 analytics} in a more general sense. Given a set of objects 

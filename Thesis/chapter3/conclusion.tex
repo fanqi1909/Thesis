@@ -1,11 +1,10 @@
-\section{Conclusion and Future Work}
-In this paper, we have proposed a new type of graph analytic query,  \emph{Graph Window Query}. We formally defined two instantiations of graph windows: k-hop window and topological window.
-We developed the Dense Block Index (DBIndex) to facilitate efficient processing of both types of graph windows. In addition, we also proposed the Inheritance Index (I-Index) that exploits a containment property of DAG to further improve the query performance of topological window queries. Both indices integrate window aggregation sharing techniques to salvage partial work done, which is both space and query efficient. We conducted extensive experimental evaluations over both large-scale real and synthetic datasets. The experimental results showed the efficiency and scalability of our proposed indices. 
+\section{Summary}
+In this chapter, we proposed a new type of graph analytic query, \emph{Graph Window Query}. We formally defined two instantiations of graph windows: $k$-hop window and topological window. Then, we developed the Dense Block Index (DBIndex) to facilitate efficient processing of both types of graph windows. In addition, we proposed the Inheritance Index (I-Index) that exploits a containment property of DAG to further improve the query performance of topological window queries. Both indexes integrate window aggregation sharing techniques to salvage partial work done, which is both space and query efficient. We conducted extensive experimental evaluations over both large-scale real and synthetic datasets. The experimental results showed the efficiency and scalability of our proposed indexes. 
 
 
-There remain many interesting research problems for graph window analytics. 
-As part of our future work, we plan to explore structure-based window aggregations
-which are complex than attribute-based window aggregations.
-In structure-based aggregations, $W(v)$ refers to a subgraph of $G$ instead of a set of vertexes,
-and the aggregation function $\Sigma$ (e.g., centrality, PageRank, and {graph aggregation} \cite{wang2014pagrol,zhao2011graph}) operates on the structure of the subgraph $W(v)$. 
+%There remain many interesting research problems for graph window analytics. 
+%As part of our future work, we plan to explore structure-based window aggregations
+%which are complex than attribute-based window aggregations.
+%In structure-based aggregations, $W(v)$ refers to a subgraph of $G$ instead of a set of vertexes,
+%and the aggregation function $\Sigma$ (e.g., centrality, PageRank, and {graph aggregation} \cite{wang2014pagrol,zhao2011graph}) operates on the structure of the subgraph $W(v)$. 
 %Another interesting direction that we plan to investigate is the support of efficient structure updates (e.g., edge deletions and insertions). 

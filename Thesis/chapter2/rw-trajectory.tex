@@ -1,6 +1,6 @@
 \section{Co-Movement Pattern Discovery}
 \label{sec:related_work:trajectory}
-Related work can be grouped into three categories: \emph{co-movement patterns},
+Co-movement patterns can be grouped into three categories: \emph{co-movement patterns},
 \emph{dynamic movement patterns} and \emph{trajectory mining frameworks}.
 %The \emph{co-movement patterns} in literature consist 
 %of five members, namely \emph{group}~\cite{wang2006grouppattern}, \emph{flock}~\cite{gudmundsson2004flock},
@@ -16,7 +16,7 @@ The difference between \emph{flock} and \emph{convoy} lies
 in the object clustering methods. In \emph{flock},
 objects are clustered based on their distances. Specifically, the
 objects in the same cluster need to have a pairwise distance less than \emph{min\_dist}. 
-This essentially requires the objects to be within a disk-region of delimiter less than \emph{min\_dist}.
+This essentially requires the objects to be within a disk-region of delimiter less than \emph{min\_dist}.  
 In contrast, \emph{convoy} clusters objects using density-based spatial clustering~\cite{ester1996density}.
 Technically, \emph{flock} utilizes a $m^{th}$-order Voronoi diagram~\cite{laube2005finding} to detect whether
 a subset of $n$ ($n \geq m$) objects stay in a disk region.
