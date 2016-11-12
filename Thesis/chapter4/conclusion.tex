@@ -1,10 +1,16 @@
-\section{Conclusion and Future works} \label{sec:conclusion}
-In this paper, we look at the problem of automatically discovering striking news themes from sequenced data. 
-We group neighbourhood events into windows and propose a novel idea of \emph{ranking} to represent candidate news themes. We then formulate the \emph{sketch discovery} problem which aims to select the $k$ best new themes as the sketch for each subject. 
-We study the sketch discovery problem in both offline and online scenarios,
-and propose efficient solutions to cope each scenario. In particular, we design novel window-level pruning techniques and a (1-1/e) greedy algorithm to achieve efficient sketch discovery in offline. Then we design a 1/8 approximation algorithm for the online sketch discovery.
-Our comprehensive experiments demonstrate the efficiency of our solutions and a human study confirms the effectiveness of sketch discovery in news reporting.
+\section{Chapter Summary} \label{sec:conclusion}
+In this chapter, we look at the problem of automatically summarize 
+a subject's history using newsworthy stories.
+We group consecutive events into streaks and propose a novel idea of \emph{ranked-streak} to represent the strikingness.
+We then formulate the \emph{$k$-Sketch} query which aims to best summarize a subject's history using $k$ ranked-streaks.
+We study the $k$-Sketch query processing in both offline and online scenarios,
+and propose efficient solutions to cope each scenario. In particular, we design novel streak-level pruning techniques and a $(1-1/e)$-approximate algorithm to achieve efficient processing in offline. Then we design a $1/8$-approximate algorithm for the online sketch maintenance.
+Our comprehensive experiments demonstrate the efficiency of our solutions and a human study confirms the effectiveness of the $k$-Sketch query.
 
-Our work opens a wide area of research in computational journalism. In our next step, we aim to extend the event sources from sensor data to non-schema data such as tweets in social networks. We also aim to investigate multi-subject models to automatically generate news themes across different subjects.
-
-
+%Our work opens a wide area of research in computational journalism. 
+%In our next step, we aim to extend the event sources from sensor data 
+%to non-schema data such as tweets in social networks. We also aim to 
+%investigate subject association models to automatically generate 
+%news themes involving multiple subjects.
+%We further wish to explore leveraging big data technology to support fast-growing 
+%event data in journalism. 

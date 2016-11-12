@@ -19,6 +19,12 @@ James Allan, Ron Papka, and Victor Lavrenko.
   conference on Research and development in information retrieval}, pages
   37--45. ACM, 1998.
 
+\bibitem{Alonerbuch2003The}
+Noga Alon, Baruch Awerbuch, and Yossi Azar.
+\newblock The online set cover problem.
+\newblock In {\em Proceedings of the thirty-fifth annual ACM symposium on
+  Theory of computing}, pages 100--105. ACM, 2003.
+
 \bibitem{aung2010discovery}
 Htoo~Htet Aung and Kian-Lee Tan.
 \newblock Discovery of evolving convoys.
@@ -42,12 +48,6 @@ Srikanth Bellamkonda, Hua-Gang Li, Unmesh Jagtap, Yali Zhu, Vince Liang, and
   Thierry Cruanes.
 \newblock Adaptive and big data scale parallel execution in oracle.
 \newblock {\em Proceedings of the VLDB Endowment}, 6(11):1102--1113, 2013.
-
-\bibitem{bender2005lowest}
-Michael~A Bender, Mart{\'\i}n Farach-Colton, Giridhar Pemmasani, Steven Skiena,
-  and Pavel Sumazin.
-\newblock Lowest common ancestors in trees and directed acyclic graphs.
-\newblock {\em Journal of Algorithms}, 57(2):75--94, 2005.
 
 \bibitem{borodin2012max}
 Allan Borodin, Hyun~Chul Lee, and Yuli Ye.
@@ -126,12 +126,6 @@ Sarah Cohen, Chengkai Li, Jun Yang, and Cong Yu.
 \newblock Computational journalism: A call to arms to database researchers.
 \newblock In {\em CIDR}, volume 2011, pages 148--151, 2011.
 
-\bibitem{czumaj2007faster}
-Artur Czumaj, Miros{\l}aw Kowaluk, and Andrzej Lingas.
-\newblock Faster algorithms for finding lowest common ancestors in directed
-  acyclic graphs.
-\newblock {\em Theoretical Computer Science}, 380(1):37--46, 2007.
-
 \bibitem{dai2012predicting}
 Lianghao Dai, Jar-der Luo, Xiaoming Fu, and Zhichao Li.
 \newblock Predicting offline behaviors from online features: an ego-centric
@@ -139,6 +133,11 @@ Lianghao Dai, Jar-der Luo, Xiaoming Fu, and Zhichao Li.
 \newblock In {\em Proceedings of the First ACM International Workshop on Hot
   Topics on Interdisciplinary Social Networks Research}, pages 17--24. ACM,
   2012.
+
+\bibitem{Berg1997Computational}
+Mark De~Berg, Marc Van~Kreveld, Mark Overmars, and Otfried~Cheong Schwarzkopf.
+\newblock Computational geometry.
+\newblock In {\em Computational geometry}, pages 1--17. Springer, 2000.
 
 \bibitem{douglas1973linesimplification}
 David~H Douglas and Thomas~K Peucker.
@@ -166,11 +165,21 @@ Martin Ester, Hans-Peter Kriegel, J{\"o}rg Sander, Xiaowei Xu, et~al.
   databases with noise.
 \newblock In {\em Kdd}, volume~96, pages 226--231, 1996.
 
+\bibitem{golab2009sequential}
+Lukasz Golab, Howard Karloff, Flip Korn, Avishek Saha, and Divesh Srivastava.
+\newblock Sequential dependencies.
+\newblock {\em Proceedings of the VLDB Endowment}, 2(1):574--585, 2009.
+
 \bibitem{gudmundsson2006computing}
 Joachim Gudmundsson and Marc van Kreveld.
 \newblock Computing longest duration flocks in trajectory data.
 \newblock In {\em Proceedings of the 14th annual ACM international symposium on
   Advances in geographic information systems}, pages 35--42. ACM, 2006.
+
+\bibitem{guo2016influence}
+Long Guo, Dongxiang Zhang, Gao Cong, Wei Wu, and Kian-Lee Tan.
+\newblock Influence maximization in trajectory databases.
+\newblock In {\em TKDE}, page~1, 2016.
 
 \bibitem{han2000mining}
 Jiawei Han, Jian Pei, and Yiwen Yin.
@@ -265,6 +274,10 @@ Zhenhui Li, Bolin Ding, Jiawei Han, Roland Kays, and Peter Nye.
 \newblock In {\em Proceedings of the 16th ACM SIGKDD international conference
   on Knowledge discovery and data mining}, pages 1099--1108. ACM, 2010.
 
+\bibitem{Lichman2013}
+M.~Lichman.
+\newblock {UCI} machine learning repository, 2013.
+
 \bibitem{ma2010ego}
 Huaiyu~Harry Ma, Steven Gustafson, Abha Moitra, and David Bracewell.
 \newblock Ego-centric network sampling in viral marketing applications.
@@ -293,11 +306,23 @@ Jayanta Mondal and Amol Deshpande.
 \newblock In {\em Proceedings of the 2014 ACM SIGMOD International Conference
   on Management of Data}, pages 1335--1346. ACM, 2014.
 
+\bibitem{Fisher1978An}
+George~L Nemhauser, Laurence~A Wolsey, and Marshall~L Fisher.
+\newblock An analysis of approximations for maximizing submodular set
+  functions—i.
+\newblock {\em Mathematical Programming}, 14(1):265--294, 1978.
+
 \bibitem{pei2000closet}
 Jian Pei, Jiawei Han, Runying Mao, et~al.
 \newblock Closet: An efficient algorithm for mining frequent closed itemsets.
 \newblock In {\em ACM SIGMOD workshop on research issues in data mining and
   knowledge discovery}, volume~4, pages 21--30, 2000.
+
+\bibitem{Saha2009On}
+Barna Saha and Lise Getoor.
+\newblock On maximum coverage in the streaming model \& application to
+  multi-topic blog-watch.
+\newblock 9:697--708, 2009.
 
 \bibitem{sultana2014incremental}
 Afroza Sultana, Naeemul Hassan, Chengkai Li, Jun Yang, and Cong Yu.

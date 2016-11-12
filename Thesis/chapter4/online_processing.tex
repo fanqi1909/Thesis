@@ -1,148 +1,186 @@
-\section {Online Sketch Maintenance}\label{sec:online}
-In the offline scenario, all the events about every subject are assumed 
-to be available at the time of sketch computation. 
-In contrast, in the online scenario,
+\section {Online $k$-Sketch Maintenance}\label{sec:online}
+In the offline scenario, all the events are assumed 
+to be available at the time of $k$-Sketch query processing. 
+On the contrary, in the online scenario,
 events arrive incrementally. 
-Given an arrival event, our objective is to keep the sketch 
-for each subject up-to-date. Since the event arrival speed could be very high, such step has to been done very efficiently.  
+Given an arrival event, our objective is to maintain the $k$-Sketch 
+for each subject uptodate. Since events may arrive at a high speed, %arrival speed could be very high, 
+such a maintenance step has to be done efficiently.  
 
-Similar to the offline scenario, we maintain a $WI$ to keep 
-track of the $p$ best event windows (candidate themes) 
-for all the possible window lengths.
-To handle a newly arrived event $e_s(t)$, a naive solution would generate
-all the event windows containing $e_s(t)$, (i.e. $W_s(t,w'), w'\in(1,t]$). For each
-event window, $WI$ is then updated accordingly. 
-Afterwards, Algorithm~\ref{algo:greedy} needs to be
-invoked to re-compute the sketches. 
-However, there are $t$ associated event windows for each new event $e_s(t)$. 
+Similar to the offline scenario, we maintain an index $WI$  to keep 
+track of the top-$p$ streaks 
+for all the possible streak lengths.
+To handle a newly arrived event $e_s(t)$, a naive solution would first generate
+all the streaks containing $e_s(t)$, (i.e. $W_s(t,w'), w'\in(1,t]$), and then
+update $WI$ accordingly.
+%For each streak, $WI$ is then updated accordingly. 
+Last, Algorithm~\ref{algo:greedy} is invoked to re-compute the sketches. 
+However, there are $t$ associated streaks for each new event $e_s(t)$. 
 Examining all of them is too expensive to support real-time responses. 
-Moreover, Algorithm~\ref{algo:greedy} runs in $O(k|\mathbb{N}_s|)$ time for each affected subject, which imposes further performance challenge. 
+Moreover, Algorithm~\ref{algo:greedy} runs in $O(k|\mathbb{N}_s|)$ 
+time for each affected subject, which imposes further performance challenges. 
 
-To achieve instant sketch update, we propose two techniques - \emph{window pruning} and \emph{sketch maintenance}. Window pruning tries to reduce the number of windows evaluated in generating candidate themes. After obtaining the candidate themes, we need to update the sketches affected. As we shall see later, given a candidate theme $N_s(t,w)$, not only the sketch for subject $s$ but also the sketches for other subjects could be affected. Although in the offline scenario we provided a solution with a $(1-1/e)$ approximation, to maintain sketches with the same approximation ratio is difficult in the online scenario~\cite{Alonerbuch2003The,Awerbuch1996Making}. Instead, we propose a $1/8$-approximation solution for sketch maintenance which only takes $O(k)$ time to perform the sketch update.
+To achieve instant sketch maintenance, we propose two techniques: \emph{online streak pruning} and \emph{sketch update}. 
+\emph{Online streak pruning} tries to reduce the number of streaks evaluated in generating ranked-streaks. 
+After obtaining the ranked-streaks, we need to update the affected sketches.
+As we shall see later, given a ranked-streak $N_s(t,w)$, 
+not only the sketch of subject $s$ but also the sketches of other subjects could be affected. 
+Although we provide a solution with a $(1-1/e)$ approximation in the offline scenario, 
+maintaining sketches to achieve the same approximation ratio 
+is difficult in the online scenario~\cite{Alonerbuch2003The,Awerbuch1996Making}. 
+Therefore, we propose a $1/8$-approximate solution which updates a sketch in $O(k)$ time.
+%sketch update solution which only takes $O(k)$ time.
+% to perform the sketch update.
 
 \begin{algorithm}[h]
-\caption{Online Query}\label{algo:online_overview}
+\caption{Online $k$-Sketch Maintenence}\label{algo:online_overview}
 \begin{algorithmic}[1]
 \Require $e_s(t) \gets $ arrival event
-\State $WI()$ $p$ best event windows for each window length
-\State $\beta()$ smallest score in $WI$ for each window length
+\State $WI()$// top-$p$ streaks for each length
+\State $\beta()$// smallest score in $WI$ for each streak length
 \For{$w \in 1,...,t $}
 \If{$W_s(t,w)$ can be added to $WI(w)$}
 \State update $\beta(w)$, $J_s(w)$, compute $N_s(t,w)$ 
-\State UpdateSketches($N_s(t,w)$)
+\State SketchUpdate($N_s(t,w)$)
 \EndIf
-\State $P_s(w) = \frac{w}{w+1}W_s(t,w).\overline{v}+\frac{t-w}{w+1}J_s(t-w)$
+%\State $P_s(w) = \frac{w}{w+1}W_s(t,w).\overline{v}+ min\{ \frac{t-w}{w+1}J_s(t-w), \frac{t-w}{t}J_s(1)\}$
+\State compute $P_s(w)$
 \State \bf{break} if $P_s(w)\leq \max\{\beta(w')|w < w' \leq t\}$
 \EndFor
 \end{algorithmic}
 \end{algorithm}
 
-Before we present \emph{window pruning} and \emph{sketch maintenance}, 
-Algorithm~\ref{algo:online_overview} 
-demonstrates the overview of our online solution against a new event $e_s(t)$. 
+Before we present \emph{online streak pruning} and \emph{sketch update}, 
+Algorithm~\ref{algo:online_overview} first 
+depicts the overview of our online solution against a new event $e_s(t)$. 
 We iteratively examine 
-event windows which contain $e_s(t)$ (i.e.,$W_s(t,w)$ in Line 4). 
-We then update the sketches which are affected by inserting $W_s(t,w)$ into $WI$ (Lines 5-6). Before continuing to examine the next event window $w$,
-we compute the maximum score (i.e., $P_s(w)$) of all event windows which have not been evaluated. If $P_s(w)$ is smaller than all $\beta(w'), w' \in (w,t]$, we can safely stop the process since no further event window could cause any sketches to change.
+streaks which contain $e_s(t)$ (i.e.,$W_s(t,w)$ in Line 3). 
+Then we update the sketches which are affected by inserting $W_s(t,w)$ into $WI$ (Lines 4-7).
+Before continuing to examine the next streak length $w$,
+we compute the maximum score (i.e., $P_s(w)$) of all streaks which have not been evaluated. 
+If $P_s(w)$ is smaller than all $\beta(w'), w' \in (w,t]$, 
+we can safely stop processing since no further streaks could cause any sketches to change.
 
-\subsection{Online Window Pruning}
-Since there are $t$ event windows associated with each new event $e_s(t)$, 
+\subsection{Online Streak Pruning}
+Since there are $t$ streaks associated with each new event $e_s(t)$, 
 we wish to avoid enumerating all the possible cases. 
-We achieve the window pruning by leveraging the online-window bound $P_s(w)$, which
-is the upper bound score among event windows with length greater than $w$. 
+We achieve the online streak pruning by leveraging the online-streak bound denoted by $P_s(w)$, which
+is the upper bound value among streaks with lengths greater than $w$. 
 The value of $P_s(w)$ is stated as in the following theorem:
 
-\begin{theorem}[Online-Window Bound]
+\begin{theorem}[Online-Streak Bound]
 \label{thm:online_bound}
-Let $W_s(t,1)$,...,$W_s(t,w)$ be the $w$ event windows computed in Algorithm~\ref{algo:online_overview} containing event $e_s(t)$. Let $P_s(w)$ be:
+Let $W_s(t,1)$,$\ldots$, $W_s(t,w)$ be the $w$ streaks computed in Algorithm~\ref{algo:online_overview} containing event $e_s(t)$. Let $P_s(w)$ be:
 \begin{equation}
 	P_s(w) = \frac{w}{w+1}W_s(t,w).\overline{v}+ min\{\frac{t-w}{w+1}J_s(t-w), \frac{t-w}{t}J_s(1) \}
 \end{equation}
-Where $J_s(\cdot)$ is the visiting-window bound.  Then $P_s(w)$ is the online-window bound, i.e.,$P_s(w) \geq \max\{W_s(t,x).\overline{v}| w < x \leq t \}$.
+Where $J_s(\cdot)$ is the visiting-streak bound.  Then $P_s(w)$ is the online-streak bound, i.e., $P_s(w) \geq \max\{W_s(t,x).\overline{v}| x \in (w,t]\}$.
 \end{theorem}
 \begin{proof}
 First, $\forall x \in (w,t]$, we have: 
 \begin{align*}
-W_s(t,x).\overline{v} &= \frac{w*W_s(t,w).\overline{v} + (x-w)*W_s(t-w,x-w).\overline{v}}{x} \\
-%& = \frac{w*W_s(t,w).\overline{v}}{x} + \frac{(x-w)*W_s(t-w,x-w).\overline{v}}{x} \\
-& \leq \frac{w*W_s(t,w).\overline{v}}{w+1} + \frac{(x-w)*W_s(t-w,x-w).\overline{v}}{x}
+W_s(t,x).\overline{v} &= \frac{wW_s(t,w).\overline{v} + (x-w)W_s(t-w,x-w).\overline{v}}{x} \\
+%& = \frac{wW_s(t,w).\overline{v}}{x} + \frac{(x-w)W_s(t-w,x-w).\overline{v}}{x} \\
+& \leq \frac{wW_s(t,w).\overline{v}}{w+1} + \frac{(x-w)W_s(t-w,x-w).\overline{v}}{x}
 \end{align*}
-Note that $J_s(x-w) \geq W_s(t-w, x-w).\overline{v}$, and $yJ_s(y)$ monotonically increases wrt. $y$.
-It follows that $(x-w)W_s(t-w,x-w).\overline{v}/{x} \leq (x-w)J_s(x-w)/{x} \leq (t-w)J_s(t-w)/(w+1)$.
 
+Note that $J_s(x-w) \geq W_s(t-w, x-w).\overline{v}$, and $yJ_s(y)$ monotonically increases with respect to $y$.
+It follows that $(x-w)W_s(t-w,x-w).\overline{v}/{x} \leq (x-w)J_s(x-w)/{x} \leq (t-w)J_s(t-w)/(w+1)$.
+%
 On the other hand, $J_s(1)\geq W_s(\cdot,y).\overline{v}$, for any $y$. Therefore,
 $(x-w)W_s(t-w,x-w).\overline{v}/{x} \leq (x-w)J_s(1)/x \leq (t-w)J_s(1)/t$.
 Combining the above deductions, it follows that:
 \begin{equation*}
 \hspace{-4mm}\frac{(x-w)W_s(t-w,x-w).\overline{v}}{x} \leq min\{\frac{t-w}{w+1}J_s(t-w), \frac{t-w}{t}J_s(1) \}
 \end{equation*}
-which naturally leads to Theorem~\ref{thm:online_bound}. 
+which leads to Theorem~\ref{thm:online_bound}. 
 \end{proof}
 
-When $w$ is small, $\frac{t-w}{w+1}J_s(t-w)$ is too loose as $\frac{t-w}{w+1}$ is large. However, we can leverage $\frac{t-w}{t}J_s(1)$ to obtain a better bound. As $w$ increases, $\frac{t-w}{w+1}J_s(t-w)$ eventually becomes smaller than $\frac{t-w}{t}J_s(1)$. Thus, we leverage $\frac{t-w}{w+1}J_s(t-w)$ to perform efficient pruning. 
+When $w$ is small, $\frac{t-w}{w+1}J_s(t-w)$ is too loose as $\frac{t-w}{w+1}$ is large. However, we can leverage $\frac{t-w}{t}J_s(1)$ to obtain a better bound. As $w$ increases, $\frac{t-w}{w+1}J_s(t-w)$ eventually becomes smaller than $\frac{t-w}{t}J_s(1)$. Thus, we can leverage $\frac{t-w}{w+1}J_s(t-w)$ to perform efficient pruning. 
 
 %Using the same logic, we can derive bounds for other aggregate functions; these are listed in Section~\ref{sec:discussion}.
 
-\subsection{Sketch Maintenance}
+\subsection{Sketch Update}
 \label{subsec:sketch_main}
-Once we obtain an event window $W_s(t,w)$ which causes changes in the $WI(w)$, two kinds of sketch maintenances may occur. The first is 
-to update the sketch for subject $s$, which we refer to as \emph{active-update}. The second is to update the sketches for other subjects. This happens when some of their candidate themes' ranks  become worse due to $W_s(t,w)$. We refer to this case as \emph{passive-update}. If these updates are not properly handled, sketches maintained for those subjects are not able to obtain an approximate ratio on their qualities. We demonstrate these updates in the following example.
+Once we obtain a streak $W_s(t,w)$ which causes changes in the $WI(w)$, 
+two kinds of sketch updates may occur. The first update is directly
+on the sketch of $s$,
+% is to update the sketch for subject $s$, 
+which we refer to as \emph{active update}.
+The second update is on the sketches for other subjects. 
+%The second is to update the sketches for other subjects. 
+This happens when some of their ranked-streaks become worse due to $W_s(t,w)$. 
+We refer to this case as \emph{passive update}. If these 
+updates are not properly handled, sketches maintained for those subjects 
+are not able to obtain an approximation ratio on their qualities. 
+We demonstrate the two types of updates in the following example.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{chapter4/charts/active_update.eps}
-        \caption{Active update of new candidate theme $N(11,4)$}
+    \begin{subfigure}[b]{0.453\textwidth}
+        \includegraphics[width=\textwidth]{chpater4/active_update.eps}
+        \caption{Active update cased by the new ranked-streak $N(11,4)$}
 %        \label{fig:active_update}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{chapter4/charts/passive_update.eps}
-        \caption{Passive update due to existing candidate theme $N(11,4)$ }
+        \includegraphics[width=\textwidth]{chpater4/passive_update.eps}
+        \caption{Passive update cased by the existing ranked-streak $N(11,4)$ }
 %        \label{fig:passive_update}
     \end{subfigure}
-    \caption{The illustration of active updates and passive updates, the solid circle represent the original
-    sketch, the dotted circle represent the updated sketch.}
+    \caption{The illustration of active updates and passive updates, the solid circle represents the original
+    sketch, the dotted circle represents the updated sketch.}
     \label{fig:sketch_maintenance}
 \end{figure}
 
 
 \begin{example}
-Suppose $k = 2$ and we maintain a $2$-Sketch for each subject. As shown in Fig.~\ref{fig:sketch_maintenance}(a), 
-when the candidate theme $N(11,4)$ is generated, the maintained sketch is no longer the best. This is because replacing 
-$N(7,3)$ would generate a better sketch. This process is referred as \emph{active update}.
-In Fig.~\ref{fig:sketch_maintenance}(b), $N(11,4)$ is pushed up due to the arrival of the event about another subject; as a result, the quality of the sketch drops. We name this process as \emph{passive update}. If passive update is not handled, the rank of $N(11,4)$ may continue to be pushing up and may eventually be greater than $p$, making the entire sketch invalid. Nevertheless, it is evident that when $N(11,4)$ degrades, replacing it with $N(7,3)$ would
-result in a sketch with better quality. 
+Suppose $k = 2$ and we maintain a $2$-Sketch for each subject. As shown in Figure~\ref{fig:sketch_maintenance}(a), 
+when the ranked-streak $N(11,4)$ is generated, the maintained sketch is no longer the best. 
+This is because replacing 
+$N(7,3)$ would generate a better sketch. This process is referred as the \textbf{active update}.
+In Figure~\ref{fig:sketch_maintenance}(b), $N(11,4)$ is pushed up due to the arrival of the event about another subject; as a result, the quality of the sketch drops. We name this process as the \textbf{passive update}. 
+If passive update is not handled, the rank of $N(11,4)$ may continue to be pushing up and may eventually be greater than $p$, making the entire sketch invalid. Nevertheless, it is evident that when $N(11,4)$ degrades, replacing it with $N(7,3)$ would
+result in a sketch with a better quality. 
 \end{example}
 
-A naive approach to handle online update is to run Algorithm~\ref{algo:greedy} for subjects whose sketches are affected.
-This maintains a $(1-1/e)$ approximation ratio but incurs high computational overheads. In order to support efficient updates, we make a trade-off between the quality of the sketch and the update efficiency by providing a $1/8$ approximation solution with only $O(k)$ candidate themes being accessed for each affecting subject. 
+A naive approach to handle these updates is to run Algorithm~\ref{algo:greedy} for each affected subject.
+% whose sketches are affected.
+This maintains a $(1-1/e)$-approximation ratio but incurs a high computational cost. 
+In order to support efficient updates, we make a trade-off between 
+the quality of the sketch and the update efficiency by 
+providing a $1/8$-approximate solution with 
+only $O(k)$ ranked-streaks being accessed for each affected subject. 
 
-%Unlike the naive approach which checks every candidate theme to update a sketch, 
-%only $2k$ candidate themes are required for each subject in our approach. 
-In particular, we maintain two sets $S_1$ and $S_2$ each of size $k$. 
-$S_1$ maintains the $k$ best candidate themes which collectively cover the most
-events whereas $S_2$ maintains $k$ candidate themes with best ranks. When performing an active update for a candidate theme $N_s(t,w)$, we check if $N_s(t,w)$ could replace any candidates in $S_1$ to generate a better cover meanwhile we select the new $k$ best ranked candidate themes into $S_2$. After $S_1$ is updated, we perform the greedy selection among candidate themes in $S_1 \cup S_2$.
-During a passive update, $S_1$ is not affected. We simply update $S_2$ to be the new $k$ best ranked candidate themes. 
-After that, the new sketch is obtained by performing a greedy selection on $S_1 \cup S_2$. Algorithm~\ref{algo:online_update} summarizes both the active and passive update. 
+In particular, we maintain two size-$k$ sets $S_1$ and $S_2$. 
+$S_1$ maintains the $k$ best ranked-streaks which collectively cover most
+events whereas $S_2$ maintains $k$ ranked-streaks with best ranks. 
+When performing an active update for a streak $N_s(t,w)$, 
+we check if $N_s(t,w)$ could replace any ranked-streak in $S_1$ 
+to generate a better cover. Meanwhile, we select the new 
+$k$ best ranked-streaks into $S_2$. 
+After $S_1$ and $S_2$ are updated, 
+we perform the greedy selection from $S_1 \cup S_2$.
+During a passive update, $S_1$ is not affected. We simply update $S_2$ to be the new $k$ best ranked-streaks. 
+Afterwards, the new sketch is obtained by performing a greedy selection from $S_1 \cup S_2$. Algorithm~\ref{algo:online_update} presents both the active and passive updates. 
 %
 %Let scoring function $C(S)$ be the cardinality of sequences covered by all elements in $S$, $R_i$ be the
 %all news candidates of object $i$, then our algorithm works as follows: 
 \begin{algorithm}
-\caption{UpdateSketches}\label{algo:online_update}
+\caption{SketchUpdate}\label{algo:online_update}
 \begin{algorithmic} [1]
 \Require $N_s(t,w)$
 \State \textbf{Active update for the subject $s$}
-\State $S_1$:  $k$ candidate themes with best cover
-\State $S_2$:  $k$ candidate themes with best ranks 
+\State $S_1$:  $k$ ranked-streaks with best cover
+\State $S_2$:  $k$ ranked-streaks with best ranks 
 \State $N^* \gets \argmax_{N \in S_1}C(S_1 \cup N_s(t,w) \setminus N)$
 \If{$C(S_1) < C(S_1 \cup N_s(t,w) \setminus N^*)$}
 \State $S_1 \gets S_1 \cup N_s(t,w) \setminus N^*$
 \EndIf
-\State $S_2 \gets$ new $k$ best candidates for rank scores 
-\State $greedy(S_1 \cup S_2 )$
+\State $S_2 \gets$ new $k$ ranked-streaks with best ranks 
+\State $S \gets greedy(S_1 \cup S_2 )$
 \\\hrulefill
 \State \textbf{Passive update for an affecting subject $s'$}
-\State $S_2 \gets$ new $k$ best candidates for rank score $s'$ 
+\State $S_2 \gets$ new $k$ ranked-streaks with best ranks for $s'$
 \State $S \gets greedy(S_1 \cup S_2)$
 \end{algorithmic}
 \end{algorithm}
@@ -154,20 +192,24 @@ After that, the new sketch is obtained by performing a greedy selection on $S_1 
 %\label{algo:online_passive_update}
 %\end{algorithm}
 
-Given our sketch update strategies, we are now ready to prove the approximation ratio for the maintained sketches. 
+We state the quality of our sketch update strategy in the
+following theorem:
+%
+%Given our sketch update strategies,
+%we are now ready to prove the approximation ratio for the maintained sketches. 
 
 \begin{theorem}[Approximation Ratio for Sketch Update]
 \label{thm:online_quality}
 Each sketch maintained by Algorithms~\ref{algo:online_overview}
-achieves an at least $1/8$ approximation to optimal solution.
+achieves an at least $1/8$-approximation to the optimal solution.
 \end{theorem}
 
 \begin{proof}
-First, we observe that $S_2$ always keep the candidates with optimal ranks. 
-Second, we note that $S_1$ maintains the candidates with 1/4 optimality as shown in~\cite{Saha2009On}.
+First, we observe that $S_2$ always keeps the ranked-streaks with optimal ranks. 
+Second, we note that $S_1$ maintains the streaks with $1/4$-approximate coverage as shown in~\cite{Saha2009On}.
 
-Let $OPT_C$ be the optimal solution for $k$ best covering of $s$'s events; Let $C()$ be the number of events a set of candidate theme covers. Similarly, let $OPT_R$ be the optimal solution for $k$ best ranked candidate themes of $s$; Let $R()$ be the 
-summation of ranks of all members in a candidate theme set. Let $S^*_s$ be the optimal sketch of subject $s$. Intuitively, we have the following: 
+Let $OPT_C$ be the optimal $k$ streaks that best covers $s$'s history; Let $C()$ be the number of events a set of streaks cover. Similarly, let $OPT_R$ be the optimal $k$ streaks with highest ranks; Let $R()$ be the 
+summation of ranks of all members in a ranked-streak set. Let $S^*_s$ be the optimal sketch of subject $s$. Intuitively, we have the following: 
 \begin{equation*} 
 g'(S^*_s) \leq \eta_1 C(OPT_C) + \eta_2 R(OPT_R)
 \end{equation*}
@@ -178,7 +220,7 @@ Since $C(S_1) \geq 1/4 C(OPT_C)$ and $R(S_2) = R(OPT_R)$, we have the following:
 & \geq 1/4 g'(S^*_s)
 \end{split}
 \end{equation*}
-, which implies $\max\{\eta_1 C(S_1), \eta_2 R(S_2)\} \geq 1/8 g( S^*_s)$. 
+which implies $\max\{\eta_1 C(S_1), \eta_2 R(S_2)\} \geq 1/8 g( S^*_s)$. 
 As $g'(S_1) \geq \eta_1 C(S_1)$ and $g'(S_2) > \eta_2 R(S_2)$, it leads to:
 \begin{equation*}
 \max\{g'(S_1), g'(S_2)\} > 1/8  g'(S^*_s)
@@ -186,7 +228,7 @@ As $g'(S_1) \geq \eta_1 C(S_1)$ and $g'(S_2) > \eta_2 R(S_2)$, it leads to:
 Let $SK_s$ be one of the sketch maintained by Algorithms~\ref{algo:online_update},
 since the greedy algorithm is run on $S_1 \cup S_2$, 
 $g'(SK_s) \geq max(g'(S_1), g'(S_2)) \geq 1/8 g'(S^*_s)$.
-As a result, our algorithm always ensures a 1/8 approximation ratio for each sketch.
+As a result, our algorithm always ensures at least $1/8$-approximation for each sketch.
 \end{proof}
 
 %We model the news selection problem as follows: Given a event

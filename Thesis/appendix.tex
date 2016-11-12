@@ -1,26 +1,26 @@
 \chapter{Appendix}
-\section{Discussions on Other Aggregate Functions}
+\section{Discussions on Other Aggregate Functions in Chapter 4}
 \label{sec:discussion}
 First, we shall see that supporting \emph{sum} is equivalent
 to supporting \emph{avg}. 
-A candidate theme which has a rank under \emph{avg} will have the 
+A ranked-streak which has a rank under \emph{avg} will have the 
 same rank under \emph{sum} as the ranking is derived by comparing all 
-candidates with the same window length. 
+candidates with the same length. 
 %
 Second, supporting \emph{count} is equivalent to supporting \emph{sum}. 
-By assigning each event with value of either 1 or 0, we can apply the 
+By assigning each event with a value of either 1 or 0, we can apply the 
 same pruning bounds for \emph{sum} to support \emph{count}. 
 %
 Third, supporting \emph{max} is equivalent to supporting \emph{min}. This is 
 because when \emph{max} is used as the aggregate function, we are more interested 
-to find news themes which have smaller aggregation values. 
+to find streaks which have smaller aggregation values. 
 For example, ``XXX stock has a maximum of \$0.2 price
 in consecutive 10 days, which is the lowest ever''. Then finding the sketches according to \emph{max} 
 can be derived from \emph{min} directly by negating the event values. 
 Therefore, we only provide bounds for 
-\emph{sum} and \emph{min}, which are shown as in Table~\ref{tbl:agg_bound}:
+\emph{sum} and \emph{min}, which are shown as in Table~\ref{tbl:agg_bound}.
 %
-{\renewcommand{\arraystretch}{1.2} 
+%{\renewcommand{\arraystretch}{1.2} 
 \begin{table}[h]
 \caption{Bounds for other aggregate functions}
 \centering
@@ -31,17 +31,17 @@ Therefore, we only provide bounds for
 \emph{sum} & $J_s(w) \leq J_s(w_1) + J_s(w-w_1) $ \\
 \emph{min} & $J_s(w) \leq max(J_s(w_1), J_s(w-w_1))$ \\
 \hline 
-\textbf{Aggregate Function} & \textbf{Visting-Window Bound} \\
+\textbf{Aggregate Function} & \textbf{Visting-Streak Bound} \\
 \hline 
 \emph{sum} & $J_s(w) = J_s(w-1)+J_s(1)$ \\
 \emph{min} & $J_s(w) = J_s(w/2)$ \\
 \hline 
-\textbf{Aggregate Function}& \textbf{Unseen-Window Bound} \\
+\textbf{Aggregate Function}& \textbf{Unseen-Streak Bound} \\
 \hline 
 \emph{sum} & $M_s(w) = W_s(t,w).\overline{v} + J_s(t-w)$ \\
 \emph{min} & $M_s(w) = max\{W_s(t,w).\overline{v}, J(1)\}$ \\
 \hline 
-\textbf{Aggregate Function }& \textbf{Online-Window Bound} \\
+\textbf{Aggregate Function }& \textbf{Online-Streak Bound} \\
 \hline 
 \emph{sum} & $M_s(w) = W_s(t,w).\overline{v} + J_s(t-w)$ \\
 \emph{min} & $M_s(w) = max\{W_s(t,w).\overline{v}, J(1)\}$ \\
@@ -49,7 +49,53 @@ Therefore, we only provide bounds for
 \end{tabular} 
 \label{tbl:agg_bound}
 \end{table}
-}
+%}
+
+We present the performance variations of our $k$-Sketch query under different aggregate functions in Fig.~\ref{exp:agg_cmp}. We can see from the figures that when adopting \emph{min} (\emph{max}) the performance in both online and offline scenarios drops (20\% to 30\%). This indicates that the pruning bounds in \emph{min} (\emph{max}) is weaker than \emph{avg} (\emph{sum}, \emph{count}).
+
+\begin{figure}[h]
+\centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{chapter4/exp/agg/agg_offline.eps}
+        \vspace{-1.5em}
+        \caption{Offline Scenario}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{chapter4/exp/agg/agg_online.eps}
+        \vspace{-1.5em}
+        \caption{Online Scenario}
+    \end{subfigure}
+\caption{Performance under different aggregate functions} 
+\label{exp:agg_cmp}
+\end{figure}
+
+%In fact, all distributive aggregation functions can leverage similar 
+%technics to support efficient pruning. 
+
+
+%\begin{itemize}
+%\item \emph{sum}: $J_s(w) \leq J_s(w_1) + J_s(w-w_1) $
+%\item \emph{min}: $J_s(w) \leq max(J_s(w_1), J_s(w-w_1))$
+%\end{itemize}
+%\noindent\textbf{Visting-Window Bound}
+%\begin{itemize}
+%\item \emph{sum}: $J_s(w) = J_s(w-1)+J_s(1)$
+%\item \emph{min}: $J_s(w) = J_s(w/2)$
+%\end{itemize} 
+%\noindent\textbf{Unseen-Window Bound}
+%\begin{itemize}
+%\item \emph{sum}:$M_s(w) =\lfloor \mathbb{H}_s /w\rfloor J_s(w) + J_s(w-1)$
+%\item \emph{min}: $M_s(w) = max\{J(w), J(1)\}$
+%\end{itemize}
+%\noindent\textbf{Online-Window Bound}
+%\begin{itemize}
+%\item \emph{sum}:$M_s(w) = W_s(t,w).\overline{v} + J_s(t-w)$
+%\item \emph{min}:$M_s(w) = max\{W_s(t,w).\overline{v}, J(1)\}$
+%\end{itemize}
+
+
+
+
 
 \section{Proofs of Theorems in Chapter 5}
 \subsection{Proofs of Theorem~\ref{THM:SPM_LB} and~\ref{THM:SPM_LB_INC}}

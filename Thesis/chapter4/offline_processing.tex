@@ -1,39 +1,45 @@
-\section {Offline Sketch Discovery}\label{sec:offline}
+\section {Offline $k$-Sketch Query Processing}\label{sec:offline}
 In the offline scenario, the input is a set of events
 of all subjects and the output is a $k$-sketch 
 for each subject $s$, denoted by $SK_s$. 
-The sketch discovery process consists of two 
-major steps: first generating the candidate themes of each subject (i.e., $\mathbb{N}_s$), 
-and then discovering the sketches among those candidate themes. 
+The $k$-Sketch query processing consists of two 
+major steps: first generating the ranked-streaks of each subject (i.e., $\mathbb{N}_s$), 
+and then discovering the sketches among those ranked-streaks. 
 
-\subsection{Candidate Theme Generation}
-Generating candidate themes for each subject is computationally 
-expensive. In order to retain the candidate themes with rank no greater than $p$,
-a brute-force approach needs to evaluate all the event windows with every possible length to generate accurate ranks. Since there could be $\mathbb{H}_s \choose 2$ event windows (with different lengths and ending sequence ids) associated with subject $s$, the total time complexity for the brute-force approach
-is $O(\sum_{s \in S}|\mathbb{H}_s|^2)$. Such a complexity makes the solution infeasible even for moderate-sized datasets.
+\subsection{Ranked-Streak Generation}
+Generating ranked-streak for each subject is computationally 
+expensive. %In order to retain the streaks with rank no greater than $p$,
+In order to generate accurate ranks for selecting ranked-streaks, 
+a brute-force approach needs to evaluate all the streaks with every possible 
+length. % to generate accurate ranks. 
+Since there could be $\mathbb{H}_s \choose 2$ streaks
+associated with subject $s$, 
+the total time complexity for the brute-force approach
+is $O(\sum_{s \in S}|\mathbb{H}_s|^2)$. Such a complexity makes the 
+solution infeasible even for moderate-sized datasets.
 
 To improve the efficiency, 
-we observe that it is not necessary to compute all the event windows to generate $\mathbb{N}_s$.
-The intuition behind is that the upper bound value of event windows with longer lengths can be estimated from those
-with shorter lengths. This means that we can compute event windows with increasingly lengths, and as the shorter event windows are computed, the longer event windows not in $\mathbb{N}_s$ can be pruned.
-To realize such an intuition, we design the candidate generation algorithm
-by adapting two novel window-based pruning methods which 
-exploit the \emph{subadditivity} property among event windows with different window lengths.
+we observe that it is not necessary to 
+compute all the streaks to generate $\mathbb{N}_s$.
+The intuition behind is that the upper bound value of streaks with longer lengths can be estimated from those
+with shorter lengths. This means that we can compute streaks 
+with increasing lengths, and as the shorter streaks are computed, 
+the longer streaks not in $\mathbb{N}_s$ can be pruned.
+To realize such an intuition, we design the ranked-streak generation algorithm
+by adopting two novel streak-based pruning methods which 
+exploit the \emph{subadditivity} property among streaks with different lengths.
 
 
-\subsubsection{Overview of window pruning}
-For each subject, its event windows can be grouped by window lengths. Our candidate
-generation algorithm gradually evaluates a subject's event window from shorter
-length to longer length. To support efficient pruning, 
-we define two concepts, namely \emph{visiting-window bound} ($J_s$) and \emph{unseen-window bound} ($M_s$).
-In particular, $J_s(w)$ is the upper bound of all the event windows about subject $s$ and with length $w$, i.e., $\forall w,J_s(w) \geq \max\{W_s(t,w).\overline{v} | t\in(0,w)\}$. 
-$M_s(w)$ is the upper bound of all the event windows about subject $s$ with length larger than $w$, i.e., $M_s(w) \geq \max\{J_s(t) | t > w\}$.  These two bounds will be used for event window pruning and we will present how to estimate these two upper bounds in Sections~\ref{sec:visiting-window-bound} and~\ref{sec:useen-window-bound}.
+\subsubsection{Overview of streak pruning}
+For each subject, its streaks can be grouped by lengths. Our ranked-streak
+generation algorithm gradually evaluates a subject's streak from a shorter
+length to a longer length. To support efficient pruning, 
+we define two concepts, namely \emph{visiting-streak bound} ($J_s$) and \emph{unseen-streak bound} ($M_s$).
+In particular, $J_s(w)$ is the upper bound of all the streaks about subject $s$ with length $w$, i.e., $\forall w,J_s(w) \geq \max\{W_s(t,w).\overline{v} | t > w\}$. 
+$M_s(w)$ is the upper bound of all the streaks about subject $s$ with a length larger than $w$, i.e., $M_s(w) \geq \max\{J_s(w_1) | w_1 > w\}$.  These two bounds will be used for streak pruning and we will present how to derive these two  bounds in Sections~\ref{sec:visiting-window-bound} and~\ref{sec:useen-window-bound}.
 
-%Utilizing these two bounds,
-%we are able to design the \emph{visiting-window pruning} and \emph{useen-window pruning} techniques.
-
-The overview of news theme generation algorithm is presented in Algorithm~\ref{algo:prune_overview}. We maintain two global structures $WI$ and $\beta$ (Lines~1-2). For each window length $w$, $WI(w)$ stores the top $p$ event windows with length $w$ among all the subjects and $\beta(w)$ is the $p$-th score among the candidates in $WI(w)$. 
-In other words, $\beta(w)$ serves as a lower bound score. An event window with length $w$ is a candidate for the $k$-sketch only if its aggregate value is larger than $\beta(w)$. A priority queue $Q$ (Line 3) is used to provide an access order among the subjects. Each element in the queue is a triple $(s,w,q)$, where $s$ is a subject, $w$ indicates the next window length of $s$ to evaluate, and $q$ denotes the priority. We use the unseen-window bound (i.e., $M_s(w)$) as the priority during every iteration (Lines~13-14). Intuitively, an event window with higher $M_s(w)$ is more likely to spawn new event windows that can increase $\beta$ and benefit the subsequent pruning. During initialization, we insert, for each subject, an entry with window length $1$ and priority infinity into $Q$.
+The overview of ranked-streak generation algorithm is presented in Algorithm~\ref{algo:prune_overview}. We maintain two global structures $WI$ and $\beta$ (Lines~1-2). For each length $w$, $WI(w)$ stores the top-$p$ streaks with length $w$ among all the subjects and $\beta(w)$ is the $p^{th}$ value among the streaks in $WI(w)$.  
+In other words, $\beta(w)$ serves as a lower bound value. A streak with length $w$ is a ranked-streak only if its aggregate value is larger than $\beta(w)$. A priority queue $Q$ (Line 3) is used to provide an access order among subjects. Each element in the queue is a triple $(s,w,q)$, where $s$ is a subject, $w$ indicates the next streak length of $s$ to evaluate, and $q$ denotes the priority. We use the unseen-streak bound (i.e., $M_s(w)$) as the priority during every iteration (Lines~13-14). Intuitively, a subject with higher $M_s(w)$ is more likely to spawn new streaks that can increase $\beta$ and benefit the subsequent pruning. During initialization, we insert, for each subject, an entry with length $1$ and priority infinity into $Q$.
 
 %the candidate with the maximum $M_s$ will be located on top of the priority queue. Intuitively, an event window with higher $M_s(w)$ is more likely to spawn new event windows that can increase the values in $\beta$ and facilitate the subsequent pruning. In the initialization step, we insert all the event windows with length $1$ into $Q$.
 
@@ -46,9 +52,12 @@ In other words, $\beta(w)$ serves as a lower bound score. An event window with l
 %The intuition of using $M_s$ as priority is that $M_s$ presents the potential maximum value of $s$.
 %If $M_s$ is high, $s$ is likely to increase $\beta$. Higher $\beta$ brings higher pruning power.
 
-In each iteration, we pop the event window with the highest priority (Line~\ref{code:subj_selection}). Then, we compute the visiting-window bound $J_s(w)$ for the subject and determine whether all the length-$w$ windows about subject $s$ can be pruned (Lines~\ref{code:v_prune_start}-\ref{code:v_prune_end}). If the bound $J(s)$ is no greater than $\beta(w)$, then all these event windows can be ignored. Otherwise, all the length-$w$ event windows of $s$ are computed to update $WI(w)$ and $\beta(w)$ accordingly (Lines~\ref{code:e_compute_start}-\ref{code:e_compute_end}).
+In each iteration, we pop the streak with the highest priority (Line~\ref{code:subj_selection}). Then, we compute the visiting-streak bound $J_s(w)$ for the subject and determine whether all the length-$w$ streak about subject $s$ can be pruned (Lines~\ref{code:v_prune_start}-\ref{code:v_prune_end}). If the bound $J_s(w)$ is no greater than $\beta(w)$, then all these streaks can be ignored. Otherwise, all the length-$w$ streaks of $s$ are computed to update $WI(w)$ and $\beta(w)$ accordingly (Lines~\ref{code:e_compute_start}-\ref{code:e_compute_end}).
 % We also update $J_s$ as the maximum score among these event windows. 
-In the next step, we estimate the unseen-window bound $M_s$ and compare it with the minimum $\beta(w')$ for all $w'> w$. If $M_s$ is smaller, then we would not find a better candidate and all the event windows about subject $s$ and with length larger than $w$ can be pruned (Lines~\ref{code:u_prune_start}-\ref{code:u_prune_end}). Otherwise, we assign $M_s$ to the priority $q$, and push the triple $(s,w+1,q)$ back into the queue (Lines~13-14). The algorithm terminates when all the candidates have been evaluated and $Q$ becomes empty.
+In the next step, we estimate the unseen-streak bound $M_s$ and compare it with the minimum $\beta(w')$ for all $w'> w$. If $M_s$ is smaller, then we would not find a better streak and all the streaks about subject $s$ with lengths larger than $w$ can be pruned (Lines~\ref{code:u_prune_start}-\ref{code:u_prune_end}). Otherwise,
+we set the priority of $M_s$ to $q$,
+% we assign $M_s$ to the priority $q$, 
+ and push the triple $(s,w+1,q)$ back to $Q$ (Lines~13-14). The algorithm terminates when $Q$ becomes empty.
 %$\beta$s can be organized as an Interval Tree~\cite{Berg1997Computational} so that such comparison
 %is efficiently supported. If the unseen-window pruning fails, the triplet $(s,w+1,M_s)$ 
 %is inserted back to $Q$ (Lines~\ref{code:q_insert}). 
@@ -73,11 +82,11 @@ In the next step, we estimate the unseen-window bound $M_s$ and compare it with 
 %and \emph{unseen-window} pruning. The former can avoid evaluating event windows with length $w$ while the latter avoids evaluating event windows with length greater than $w$.
 
 \begin{algorithm}[t]
-\caption{Candidate Theme Generation Overview}
+\caption{Ranked-streak Generation Overview}
 \label{algo:prune_overview}
 \begin{algorithmic}[1]
-\State $WI() \gets \{\}$ // $p$ best event windows for each window length
-\State $\beta \gets \{\}$ // smallest scores in $WI$ for each window length
+\State $WI() \gets \{\}$ // top-$p$ streaks for each length
+\State $\beta \gets \{\}$ // smallest scores in $WI$ for each length
 \State $Q \gets \{(s,1,+\infty) | s \in S\}$
 \While{$(s,w,q) \gets Q.pop()$} \label{code:subj_selection}
 	%	\State $w \gets w+1$
@@ -164,9 +173,9 @@ In the next step, we estimate the unseen-window bound $M_s$ and compare it with 
 %$\overline{J}_s(w)=(w_1W_1.\overline{v} +(w-w_1)W_2.\overline{v})/w \leq (w_1\overline{J}_s(w_1)+ (w-w_1)\overline{J}_s(w-w_1))/w$.
 %\end{proof}
 
-\subsubsection{Visiting-window pruning}  
+\subsubsection{Visiting-streak pruning}  
 \label{sec:visiting-window-bound}
-In Algorithm~\ref{algo:prune_overview}, we need to compute the visiting-window bound $J_s(w)$ to facilitate pruning all length-$w$ event windows associated with subject $s$. Our idea is that suppose we have successfully derived the bounds for windows with smaller lengths, we can use them to estimate the bounds of larger windows. We formulate it as the subadditivity property and use $avg$\footnote{Although here we demonstrate the bound
+In Algorithm~\ref{algo:prune_overview}, we need to compute the visiting-streak bound $J_s(w)$ to facilitate pruning all length-$w$ streaks associated with subject $s$. Our idea is that suppose we have successfully derived the bounds for streaks with smaller lengths, we can use them to estimate the bounds of larger streaks. We formulate it as the subadditivity property and use $avg$\footnote{Although here we demonstrate the bound
 using ``avg'', the properties and bounds also hold for other aggregate functions. Corresponding properties and bounds for other aggregate functions are listed in Section~\ref{sec:discussion}.
 } as the aggregate function for illustration: 
 
@@ -179,8 +188,9 @@ using ``avg'', the properties and bounds also hold for other aggregate functions
 \end{equation}
 \end{theorem}
 \begin{proof}
-Given any event window $W=W_s(t,w)$ with length $w$ and a value $w_i \in (0,w)$, we can split the window into two non-overlapping sub-windows with lengths $w_i$ and $w-w_i$, i.e.,$W_1 = W_s(t,w_i)$ and $W_2 = W_s(t-w_i, w-w_i)$. Due to the non-overlapping property of $W_1$ and $W_2$, we have $wW.\overline{v} = w_iW_1.\overline{v} + (w-w_i)W_2.\overline{v}$.  Since $J_s(w_i)$ and $J_s(w-w_i)$ are two visiting-window bounds, we have $W_1.\overline{v}\leq J_s(w_i)$ and $W_2.\overline{v}\leq J_s(w-w_i)$. %for the $avg$ operator
-Then, we complete the proof and $\frac{w_i J_s(w_i) + (w-w_i) J_s(w-w_i)}{w}$ is a bound for event windows with length $w$.
+Given any streak $W=W_s(t,w)$ and a value $w_i \in (0,w)$, we can split the streak into two non-overlapping sub-streaks with lengths $w_i$ and $w-w_i$, i.e., $W_1 = W_s(t,w_i)$ and $W_2 = W_s(t-w_i, w-w_i)$. Due to the non-overlapping property of $W_1$ and $W_2$, we have $wW.\overline{v} = w_iW_1.\overline{v} + (w-w_i)W_2.\overline{v}$.  Since $J_s(w_i)$ and $J_s(w-w_i)$ are two visiting-streak bounds, then $W_1.\overline{v}\leq J_s(w_i)$ and $W_2.\overline{v}\leq J_s(w-w_i)$ must hold for any $t$. 
+It then follows that, for any $t$, $wW_s(t,w).\overline{v} \leq w_i J_s(w_i) + (w-w_i) J_s(w-w_i)$. Therefore, $w\max_t\{W_s(t,w).\overline{v}\} \leq w_i J_s(w_i) + (w-w_i) J_s(w-w_i)$,  which leads to the theorem. %for the $avg$ operator
+%Then, we complete the proof and $\frac{w_i J_s(w_i) + (w-w_i) J_s(w-w_i)}{w}$ is a   bound for streaks with length $w$.
 \end{proof}
 
 
@@ -205,66 +215,69 @@ Then, we complete the proof and $\frac{w_i J_s(w_i) + (w-w_i) J_s(w-w_i)}{w}$ is
 %techniques using \emph{avg} as the aggregate function. The respective bounds of other aggregate functions
 %are described in the Section~\ref{sec:discussion}.
 
-
-With Theorem~\ref{lem:subaverage}, we can estimate $J_s(w)$ by any pair $J_s(w_1)$ and $J_s(w-w_1) $, $\forall w_1 < w$. 
-To derive a tighter bound for $J_s(w)$, we formulate the following optimization problem:
+With Theorem~\ref{lem:subaverage}, we can estimate $J_s(w)$ by any pair $J_s(w_i)$ and $J_s(w-w_i)$, $\forall w_i < w$. 
+Let $w^*$ corresponds to the tightest $J_s(w)$, then $w^*$ can be formulated as:
+%The optimal $w_i$ (denoted by $w^*$) can be formulated as the following optimization problem:
+%To derive a tighter bound for $J_s(w)$, we formulate the following optimization problem:
 %
 \begin{equation}  
 \label{eq:cw_mini_1}
-w_1 = \argmin_{t \in (0,w)}\frac{J_s(t)*t + J_s(w-t) *(w-t)}{w}
+w^* = \argmin_{w_i \in (0,w)}\frac{w_iJ_s(w_i) + (w-w_i)J_s(w-w_i) }{w}
 \end{equation}
 
-A naive solution would enumerate every possible $t$ 
-to get the tightest bound. However, such a solution 
-has a worst time complexity of $O(|\mathbb{H}_s|)$ for subject $s$. 
-To quickly compute $w_1$ without compensating the running time,
-we apply a continuous relaxation to Eqn.~\ref{eq:cw_mini_1} as follows: 
-Let $G_s(t) = J_s(t) * t \;\;\forall t$, 
-then Eqn.~\ref{eq:cw_mini_1} is equivalent to:
+
+A naive solution to compute $w^*$ is to enumerate every possible $w_i$.
+%to get the tightest bound. 
+However, such a solution has a worst time complexity of $O(|\mathbb{H}_s|)$ for subject $s$. 
+To quickly compute $w^*$ without enumerating all $w_i$,
+we apply a continuous relaxation to Equation~\ref{eq:cw_mini_1} as follows: 
+Let $G_s(w_i) = w_iJ_s(w_i) \;\;\forall w_i$, 
+then Equation~\ref{eq:cw_mini_1} is equivalent to:
 %To quickly retrieve a tight bound without compensating running time, 
 %we design a $O(1)$ estimation of $J_s(w)$ as follows: Let $G_s(t) = J_s(t) * t \;\;\forall t$, 
 %then Eqn.~\ref{eq:cw_mini_1} is equivalent to:
 \begin{equation}
 \label{eq:cw_mini_2}
-w_1 = \argmin_{t\in 1..w-1} \{G_s(t) + G_s(w-t)\}
+w^*  = \argmin_{w_i\in(0,w)} \{G_s(w_i) + G_s(w-w_i)\}
 \end{equation}
-Let $L_s(t)$ be a continuous and smooth fitting function 
-of $G_s(t)$ for $t \in [1,w-1]$.  Eqn.~\ref{eq:cw_mini_1} can then be relaxed by replacing $G_s(t)$ with $L_s(t)$ to produce
-the solution at $w_1=w/2$ if $L_s(t)$ is convex and $w_1=1$ 
-if $L_s(t)$ is concave. We have observed, over all aggregate functions, the convexity and concavity for $L_s(\cdot)$
-when approximating $G_s(\cdot)$. 
+Let $L_s(w_i)$ be a continuous and smooth fitting function 
+of $G_s(w_i)$ for $w_i \in [1,w-1]$.  Equation~\ref{eq:cw_mini_1} can then be relaxed by replacing $G_s(w_i)$ with $L_s(w_i)$,
+which produces
+the solution at $w^*=w/2$ if $L_s(w_2)$ is convex and $w^*=1$ 
+if $L_s(w_i)$ is concave. We have observed that the convexity and concavity for $L_s(\cdot)$
+when approximating $G_s(\cdot)$ hold over all aggregate functions. %, the convexity and concavity for $L_s(\cdot)$ when approximating $G_s(\cdot)$. 
 %The continuous relaxation of 
 %Eqn.~\ref{eq:cw_mini_2} has the solution at $w_1=w/2$ 
 %if $L_s(t)$ is convex and $w_1=1$ if $L_s(t)$ is concave. 
 %By the observations over all aggregate functions, 
 %we confirm the convexity and concavity
-%for $L_s(\cdot)$ when approximating $G_s(\cdot)$.
-For example, we use 800 games of a NBA player and plot the 
-function $G_s$ and $L_s$ under various aggregate functions in Figs.~\ref{fig:convex_exp}. 
-In Fig.~\ref{fig:convex_exp}(a), $G_s$ and $L_s$ for \emph{min} and \emph{avg} are presented. 
+%for $L_s(\cdot)$ when approximating $G_s(\cdot)$. 
+For example, we use 800 game records of a NBA player and plot the 
+function $G_s$ and $L_s$ under various aggregate functions in Figures~\ref{fig:convex_exp}. 
+In Figure~\ref{fig:convex_exp}(a), $G_s$ and $L_s$ for \emph{min} and \emph{avg} are presented. 
 We can see that the fitting $L_s$ for \emph{min} is convex while that for $avg$ is concave.
-Similarly, in Fig.~\ref{fig:convex_exp}(b), 
+Similarly, in Figure~\ref{fig:convex_exp}(b), 
 we can see that $L_s$ is concave for count, sum and max. 
-In the worst-case scenario, even when $L_s(\cdot)$ is neither convex nor concave, 
+In the worst case scenario, even when $L_s(\cdot)$ is neither convex nor concave, 
 $J_s(w) < \frac{J_s(1) + (w-1)J_s(w - 1))}{w}$ still holds due to 
-Theorem~\ref{lem:subaverage}. Thus we have the visiting-window bound stated as:
+Theorem~\ref{lem:subaverage}. Thus we have the visiting-streak bound stated as:
 
-\begin{theorem}[Visiting-Window Bound]
+\begin{theorem}[Visiting-Streak Bound]
 \label{thm:visiting_window_bound}
-Given a window length $w > 1$, let $J_s(w)$ be:
+Given a length $w > 1$, let $J_s(w)$ be:
 \begin{equation}
 J_s(w) = \frac{J_s(1) + (w-1)J_s(w-1)}{w}
 \end{equation}
-then $J_s(w)$ is a visiting-window bound, i.e. $ J_s(w) \geq \max_t$ $W_s(t,w).\overline{v}$
+then $J_s(w)$ is a visiting-streak bound, i.e. $ J_s(w) \geq  \max_t\{W_s(t,w).\overline{v}\}$
 \end{theorem}
-%\begin{proof}
-By substitute $w_i = 1$ to the r.h.s. of Theorem~\ref{lem:subaverage}, we see this theorem holds. 
-%\end{proof}
+\begin{proof}
+By substitute $w_i = 1$ to the right hand side of Theorem~\ref{lem:subaverage}, we see this theorem holds. 
+\end{proof}
 
 In Algorithm~\ref{algo:prune_overview}, $J_s(w)$ is computed incrementally. Initially, $J_s(1)$
-is set as the single event of $s$ with highest value. Then, as the subject $s$ is processed,
-$J_s(w)$ is computed by Theorem~\ref{thm:visiting_window_bound}. In the case that $J_s(w)$ is not 
-pruned, we may assign $J_s(w)$ with the maximum length-$w$ event window of $s$ to further tighten
+is set to be the single event of $s$ with highest value. Then, as the subject $s$ is processed,
+$J_s(w)$ is computed by Theorem~\ref{thm:visiting_window_bound}. In the case when
+visiting-streak pruning fails, we update $J_s(w)$ to the maximum length-$w$ streak of $s$ to further tighten
 the bound. 
 
 %To use the recursive form of visiting-window bound in Theorem~\ref{thm:visiting_window_bound}, $J_s(1)$ 
@@ -274,9 +287,6 @@ the bound.
 %Although Theorem~\ref{lem:subaverage} demonstrate the subadditivity for ``average'' function,
 %the properties holds for other aggregate functions as well. We list the subaddivity and visiting-window
 %bound for other aggregate functions in Section~\ref{sec:discussion}.
-
-
-%PLEASE MAKE A SUMMARY OF HOW TO ESTIMATE THE UPPER BOUND IN DIFFERENT SCENARIOS. ALSO NEED TO ADDRESS HOW TO ESTIMATE $J_s(1)$. ANOTHER CASE IS WHAT HAPPENS IF window length w-1 IS PRUNED. THEN, HOW TO ESTIMATE $J_s(w-1)$
 
 %\begin{theorem}[Visiting-Window Bound]
 %\label{thm:visiting_window_bound}
@@ -304,12 +314,12 @@ the bound.
 \begin{figure}
 	\centering
     \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{chapter4/charts/convex.eps}
+        \includegraphics[width=\textwidth]{chapter4/convex.eps}
         \caption{}
 %        \label{fig:active_update}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{chapter4/charts/concave.eps}
+        \includegraphics[width=\textwidth]{chapter4/concave.eps}
         \caption{}
 %        \label{fig:passive_update}
     \end{subfigure}
@@ -318,75 +328,78 @@ the bound.
 \end{figure}
 
 
-\subsubsection{Unseen-window pruning}
+\subsubsection{Unseen-streak pruning}
 \label{sec:useen-window-bound}
-Unseen-window pruning utilizes $M_s(w)$ to check if it is necessary to evaluate any 
-window $w' \in (w,|\mathbb{H}_s|]$. We observe that $M_s(w)$ can
+Unseen-streak pruning utilizes $M_s(w)$ to check if it is necessary to evaluate any 
+streak with length $w' \in (w,|\mathbb{H}_s|]$. We observe that $M_s(w)$ can
 be efficiently estimated from the values of $J_s(w')$, where $w'\leq w$. 
 For example, when $avg$ is used as the aggregate function, $J_s(1)$ is obviously an upper bound for $M_s(w)$ because $J_s(1)$ is essentially the maximum event value. However, such an upper bound is very loose. By utilizing the following theorem, we can derive a tighter bound as follows:
 
-\begin{theorem}[Unseen-Window Bound]
+\begin{theorem}[Unseen-Streak Bound]
 \label{thm:unseen_window_bound}
-Given that $J_s(1),$ ..., $J_s(w-1)$ have already been computed, 
+Given that $J_s(1),\ldots,$ $J_s(w-1)$ have already been computed, 
 %let $M_s = \max\{J_s(t),$ $t\in [w,|\mathbb{H}_s|]\}$,  
 %then $M_s$ is estimated as:
 let $M_s(w)$ be:
 \begin{equation}
 M_s(w) = J_s(w) + \min\{\frac{1}{2}J_s(1),\frac{w-1}{w+1}J_s(w-1)\}
 \end{equation} 
-then $M_s(w)$ is an \emph{unseen-window bound}, i.e. $M_s(w) \geq \max\{J_s(t) | $ $ t\in [w,|\mathbb{H}_s|]\}$
+then $M_s(w)$ is an \emph{unseen-streak bound}, i.e. $M_s(w) \geq \max\{J_s(w_i) | $ $ w_i\in [w,|\mathbb{H}_s|]\}$
 \end{theorem}
 \begin{proof}
-First, given any integer $k \geq 1$, we see that $J_s(kt) \leq J_s(t)$ 
-by making use of Lemma~\ref{lem:subaverage} in a simple induction proof. 
+First, given any integer $k \geq 1$, we see that $J_s(kw_i) \leq J_s(w_i)$ 
+by making use of Theorem~\ref{lem:subaverage} in a simple induction. 
 Then, for any integer $x > w$, 
 $x$ can be written as $x =\lfloor \frac{x}{w} \rfloor w + x \text{ mod } w$. 
 Based on the subadditivity of $J_s(\cdot)$, we have: 
 \begin{align*}
-J_s(x) &\leq \frac{(\lfloor \frac{x}{w}  \rfloor *w) J_s(\lfloor \frac{x}{w}  \rfloor*w) + (x \text{ mod } w ) J_s(x \text{ mod } w)}{x} \\
-&\leq J_s(\lfloor \frac{x}{w}  \rfloor*w) + \frac{x \text{ mod } w}{x} J_s(x \text{ mod } w) \text{, $\lfloor \frac{x}{w}  \rfloor * w \leq x $} \\
-&\leq J_s(w) + \frac{x \text{ mod } w}{x} J_s(x \text{ mod } w) \text{, $J_s(kt) \leq J_s(t)$ }
+J_s(x) &\leq \frac{(\lfloor \frac{x}{w}  \rfloor w) J_s(\lfloor \frac{x}{w}  \rfloor w) + (x \text{ mod } w ) J_s(x \text{ mod } w)}{x} \\
+&\leq J_s(\lfloor \frac{x}{w}  \rfloor w) + \frac{x \text{ mod } w}{x} J_s(x \text{ mod } w) \text{, since  $\lfloor \frac{x}{w}  \rfloor  w \leq x $} \\
+&\leq J_s(w) + \frac{x \text{ mod } w}{x} J_s(x \text{ mod } w) \text{, since $J_s(kt) \leq J_s(t)$ }
 \end{align*}
-On one hand, since $t*J_s(t)$ is a monotone increasing function, it follows $(x \text{ mod } w)J_s(x \text{ mod } w) \leq (w-1)J_s(w-1)$. 
-Moreover, since $x \geq w+1$, we have $(x \text{ mod } w)\frac{J_s(x \text{ mod } w)}{x}\leq (w-1)\frac{J_s(w-1)}{w+1}$. On the other hand, $J_s(x \text{ mod } w)\leq J_s(1)$ and $\frac{x \text{ mod } w}{x} \leq \frac{1}{2}$ for $x > w$, we have $(x \text{ mod } w)\frac{J_s(x \text{ mod } w)}{x} \leq \frac{1}{2}J_s(1)$.
-Then it naturally leads to Theorem~\ref{thm:online_bound}. 
+On one hand, since $xJ_s(x)$ is a monotone increasing function with respect to $x$, it follows $(x \text{ mod } w)J_s(x \text{ mod } w) \leq (w-1)J_s(w-1)$. 
+Moreover, since $x \geq w+1$, we have $(x \text{ mod } w)\frac{J_s(x \text{ mod } w)}{x}\leq (w-1)\frac{J_s(w-1)}{w+1}$. On the other hand, since $J_s(x \text{ mod } w)\leq J_s(1)$ and $\frac{x \text{ mod } w}{x} \leq \frac{1}{2}$ for $x > w$, we have $(x \text{ mod } w)\frac{J_s(x \text{ mod } w)}{x} \leq \frac{1}{2}J_s(1)$. Therefore, $(x \text{ mod } w)\frac{J_s(x \text{ mod } w)}{x}$ is smaller than both $\frac{w-1}{w+1}J_s(w-1)$ and $\frac{1}{2}J_s(1)$, which implies it is smaller than the minimum of the two values. 
+Then it naturally leads to Theorem~\ref{thm:unseen_window_bound}. 
 \end{proof}
 
 %The unseen-window bound for other aggregate functions can be derived using similar techniques and 
 %the bounds are described in Section~\ref{sec:discussion}.
 
-To utilize $M_s(w)$, after the derivation, we check if $M_s(w)$ is no greater  
+To utilize $M_s(w)$, %after the derivation, 
+we check if $M_s(w)$ is no greater  
 than any $\beta(w')$ with $w' >w$,  i.e. $M_s(w) \leq \min\{\beta(w')|w' \in (w ,|\mathbb{H}_s|]\}$. Whenever the condition holds, it is safe to stop further evaluation on subject $s$.
-Note that we may maintain an interval tree~\cite{Berg1997Computational} 
+Note that we maintain an interval tree~\cite{Berg1997Computational} 
 on $\beta$ to support efficient checking. 
 
 \begin{theorem}
 \label{thm:window_prune}
-Each candidate theme returned by Algorithm \ref{algo:prune_overview} has a rank no greater than $p$. 
+Each streak returned by Algorithm \ref{algo:prune_overview} has a rank no greater than $p$. 
 \end{theorem}
-The proof is quite straightforward according to the descriptions for Algorithm~\ref{algo:prune_overview}, visiting-window and unseen-window pruning. Thus, the details are omitted.
+The proof is quite straightforward according to the descriptions of Algorithm~\ref{algo:prune_overview}, visiting-streak bound and unseen-streak bound. Thus, the details are omitted.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{chapter4/charts/window_pruning.eps}
-	\caption{An illustration of window-level pruning techniques. Each square slice represents a
-	set of event windows to be computed for a subject, where the column represents window length and the row represents
-	the rank. The value in each cell is the aggregate result (i.e., $\overline{v}$) for the corresponding event window.}
+	\caption{An illustration of streak pruning techniques. Each square slice represents a
+	set of streaks to be computed for a subject, where the column represents streak length and the row represents
+	the rank. The value in each cell is the aggregate result (i.e., $\overline{v}$) for the corresponding streak.}
 \label{fig:window_pruning}
 \end{figure}
 
 \begin{example}
-We use Fig.~\ref{fig:window_pruning} to illustrate our pruning techniques on a subject $s$.  Each column in the table represents a window length and the cells contain the average values among different event windows with different lengths. For example, the cell in the second row and third column refers to the second largest average value among the event windows with length $3$. Algorithm~\ref{algo:prune_overview} essentially accesses the event windows in increasing order of the window length. Suppose we are about to estimate the upper bound for event windows with length $8$. At this point, the values of $\beta$ and $J_s$ are depicted in the figure. Then, our first job is to estimate the upper bound for all the average values in the $8$-th column.  Based on the values of $J_s(w)$ on smaller windows, we estimate $J_s(8) = \frac{42+7*29.1}{8}= 30.7125$. Since $J_s(8) < \beta(8)$, we can safely prune the whole column, as highlighted in the figure. Afterwards, we estimate the upper bound for all the windows with length larger than $8$. The value of $M_s(8)$ is then estimated as $M_s(8)= 30.7125 + \min\{21, \frac{7}{9}*29.1\}=51.7$. Since all the values of $\beta$ are greater than $M_s(8)$, it is safe to terminate the event window enumeration.
+We use Figure~\ref{fig:window_pruning} to illustrate our pruning techniques on a subject $s$.  Each column in the table represents a streak length and the cells contain the average values among different streaks with different lengths. For example, the cell in the second row and third column refers to the second largest average value among the streaks with length $3$. Algorithm~\ref{algo:prune_overview} essentially accesses the streaks in increasing order of the length. Suppose we are about to estimate the upper bound for streak with length $8$. At this point, the values of $\beta$ and $J_s$ are depicted in the figure. 
+%Then, our first job is to estimate the upper bound for all the average values in the $8$-th column. 
+Based on the visiting-streak bound, we estimate $J_s(8) = \frac{42+7*29.1}{8}= 30.7125$. Since $J_s(8) < \beta(8)$, we can safely prune the whole column, as highlighted in the figure. Afterwards, we estimate the upper bound for all the streaks with lengths larger than $8$. The value of $M_s(8)$ is then estimated as $M_s(8)= 30.7125 + \min\{21, \frac{7}{9}*29.1\}=51.7$. Since all the values of $\beta$ are greater than $M_s(8)$, it is safe to terminate the streak enumeration.
 \end{example}
 
-\subsection{Sketch Computation}
-After the candidate themes are obtained,
-the second step of the sketch discovery process is to, for each subject $s$, extract 
-$k$ themes to form sketches $SK_s$ to maximize Eqn.~\ref{eq:scoring_function} (i.e., $g$). 
+\subsection{$k$-Sketch Discovery}
+After the ranked-streaks are obtained,
+the second step of the $k$-Sketch query processing is to, for each subject $s$, select
+$k$ ranked-streaks to maximize Equation~\ref{eq:scoring_function} (i.e., $g$). 
 
 Our goal of optimizing $g$ is related to the Partly Interval Set Cover (PISC) problem. The goal in PISC is to select a set
 of intervals which covers at least a certain percentage of elements. If no rank value is considered in $g$ (i.e., $\alpha = 1$), the
-solution in~\cite{golab2009sequential} for PISC maximizes $g$ in $O(\mathbb{H}_s^3)$ time for each subject $s$. However, when
+solution in~\cite{golab2009sequential} for PISC maximizes $g$ in $O(|\mathbb{H}_s|^3)$ time for each subject $s$. However, when
 the rank is considered (i.e., $0< \alpha < 1$), optimizing $g$ becomes an open problem as stated in~\cite{edwards2013partial}, where current polynomial time solutions remain unknown.
 %
 % In PIMC, the ground set contains $n$ points. The input of PIMC is a set of intervals, and a ratio $r$. The goal of PIMC is to find the minimum number
@@ -395,10 +408,13 @@ the rank is considered (i.e., $0< \alpha < 1$), optimizing $g$ becomes an open p
 %By examine all possible $r$ values, we are able find the set of intervals maximizing $g$. However, this approach takes $O(\mathbb{H}_s^3)$ time complexity, which is not scalable.
 %%NEED TO FURTHER VERIFY
 %A related problem to optimizing $g$ is the Partly Interval Max-k Cover problem, where the current best known exact solution~\cite{edwards2013partial} has a quadratic complexity.
-To facilitate scalable sketch discovery, we provide 
-an efficient $(1-1/e)$ approximation algorithm by exploiting the submodularity property\footnote{A function $I$ is submodular if and only if given two set $A \subseteq B$ and
-an element $x \not\in B$, then $I(A \cup \{x\}) - I(A) > I(B \cup \{x\}) - I(B))$.} of the scoring function. Our idea is that since $g$ is not submodular, it is not easy to directly maximize it. However, by applying a relaxation on $g$, we are able
-to gain a submodular function $g'$ s.t. maximizing $g'$ would result in
+To facilitate scalable $k$-Sketch discovery, we provide 
+an efficient $(1-1/e)$-approximate algorithm by exploiting the submodularity property\footnote{A function $I$ is submodular if and only if given two set $A \subseteq B$ and
+an element $x \not\in B$, then $I(A \cup \{x\}) - I(A) > I(B \cup \{x\}) - I(B))$.} of the scoring function. Our idea is that since $g$ is not submodular, it is not easy to directly maximize it. 
+However, we are able to transform $g$ to another submodular function $g'$ 
+%However, by transforming $g$, we are able
+%to gain a submodular function $g'$ 
+s.t. maximizing $g'$ would result in
 the same optimal solution as maximizing $g$. We design the function of $g'$ as follows:
 \begin{equation}
 \label{eq:gscore}
@@ -406,26 +422,27 @@ g'(\mathbb{X}_s) = \eta_1C'(\mathbb{X}_s) + \eta_2R'(\mathbb{X}_s)
 \end{equation}
 where $C'(\mathbb{X}_s)$ is the number of distinct events covered by $\mathbb{X}_s$,
  $R'(\mathbb{X}_s) = \Sigma_{X_s \in \mathbb{X}_s}(p-X_s.r)$, $\eta_1 = \alpha/|\mathbb{H}_s|$
-and $\eta_2 = (1-\alpha)/k$. Given $k$, $s$ and $g$,
+and $\eta_2 = (1-\alpha)/(pk)$. Given $k$, $s$, $p$ and $g$,
 $g'$ is uniquely defined. We have the following theorem which links $g'$ to $g$:
 
 \begin{theorem}
-If $A^*$ is the optimal solution wrt. $g'$, then $A^*$ is
-also the optimal solution wrt. $g$.
+If $A^*$ is the optimal solution under $g'$, then $A^*$ is
+also the optimal solution under $g$.
 \end{theorem}
 \begin{proof}
 First observe that, for any set $A \subseteq \mathbb{N}_s$ of size $k$, (i.e., $|A|=k$),
-$g(A) = g'(A)$. This can be validated by substituting $A$ into Eq.~\ref{eq:scoring_function} and Eq.~\ref{eq:gscore}. Then,
+$g(A) = g'(A)$. This can be validated by substituting $A$ into Equation~\ref{eq:scoring_function} and Equation~\ref{eq:gscore}. Then,
 we prove the theorem by contradiction: 
-If $A^*$ is not optimal wrt. $g$, then $\exists B^*$ s.t. $g(B^*) > g(A^*)=g'(A^*)$. However,
-since $|B^*|=k$, $g'(B^*)=g(B^*) > g'(A^*)$, which contradicts with $A^*$'s optimality w.r.t. $g'$.
+Let $A^*$ be the optimal solution under $g'$.  If $A^*$ is not optimal under $g$, then $\exists B^*$ s.t. $g(B^*) > g(A^*)$. Since $|A^*| = k$, then $g(A^*) = g'(A^*)$. Similarly,
+since $|B^*|=k$, $g'(B^*)=g(B^*)$. As $g(B^*) > g(A^*)$, it follows $g'(B^*)=g(B^*)>g(A^*)= g'(A^*)$, which
+contradicts with $A^*$'s optimality under $g'$.
 \end{proof}
 
 Henceforth, we are able to compute sketches by maximizing $g'$ instead of $g$. 
 We then prove the \emph{submodularity} on $g'$ as stated below:
 \begin{theorem}
 \label{thm:submodular}
-Given a candidate theme set $\mathbb{X}_s$,
+Given a ranked-streak set $\mathbb{X}_s$,
 $g'(\mathbb{X}_s)$ is submodular.
 \end{theorem}
 \begin{proof}
@@ -433,36 +450,25 @@ Note that $C'$ is a cover function and $R'$
 is a scalar function, thus $C'$ and $R'$ are both submodular.
 Since $g'$ a linear combination of $C'$ and $R'$,
 it is also submodular.
-%Let $A,B$ be two sets of news candidates with $A\subseteq B$, let $x$ be a news candidate s.t. $x \not\in B$, we have the following according to Eqn.~\ref{eq:gscore}:
-%\begin{equation*}
-%\begin{split}
-% & g'(A \cup \{x\}) - g'(B \cup \{x\})  \\
-%& =  \eta_1 C'(A \cup \{x\}) + \eta_2 (R'(A) + R'(\{x\})) \\
-%& -  \eta_1 C'(B \cup \{x\}) - \eta_2 (R'(B) + R'(\{x\}) \\
-%& = \eta_1 (C(A \cup \{x\}) - C(B \cup \{x\})) +  \eta_2(R'(A) - R'(B)) \\
-%& \geq \eta_1(C'(A) - C'(B))+ \eta_2(R'(A) - R'(B)) \text{, $C'$ is submodular}\\
-%& = g'(A) - g'(B)
-%\end{split}
-%\end{equation*}
-%Thus, $g'$ is submodular.
 \end{proof}
 
-By utilizing the submodularity of $g'$, we apply the greedy algorithm \cite{Fisher1978An} 
+By utilizing the submodularity of $g'$, we can apply the greedy selection algorithm \cite{Fisher1978An} 
 to efficiently discover the sketches,
-which guarantees a $(1-1/e)$ approximation ratio. 
-The greedy sketch discovery scheme is presented in Algorithm~\ref{algo:greedy}. During each step, 
-the algorithm picks the best candidate theme which maximizes $g'$ 
-among all the candidates which have not been selected yet. The algorithm stops at the $k^{\text{th}}$ iteration.
+which guarantees a $(1-1/e)$-approximation ratio. 
+The greedy scheme is presented in Algorithm~\ref{algo:greedy}. During each step (Lines 4-7), 
+the algorithm picks the best ranked-streak among the remaining ranked-streaks (i.e., $N_s \setminus SK_s$) to maximizes $g'$.
+%among all the ranked-streaks which have not been selected yet to maximizes $g'$. 
+The algorithm stops at the $k^{\text{th}}$ iteration.
 
 \begin{algorithm}[h]
 \caption{Greedy Sketch Discovery}
 \label{algo:greedy}
 \begin{algorithmic}[1]
 \For {$s \in S$}
-\State $\mathbb{N}_s \gets$ candidate themes of subject $s$ filter by Algorithm \ref{algo:prune_overview}
+\State $\mathbb{N}_s \gets$ ranked-streaks of subject $s$
 \State $SK_s \gets \{\}$
 \For {$t \in [1,k]$}
-	\State $x^* \gets \argmax_{x\in \mathbb{N}_s}g'(SK_s\cup \{x\})$ \label{code:greedy}
+	\State $x^* \gets \argmax_{x\in (\mathbb{N}_s \setminus SK_s)}g'(SK_s\cup \{x\})$ \label{code:greedy}
 	\State $SK_s \gets SK_s \cup \{x^*\}$
 \EndFor
 \EndFor

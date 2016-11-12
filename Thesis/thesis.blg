@@ -5,37 +5,32 @@ A level-1 auxiliary file: chapter3/chapter3.aux
 A level-1 auxiliary file: chapter4/chapter4.aux
 A level-1 auxiliary file: chapter5/chapter5.aux
 A level-1 auxiliary file: conclusions.aux
-A level-1 auxiliary file: appendix.aux
 The style file: plain.bst
+A level-1 auxiliary file: appendix.aux
 Database file #1: refs.bib
-Repeated entry---line 168 of file refs.bib
+Repeated entry---line 226 of file refs.bib
  : @inproceedings{briscoe2013determining
  :                                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 177 of file refs.bib
+Repeated entry---line 235 of file refs.bib
  : @inproceedings{dai2012predicting
  :                                 ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 243 of file refs.bib
+Repeated entry---line 301 of file refs.bib
  : @article{campanario2011empirical
  :                                 ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 254 of file refs.bib
+Repeated entry---line 312 of file refs.bib
  : @article{holsapple2003citation
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 265 of file refs.bib
+Repeated entry---line 323 of file refs.bib
  : @incollection{ma2010ego
  :                        ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "ritter2012opendoamin"
-Warning--I didn't find a database entry for "Berg1997Computational"
-Warning--I didn't find a database entry for "golab2009sequential"
-Warning--I didn't find a database entry for "Fisher1978An"
-Warning--I didn't find a database entry for "Alonerbuch2003The"
-Warning--I didn't find a database entry for "Saha2009On"
-Warning--I didn't find a database entry for "Lichman2013"
+Warning--I didn't find a database entry for "li2013effective"
 Warning--there's a number but no volume in choe2002freeway
 Warning--can't use both volume and number fields in han2000mining
 Warning--can't use both volume and number fields in pei2000closet
+Warning--empty journal in Saha2009On
 (There were 5 error messages)
