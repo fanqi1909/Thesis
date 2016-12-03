@@ -1,40 +1,122 @@
 \section{Introduction}
-The prevalence of positioning devices has drastically boosted 
-the scale and spectrum of trajectory collection to an unprecedented level. 
-Tremendous amounts of trajectories, in the form of sequenced spatial-temporal 
-records, are continually being generated from animal telemetry chips, 
+In this chapter, we look at the neighborhood analytics on
+large-scale trajectories. A trajectory is the spatial trace
+of a moving object which contains a sequence of spatial-temporal records.
+With the prevalence of positioning devices, the scale and spectrum 
+of the trajectory collection has been drastically boosted to
+an unprecedented level. Tremendous amounts of trajectories are continually being generated from animal telemetry chips, 
 vehicle GPSs and wearable devices. Data analysis on large-scale 
 trajectories benefits a wide range of applications and services, 
-including traffic planning~\cite{zheng2011urban}, animal analysis~\cite{li2010miningperiodic}, location-aware advertising~\cite{guo2016influence},  and social recommendations~\cite{bao2013survey}, to name just a few.
+including traffic planning~\cite{zheng2011urban}, animal analysis~\cite{li2010miningperiodic}, location-aware advertising~\cite{guo2016influence}, and social recommendations~\cite{bao2013survey}, to name just a few.
 
-A crucial task of data analysis on top of trajectories is 
-to discover co-moving objects. A \emph{co-movement} pattern~\cite{li2013effective,zheng2015survey} 
-refers to a group of objects traveling together for a certain period of time 
-and the group is normally determined by their spatial proximity. 
-A pattern is prominent if the size of the group exceeds $M$ and the length of the duration exceeds $K$, where $M$ and $K$ are parameters specified by users. Rooted from such a basic definition 
+An important and outstanding instance of neighborhood analytics on top
+of trajectories is to discover co-moving objects. 
+A \emph{co-movement} pattern~\cite{li2013effective,zheng2015survey} 
+refers to a group of objects traveling together for a certain period of time, which can be formulated as two-step neighborhood functions.
+First, in the spatial domain, a \textbf{distance neighborhood} function
+clusters spatially nearby objects as groups (i.e., objects are neighbors under a distance function). 
+Second, in the temporal domain, a \textbf{comparison neighborhood} function defines the co-moving pattern
+as the group that appears in neighboring timestamps (i.e., the group lasts for certain duration).
+%
+%
+%There are two neighborhood functions involved in the co-movement pattern
+%definition. First, in the spatial domain, an object group is
+%defined by a \textbf{distance neighborhood}
+%which indicates the spatial closeness of these objects (i.e., they are neighbors under the distance function).
+%Second, in the temporal domain, the co-moving pattern is defined by the \textbf{comparison neighborhood} function
+%which requires neighboring timestamps containing the same group of the objects (i.e., the group lasts for certain duration).
+A pattern is prominent if 
+the size of the group exceeds $M$ and the length of the duration exceeds $K$, 
+where $M$ and $K$ are parameters specified by users. 
+Rooted from such a basic definition 
 and driven by different mining applications, there are many variants 
 of co-movement patterns that have been developed with additional constraints.
 
+%The group is a \textbf{distance neighborhood} function which defines the 
+%spatial proximity of the objects. 
+%A co-moving pattern is prominent if the groups in each snapshot matches a
+%\emph{comparison neighborhood} function.
+%
+%if the size of the group exceeds $M$ and the length of the duration exceeds $K$, 
+%where $M$ and $K$ are parameters specified by users. 
+%
+%Rooted from such a basic definition 
+%and driven by different mining applications, there are many variants 
+%of co-movement patterns that have been developed with additional constraints.
+
+%The prevalence of positioning devices has drastically boosted 
+%the scale and spectrum of trajectory collection to an unprecedented level. 
+%Tremendous amounts of trajectories, in the form of sequenced spatial-temporal 
+%records, are continually being generated from animal telemetry chips, 
+%vehicle GPSs and wearable devices. Data analysis on large-scale 
+%trajectories benefits a wide range of applications and services, 
+%including traffic planning~\cite{zheng2011urban}, animal analysis~\cite{li2010miningperiodic}, location-aware advertising~\cite{guo2016influence},  and social recommendations~\cite{bao2013survey}, to name just a few.
+%
+%A crucial task of data analysis on top of trajectories is 
+%to discover co-moving objects. A \emph{co-movement} pattern~\cite{li2013effective,zheng2015survey} 
+%refers to a group of objects traveling together for a certain period of time 
+%and the group is normally determined by their spatial proximity. 
+%A pattern is prominent if the size of the group exceeds $M$ and the length of the duration exceeds $K$, where $M$ and $K$ are parameters specified by users. Rooted from such a basic definition 
+%and driven by different mining applications, there are many variants 
+%of co-movement patterns that have been developed with additional constraints.
+
 Table~\ref{tbl:existing_co_patterns} summarizes several popular co-movement patterns 
-with different constraints with respect to clustering in spatial proximity,
-consecutiveness in temporal duration and computational complexity. 
-In particular,  the \emph{flock}~\cite{gudmundsson2006computing} 
-and the \emph{group}~\cite{wang2006grouppattern} patterns require 
-all the objects in a group to be enclosed by a disk with radius $r$; 
-whereas the \emph{convoy}~\cite{jeung2008discovery}, the \emph{swarm}~\cite{li2010swarm} 
+with different constraints with respect to spatial neighborhood,
+temporal constraints in consecutiveness and computational complexity. 
+In terms of spatial neighborhood, the \emph{flock}~\cite{gudmundsson2006computing} 
+and the \emph{group}~\cite{wang2006grouppattern} patterns adopt disk-based clustering which requires
+all the objects in a group to be enclosed by a disk with radius $r$\footnote{Disk-based clustering is equivalent to $\mathcal{N}(o_i) = \{o_j | \mathtt{dist}(o_i,o_j) < r\}$.}; whereas the \emph{convoy}~\cite{jeung2008discovery}, the \emph{swarm}~\cite{li2010swarm} 
 and the \emph{platoon}~\cite{li2015platoon} patterns resort to density-based 
-spatial clustering. 
-In the temporal dimension, the \emph{flock}%~\cite{gudmundsson2006flock} 
-and the \emph{convoy}%~\cite{jeung2008convoy} 
+spatial clustering\footnote{Density-based clustering is equivalent to $\mathcal{N}(o_i) = \{o_j | \mathtt{dist}(o_j, o_k) \leq \epsilon \wedge o_k \in \mathcal{N}(o_i)\}$.}.  In terms of temporal constraints, the \emph{flock}  %~\cite{gudmundsson2006flock} 
+and the \emph{convoy} %~\cite{jeung2008convoy} 
 require all the timestamps 
 of each detected spatial group to be consecutive, which is referred to as \emph{global consecutiveness}; 
-whereas the \emph{swarm}%~\cite{li2010swarm}
+whereas the \emph{swarm} %~\cite{li2010swarm}
 does not impose any restriction. 
-The \emph{group}%~\cite{wang2006grouppattern} 
-and the \emph{platoon}%~\cite{li2015platoon} 
+The \emph{group} %~\cite{wang2006grouppattern} 
+and the \emph{platoon} %~\cite{li2015platoon} 
 adopt a compromised approach by allowing
 arbitrary gaps between consecutive segments, which is called \emph{local consecutiveness}. 
 They introduce a parameter $L$ to control the minimum length of each local consecutive segment.
+
+%In particular,  the \emph{flock}~\cite{gudmundsson2006computing} 
+%and the \emph{group}~\cite{wang2006grouppattern} patterns require 
+%all the objects in a group to be enclosed by a disk with radius $r$; 
+%whereas the \emph{convoy}~\cite{jeung2008discovery}, the \emph{swarm}~\cite{li2010swarm} 
+%and the \emph{platoon}~\cite{li2015platoon} patterns resort to density-based 
+%spatial clustering. 
+%In the temporal dimension, the \emph{flock}  %~\cite{gudmundsson2006flock} 
+%and the \emph{convoy} %~\cite{jeung2008convoy} 
+%require all the timestamps 
+%of each detected spatial group to be consecutive, which is referred to as \emph{global consecutiveness}; 
+%whereas the \emph{swarm} %~\cite{li2010swarm}
+%does not impose any restriction. 
+%The \emph{group} %~\cite{wang2006grouppattern} 
+%and the \emph{platoon} %~\cite{li2015platoon} 
+%adopt a compromised approach by allowing
+%arbitrary gaps between consecutive segments, which is called \emph{local consecutiveness}. 
+%They introduce a parameter $L$ to control the minimum length of each local consecutive segment.
+
+\begin{table}[h]
+\centering
+\caption{Constraints and complexities of co-movement patterns. The time complexity indicates the performance wrt.
+$|\mathbb{O}|$, $|\mathbb{T}|$ in the worst case, where $|\mathbb{O}|$ is the number of objects, and $|\mathbb{T}|$ is the number of discretized timestamps.}\label{tbl:existing_co_patterns}
+\begin{tabular}{|l|l|l|l|}
+\hline 
+\textbf{Pattern} & {\textbf{Spatial Neighborhood}} & { \textbf{Temporal Constraint}} & { \textbf{Time Complexity}}\\ 
+\hline 
+flock~\cite{gudmundsson2006computing} & disk based &  global consecutive & {$O(|\mathbb{O}||\mathbb{T}|\log(|\mathbb{O}|))$} \\ 
+\hline 
+convoy~\cite{jeung2008discovery} & density  based&   global consecutive & {$O(|\mathbb{O}|^2+|\mathbb{O}||\mathbb{T}|)$}\\ 
+\hline 
+swarm~\cite{li2010swarm} & density based & - & {$O(2^{|\mathbb{O}|}|\mathbb{O}||\mathbb{T}|)$}  \\ 
+\hline 
+group~\cite{wang2006grouppattern} & disk based &  local consecutive & {$O(|\mathbb{O}|^2|\mathbb{T}|)$}\\ 
+\hline 
+platoon~\cite{li2015platoon} & density based &  local consecutive & {$O(2^{|\mathbb{O}|}|\mathbb{O}||\mathbb{T}|)$}\\ 
+\hline 
+\end{tabular} 
+\end{table}
 
 \begin{figure}[h]
 \centering
@@ -43,14 +125,14 @@ They introduce a parameter $L$ to control the minimum length of each local conse
 \label{fig:related_work}
 \end{figure}
 
-Figure~\ref{fig:related_work} is an example to demonstrate the concepts of the various co-movement patterns. The trajectory database consists of six moving objects and the temporal dimension is discretized into six snapshots. In each snapshot, we treat the clustering method as a blackbox and assume that they generate the same clusters. Objects in proximity are grouped in the dotted circles. As aforementioned, there are three parameters to determine the co-movement patterns and the default settings in this example are $M=2$, $K=3$ and $L=2$. Both the \emph{flock} and the \emph{convoy} require the spatial clusters to last for at least $K$ consecutive  timestamps. Hence,$\langle o_3,o_4:1,2,3 \rangle$ and $\langle o_5,o_6:3,4,5 \rangle$  are the only two candidates matching the patterns. The \textit{swarm} relaxes the pattern matching by discarding the temporal consecutiveness constraint. Thus, it generates many more candidates than the \textit{flock} and the \textit{convoy}. The \textit{group} and the \textit{platoon} add another constraint on local consecutiveness to retain meaningful patterns. For instance, $\langle o_1,o_2:1,2,4,5 \rangle$ is a pattern matching local consecutiveness because timestamps $(1,2)$ and $(4,5)$ are two segments with length no smaller than $L=2$. The difference between the \textit{group} and the \textit{platoon} is that the \textit{platoon} has an additional parameter $K$ to specify the minimum number of snapshots for the spatial clusters. This explains why $\langle o_3,o_4,o_5:2,3 \rangle$ is a  \textit{group} pattern but not a \textit{platoon} pattern.
+Figure~\ref{fig:related_work} is an example to demonstrate the concepts of the various co-movement patterns. The trajectory database consists of six moving objects and the temporal dimension is discretized into six snapshots. In each snapshot, we treat the clustering method as a blackbox and assume that they generate the same clusters. Objects in proximity are grouped in the dotted circles. As aforementioned, there are three parameters to determine the co-movement patterns and the default settings in this example are $M=2$, $K=3$ and $L=2$. Both the \emph{flock} and the \emph{convoy} require the spatial clusters to last for at least $K$ consecutive  timestamps. Hence, $\langle o_3,o_4:1,2,3 \rangle$ and $\langle o_5,o_6:3,4,5 \rangle$  are the only two candidates matching the patterns. The \textit{swarm} relaxes the pattern matching by discarding the temporal consecutiveness constraint. Thus, it generates many more candidates than the \textit{flock} and the \textit{convoy}. The \textit{group} and the \textit{platoon} add another constraint on local consecutiveness to retain meaningful patterns. For instance, $\langle o_1,o_2:1,2,4,5 \rangle$ is a pattern matching local consecutiveness because timestamps $(1,2)$ and $(4,5)$ are two segments with length no smaller than $L=2$. The difference between the \textit{group} and the \textit{platoon} is that the \textit{platoon} has an additional parameter $K$ to specify the minimum number of snapshots for the spatial clusters. This explains why $\langle o_3,o_4,o_5:2,3 \rangle$ is a  \textit{group} pattern but not a \textit{platoon} pattern.
 
 As can be seen, there are various co-movement patterns requested by different applications and it is cumbersome to design a tailored solution for each type. In addition, despite the generality of the \emph{platoon} (i.e., it can be reduced to other types of patterns via proper parameter settings), it suffers from the so-called \emph{loose-connection} anomaly. We use two objects $o_1$ and $o_2$ in Figure~\ref{fig:platoon_weakpoint} to illustrate the scenario. These two objects form a \emph{platoon} pattern in timestamps $(1,2,3,102,103,104)$. However, the two consecutive segments are $98$ timestamps apart, resulting in a false positive co-movement pattern. In reality, such an anomaly may be caused  by the periodic movements of unrelated objects, such as vehicles stopping at the same petrol station or animals pausing at the same water source. 
 Unfortunately, none of the existing patterns have directly addressed this anomaly.
 
 \begin{figure}[h]
 \center
-\includegraphics[width=0.8\textwidth]{platoon_weakpoint.eps}
+\includegraphics[width=0.8\textwidth]{chapter5/platoon_weakpoint.eps}
 %\vspace{-0.5em}
 \caption{\emph{Loose-connection} anomaly. Even though $\langle o_1, o_2\rangle$ is considered as a valid \emph{platoon} pattern, it is highly probable that these two objects are not related as the two consecutive segments  are 98 timestamps apart. 
 }
@@ -58,29 +140,7 @@ Unfortunately, none of the existing patterns have directly addressed this anomal
 \label{fig:platoon_weakpoint}
 \end{figure}
 
-\begin{table}[t]
-\centering
-\begin{tabular}{|l|l|l|l|}
-\hline 
-\textbf{Pattern} & {\textbf{Proximity}} & { \textbf{Conse-cutiveness}} & { \textbf{Time Complexity}}\\ 
-\hline 
-flock~\cite{gudmundsson2006computing} & disk &  global & {$O(|\mathbb{O}||\mathbb{T}|\log(|\mathbb{O}|))$} \\ 
-\hline 
-convoy~\cite{jeung2008discovery} & density &   global & {$O(|\mathbb{O}|^2+|\mathbb{O}||\mathbb{T}|)$}\\ 
-\hline 
-swarm~\cite{li2010swarm} & density  & - & {$O(2^{|\mathbb{O}|}|\mathbb{O}||\mathbb{T}|)$}  \\ 
-\hline 
-group~\cite{wang2006grouppattern} & disk &  local & {$O(|\mathbb{O}|^2|\mathbb{T}|)$}\\ 
-\hline 
-platoon~\cite{li2015platoon} & density &  local & {$O(2^{|\mathbb{O}|}|\mathbb{O}||\mathbb{T}|)$}\\ 
-\hline 
-\end{tabular} 
-%%\vspace{-0.5em}
-\caption{Constraints and complexities of co-movement patterns. The time complexity indicates the performance wrt.
-$|\mathbb{O}|$, $|\mathbb{T}|$ in the worst case, where $|\mathbb{O}|$ is the number of objects, and $|\mathbb{T}|$ is the number of discretized timestamps.}
-%\vspace{-0.5em}
-\label{tbl:existing_co_patterns}
-\end{table}
+
 
 The other issue with existing methods is that they are built on top of centralized indexes which may not be scalable. Table~\ref{tbl:existing_co_patterns} shows their theoretical complexities in the worst cases and the largest real dataset ever evaluated in previous studies is up to million-scale points collected from hundreds of moving objects. In practice, the dataset is of much higher scale and the scalability of existing methods is left unknown. Thus, we conduct an experimental evaluation with $4000$ objects moving for $2500$ timestamps to examine the scalability. Results in Figure~\ref{fig:related_work_scalability} show that their performances degrade dramatically as the dataset scales up. For instance, the detection time of \emph{group} drops twenty times as the number of objects grows from \emph{1k} to \emph{4k}. Similarly,
 the performance of \emph{swarm} drops over fifteen times as the number of snapshots grows from \emph{1k} to \emph{2.5k}.
@@ -90,13 +150,13 @@ These observations imply that existing methods are not scalable to support large
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{rw_perf_O.eps}
+            \includegraphics[width=\textwidth]{chapter5/rw_perf_O.eps}
 		\subcaption{Varying No. of objects} 
     \label{fig:fig1}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{rw_perf_T.eps}
+            \includegraphics[width=\textwidth]{chapter5/rw_perf_T.eps}
          \subcaption{Varying No. of timestamps}
     \label{fig:fig2}
     \end{subfigure}
@@ -115,14 +175,14 @@ These observations imply that existing methods are not scalable to support large
 %Therefore, in this paper, our aim is to close these two gaps 
 %via the following contributions.
 %we aim to close these two gaps by making two contributions. 
-In this paper, we resolve these two gaps by making the following contributions.
+In this work, we close these two gaps by making the following contributions.
 First, we propose the \emph{general co-movement pattern} (GCMP) which models
 various co-moment patterns in a unified way and can avoid 
 the \emph{loose-connection} anomaly. In GCMP,
 we introduce a new gap parameter $G$ to pose a constraint on the temporal gap between two consecutive segments. 
 By setting a feasible $G$, the loose-connection anomaly can be effectively controlled. In addition, our GCMP is also general. It can be reduced to any of the previous pattern by customizing its parameters.
 
-Second, we investigate deploying our GCMP detector on the model MapReduce platform (i.e., Apache Spark) to tackle the scalability issue. Our technical contributions are threefold. First, we design a baseline solution by replicating the snapshots 
+Second, we investigate deploying our GCMP detector on the modern MapReduce platform (i.e., Apache Spark) to tackle the scalability issue. Our technical contributions are threefold. First, we design a baseline solution by replicating the snapshots 
 %in multiple data chunks 
 to support effective parallel mining. 
 Second, we devise a novel \emph{Star Partitioning and ApRiori Enumerator} (SPARE) framework to resolve limitations of the baseline. 
@@ -143,8 +203,9 @@ as compared to the baseline algorithm.
 %trajectory pattern mining. Section~\ref{sec:definition} states the problem of general co-movement pattern mining. Section~\ref{sec:trm} provides a baseline %solution named \emph{Temporal Replication and Parallel %Mining} (TRPM). An advanced solution named
 %\emph{Star Partitioning and ApRiori Enumerator} (SPARE) is presented in Section~\ref{sec:spm}. Section~\ref{sec:exp} conducts extensive experiments to verify the efficiency of our solutions. Finally, Section~\ref{sec:concl} concludes the paper.
 
-The rest of our paper is organized as follows: Section~\ref{sec:related_works} summarizes related work. Section~\ref{sec:definition} states the problem of general co-movement pattern mining. Section~\ref{sec:trm} provides a baseline 
+The rest of this chapter is organized as follows: %Section~\ref{sec:related_works} summarizes related work. 
+Section~\ref{sec:definition} states the problem of general co-movement pattern mining. Section~\ref{sec:trm} provides a baseline 
 solution. % named \emph{Temporal Replication and Parallel Mining} (TRPM).
 An advanced solution named
 \emph{Star Partitioning and ApRiori Enumerator} (SPARE) is presented in Section~\ref{sec:spm}. Section~\ref{sec:exp} reports our experimental evaluation.
-Finally, Section~\ref{sec:concl} concludes the paper.
+Finally, Section~\ref{sec:concl} summarizes this chapter.

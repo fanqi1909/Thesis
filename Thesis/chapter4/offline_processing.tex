@@ -30,7 +30,7 @@ by adopting two novel streak-based pruning methods which
 exploit the \emph{subadditivity} property among streaks with different lengths.
 
 
-\subsubsection{Overview of streak pruning}
+\subsubsection{Overview of Streak Pruning}
 For each subject, its streaks can be grouped by lengths. Our ranked-streak
 generation algorithm gradually evaluates a subject's streak from a shorter
 length to a longer length. To support efficient pruning, 
@@ -173,7 +173,7 @@ we set the priority of $M_s$ to $q$,
 %$\overline{J}_s(w)=(w_1W_1.\overline{v} +(w-w_1)W_2.\overline{v})/w \leq (w_1\overline{J}_s(w_1)+ (w-w_1)\overline{J}_s(w-w_1))/w$.
 %\end{proof}
 
-\subsubsection{Visiting-streak pruning}  
+\subsubsection{Visiting-Streak Pruning}  
 \label{sec:visiting-window-bound}
 In Algorithm~\ref{algo:prune_overview}, we need to compute the visiting-streak bound $J_s(w)$ to facilitate pruning all length-$w$ streaks associated with subject $s$. Our idea is that suppose we have successfully derived the bounds for streaks with smaller lengths, we can use them to estimate the bounds of larger streaks. We formulate it as the subadditivity property and use $avg$\footnote{Although here we demonstrate the bound
 using ``avg'', the properties and bounds also hold for other aggregate functions. Corresponding properties and bounds for other aggregate functions are listed in Section~\ref{sec:discussion}.
@@ -182,7 +182,6 @@ using ``avg'', the properties and bounds also hold for other aggregate functions
 \begin{theorem}[Subadditivity (for $avg$)]
 \label{lem:subaverage}
 \begin{equation}
-\small
 \label{eq:subadditivity}
 	\max_t\{W_s(t,w).\overline{v}\} \leq \frac{w_i J_s(w_i) + (w-w_i) J_s(w-w_i)}{w}, \forall w_i \in (0,w)
 \end{equation}
@@ -314,12 +313,12 @@ the bound.
 \begin{figure}
 	\centering
     \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{chapter4/convex.eps}
+        \includegraphics[width=\textwidth]{chapter4/charts/convex.eps}
         \caption{}
 %        \label{fig:active_update}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{chapter4/concave.eps}
+        \includegraphics[width=\textwidth]{chapter4/charts/concave.eps}
         \caption{}
 %        \label{fig:passive_update}
     \end{subfigure}
@@ -328,7 +327,7 @@ the bound.
 \end{figure}
 
 
-\subsubsection{Unseen-streak pruning}
+\subsubsection{Unseen-Streak Pruning}
 \label{sec:useen-window-bound}
 Unseen-streak pruning utilizes $M_s(w)$ to check if it is necessary to evaluate any 
 streak with length $w' \in (w,|\mathbb{H}_s|]$. We observe that $M_s(w)$ can

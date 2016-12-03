@@ -1,1 +1,166 @@
-%\chapter{A General Framework for Discovering Co-movement Patterns in Trajectory Data}
+\chapter{Conclusion and Future Work}
+With the increasing variety and volume of the data managed
+by the nowadays database systems, the adoption of effective 
+analytics becomes remarkably demanding. 
+Window analytics, being
+an important part of SQL analytics, has proven successes in
+many relational applications. However, window analytics requires a
+strict ordering among objects which may not be meaningful
+in other data domains.  In this thesis, we proposed
+an analogous analytics named \emph{neighborhood analytics},
+which generalizes the window analytics by eliminating the
+ordering requirement. Followed by the concept of
+neighborhood analytics, we then systematically studied
+three instances of such analytics in three data domains.
+We proposed domain-tailored neighborhood queries and demonstrated
+their usefulness. To support large-scale data, 
+we further designed various optimization techniques which achieved
+efficient query processing.
+
+\section{Thesis Contributions}
+We hereby revisit our contributions of this thesis. Our first
+contribution is the \emph{Graph Window Query} (GWQ) on data graphs. 
+GWQ computes aggregations for each vertex on its windows.
+We formally defined two instances of graph windows: $k$-hop window and topological window. 
+Then, we developed the Dense Block Index (DBIndex) to facilitate efficient 
+processing of both types of graph windows. In addition, 
+we proposed the Inheritance Index (I-Index) that exploits a
+containment property of DAG to further improve the query performance of topological window queries. 
+Both indexes integrate window aggregation sharing techniques to salvage partial work done, 
+which is both space and query efficient. 
+We conducted extensive experimental evaluations over both large-scale real and synthetic datasets. The experimental results showed the efficiency and scalability of our proposed indexes. 
+
+Our second contribution is the \emph{$k$-Sketch} query on sequence data.
+$k$-Sketch query utilizes the \emph{ranked-streaks} to
+summarize a subject's history.
+The ranked-streak is formed
+by a nested neighborhood function: the neighborhood events were grouped to form a streak; then streaks with the same size were ranked to indicate their strikingness.
+%
+%In this chapter, we look at the problem of automatically summarize 
+%a subject's history using newsworthy stories.
+%We group consecutive events into streaks and propose a novel idea of \emph{ranked-streak} to represent the strikingness.
+We formulated the \emph{$k$-Sketch} query to select $k$ ranked-streaks which best summarize a subject's history.
+We studied the $k$-Sketch query processing in both offline and online scenarios,
+and proposed efficient solutions to cope each scenario. In particular, we designed novel streak-level pruning techniques and a $(1-1/e)$-approximate algorithm to achieve efficient processing in offline. Then we designed a $1/8$-approximate algorithm for the online sketch maintenance.
+Our comprehensive experiments demonstrated the efficiency of our solutions and a human study confirms the effectiveness of the $k$-Sketch query.
+
+
+Our third contribution is the \emph{General Co-movement Pattern} (GCMP) query on trajectory.
+We modeled the GCMP using the spatial neighborhoods among objects:
+the invariant portion of an object's neighborhood across certain timestamps
+forms a pattern.
+%the portion of an object's neighborhoods which stay invariant for certain timestamps forms
+%a pattern. 
+By adjusting temporal constraints, our GCMP is able
+to express all co-movement patterns proposed in the past literature.
+% 
+%objects which are spatially close for certain timestamps form a pattern.
+%objects whose temporal dimension satisfying the neighborhood constraints form 
+%a pattern. 
+%Our definition of GCMP unifies all co-movement patterns proposed in the past literature.
+On the technical side, we  devised two parallel frameworks on Spark platform which can be scaled to 
+support query processing in trajectories with hundreds of millions of points. 
+The efficiency and scalability were verified by extensive experiments on three real datasets.
+%
+%We captured all existing co-movement patterns by proposing the \emph{General Co-movement Pattern}.
+%
+%
+%
+%We proposed the general co-movement pattern to capture all existing co-movement patterns.
+%
+%
+%In this chapter, we proposed a generalized co-movement pattern to unify those proposed in the past literature. We also devised two types of parallel frameworks in Spark that can scale to support pattern detection in trajectory databases with hundreds of millions of points. The efficiency and scalability were verified by extensive experiments on three real datasets. 
+
+\section{Future Research Directions}
+This thesis describes the neighborhood analytics in three data
+domains, which induces many interesting problems to follow up with. We would
+like to highlight them to inspire future explorations.
+%This thesis sparks off the neighborhood analytics in . We would
+%like to highlight the directions that we wish to explore in the future.
+% future research efforts 
+%in neighborhood analytics.
+
+In Chapter 3, we proposed the graph window query, 
+which leads to at least the following directions.
+%which contains three interesting future directions. 
+First, we wish to empower the graph window queries
+to support more general aggregate functions such as median,
+centrality and user-defined aggregate functions.
+Second, we would like to study how to support graph window
+queries to dynamic graph and graph streams. This boils down
+to the challenging problem of handling structural updates (i.e., edge insertion and deletion)
+on our indexes. Last but not least, we aim to leverage
+modern parallel systems to facilitate scalable graph window query
+processing on graphs with multi-billion vertexes and edges.
+
+
+%First, the current graph window queries only allow distributive 
+%aggregate functions (e.g., sum, average and max).
+%Extending the distributive aggregate functions to general aggregate
+%functions such as media, centrality and user-defined aggregate functions
+%would make the graph window query more powerful.
+%Second, our current Dense Block Index and Inherent Index does not support
+%structure updates (i.e., edge insertion and deletion). 
+%Supporting structural updates would bring graph window queries
+%to more applications such as dynamic graph and graph streams.
+%Last, given the social graphs with multi-billion vertexes and edges, 
+%it is also important to investigate processing graph window queries 
+%in the parallel environment.
+
+
+%There remain many interesting research problems for graph window analytics. 
+%As part of our future work, we plan to explore structure-based window aggregations
+%which are complex than attribute-based window aggregations.
+%In structure-based aggregations, $W(v)$ refers to a subgraph of $G$ instead of a set of vertexes,
+%and the aggregation function $\Sigma$ (e.g., centrality, PageRank, and {graph aggregation} \cite{wang2014pagrol,zhao2011graph}) operates on the structure of the subgraph $W(v)$. 
+%Another interesting direction that we plan to investigate is the support of efficient structure updates (e.g., edge deletions and insertions). 
+
+In Chapter 4, we introduced $k$-Sketch query
+to the field of computational journalism. There are several more directions
+worthy exploring using the neighborhood based \emph{ranked-streak}. First,
+We would like to generalize the rank-streak to non-schema data 
+such as tweets and replies in social networks. 
+Second, we plan to study the problem of summarizing a subject's history
+in sliding window model. This is particular helpful in generating news themes that
+are emerging recently. Last, leveraging big data technology 
+to support fast-growing event data is also important and of our interests.
+%
+%our online $k$-Sketch query assumes an append-only
+%stream. We wish to extend our solution to work for stream with sliding windows.
+%With sliding windows, we can find the news themes such as ``xx ranks first in the past month''.
+%Last, leveraging big data technology to support fast-growing event data in journalism
+%is also important and interesting.
+
+%Our work opens a wide area of research in computational journalism. 
+%In our next step, we aim to extend the event sources from sensor data 
+%to non-schema data such as tweets in social networks. We also aim to 
+%investigate subject association models to automatically generate 
+%news themes involving multiple subjects.
+%We further wish to explore leveraging big data technology to support fast-growing 
+%event data in journalism. 
+
+In chapter 5, we utilized the neighborhood concept to
+design the general co-movement pattern mining framework.
+In the next stage, we would like to explore the real-time 
+movement pattern detection. Meanwhile, we also wish
+to leverage the co-movement patterns to facilitate advanced
+trajectory analysis. For example, it is of great interest
+to discover the latent social network from drivers based 
+on their co-moving behaviors.  
+
+
+
+
+% In addition, classifying
+%trajectories 
+%
+%We would like to explore further on supporting real-time 
+%movement pattern detection. 
+%
+%Besides co-movement pattern, there are many other advanced patterns such as 
+%evolving convoy~\cite{edwards2013partial} and lead-follow~\cite{}. Supporting
+%these patterns under a unified parallel model would bring practical benefits.
+%As the advances in positioning technologies, real-time detection of movement patterns
+%in the streaming scenario is also very important.
+
+%In the future, we intend to examine co-movement pattern detection in streaming data for real-time monitoring. We are also interested in extending the current parallel frameworks to support other types of advanced patterns.

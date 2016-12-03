@@ -36,6 +36,7 @@
 % The name of your Oxford college (e.g. Christ Church, Pembroke)
 \def\college#1{\gdef\@college{#1}}
 
+\def\curdegree#1{\gdef\@curdegree{#1}}
 
 %
 % Setup choosen crest/logo
@@ -101,12 +102,12 @@
   \null\vfill
   \begin{center}
     { \Huge {\bfseries {\@title}} \par}
-{\large \vspace*{40mm} {\logo \par} \vspace*{25mm}}
-    {{\Large \@author} \par}
+   % {{\Large \@author} \par}
+{\large \vspace*{35mm} {{\Large \@author} \par {\@curdegree} \par} \vspace*{30mm}}
 {\large \vspace*{1ex}
     {{\@college} \par}
 \vspace*{1ex}
-    {University of Oxford \par}
+    {National University of Singapore \par}
 \vspace*{25mm}
     {{\submittedtext} \par}
 \vspace*{1ex}
@@ -233,7 +234,7 @@
     {{\large \vspace*{1ex} \@author} \par}
 {\large \vspace*{1ex}
     {{\@college} \par}
-    {University of Oxford \par}
+    {National University of Singapore \par}
 \vspace*{1ex}
     {{\it \submittedtext} \par}
     {\it {\@degree} \par}

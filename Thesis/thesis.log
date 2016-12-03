@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.28)  12 NOV 2016 16:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.28)  30 NOV 2016 09:28
 entering extended mode
 **thesis.tex
 (F:\GitHubRepos\Thesis\Thesis\thesis.tex
@@ -589,6 +589,7 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \c@query=\count146
 
 (F:\GitHubRepos\Thesis\Thesis\thesis.aux
+(F:\GitHubRepos\Thesis\Thesis\abstract.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter1/chapter1.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter2/chapter2.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter3/chapter3.aux)
@@ -596,18 +597,18 @@ LaTeX Info: Redefining \addtolength on input line 77.
 (F:\GitHubRepos\Thesis\Thesis\chapter5/chapter5.aux)
 (F:\GitHubRepos\Thesis\Thesis\conclusions.aux)
 (F:\GitHubRepos\Thesis\Thesis\appendix.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
 
 (D:\MikTex\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -627,30 +628,90 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
  ABD: EveryShipout initializing macros
-(F:\GitHubRepos\Thesis\Thesis\chapter5/chapter5.tex
-Chapter 5.
-(F:\GitHubRepos\Thesis\Thesis\chapter5/introduction.tex
+(F:\GitHubRepos\Thesis\Thesis\chapter3/chapter3.tex
+Chapter 3.
+(F:\GitHubRepos\Thesis\Thesis\chapter3/introduction.tex [25
 
-LaTeX Warning: Citation `li2013effective' on page 94 undefined on input line 11
-.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 14.
+
+
+
+
+{C:/Users/a0048267/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [26]
+LaTeX Font Info:    Try loading font information for U+msa on input line 147.
+
 (D:\MikTex\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 14.
+LaTeX Font Info:    Try loading font information for U+msb on input line 147.
  (D:\MikTex\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-[94
+[27]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 254.
+
+ (D:\MikTex\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 254.
+ [28]
+
+LaTeX Warning: Reference `gw:sec:pf' on page 29 undefined on input line 280.
+
+
+LaTeX Warning: Reference `gw:sec:db-index' on page 29 undefined on input line 2
+81.
+
+
+LaTeX Warning: Reference `gw:sec:topo' on page 29 undefined on input line 282.
+
+
+LaTeX Warning: Reference `gw:sec:exp' on page 29 undefined on input line 282.
+
+) (F:\GitHubRepos\Thesis\Thesis\chapter3/conclusion.tex [29])) [30]
+(F:\GitHubRepos\Thesis\Thesis\chapter4/chapter4.tex
+Chapter 4.
+(F:\GitHubRepos\Thesis\Thesis\chapter4/introduction.tex [31
 
 
 
+]
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+[][]$\OT1/cmtt/m/n/10 http : / / www . cbssports . com / nba / eye-[]on-[]baske
+tball / 24525914/$
+ []
+
+[32] [33] [34]
+
+LaTeX Warning: Reference `sec:problem_definition' on page 35 undefined on input
+ line 336.
+
+
+LaTeX Warning: Reference `sec:offline' on page 35 undefined on input line 336.
+
+
+LaTeX Warning: Reference `sec:online' on page 35 undefined on input line 336.
+
+
+LaTeX Warning: Reference `sec:experiment' on page 35 undefined on input line 33
+8.
+
+) (F:\GitHubRepos\Thesis\Thesis\chapter4/conclusion.tex [35])) [36]
+(F:\GitHubRepos\Thesis\Thesis\chapter5/chapter5.tex
+Chapter 5.
+(F:\GitHubRepos\Thesis\Thesis\chapter5/introduction.tex [37
 
 
 
+]
+Overfull \hbox (41.02376pt too wide) in paragraph at lines 104--119
+ [][] 
+ []
 
-{C:/Users/a0048267/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Package epstopdf Info: Source file: <./Charts/chapter5/related_work.eps>
 (epstopdf)                    date: 2016-07-01 15:08:15
 (epstopdf)                    size: 517020 bytes
@@ -660,752 +721,118 @@ Package epstopdf Info: Source file: <./Charts/chapter5/related_work.eps>
 (epstopdf)                    size: 41033 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Charts/related_work-eps-c
 onverted-to.pdf ./Charts/chapter5/related_work.eps>
-(epstopdf)             \includegraphics on input line 41.
+(epstopdf)             \includegraphics on input line 123.
 Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/related_work-eps-converted-to.pdf, id=12, 580.1675pt x 391.4625pt>
+<./Charts/related_work-eps-converted-to.pdf, id=56, 580.1675pt x 391.4625pt>
 File: ./Charts/related_work-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/related_work-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/related_work-eps-converted-to.pdf used on inp
-ut line 41.
+ut line 123.
 (pdftex.def)             Requested size: 433.62pt x 292.58069pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[95] [96 <F:/GitHubRepos/Thesis/Thesis/Charts/related_work-eps-converted-to.pdf
->]
-
-LaTeX Warning: File `platoon_weakpoint.eps' not found on input line 53.
-
-Package epstopdf Info: Source file: <platoon_weakpoint.eps>
+[38] [39]
+Package epstopdf Info: Source file: <./Charts/chapter5/platoon_weakpoint.eps>
+(epstopdf)                    date: 2016-06-02 09:44:14
+(epstopdf)                    size: 352295 bytes
 (epstopdf)             Output file: <./Charts/platoon_weakpoint-eps-converted-t
 o.pdf>
 (epstopdf)                    date: 2016-08-28 10:08:49
 (epstopdf)                    size: 20378 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Charts/platoon_weakpoint-
-eps-converted-to.pdf platoon_weakpoint.eps>
-(epstopdf)             \includegraphics on input line 53.
+eps-converted-to.pdf ./Charts/chapter5/platoon_weakpoint.eps>
+(epstopdf)             \includegraphics on input line 135.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/platoon_weakpoint-eps-converted-to.pdf, id=41, 323.2075pt x 100.375pt
+<./Charts/platoon_weakpoint-eps-converted-to.pdf, id=66, 323.2075pt x 100.375pt
 >
 File: ./Charts/platoon_weakpoint-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/platoon_weakpoint-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/platoon_weakpoint-eps-converted-to.pdf used o
-n input line 53.
+n input line 135.
 (pdftex.def)             Requested size: 346.89731pt x 107.73712pt.
- [97 <F:/GitHubRepos/Thesis/Thesis/Charts/platoon_weakpoint-eps-converted-to.pd
-f>]
 
-LaTeX Warning: File `rw_perf_O.eps' not found on input line 93.
 
-Package epstopdf Info: Source file: <rw_perf_O.eps>
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[40 <F:/GitHubRepos/Thesis/Thesis/Charts/related_work-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Charts/chapter5/rw_perf_O.eps>
+(epstopdf)                    date: 2016-07-04 08:58:43
+(epstopdf)                    size: 24070 bytes
 (epstopdf)             Output file: <./Charts/rw_perf_O-eps-converted-to.pdf>
 (epstopdf)                    date: 2016-08-28 10:08:49
 (epstopdf)                    size: 15028 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Charts/rw_perf_O-eps-conv
-erted-to.pdf rw_perf_O.eps>
-(epstopdf)             \includegraphics on input line 93.
+erted-to.pdf ./Charts/chapter5/rw_perf_O.eps>
+(epstopdf)             \includegraphics on input line 153.
 Package epstopdf Info: Output file is already uptodate.
-<./Charts/rw_perf_O-eps-converted-to.pdf, id=60, 867.24pt x 722.7pt>
+
+<./Charts/rw_perf_O-eps-converted-to.pdf, id=90, 867.24pt x 722.7pt>
 File: ./Charts/rw_perf_O-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/rw_perf_O-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/rw_perf_O-eps-converted-to.pdf used on input 
-line 93.
+line 153.
 (pdftex.def)             Requested size: 195.12767pt x 162.60048pt.
-
-
-LaTeX Warning: File `rw_perf_T.eps' not found on input line 99.
-
-Package epstopdf Info: Source file: <rw_perf_T.eps>
+Package epstopdf Info: Source file: <./Charts/chapter5/rw_perf_T.eps>
+(epstopdf)                    date: 2016-07-04 08:58:43
+(epstopdf)                    size: 23944 bytes
 (epstopdf)             Output file: <./Charts/rw_perf_T-eps-converted-to.pdf>
 (epstopdf)                    date: 2016-08-28 10:08:49
 (epstopdf)                    size: 14613 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Charts/rw_perf_T-eps-conv
-erted-to.pdf rw_perf_T.eps>
-(epstopdf)             \includegraphics on input line 99.
+erted-to.pdf ./Charts/chapter5/rw_perf_T.eps>
+(epstopdf)             \includegraphics on input line 159.
 Package epstopdf Info: Output file is already uptodate.
-<./Charts/rw_perf_T-eps-converted-to.pdf, id=61, 867.24pt x 722.7pt>
+
+<./Charts/rw_perf_T-eps-converted-to.pdf, id=91, 867.24pt x 722.7pt>
 File: ./Charts/rw_perf_T-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/rw_perf_T-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/rw_perf_T-eps-converted-to.pdf used on input 
-line 99.
+line 159.
 (pdftex.def)             Requested size: 195.12767pt x 162.60048pt.
- [98 <F:/GitHubRepos/Thesis/Thesis/Charts/rw_perf_O-eps-converted-to.pdf> <F:/G
-itHubRepos/Thesis/Thesis/Charts/rw_perf_T-eps-converted-to.pdf>]
+ [41 <F:/GitHubRepos/Thesis/Thesis/Charts/platoon_weakpoint-eps-converted-to.pd
+f> <F:/GitHubRepos/Thesis/Thesis/Charts/rw_perf_O-eps-converted-to.pdf> <F:/Git
+HubRepos/Thesis/Thesis/Charts/rw_perf_T-eps-converted-to.pdf>]
 
-LaTeX Warning: Reference `sec:related_works' on page 99 undefined on input line
- 146.
+LaTeX Warning: Reference `sec:definition' on page 42 undefined on input line 20
+7.
 
-) (F:\GitHubRepos\Thesis\Thesis\chapter5/definitions.tex
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Reference `sec:trm' on page 42 undefined on input line 207.
 
-[99] [100]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Reference `sec:spm' on page 42 undefined on input line 210.
 
-) (F:\GitHubRepos\Thesis\Thesis\chapter5/baseline.tex
 
-LaTeX Warning: File `trm.eps' not found on input line 3.
+LaTeX Warning: Reference `sec:exp' on page 42 undefined on input line 210.
 
-Package epstopdf Info: Source file: <trm.eps>
-(epstopdf)             Output file: <./Charts/trm-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 95982 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/trm-eps-converted-
-to.pdf trm.eps>
-(epstopdf)             \includegraphics on input line 3.
-Package epstopdf Info: Output file is already uptodate.
-<./Charts/trm-eps-converted-to.pdf, id=80, 710.655pt x 305.14pt>
-File: ./Charts/trm-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/trm-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/trm-eps-converted-to.pdf used on input line 3
-.
-(pdftex.def)             Requested size: 433.62pt x 186.19098pt.
- [101] [102] [103 <F:/GitHubRepos/Thesis/Thesis/Charts/trm-eps-converted-to.pdf
->]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[104] [105] [106]) (F:\GitHubRepos\Thesis\Thesis\chapter5/spm.tex
-
-LaTeX Warning: File `spm.eps' not found on input line 3.
-
-Package epstopdf Info: Source file: <spm.eps>
-(epstopdf)             Output file: <./Charts/spm-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 179270 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/spm-eps-converted-
-to.pdf spm.eps>
-(epstopdf)             \includegraphics on input line 3.
-Package epstopdf Info: Output file is already uptodate.
-<./Charts/spm-eps-converted-to.pdf, id=154, 703.62875pt x 257.96375pt>
-File: ./Charts/spm-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/spm-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/spm-eps-converted-to.pdf used on input line 3
-.
-(pdftex.def)             Requested size: 433.62pt x 158.97148pt.
- [107 <F:/GitHubRepos/Thesis/Thesis/Charts/spm-eps-converted-to.pdf>] [108]
-
-LaTeX Warning: File `star-alt.eps' not found on input line 59.
-
-Package epstopdf Info: Source file: <star-alt.eps>
-(epstopdf)             Output file: <./Charts/star-alt-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 24093 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/star-alt-eps-conve
-rted-to.pdf star-alt.eps>
-(epstopdf)             \includegraphics on input line 59.
-Package epstopdf Info: Output file is already uptodate.
-<./Charts/star-alt-eps-converted-to.pdf, id=275, 515.9275pt x 233.87375pt>
-File: ./Charts/star-alt-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/star-alt-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/star-alt-eps-converted-to.pdf used on input l
-ine 59.
-(pdftex.def)             Requested size: 346.89731pt x 157.25485pt.
- [109 <F:/GitHubRepos/Thesis/Thesis/Charts/star-alt-eps-converted-to.pdf>] [110
-]
-Overfull \hbox (22.52853pt too wide) in paragraph at lines 107--109
-[]\OT1/cmr/bx/n/12 Example 5.4.2. []\OT1/cmr/m/n/12 Sup-pose $\OML/cmm/m/it/12 
-G \OT1/cmr/m/n/12 = 2$ and con-sider two se-quences $\OML/cmm/m/it/12 T[] \OT1/
-cmr/m/n/12 = (1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; \OT1/cmr/
-m/n/12 4\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 5\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 
-6\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 9\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 10\OML/
-cmm/m/it/12 ; \OT1/cmr/m/n/12 11\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 13)$
+) (F:\GitHubRepos\Thesis\Thesis\chapter5/conclusion.tex
+Overfull \hbox (2.49214pt too wide) in paragraph at lines 3--9
+\OT1/cmr/m/n/12 In this chap-ter, we stud-ied one of the neigh-bor-hood an-a-ly
+t-ics, namely the co-movement
  []
 
-
-Overfull \hbox (42.86746pt too wide) in paragraph at lines 116--117
-[]\OT1/cmr/m/n/12 We as-sume $\OML/cmm/m/it/12 T[] \OMS/cmsy/m/n/12 \ \OML/cmm/
-m/it/12 T[] \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ;$\OT1/cmr/m/n
-/12 . Let $\OML/cmm/m/it/12 T[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 T[]\OT1/cmr
-/m/n/12 [1]\OML/cmm/m/it/12 ; T[]\OT1/cmr/m/n/12 [2]\OML/cmm/m/it/12 ; [] ; T[]
-\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 ])$ and $\OML/cmm/m/it/12 T[
-] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 [1]\OML/cmm/m/it/12 ; 
-T[]\OT1/cmr/m/n/12 [2]\OML/cmm/m/it/12 ; [] ; T[]\OT1/cmr/m/n/12 [\OML/cmm/m/it
-/12 n\OT1/cmr/m/n/12 ])$.
- []
-
-[111] [112]
-Overfull \hbox (12.03557pt too wide) in paragraph at lines 184--185
-[]\OT1/cmr/bx/n/12 Theorem 5.4.6 \OT1/cmr/m/n/12 (Mono-tonic-ity)\OT1/cmr/bx/n/
-12 . []\OT1/cmr/m/n/12 Given a can-di-date pat-tern $\OML/cmm/m/it/12 P \OT1/cm
-r/m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 O \OT1/cmr/m/n/12 : \OML/cmm/m/it
-/12 T\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 , if $[](\OML/cmm/m/it/12 P:T\OT1/cmr/m
-/n/12 ) =$
- []
-
-[113] [114] [115]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[116]) (F:\GitHubRepos\Thesis\Thesis\chapter5/experiment.tex [117]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 14.
-
-(D:\MikTex\tex\latex\base\omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
- [118]
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/shopping
-_vary_M.eps>
-(epstopdf)                    date: 2016-06-30 09:59:00
-(epstopdf)                    size: 19501 bytes
-(epstopdf)             Output file: <./Charts/shopping_vary_M-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3758 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/shopping_vary_M-ep
-s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_M.eps>
-(epstopdf)             \includegraphics on input line 269.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/shopping_vary_M-eps-converted-to.pdf, id=324, 519.9425pt x 404.51125p
-t>
-File: ./Charts/shopping_vary_M-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/shopping_vary_M-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/shopping_vary_M-eps-converted-to.pdf used on 
-input line 269.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/geolife_
-vary_M.eps>
-(epstopdf)                    date: 2016-06-30 09:59:40
-(epstopdf)                    size: 19604 bytes
-(epstopdf)             Output file: <./Charts/geolife_vary_M-eps-converted-to.p
-df>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3770 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/geolife_vary_M-eps
--converted-to.pdf ./Charts/chapter5/exp/performance/geolife_vary_M.eps>
-(epstopdf)             \includegraphics on input line 273.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/geolife_vary_M-eps-converted-to.pdf, id=325, 519.9425pt x 404.51125pt
->
-File: ./Charts/geolife_vary_M-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/geolife_vary_M-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/geolife_vary_M-eps-converted-to.pdf used on i
-nput line 273.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/taxi_var
-y_M.eps>
-(epstopdf)                    date: 2016-06-30 09:58:21
-(epstopdf)                    size: 19382 bytes
-(epstopdf)             Output file: <./Charts/taxi_vary_M-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3727 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/taxi_vary_M-eps-co
-nverted-to.pdf ./Charts/chapter5/exp/performance/taxi_vary_M.eps>
-(epstopdf)             \includegraphics on input line 277.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/taxi_vary_M-eps-converted-to.pdf, id=326, 519.9425pt x 404.51125pt>
-File: ./Charts/taxi_vary_M-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/taxi_vary_M-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/taxi_vary_M-eps-converted-to.pdf used on inpu
-t line 277.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[119]
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/shopping
-_vary_K.eps>
-(epstopdf)                    date: 2016-06-30 09:59:00
-(epstopdf)                    size: 19616 bytes
-(epstopdf)             Output file: <./Charts/shopping_vary_K-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3796 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/shopping_vary_K-ep
-s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_K.eps>
-(epstopdf)             \includegraphics on input line 292.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/shopping_vary_K-eps-converted-to.pdf, id=330, 519.9425pt x 404.51125p
-t>
-File: ./Charts/shopping_vary_K-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/shopping_vary_K-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/shopping_vary_K-eps-converted-to.pdf used on 
-input line 292.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/geolife_
-vary_K.eps>
-(epstopdf)                    date: 2016-06-30 09:59:40
-(epstopdf)                    size: 19727 bytes
-(epstopdf)             Output file: <./Charts/geolife_vary_K-eps-converted-to.p
-df>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3816 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/geolife_vary_K-eps
--converted-to.pdf ./Charts/chapter5/exp/performance/geolife_vary_K.eps>
-(epstopdf)             \includegraphics on input line 296.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/geolife_vary_K-eps-converted-to.pdf, id=331, 519.9425pt x 404.51125pt
->
-File: ./Charts/geolife_vary_K-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/geolife_vary_K-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/geolife_vary_K-eps-converted-to.pdf used on i
-nput line 296.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/taxi_var
-y_K.eps>
-(epstopdf)                    date: 2016-06-30 09:58:21
-(epstopdf)                    size: 19726 bytes
-(epstopdf)             Output file: <./Charts/taxi_vary_K-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3799 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/taxi_vary_K-eps-co
-nverted-to.pdf ./Charts/chapter5/exp/performance/taxi_vary_K.eps>
-(epstopdf)             \includegraphics on input line 300.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/taxi_vary_K-eps-converted-to.pdf, id=332, 519.9425pt x 404.51125pt>
-File: ./Charts/taxi_vary_K-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/taxi_vary_K-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/taxi_vary_K-eps-converted-to.pdf used on inpu
-t line 300.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/shopping
-_vary_L.eps>
-(epstopdf)                    date: 2016-06-30 09:59:00
-(epstopdf)                    size: 19506 bytes
-(epstopdf)             Output file: <./Charts/shopping_vary_L-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3778 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/shopping_vary_L-ep
-s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_L.eps>
-(epstopdf)             \includegraphics on input line 312.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/shopping_vary_L-eps-converted-to.pdf, id=333, 519.9425pt x 404.51125p
-t>
-File: ./Charts/shopping_vary_L-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/shopping_vary_L-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/shopping_vary_L-eps-converted-to.pdf used on 
-input line 312.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/geolife_
-vary_L.eps>
-(epstopdf)                    date: 2016-06-30 10:04:02
-(epstopdf)                    size: 19620 bytes
-(epstopdf)             Output file: <./Charts/geolife_vary_L-eps-converted-to.p
-df>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3766 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/geolife_vary_L-eps
--converted-to.pdf ./Charts/chapter5/exp/performance/geolife_vary_L.eps>
-(epstopdf)             \includegraphics on input line 316.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/geolife_vary_L-eps-converted-to.pdf, id=334, 519.9425pt x 404.51125pt
->
-File: ./Charts/geolife_vary_L-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/geolife_vary_L-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/geolife_vary_L-eps-converted-to.pdf used on i
-nput line 316.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/taxi_var
-y_L.eps>
-(epstopdf)                    date: 2016-06-30 10:01:36
-(epstopdf)                    size: 19503 bytes
-(epstopdf)             Output file: <./Charts/taxi_vary_L-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3752 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/taxi_vary_L-eps-co
-nverted-to.pdf ./Charts/chapter5/exp/performance/taxi_vary_L.eps>
-(epstopdf)             \includegraphics on input line 320.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/taxi_vary_L-eps-converted-to.pdf, id=335, 519.9425pt x 404.51125pt>
-File: ./Charts/taxi_vary_L-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/taxi_vary_L-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/taxi_vary_L-eps-converted-to.pdf used on inpu
-t line 320.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[120 <F:/GitHubRepos/Thesis/Thesis/Charts/shopping_vary_M-eps-converted-to.pdf>
- <F:/GitHubRepos/Thesis/Thesis/Charts/geolife_vary_M-eps-converted-to.pdf> <F:/
-GitHubRepos/Thesis/Thesis/Charts/taxi_vary_M-eps-converted-to.pdf> <F:/GitHubRe
-pos/Thesis/Thesis/Charts/shopping_vary_K-eps-converted-to.pdf> <F:/GitHubRepos/
-Thesis/Thesis/Charts/geolife_vary_K-eps-converted-to.pdf> <F:/GitHubRepos/Thesi
-s/Thesis/Charts/taxi_vary_K-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/shopping
-_vary_G.eps>
-(epstopdf)                    date: 2016-06-30 09:59:00
-(epstopdf)                    size: 19499 bytes
-(epstopdf)             Output file: <./Charts/shopping_vary_G-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3773 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/shopping_vary_G-ep
-s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_G.eps>
-(epstopdf)             \includegraphics on input line 335.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/shopping_vary_G-eps-converted-to.pdf, id=357, 519.9425pt x 404.51125p
-t>
-File: ./Charts/shopping_vary_G-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/shopping_vary_G-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/shopping_vary_G-eps-converted-to.pdf used on 
-input line 335.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/geolife_
-vary_G.eps>
-(epstopdf)                    date: 2016-06-30 10:06:04
-(epstopdf)                    size: 19611 bytes
-(epstopdf)             Output file: <./Charts/geolife_vary_G-eps-converted-to.p
-df>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3767 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/geolife_vary_G-eps
--converted-to.pdf ./Charts/chapter5/exp/performance/geolife_vary_G.eps>
-(epstopdf)             \includegraphics on input line 339.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/geolife_vary_G-eps-converted-to.pdf, id=358, 519.9425pt x 404.51125pt
->
-File: ./Charts/geolife_vary_G-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/geolife_vary_G-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/geolife_vary_G-eps-converted-to.pdf used on i
-nput line 339.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/taxi_var
-y_G.eps>
-(epstopdf)                    date: 2016-06-30 10:01:58
-(epstopdf)                    size: 19497 bytes
-(epstopdf)             Output file: <./Charts/taxi_vary_G-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3767 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/taxi_vary_G-eps-co
-nverted-to.pdf ./Charts/chapter5/exp/performance/taxi_vary_G.eps>
-(epstopdf)             \includegraphics on input line 343.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/taxi_vary_G-eps-converted-to.pdf, id=359, 519.9425pt x 404.51125pt>
-File: ./Charts/taxi_vary_G-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/taxi_vary_G-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/taxi_vary_G-eps-converted-to.pdf used on inpu
-t line 343.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/shopping
-_vary_O.eps>
-(epstopdf)                    date: 2016-07-01 17:06:42
-(epstopdf)                    size: 19284 bytes
-(epstopdf)             Output file: <./Charts/shopping_vary_O-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3738 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/shopping_vary_O-ep
-s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_O.eps>
-(epstopdf)             \includegraphics on input line 356.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/shopping_vary_O-eps-converted-to.pdf, id=360, 519.9425pt x 404.51125p
-t>
-File: ./Charts/shopping_vary_O-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/shopping_vary_O-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/shopping_vary_O-eps-converted-to.pdf used on 
-input line 356.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/geolife_
-vary_O.eps>
-(epstopdf)                    date: 2016-07-01 17:06:42
-(epstopdf)                    size: 19393 bytes
-(epstopdf)             Output file: <./Charts/geolife_vary_O-eps-converted-to.p
-df>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3758 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/geolife_vary_O-eps
--converted-to.pdf ./Charts/chapter5/exp/performance/geolife_vary_O.eps>
-(epstopdf)             \includegraphics on input line 360.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/geolife_vary_O-eps-converted-to.pdf, id=361, 519.9425pt x 404.51125pt
->
-File: ./Charts/geolife_vary_O-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/geolife_vary_O-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/geolife_vary_O-eps-converted-to.pdf used on i
-nput line 360.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/taxi_var
-y_O.eps>
-(epstopdf)                    date: 2016-10-27 16:16:15
-(epstopdf)                    size: 19392 bytes
-(epstopdf)             Output file: <./Charts/taxi_vary_O-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2016-11-12 16:48:28
-(epstopdf)                    size: 3759 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/taxi_vary_O-eps-co
-nverted-to.pdf ./Charts/chapter5/exp/performance/taxi_vary_O.eps>
-(epstopdf)             \includegraphics on input line 364.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/taxi_vary_O-eps-converted-to.pdf, id=362, 519.9425pt x 404.51125pt>
-File: ./Charts/taxi_vary_O-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/taxi_vary_O-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/taxi_vary_O-eps-converted-to.pdf used on inpu
-t line 364.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[121 <F:/GitHubRepos/Thesis/Thesis/Charts/shopping_vary_L-eps-converted-to.pdf>
- <F:/GitHubRepos/Thesis/Thesis/Charts/geolife_vary_L-eps-converted-to.pdf> <F:/
-GitHubRepos/Thesis/Thesis/Charts/taxi_vary_L-eps-converted-to.pdf> <F:/GitHubRe
-pos/Thesis/Thesis/Charts/shopping_vary_G-eps-converted-to.pdf> <F:/GitHubRepos/
-Thesis/Thesis/Charts/geolife_vary_G-eps-converted-to.pdf> <F:/GitHubRepos/Thesi
-s/Thesis/Charts/taxi_vary_G-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/shopping
-_vary_T.eps>
-(epstopdf)                    date: 2016-07-01 17:06:42
-(epstopdf)                    size: 19615 bytes
-(epstopdf)             Output file: <./Charts/shopping_vary_T-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3784 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/shopping_vary_T-ep
-s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_T.eps>
-(epstopdf)             \includegraphics on input line 377.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/shopping_vary_T-eps-converted-to.pdf, id=384, 519.9425pt x 404.51125p
-t>
-File: ./Charts/shopping_vary_T-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/shopping_vary_T-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/shopping_vary_T-eps-converted-to.pdf used on 
-input line 377.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/geolife_
-vary_T.eps>
-(epstopdf)                    date: 2016-07-01 17:06:42
-(epstopdf)                    size: 19391 bytes
-(epstopdf)             Output file: <./Charts/geolife_vary_T-eps-converted-to.p
-df>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3758 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/geolife_vary_T-eps
--converted-to.pdf ./Charts/chapter5/exp/performance/geolife_vary_T.eps>
-(epstopdf)             \includegraphics on input line 381.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/geolife_vary_T-eps-converted-to.pdf, id=385, 519.9425pt x 404.51125pt
->
-File: ./Charts/geolife_vary_T-eps-converted-to.pdf Graphic file (type pdf)
- <use ./Charts/geolife_vary_T-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/geolife_vary_T-eps-converted-to.pdf used on i
-nput line 381.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/taxi_var
-y_T.eps>
-(epstopdf)                    date: 2016-07-01 17:06:43
-(epstopdf)                    size: 19392 bytes
-(epstopdf)             Output file: <./Charts/taxi_vary_T-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 3748 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/taxi_vary_T-eps-co
-nverted-to.pdf ./Charts/chapter5/exp/performance/taxi_vary_T.eps>
-(epstopdf)             \includegraphics on input line 385.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/taxi_vary_T-eps-converted-to.pdf, id=386, 519.9425pt x 404.51125pt>
-File: ./Charts/taxi_vary_T-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/taxi_vary_T-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/taxi_vary_T-eps-converted-to.pdf used on inpu
-t line 385.
-(pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[122 <F:/GitHubRepos/Thesis/Thesis/Charts/shopping_vary_O-eps-converted-to.pdf>
- <F:/GitHubRepos/Thesis/Thesis/Charts/geolife_vary_O-eps-converted-to.pdf> <F:/
-GitHubRepos/Thesis/Thesis/Charts/taxi_vary_O-eps-converted-to.pdf> <F:/GitHubRe
-pos/Thesis/Thesis/Charts/shopping_vary_T-eps-converted-to.pdf> <F:/GitHubRepos/
-Thesis/Thesis/Charts/geolife_vary_T-eps-converted-to.pdf> <F:/GitHubRepos/Thesi
-s/Thesis/Charts/taxi_vary_T-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/spare/detail1.eps>
-(epstopdf)                    date: 2016-09-03 15:34:55
-(epstopdf)                    size: 25634 bytes
-(epstopdf)             Output file: <./Charts/detail1-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-17 11:26:10
-(epstopdf)                    size: 21607 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/detail1-eps-conver
-ted-to.pdf ./Charts/chapter5/exp/spare/detail1.eps>
-(epstopdf)             \includegraphics on input line 505.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/detail1-eps-converted-to.pdf, id=408, 1156.32pt x 722.7pt>
-File: ./Charts/detail1-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/detail1-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/detail1-eps-converted-to.pdf used on input li
-ne 505.
-(pdftex.def)             Requested size: 303.53267pt x 189.70607pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[123]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/spare/scalability-sh
-opping.eps>
-(epstopdf)                    date: 2016-07-04 08:58:43
-(epstopdf)                    size: 23153 bytes
-(epstopdf)             Output file: <./Charts/scalability-shopping-eps-converte
-d-to.pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 18456 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/scalability-shoppi
-ng-eps-converted-to.pdf ./Charts/chapter5/exp/spare/scalability-shopping.eps>
-(epstopdf)             \includegraphics on input line 580.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/scalability-shopping-eps-converted-to.pdf, id=412, 722.7pt x 433.62pt
->
-File: ./Charts/scalability-shopping-eps-converted-to.pdf Graphic file (type pdf
-)
- <use ./Charts/scalability-shopping-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/scalability-shopping-eps-converted-to.pdf use
-d on input line 580.
-(pdftex.def)             Requested size: 130.08731pt x 78.04823pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/spare/scalability-ge
-olife.eps>
-(epstopdf)                    date: 2016-07-04 08:58:43
-(epstopdf)                    size: 23154 bytes
-(epstopdf)             Output file: <./Charts/scalability-geolife-eps-converted
--to.pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 20003 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/scalability-geolif
-e-eps-converted-to.pdf ./Charts/chapter5/exp/spare/scalability-geolife.eps>
-(epstopdf)             \includegraphics on input line 584.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/scalability-geolife-eps-converted-to.pdf, id=413, 722.7pt x 433.62pt>
-File: ./Charts/scalability-geolife-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/scalability-geolife-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/scalability-geolife-eps-converted-to.pdf used
- on input line 584.
-(pdftex.def)             Requested size: 130.08731pt x 78.04823pt.
-Package epstopdf Info: Source file: <./Charts/chapter5/exp/spare/scalability-ta
-xi.eps>
-(epstopdf)                    date: 2016-07-04 08:58:43
-(epstopdf)                    size: 22911 bytes
-(epstopdf)             Output file: <./Charts/scalability-taxi-eps-converted-to
-.pdf>
-(epstopdf)                    date: 2016-08-28 10:08:49
-(epstopdf)                    size: 19899 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/scalability-taxi-e
-ps-converted-to.pdf ./Charts/chapter5/exp/spare/scalability-taxi.eps>
-(epstopdf)             \includegraphics on input line 588.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/scalability-taxi-eps-converted-to.pdf, id=414, 722.7pt x 433.62pt>
-File: ./Charts/scalability-taxi-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/scalability-taxi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/scalability-taxi-eps-converted-to.pdf used on
- input line 588.
-(pdftex.def)             Requested size: 130.08731pt x 78.04823pt.
-)
-(F:\GitHubRepos\Thesis\Thesis\chapter5/conclusion.tex [124 <F:/GitHubRepos/Thes
-is/Thesis/Charts/detail1-eps-converted-to.pdf>]) [125]) [126 <F:/GitHubRepos/Th
-esis/Thesis/Charts/scalability-shopping-eps-converted-to.pdf> <F:/GitHubRepos/T
-hesis/Thesis/Charts/scalability-geolife-eps-converted-to.pdf> <F:/GitHubRepos/T
-hesis/Thesis/Charts/scalability-taxi-eps-converted-to.pdf>]
-(F:\GitHubRepos\Thesis\Thesis\thesis.bbl [131
+[42])) [43] (F:\GitHubRepos\Thesis\Thesis\thesis.bbl [134
 
 
 
-] [132] [133] [134] [135]
+] [135] [136] [137]
+[138]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
- [136]
+ [139] [140]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
-
-[137] [138] [139] [140]) [141] (F:\GitHubRepos\Thesis\Thesis\appendix.tex
-Appendix A.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Package epstopdf Info: Source file: <./Charts/chapter4/exp/agg/agg_offline.eps>
-
-(epstopdf)                    date: 2016-11-11 18:24:13
-(epstopdf)                    size: 24271 bytes
-(epstopdf)             Output file: <./Charts/agg_offline-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2016-11-12 16:37:05
-(epstopdf)                    size: 18590 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/agg_offline-eps-co
-nverted-to.pdf ./Charts/chapter4/exp/agg/agg_offline.eps>
-(epstopdf)             \includegraphics on input line 59.
-Package epstopdf Info: Output file is already uptodate.
-<./Charts/agg_offline-eps-converted-to.pdf, id=473, 693.59125pt x 433.62pt>
-File: ./Charts/agg_offline-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/agg_offline-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/agg_offline-eps-converted-to.pdf used on inpu
-t line 59.
-(pdftex.def)             Requested size: 195.12767pt x 121.9884pt.
-Package epstopdf Info: Source file: <./Charts/chapter4/exp/agg/agg_online.eps>
-(epstopdf)                    date: 2016-11-11 18:24:13
-(epstopdf)                    size: 23990 bytes
-(epstopdf)             Output file: <./Charts/agg_online-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-11-12 16:37:06
-(epstopdf)                    size: 21066 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Charts/agg_online-eps-con
-verted-to.pdf ./Charts/chapter4/exp/agg/agg_online.eps>
-(epstopdf)             \includegraphics on input line 64.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Charts/agg_online-eps-converted-to.pdf, id=474, 693.59125pt x 433.62pt>
-File: ./Charts/agg_online-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Charts/agg_online-eps-converted-to.pdf>
-Package pdftex.def Info: ./Charts/agg_online-eps-converted-to.pdf used on input
- line 64.
-(pdftex.def)             Requested size: 195.12767pt x 121.9884pt.
- [142
-
-
-] [143 <F:/GitHubRepos/Thesis/Thesis/Charts/agg_offline-eps-converted-to.pdf> <
-F:/GitHubRepos/Thesis/Thesis/Charts/agg_online-eps-converted-to.pdf>] [144] [14
-5]) [146]
+ [141] [142] [143]) [144]
 (F:\GitHubRepos\Thesis\Thesis\thesis.aux
+(F:\GitHubRepos\Thesis\Thesis\abstract.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter1/chapter1.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter2/chapter2.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter3/chapter3.aux)
@@ -1416,34 +843,27 @@ F:/GitHubRepos/Thesis/Thesis/Charts/agg_online-eps-converted-to.pdf>] [144] [14
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 14098 strings out of 493921
- 253261 string characters out of 3154491
- 300521 words of memory out of 3000000
- 16972 multiletter control sequences out of 15000+200000
- 15286 words of font info for 62 fonts, out of 3000000 for 9000
+ 13780 strings out of 493921
+ 244577 string characters out of 3154491
+ 296375 words of memory out of 3000000
+ 16685 multiletter control sequences out of 15000+200000
+ 17305 words of font info for 70 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 63i,15n,75p,1697b,584s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,11n,75p,1698b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikTex/fonts/type1/p
-ublic/amsfonts/cm/cmex10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/MikTex/fonts/type1/
-public/amsfonts/cm/cmmi6.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pf
-b><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-D:/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/MikTex/fonts/type1/public
-/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/
-MikTex/fonts/type1/public/amsfonts/cm/cmsy6.pfb><D:/MikTex/fonts/type1/public/a
-msfonts/cm/cmsy8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmti12.pfb><D:/M
-ikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb><D:/MikTex/fonts/type1/public/a
-msfonts/cm/cmtt12.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb
->
-Output written on thesis.pdf (49 pages, 864665 bytes).
+ublic/amsfonts/cm/cmmi10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.p
+fb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/MikTex/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb
+><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/MikTex/fonts/type1/publ
+ic/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D
+:/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/MikTex/fonts/type1/public
+/amsfonts/cm/cmti12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb><D
+:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on thesis.pdf (30 pages, 314491 bytes).
 PDF statistics:
- 556 PDF objects out of 1000 (max. 8388607)
+ 196 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 168 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

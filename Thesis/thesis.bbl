@@ -186,6 +186,12 @@ Jiawei Han, Jian Pei, and Yiwen Yin.
 \newblock Mining frequent patterns without candidate generation.
 \newblock In {\em ACM Sigmod Record}, volume~29, pages 1--12. ACM, 2000.
 
+\bibitem{han2004mining}
+Jiawei Han, Jian Pei, Yiwen Yin, and Runying Mao.
+\newblock Mining frequent patterns without candidate generation: A
+  frequent-pattern tree approach.
+\newblock {\em Data mining and knowledge discovery}, 8(1):53--87, 2004.
+
 \bibitem{hassan2014data}
 Naeemul Hassan, Afroza Sultana, You Wu, Gensheng Zhang, Chengkai Li, Jun Yang,
   and Cong Yu.
@@ -242,16 +248,17 @@ Srivatsan Laxman, PS~Sastry, and KP~Unnikrishnan.
 \newblock In {\em Proceedings of the 13th ACM SIGKDD international conference
   on Knowledge discovery and data mining}, pages 410--419. ACM, 2007.
 
-\bibitem{li2013onlinegroup}
+\bibitem{li2013effective}
 Xiaohui Li, Vaida Ceikute, Christian~S Jensen, and Kian-Lee Tan.
 \newblock Effective online group discovery in trajectory databases.
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering},
   25(12):2752--2766, 2013.
 
-\bibitem{li2013managing}
-Xiaohui Li and Tan Kian-Lee.
-\newblock {\em Managing moving objects and their trajectories}.
-\newblock PhD thesis, National University of Singapore, 2013.
+\bibitem{li2013onlinegroup}
+Xiaohui Li, Vaida Ceikute, Christian~S Jensen, and Kian-Lee Tan.
+\newblock Effective online group discovery in trajectory databases.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  25(12):2752--2766, 2013.
 
 \bibitem{li2015social}
 Xuefei Li, Hongyun Cai, Zi~Huang, Yang Yang, and Xiaofang Zhou.

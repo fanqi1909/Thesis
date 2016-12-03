@@ -1,7 +1,7 @@
 \newcommand{\DBIndex}{DBIndex}
 \newcommand{\blockset}{{\cal B}}
 \newcommand{\clusterset}{{\cal C}}
-\section{Dense Block Index}
+\section{Dense Block Index}\label{gw:sec:db-index}
 A straightforward approach to process a graph window query 
 $Q = (G, W, \Sigma)$, %where $G = (V,E)$,
 is to dynamically compute the window $W(v)$ for each vertex $v \in V$ and
@@ -13,7 +13,7 @@ Given that many of the windows would share a large number of common nodes (e.g.,
 vertexes),
 such a simple approach would be very inefficient due to the lack of sharing of the computation. 
 
-To efficiently evaluate graph window queries, we propose an indexing technique named \emph{Dense Block Index} (\textit{\DBIndex}), which achieves both space and query efficiency. 
+To efficiently evaluate graph window queries, we propose an index technique named \emph{Dense Block Index} (\textit{\DBIndex}), which achieves both space and query efficiency. 
 The main idea of \DBIndex\ is to try to reduce the aggregation cost by identifying subsets of nodes that are shared by more than one window 
 so that the aggregation for the shared nodes could be computed only once instead of multiple times.
 
@@ -61,7 +61,7 @@ Note that the index consists of a total of seven blocks of which three of them a
 	\label{fig:dbi_agg}
 \end{figure}
 
-\subsection{Query Processing using \DBIndex}
+\subsection{Query Processing with \DBIndex}
 Given a \DBIndex\ with respect to a graph $G$ and a window function $W$, a graph window query $Q = (G, W, \Sigma)$ is processed by the following two steps.
 First, for each block $B_i$ in the index, we compute the aggregation (denoted by $T_i$) over all the nodes in $B_i$;
 i.e., $T_i = \Sigma_{v \in B_i} v$. 
@@ -89,15 +89,15 @@ In this section, we discuss the construction of the \DBIndex\ (with respect to a
 
 The first challenge is the time complexity of the index construction. 
 From the discussion of query processing using \DBIndex , 
-we note that the number of aggregation computations is determined by both the number of blocks as well as the number of links in the index; 
+we note that the number of aggregations is determined by both the number of blocks as well as the number of links in the index; 
 the former determines the number of partial aggregates to compute
 while the latter determines the number of aggregations of the partial aggregate values.
-Thus, to maximize the shared aggregation computations using \DBIndex\ , both the number of blocks in the index as well as the number of blocks covering each window should be minimized. 
+Thus, to maximize the shared aggregations using \DBIndex\ , both the number of blocks in the index as well as the number of blocks covering each window should be minimized. 
 %As discussed, to maximize the shared aggregation computations using \DBIndex,
 %both the number of blocks in the index as well as the number of blocks covering each window should be minimized.
 However, finding the optimal \DBIndex\ to minimize this objective is NP-hard\footnote{
 Note that a simpler variation of our problem has been proven to be NP-hard \cite{vassilevska2004finding}.}.
-Therefore, efficient heuristics are needed to construct the \DBIndex.
+Therefore, effective heuristics are needed to construct the \DBIndex.
 
 The second challenge is the space complexity of the index construction.
 In order to identify large dense blocks to optimize the query processing,
@@ -424,7 +424,7 @@ E(Y_i|v_i \in S) & = \Sigma( y P(Y_i = y| v_i \in S) )\\
 	& = (|V|-|S|)  \frac{{|V|-2 \choose d_i - 2}}{{|V|-1 \choose d_i -1}} = \frac{(|V|-|S|)(d_i-1)}{|V| - 1}
 \end{split}
 \end{equation}
-Taking the expectation over all vertexes in $S$, we can find the expectation of $E(Y|S) = \frac{(|V|-|S|)(\overline{d}-1)}{|V| - 1}$,
+Taking the expectation over all vertexes in $S$, we can find the expectation of $E(Y_i|S) = \frac{(|V|-|S|)(\overline{d}-1)}{|V| - 1}$,
 where $\overline{d}$ is the average degree of the graph. Let %$T=\cup_{i=1}^{i=|S|} Y_i$ 
 $T$ be the number of newly discovered vertexes for one-hop expansion of the entire set $S$.  
 Since each $Y_i$ is independent,

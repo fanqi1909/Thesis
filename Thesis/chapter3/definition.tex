@@ -1,4 +1,4 @@
-\section{Problem Formulation}
+\section{Problem Formulation}\label{gw:sec:pf}
 In this section, we provide the formal definition of graph window query.
 %In this section, we provide the formal definition of graph window query. 
 We use $G = (V,E)$ to denote a directed/undirected data graph, where $V$ is its vertex set and $E$ is its edge set.
@@ -29,7 +29,7 @@ a \emph{Graph Window Function (GWF)} over $G$ can be expressed
 as a pair $(W, \Sigma)$, where 
 $W(v)$ denotes a \emph{window specification} for a vertex $v \in V$ 
 that determines the set of $v$'s neighborhood nodes\footnote{We use ``vertex'' to refer the vertex in the original graph and ``node'' to refer to the vertex in the windows.},
-$\Sigma$ denotes an \emph{aggregate function}\footnote{An aggregate function is associated with an attribute. I.e., $\mathtt{average}$(age) and $\mathtt{average}$(salary) are considered to be two different aggregate functions}.
+$\Sigma$ denotes an \emph{aggregate function}\footnote{An aggregate function is associated with an attribute. I.e., $\mathtt{average}$(age) and $\mathtt{average}$(salary) are considered to be two different aggregate functions.}.
 %, and $A$ denotes  a \emph{vertex attribute}.
 The evaluation of a GWF $(W, \Sigma)$ on $G$
 computes for each vertex $v$ in $G$, the aggregation $\Sigma$ 
@@ -48,7 +48,7 @@ In the following, we introduce two useful types of window specification (i.e., $
 \begin{definition}[$k$-hop Window] 
 Given a vertex $v$ in a data graph $G$, 
 the $k$-hop window of $v$, denoted by $W_{kh}(v)$ (or $W(v)$ when there is no ambiguity),
-is the set of neighbors of $v$ in $G$ which can be reached within $k$ hops.
+is the set of nodes in $G$ which can be reached by $v$ within $k$ hops.
 For an undirected graph $G$,
 a node $u$ is in $W_{kh}(v)$  if there is a $\alpha$-hop path between $u$ and $v$ where $\alpha \leqslant k$.
 For a directed graph $G$,
@@ -58,22 +58,21 @@ a node $u$ is in $W_{kh}(v)$  if there is a $\alpha$-hop directed path from $u$ 
 } where $\alpha \leqslant k$.
 \end{definition}
 
-Intuitively, a $k$-hop window selects the neighboring vertexes of a 
-vertex within a $k$-hop distance. 
-These neighboring vertexes typically represent the most important 
-vertexes to a vertex with regard to their structural relationship in a graph. 
-Thus, $k$-hop windows provide meaningful specifications for many applications, such as customer behavior analysis \cite{briscoe2013determining,dai2012predicting} , digital marketing \cite{ma2010ego} etc.
+Intuitively, a $k$-hop window selects the neighboring nodes within a $k$-hop distance. 
+These neighboring nodes typically represent the most important 
+entities to a vertex with regard to their structural relationship in a graph. 
+Thus, the $k$-hop window provides a meaningful specification for many applications, such as customer behavior analysis \cite{briscoe2013determining,dai2012predicting} , digital marketing \cite{ma2010ego} etc.
 %\remark{Cite some papers here to justify.}
 
 As an example, in Figure~\ref{fig:attributed}, the $1$-hop window of vertex \emph{E} is $\{A,C,E\}$ and the $2$-hop window of vertex \emph{E} is $\{A,B,C,D,E,F\}$.  
 
 \begin{definition}[Topological Window] 
 Given a vertex $v$ in a DAG $G$, the topological window of $v$, denoted by $W_t(v)$,
-refers to the set of ancestor vertexes of $v$ in $G$,
+refers to the set of ancestor nodes of $v$ in $G$,
 i.e., a vertex $u$ is in $W_t(v)$ if there is directed path from $u$ to $v$ in $G$.
 \end{definition}
 
-There are many directed acyclic graphs (DAGs) in real-world applications (such as biological networks, citation networks and dependency networks)
+There are many directed acyclic graphs (DAGs) in real world applications (such as biological networks, citation networks and dependency networks)
 where topological windows represent meaningful relationships that are of interest.
 For example, in a citation network where (X,Y) is an edge if paper $X$ cites paper $Y$, 
 the topological window of a paper represents the citation impact of that paper \cite{campanario2011empirical,holsapple2003citation,ma2008bringing}.
@@ -98,7 +97,7 @@ each pair $(W_i,\Sigma_i)$ is a graph window function on $G$.
 In this chapter, we focus on graph window queries with a single window 
 function that is either a $k$-hop or topological window. 
 The evaluation of complex graph window queries with multiple window 
-functions can be naively processed as a sequence of window functions one
+functions can be simply processed as a sequence of window functions one
 after another. 
 We leave the optimization of processing multiple window functions for future studies.
 

@@ -1,4 +1,4 @@
-\section{Experimental Evaluation}\label{sec:experiments}
+\section{Experimental Evaluation}\label{gw:sec:exp}
 In this section, we present a comprehensive experimental evaluation 
 of our solutions using several real-world information networks and 
 various synthetic datasets. 
@@ -12,7 +12,7 @@ study.
 All algorithms are implemented in Java and run under JRE 1.6.
 
 \begin{table}[h]
-\caption{Large-scale real datasets}
+\caption{Large-scale real graphs.}
 \label{tab:realdata}
 \centering
 \begin{tabular}{|l|l|l|l|}
@@ -73,7 +73,7 @@ by using the SUM() as the aggregate function over the integer attribute in each 
   \caption{Index size on Stanford-web}
 \end{subfigure}
 \caption{Index construction analysis for EMC and MC. (a) and (b) 
-depict the index time for the Amazon and Stanford-web networks; 
+depict the index time for the Amazon and Stanford-web networks.
 (c) and (d) show the index size for the Amazon and Stanford-web datasets.}
 \label{fig:index_analysis_emc_mc}
 \end{figure*}
@@ -98,7 +98,7 @@ graphs respectively. To better understand the time differences,
 the construction time is split into two parts: 
 the MinHash cost (EMC-hash or MC-hash) and the breadth-first-search traversal (to compute the $k$-hop window)  cost (EMC-bfs or MC-bfs). The results show the same trend 
 for the two datasets. % We make several observations.
-First, as the number of hops increases, the indexing time increases as well. 
+First, as the number of hops increases, the index construction time increases as well. 
 This is expected as a larger hop count results in a larger window size 
 and the BFS and the MinHash time increase correspondingly. 
 Second, as the hop count increases, the difference between the
@@ -142,7 +142,7 @@ is directed. For the Stanford-web dataset, since we use directed k-hop windows, 
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/effectiveness/stanford_query_time.pdf}
   \caption{Stanford-web graph}
 \end{subfigure}
-\caption{Query performance comparison of MC and EMC}
+\caption{Query performance comparison of MC and EMC.}
 \label{fig:khop_effective_query_time}
 \end{figure}
 
@@ -202,7 +202,7 @@ iterations in the index construction.
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/real_data/real_query_time_h1.pdf}
   \caption{1-hop query performance}
 \end{subfigure}%
-\caption{Comparison between DBIndex and EAGR  for 1-hop query}
+\caption{Comparison between DBIndex and EAGR  for 1-hop query.}
 \label{fig:1-hop-real}
 \end{figure}
 
@@ -218,7 +218,7 @@ iterations in the index construction.
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/real_data/real_query_time_h2.pdf}
   \caption{2-hop query performance}
 \end{subfigure}
-\caption{Comparison between DBIndex and EAGR for 2-hop query}
+\caption{Comparison between DBIndex and EAGR for 2-hop query.}
 \label{fig:2-hop-real}
 \end{figure}
 
@@ -297,7 +297,7 @@ performance of DBIndex in processing the 2-hop query. We notice that EAGR fails 
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/d10h2_query.pdf}
   \caption{2-hop query performance}
 \end{subfigure}
-\caption{Impact of number of vertexes }
+\caption{Impact of number of vertexes.}
 \label{fig:khop_d10_h1}
 \end{figure}
 
@@ -323,7 +323,7 @@ performance of DBIndex in processing the 2-hop query. We notice that EAGR fails 
   \includegraphics[width=\textwidth]{chapter3/exp/khopeffect/scalability/varyd_query_2M_h2.pdf}
   \caption{2-hop query performance}
 \end{subfigure}
-\caption{Impact of degree in sparse graphs with 2M vertexes. }
+\caption{Impact of degree in sparse graphs with 2M vertexes.}
 \label{fig:khop_v2m}
 \end{figure}
 
@@ -442,7 +442,7 @@ All the datasets are generated from the DAGGER generator.
 We compare \emph{DBIndex} with I-Index. 
 In the query results, we also implement one non-index algorithm 
 which dynamically calculates the window and then performs the aggregation. 
-For indexing time, as shown in Figures~\ref{fig:pi_effect} (a) and (c), as the 
+For index construction time, as shown in Figures~\ref{fig:pi_effect} (a) and (c), as the 
 index size increases, both the index construction time of 
 DBIndex and I-Index increase. However I-Index is more efficient than 
 DBIndex, this is benefit from the inheritance optimization.  We observe that the 
@@ -493,7 +493,7 @@ are the graphs with degree 20. }
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{chapter3/exp/topoeffect/comp/top_scale_index_size.pdf}
-\caption{Index ratio of I-Index}
+\caption{Index ratio of I-Index.}
 \label{fig:top-index-size}
 \end{figure}
 

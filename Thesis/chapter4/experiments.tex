@@ -15,7 +15,7 @@ The dataset is crawled from Yahoo! Finance\footnote{https://finance.yahoo.com/} 
 
  
 \begin{table}[h]
-\caption{Statistics of datasets used in the experiments}
+\caption{Statistics of datasets used in the experiments.}
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -42,20 +42,20 @@ All the experiments are conducted on a desktop machine equipped with an Intel i7
 Our offline $k$-Sketch query processing algorithms consist of two functional components, \emph{Ranked-streak Generation}
 and \emph{Sketch Discovery}. In the ranked-streak generation, we report the performance with varying $p$ and $h$. In the sketch discovery, we report the performance with varying $k$.
 
-\subsubsection{Ranked-streak generation algorithms}
+\subsubsection{Ranked-Streak Generation Algorithms}
 To evaluate the performance, we design the following four methods for comparison:
 
-\noindent\textbf{Brute Force (BF)}: BF exhaustively computes and compares for each subject all the possible streak lengths. 
+\noindent\textbf{Brute Force (BF)}. BF exhaustively computes and compares for each subject all the possible streak lengths. 
 
-\noindent\textbf{Visiting Streak Pruning (V-SP)}: V-SP only adopts the \emph{visiting-streak} bound for pruning.
+\noindent\textbf{Visiting Streak Pruning (V-SP)}. V-SP only adopts the \emph{visiting-streak} bound for pruning.
 
-\noindent\textbf{Unseen Streak Pruning (U-SP)}: U-SP only adopts the \emph{unseen-streak} bound for pruning. 
+\noindent\textbf{Unseen Streak Pruning (U-SP)}. U-SP only adopts the \emph{unseen-streak} bound for pruning. 
 
-\noindent\textbf{Unseen+Visiting Streak Pruning (UV-SP)}: UV-SP adopts both \emph{unseen-streak} and \emph{visiting-streak} bounds for pruning.
+\noindent\textbf{Unseen+Visiting Streak Pruning (UV-SP)}. UV-SP adopts both \emph{unseen-streak} and \emph{visiting-streak} bounds for pruning.
 
 %\subsubsection{Candidate themes generation with varying $p$}
 %The running time of the four algorithms in ranked streak generation wrt. $p$ is shown in Fig.~\ref{exp:offline_performance_vary_p}. It is evident that when $p$ increases, more candidate themes are qualified and thus all four algorithms require more computation time. The effect of the two proposed window-based pruning techniques can also be observed from the figure. The insight is that the unseen-window pruning plays a more important role in reducing the running time. Furthermore, when both pruning techniques are used, our method achieves at least two orders of magnitude of performance improvement.
-\subsubsection{Ranked-streaks generation with varying $p$}
+\subsubsection{Ranked-Streaks Generation varying $p$}
 The running time of the four algorithms in ranked-streak generation with respect to $p$ is shown in Figure~\ref{exp:offline_performance_vary_p}. It is evident that when $p$ increases, more ranked-streaks are qualified and thus all four algorithms require more computation time. The effect of the two proposed streak-based pruning techniques can also be observed from the figure. The insight is that the unseen-streak pruning plays a more important role in reducing the running time. Furthermore, when both pruning techniques are used, our method (UV-SP) achieves at least two orders of magnitude of performance improvement.
 
 \begin{figure}[t]
@@ -85,7 +85,7 @@ The running time of the four algorithms in ranked-streak generation with respect
 %in Fig.~\ref{exp:offline_performance_vary_n}. As presented in the figures, when $h$ increases, 
 %the running time for all the four algorithms also increases. This is because more event windows need to be evaluated. 
 %Again, pruning-based methods are much efficient than the baseline method. When both pruning methods are adapted, our method obtains hundreds of times faster than the baseline method.
-\subsubsection{Ranked-streak generation with varying $h$}
+\subsubsection{Ranked-Streak Generation varying $h$}
 We then study the performance of the four algorithms with respect to the number of events and report the results 
 in Figure~\ref{exp:offline_performance_vary_n}. As the figure shows, when $h$ increases, 
 the running times for all four algorithms increase. This is because more streaks need to be evaluated. 
@@ -96,7 +96,7 @@ Again, pruning-based methods are much more efficient than the baseline method. W
 %After candidate themes are generated, we greedily find the $k$-sketch for each subject. 
 %Here, we study the effect of $k$ on the performance of the greedy algorithm. The results on four datasets are presented in Table~\ref{exp:offline_greedy}. The table indicates that for all four datasets, as $k$ increases, the running time of the greedy algorithm proportionally increases. This is because the complexity of the greedy algorithm is $O(k\Sigma_s|\mathbb{N}_s|)$. Since PEMS is the largest dataset with highest $\Sigma_s|\mathbb{N}_s|$, greedy algorithm performs worst on PEMS. As we observe that, even greedy algorithm takes upto 400 seconds on PEMS, the performance of the exact solution with quadratic complexity is not acceptable. This confirms the necessity of adapting the approximation algorithm.
 
-\subsubsection{Sketch discovery with varying $k$}
+\subsubsection{Sketch Discovery varying $k$}
 After ranked-streaks are generated, we greedily find the $k$-sketch for each subject. 
 Here, we study the effect of $k$ on the performance of the greedy algorithm. The results on the four datasets are presented in Table~\ref{exp:offline_greedy}. The table indicates that the running time of the greedy algorithm 
 increases proportionally to $k$.
@@ -163,20 +163,20 @@ In the online scenario, we evaluate the following four algorithms in our perform
 %\noindent\textbf{Sketch Computing (SC)}: SC examines all event windows generated from a fresh event.  Whenever there is an update in any subject's sketch, Algorithm~\ref{algo:greedy} will be invoked. To improve efficiency, the updates are processed in a batch manner, i.e., multiple updates
 %on the same subject will be batched and processed by calling Algorithm~\ref{algo:greedy} once.
 
-\noindent\textbf{Sketch Computing (SC)}: SC examines all streaks generated from a fresh event.
+\noindent\textbf{Sketch Computing (SC)}. SC examines all streaks generated from a fresh event.
 Then Algorithm~\ref{algo:greedy} is invoked for each affected subject.
 % Whenever there is an update in any subject's sketch, Algorithm~\ref{algo:greedy} will be invoked. 
 To improve efficiency, the updates are processed in batches, i.e., multiple updates on the same subject will be batched and processed by calling Algorithm~\ref{algo:greedy} once.
 
-\noindent\textbf{Sketch with Early Termination (SET)}: SET adopts \emph{online-streak} bound in Theorem~\ref{thm:online_bound} for early termination.
+\noindent\textbf{Sketch with Early Termination (SET)}. SET adopts \emph{online-streak} bound in Theorem~\ref{thm:online_bound} for early termination.
 
-\noindent\textbf{Approx. Sketch (AS)}: AS is similar to \emph{SC} except that it only computes the approximate sketches. 
+\noindent\textbf{Approx. Sketch (AS)}. AS is similar to \emph{SC} except that it only computes the approximate sketches. 
 
-\noindent\textbf{Approx. Sketch with Early Termination (ASET)}: ASET computes the approximate sketches with early termination, as shown in Algorithm~\ref{algo:online_overview}.
+\noindent\textbf{Approx. Sketch with Early Termination (ASET)}. ASET computes the approximate sketches with early termination, as shown in Algorithm~\ref{algo:online_overview}.
 
 In the online setting, we are more interested in evaluating the throughput of algorithms. We report the performance with respect to $p$, $k$ and $h$.
 
-\subsubsection{Query throughput with varying $p$}
+\subsubsection{Query Throughput varying $p$}
 We increase $p$ from 10 to 200 and the throughput results are 
 shown in Figure~\ref{exp:online_mining_vary_P}.
 The figure demonstrates similar patterns for all four datasets. As $p$ increases, 
@@ -216,7 +216,7 @@ This confirms the necessity of our approximate method as $ASET$ achieves up to 5
 \label{exp:online_mining_vary_P}
 \end{figure}
 
-\subsubsection{Query throughput with varying $k$} 
+\subsubsection{Query Throughput varying $k$} 
 We then evaluate how the throughput varies with respect to $k$. 
 The results are presented in Figure~\ref{exp:online_mining_vary_k}.
 The figure tells similar patterns as
@@ -252,7 +252,7 @@ We observe that in some datasets (e.g., Figure~\ref{exp:online_mining_vary_k} (a
 \label{exp:online_mining_vary_k}
 \end{figure}
 
-\subsubsection{Query throughput with varying $h$}
+\subsubsection{Query Throughput varying $h$}
 Finally, we study the effect of $h$ in affecting the throughput.
 We change $h$ from 20 to 100, and the results are represented in Figure~\ref{exp:online_mining_vary_h}.
 As shown in the figure, when $h$ increases, 
@@ -383,7 +383,7 @@ the global prominence (i.e., rank in history).
         \includegraphics[width=\textwidth]{chapter4/exp/sky_comp/sky_comp_online.eps}
         \caption{Online Scenario}
     \end{subfigure}
-\caption{Efficiency comparison with prominent streaks}
+\caption{Efficiency comparison with prominent streaks.}
 \label{exp:sky_comp}
 \end{figure}
 

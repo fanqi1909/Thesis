@@ -1,11 +1,20 @@
-\section{Chapter Summary} \label{sec:conclusion}
-In this chapter, we look at the problem of automatically summarize 
-a subject's history using newsworthy stories.
-We group consecutive events into streaks and propose a novel idea of \emph{ranked-streak} to represent the strikingness.
-We then formulate the \emph{$k$-Sketch} query which aims to best summarize a subject's history using $k$ ranked-streaks.
-We study the $k$-Sketch query processing in both offline and online scenarios,
-and propose efficient solutions to cope each scenario. In particular, we design novel streak-level pruning techniques and a $(1-1/e)$-approximate algorithm to achieve efficient processing in offline. Then we design a $1/8$-approximate algorithm for the online sketch maintenance.
-Our comprehensive experiments demonstrate the efficiency of our solutions and a human study confirms the effectiveness of the $k$-Sketch query.
+\section{Summary} \label{sec:conclusion}
+In this chapter, we looked at the neighborhood analytics in
+sequence data. We leverage the joint distance and comparison neighborhood 
+functions to design the novel \emph{ranked-streak} which quantifies the strikingness of
+a streak. We then formulated the \emph{$k$-Sketch} query which aims to best summarize a subject's history using $k$ ranked-streaks.
+We studied the $k$-Sketch query processing in both offline and online scenarios,
+and propose efficient solutions to cope each scenario. 
+In particular, we designed novel streak-level pruning techniques and a $(1-1/e)$-approximate algorithm to achieve efficient processing in offline. Moreover, we designed a $1/8$-approximate algorithm for the online sketch maintenance.
+Our comprehensive experiments demonstrated the efficiency of our solutions and a human study confirmed the effectiveness of the $k$-Sketch query.
+
+%In this chapter, we look at the problem of automatically summarize 
+%a subject's history using newsworthy stories.
+%We group consecutive events into streaks and propose a novel idea of \emph{ranked-streak} to represent the strikingness.
+%We then formulate the \emph{$k$-Sketch} query which aims to best summarize a subject's history using $k$ ranked-streaks.
+%We study the $k$-Sketch query processing in both offline and online scenarios,
+%and propose efficient solutions to cope each scenario. In particular, we design novel streak-level pruning techniques and a $(1-1/e)$-approximate algorithm to achieve efficient processing in offline. Then we design a $1/8$-approximate algorithm for the online sketch maintenance.
+%Our comprehensive experiments demonstrate the efficiency of our solutions and a human study confirms the effectiveness of the $k$-Sketch query.
 
 %Our work opens a wide area of research in computational journalism. 
 %In our next step, we aim to extend the event sources from sensor data 

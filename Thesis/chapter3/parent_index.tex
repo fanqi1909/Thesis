@@ -1,8 +1,8 @@
-\section{Inheritance Index}
+\section{Inheritance Index}\label{gw:sec:topo}
 \DBIndex\ is a general index that can support both $k$-hop as well as
 topological window queries. 
 %This is intuitive as the window matrix is able to cover both k-hop window or topological window. 
-However, the evaluation of a topological window function, $W_t$, 
+However, the evaluation of a topological window function (i.e., $W_t$)
 can be further optimized due to its containment feature. 
 In other words, the window of a descendant vertex 
 completely covers that of one of its ancestors. 
@@ -10,7 +10,7 @@ This feature can be formally formulated in the following theorem.
 
 \begin{theorem}
 \label{thm:containment}
-In a DAG, if vertex u is the ancestor of vertex v, the topological window of $v$, $W_t(v)$ completely contains the window of $u$, $W_t(u)$, i.e., $W_t(u) \subset W_t(v)$.   
+In a DAG, if vertex $u$ is the ancestor of vertex $v$, the topological window of $v$, $W_t(v)$ completely contains the window of $u$, $W_t(u)$, i.e., $W_t(u) \subset W_t(v)$.   
 \end{theorem}
 
 \begin{proof}
@@ -26,7 +26,7 @@ $W_t(D)$ is $\{A, B, D\}$ and the window of $E$, $W_t(E)$ is $\{A, B, D, C, E\}$
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.8\textwidth]{chapter3/di_indexing.pdf}
-	\caption{I-Index construction over the pathway DAG in Figure~\ref{fig:topological}. (a) shows the DAG structure; (b) provides the inheritance relationship discovered during the index construction; (c) shows the final I-Index.}
+	\caption{I-Index construction over the pathway DAG in Figure~\ref{fig:topological}. (a) shows the DAG structure. (b) provides the inheritance relationship discovered during the index construction. (c) shows the final I-Index.}
 	\label{fig:diff-index}
 \end{figure}
 
@@ -59,9 +59,9 @@ set ($\{C\}$) in $W_t(E)$ to generate the aggregate value for $W_t(E)$.
 Figure~\ref{fig:diff-index} (b) indicates the inheritance relationship that 
 the values of the father can be inherited to the child in the tree. 
 
-Based on our observation, we propose a new structure, called the \textbf{inheritance index}, 
+Based on our observation, we propose a new structure, called the \textbf{Inheritance Index}, 
 $I$-$Index$, to support efficient processing of topological window queries. 
-In $I$-$Index$, each vertex $v$ maintains two information. 
+In I-Index, each vertex $v$ maintains two information. 
 \begin{itemize}
 \item The first information is the ID of the closest parent (say $u$) 
 of $v$. We denote this as PID($v$).
@@ -103,7 +103,7 @@ This dues to the difficulty of analyzing of the number of ancestors of each vert
 average number of ancestors for each vertex is $H$, then Algorithm~\ref{algo:piconstruction} is of
 complexity $O(H|V|*d)$, where $d$ is the average degree of the graph. This complexity is close to the
 output complexity. That is to gather the all vertex-window mapping, at least $O(H|V|)$ elements needs
-to be outputted. Thus the indexing time complexity is reasonably efficient.
+to be outputted. Thus the index construction complexity is reasonably efficient.
 
 We further note that the size of \emph{I-Index} is hard to be precisely analyzed. 
 This dues to the difficulty of analyzing the window differences.
@@ -153,7 +153,7 @@ compression techniques.
 %compression techniques. 
 
 
-\subsection{Query Processing using I-Index}
+\subsection{Query Processing with I-Index}
 By employing the I-Index, window aggregation can be processed efficiently 
 for each vertex according to 
 the topological order. Algorithm \ref{alg:dstw-index} 
@@ -175,7 +175,7 @@ computation sharing between a vertex and its parent.
 As a result, the computation overhead is largely reduced. 
 Take the index  provided in Figure~\ref{fig:diff-index} (c) as an example, 
 assume the query wants to calculate the sum. As a comparison, the number of add operations 
-are 33, 22, 16 for the cases without any index, 
+are $33, 22, 16$ for the cases without any index, 
 with DBIndex and with I-Index index respectively. 
 
 

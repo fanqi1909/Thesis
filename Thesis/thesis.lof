@@ -1,0 +1,51 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces A SQL window function computing running sum and average of sales. The window of tuple 3 is highlighted.\relax }}{2}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces The road map of this thesis. There are three major contributions as highlighted in the center. Each contribution is a neighborhood based analytics with different $\mathcal {N}$ and $\mathcal {F}$ as indicated by arrows.\relax }}{4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Illustration of \emph {Graph Aggregation} and \emph {Graph Window Queries}. (a) is an example social network, (b) is graph aggregation, (c) are the windows of vertexes $B$ and $E$.\relax }}{13}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces A miniature social graph. (a) the graph structure. (b) the attributes associated with the vertexes in (a).\relax }}{26}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces A miniature pathway DAG. (a) the DAG structure. (b) the attributes associated with the vertexes of (a).\relax }}{28}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Window query processing using DBIndex. (a) provides the DBIndex for 1-hop window query in Figure\nobreakspace {}3.1\hbox {}; (b) shows the partial aggregate results based on the dense block; (c) provides the final aggregate value of each window.\relax }}{30}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces DBIndex construction over social graph in Figure\nobreakspace {}3.1\hbox {}. (a) shows two clusters after MinHash clustering. (b) shows inverted window list for each node. (c) shows the dense blocks via equivalent node merging. (d) provides the final DBIndex.\relax }}{33}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces I-Index construction over the pathway DAG in Figure\nobreakspace {}3.2\hbox {}. (a) shows the DAG structure; (b) provides the inheritance relationship discovered during the index construction; (c) shows the final I-Index.\relax }}{41}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Index construction analysis for EMC and MC. (a) and (b) depict the index time for the Amazon and Stanford-web networks; (c) and (d) show the index size for the Amazon and Stanford-web datasets.\relax }}{46}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Query performance comparison of MC and EMC\relax }}{48}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison between DBIndex and EAGR for 1-hop query\relax }}{49}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison between DBIndex and EAGR for 2-hop query\relax }}{50}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Impact of number of vertexes \relax }}{52}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Impact of degree in sparse graphs with 2M vertexes. \relax }}{53}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Impact of degree in dense graphs with 200K vertexes.\relax }}{54}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Impact of degree with the fixed number of vertexes.\relax }}{55}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Impact of the number of vertexes with a fixed degree. (a) and (b) are the results for the graphs with degree 10; (c) and (d) are the graphs with degree 20. \relax }}{56}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Index ratio of I-Index\relax }}{57}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An illustration of $k$-Sketch query processing. (A): various streaks are formed based on events' sequence IDs. (B): streaks with rank greater than $p$ are filtered. (C): ranked-streaks for each streak length. (D): $k$-sketches are discovered for each subject from their ranked-streaks. (E): newsworthy summary of a subject can be generated from its $k$-sketches. \relax }}{63}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Illustration of fitting function $L$ on various aggregation functions; solid lines represent $G$ while dotted lines represent $L$. (a) fitting on min and average (b)fitting on max,sum and count.\relax }}{71}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces An illustration of streak pruning techniques. Each square slice represents a set of streaks to be computed for a subject, where the column represents streak length and the row represents the rank. The value in each cell is the aggregate result (i.e., $\overline {v}$) for the corresponding streak.\relax }}{73}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The illustration of active updates and passive updates, the solid circle represents the original sketch, the dotted circle represents the updated sketch.\relax }}{79}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Ranked-streak generation in the offline scenario with varying $p$.\relax }}{83}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Ranked-streak generation in the offline scenario with varying $h$.\relax }}{85}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Throughput in online scenario with varying $p$.\relax }}{86}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Throughput in the online scenario with varying $k$.\relax }}{87}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Throughput in the online scenario with varying $h$.\relax }}{88}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Efficiency comparison with prominent streaks\relax }}{90}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Percentage of endorsements received as the most attractive.\relax }}{92}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Trajectories and co-movement patterns. The example consists of six trajectories across six snapshots. Objects in spatial clusters are enclosed by dotted circles. $M$ is the minimum cluster cardinality; $K$ denotes the minimum number of snapshots for the occurrence of a spatial cluster; and $L$ denotes the minimum length for local consecutiveness.\relax }}{96}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \emph {Loose-connection} anomaly. Even though $\delimiter "426830A o_1, o_2\delimiter "526930B $ is considered as a valid \emph {platoon} pattern, it is highly probable that these two objects are not related as the two consecutive segments are 98 timestamps apart. \relax }}{97}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Performance measures on existing co-movement patterns. A sampled GeoLife dataset is used with upto 2.4 million data points. Default parameters are $M=15$, $K=180$, $L=30$.\relax }}{98}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Workflow of Temporal Replication and Parallel Mining (TRPM). (a) and (b) correspond to the first mapreduce stage which clusters objects in each snapshot. (c) and (d) is the second mapreduce stage which uses TRPM to detect GCMPs.\relax }}{103}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Star Partitioning and ApRiori Enumerator (SPARE). (a) Aggregated graph $G_A$ generated from Figure 1. (b) Five star partitions are generated from $G_A$. Star IDs are circled, vertexes and inverted lists are in the connected tables. (c) Apriori Enumerator with various pruning techniques.\relax }}{107}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Star partitioning with different vertex orderings.\relax }}{109}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $M$\relax }}{120}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $K$\relax }}{120}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $L$\relax }}{121}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $G$\relax }}{121}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $O_r$\relax }}{122}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $T$\relax }}{122}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Cost breakdown of TRPM, SPARE-RD and SPARE.\relax }}{124}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Comparisons among TRMP, SPARE, PLATOON and SWARM.\relax }}{125}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Performance under different aggregate functions\relax }}{140}
