@@ -1,8 +1,13 @@
 \section{Introduction}
-In this chapter, we study the neighborhood analytics in sequence data.
+Next, we study the neighborhood analytics in sequence data.
+%In this chapter, we study the neighborhood analytics in sequence data.
 Sequence data are widely adopted by many applications 
 to model events with temporal ordering such as
 sports games, temperature reads and stock ticks.
+There are two types of entities involved in sequence data model, namely the subject
+and the event. Intuitively, the subject performs events at certain time, and the events
+are collected. For example, 
+
 An outstanding usage of sequence data is in the field of journalism,
 where the journalists strive to
 analyze these data to derive attention-seizing news themes. 
@@ -16,6 +21,8 @@ of an given event, such as ``the average points a player scored in the last ten 
 Based on the streaks, Zhang et. al.~\cite{zhang2014discovering} studied the problem
 of summarizing a subject's history with \emph{prominent streaks}. Prominent streaks
 are the skylines among all streaks of a subject, and thus are outstanding to represent the subject's history.
+
+
 %
 %They proposed 
 %the \emph{prominent streaks} which are the skylines among all streaks of a subject. 
