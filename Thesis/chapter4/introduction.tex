@@ -1,35 +1,95 @@
 \section{Introduction}
 Next, we study the neighborhood analytics in sequence data.
 %In this chapter, we study the neighborhood analytics in sequence data.
-Sequence data are widely adopted by many applications 
+Sequence data is widely adopted %in many applications 
 to model events with temporal ordering such as
 sports games, temperature reads and stock ticks.
-There are two types of entities involved in sequence data model, namely the subject
-and the event. Intuitively, the subject performs events at certain time, and the events
-are collected. For example, 
+There are two types of entities involved in the sequence data, 
+namely the \emph{subject} and the \emph{event}. For example, in 
+the sports application, the subjects are players and the events are the games
+a player participated. Events that belong to the same
+subject collectively represent the history of the subject. 
+An important analytics in sequence data
+is to summarize the subject histories.
+Such a task is useful in a variety
+of applications~\cite{} and is also the cornerstone for the emerging computational journalism~\cite{}.
 
-An outstanding usage of sequence data is in the field of journalism,
-where the journalists strive to
-analyze these data to derive attention-seizing news themes. 
-While such a task has traditionally been done manually,
-there is an increasing reliance on computational technology~\cite{sultana2014incremental,wu2012one,hassan2014data} 
-to reduce human labor and intervention to a minimum. Recently,
-neighborhood analytics has also been attempted in computational journalism
-via the form of \emph{streaks}. A streak is  based on
-a \textbf{distance neighborhood} function which aggregates the last few events
-of an given event, such as ``the average points a player scored in the last ten games prior to today's game''. 
-Based on the streaks, Zhang et. al.~\cite{zhang2014discovering} studied the problem
-of summarizing a subject's history with \emph{prominent streaks}. Prominent streaks
-are the skylines among all streaks of a subject, and thus are outstanding to represent the subject's history.
+%An emerging analytics on the sequence data is in the field of journalism,
+%where the journalists strive to
+%analyze the histories to derive attention-seizing news themes.  
+%While such a task has traditionally been done manually,
+%there is an increasing reliance on computational technology~\cite{sultana2014incremental,wu2012one,hassan2014data} 
+%to reduce human labor and intervention to a minimum. 
+
+Recently, neighborhood analytics has been introduced to computational journalism
+via the form of \emph{streaks}. A streak is a tuple $\langle s, L, t, \overline{v} \rangle$
+which represents the last $L$ events of subject $s$ at sequence $t$. In addition, $\overline{v}$
+is the result of an analytic function (e.g., min, average)
+on all the events in the streak. A streak is essentially 
+built on  a \textbf{distance neighborhood} function. Formally,
+let $t_s(e)$ be the sequence number of the event $e$ in the history of subject $s$.
+Then, a length-$L$ streak of event $e$ is 
+defined by the following distance neighborhood
+function: $\mathcal{N}(s,L,e) = \{e_i | t_s(e) - t_s(e_i) \leq L \}$.
+A typical length-$10$ streak in sports application would be
+``the last ten games a player has participated before today''. 
+In this example, the last ten games form the distance neighborhoods.
+Analytic functions (e.g., min) can be naturally applied on the streak.
+For example, it is commonly seen in journalism the following:
+``Player XXX has scored at least YYY points in the last ten games''.
+
+%If analytic functions (e.g., min) are applied on the streak, the 
+%following short theme can be generated: ``Player XXX has scored at least YYY in the last ten games''.
+%
+%Semantically, a streak represents 
+%the analytics on a period of a subject's history.
+
+%Let $t_s(e)$ be the order of the event $e$ in the history
+%of subject $s$. Then, a streak is a \textbf{distance neighborhood} 
+%function which groups the an event with its nearby events. Formally, the
+%streak of length $L$ is defined by the following distance neighborhood
+%function $\mathcal{N}(e) = \{ e_i | t(e) - t(e_i) \leq L \}$. 
+%Common
+%analytics on the streak include sum, average, max etc. For example,
+%a typical streak in sports application would be
+%``the last ten games a player has participated prior to today''. 
+%In this example, the last ten games form the distance neighborhoods
+%of today's game. If the min function is applied on the streak,
+%the following form can generated: ``Player XXX has scored at least YYY in the last ten games''.
 
 
 %
+%A streak is based on a \textbf{distance neighborhood} function which aggregates the last few events
+%of an given event, such as ``the average points a player scored in the last ten games prior to today's game''. 
+%Formally, let $t(e)$ be the sequence of $e$ in a subject's history. 
+%A streak of length $k$ is defined by the following distance neighborhood
+%function $\mathcal{N}(e) = \{ e_i | t(e_i) - t(e) \leq k \}$
+
+Based on the streaks, Zhang et. al.~\cite{zhang2014discovering} studied the problem
+of summarizing a subject's history with \emph{prominent streaks}. Prominent streaks
+are the skylines among all streaks of a subject in terms of streak size (i.e., $L$) and analytic value (i.e., $\overline{v}$). Hence they are outstanding to represent the subject's history.
+%An outstanding usage of sequence data is in the field of journalism,
+%where the journalists strive to
+%analyze these data to derive attention-seizing news themes. 
+%While such a task has traditionally been done manually,
+%there is an increasing reliance on computational technology~\cite{sultana2014incremental,wu2012one,hassan2014data} 
+%to reduce human labor and intervention to a minimum. Recently,
+%neighborhood analytics has also been attempted in computational journalism
+%via the form of \emph{streaks}. A streak is  based on
+%a \textbf{distance neighborhood} function which aggregates the last few events
+%of an given event, such as ``the average points a player scored in the last ten games prior to today's game''. 
+%Based on the streaks, Zhang et. al.~\cite{zhang2014discovering} studied the problem
+%of summarizing a subject's history with \emph{prominent streaks}. Prominent streaks
+%are the skylines among all streaks of a subject, and thus are outstanding to represent the subject's history.
+%
+%
+%%
 %They proposed 
 %the \emph{prominent streaks} which are the skylines among all streaks of a subject. 
 %Each prominent streak is also a striking news theme 
 %since it is outstanding (i.e., non-dominated) in a subject's history. 
-
-
+%
+%
 %Based on the \emph{streak}, Zhang et. al. proposed the \emph{prominent streaks}~\cite{zhang2014discovering}
 %to summarize a subject's history.
 %The prominent streaks are defined as the skylines among all streaks of a subject, 
@@ -55,22 +115,24 @@ are the skylines among all streaks of a subject, and thus are outstanding to rep
 %and can be used to represent the history of the subject. 
 %In~\cite{zhang2014discovering}, each prominent streak is viewed as 
 %a striking news theme since it is outstanding (i.e., non-dominated) in a subject's history. 
-
+%
 However, there are two major drawbacks that limit the usability
 of prominent streaks in real applications.
 First, the prominent streaks generated by~\cite{zhang2014discovering} may not be striking enough because they are derived from the historical data of a \emph{single} subject without comparing to other subjects.
 For example, 
-``Steve Nash has scored 15+ points in consecutive 10 games'' is a prominent streak for ``Steve Nash'', but it is not striking given the fact that there are more than 90 players with better performance\footnote{\url{http://www.sporcle.com/games/nbadarinh/nba-all-players} \\ \url{-with-10-consecutive-20-point-games-90-11}}. 
+``Steve Nash has scored over 15 points in consecutive 10 games'' is a prominent streak for ``Steve Nash'', but it is not striking given the fact that there are more than 90 players with better performance\footnote{\url{http://www.sporcle.com/games/nbadarinh/nba-all-players} \\ \url{-with-10-consecutive-20-point-games-90-11}}. 
 Second, the number of the prominent streaks can be overwhelming. 
 Since prominent streaks in~\cite{zhang2014discovering} are defined as skylines,
 %Since~\cite{zhang2014discovering} uses skyline to detect prominent streaks, 
-a subject with $n$ historical events may generate at most $n$ streaks that are not dominated (i.e., prominent streaks).
+a subject with $n$ historical events may generate upto $n$ streaks that are not dominated (i.e., prominent streaks).
 Therefore, there calls for a new method to automatically select a limited number of striking streaks which best summarize a subject's history.
 
 In this chapter, we solve the problem of effectively and efficiently 
 summarizing a subject's history by
 applying a novel \textbf{comparison neighborhood} function to transform streaks to the \emph{ranked-streaks}. 
-The comparison neighborhood function groups the streaks with the same lengths and rank them based on their aggregated values.
+Given a streak $sk=(s,L,t,\overline{v})$, a comparison neighborhood is defined as $N(sk) = \{sk_i | sk_i.L = sk.L \wedge sk_i.\overline{v} >= sk.\overline{v}\}$. Then a \emph{count} aggregate 
+would generate the rank of this streak. In other words, the neighborhood function groups 
+the streaks with the same length and rank them based on their aggregated values. 
 We then propose the $k$-Sketch query to select $k$ ranked-streaks 
 which best summarize a subject's history.
 Compared with previous works,
