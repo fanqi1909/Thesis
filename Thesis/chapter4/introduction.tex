@@ -1,18 +1,25 @@
 \section{Introduction}
-Next, we study the neighborhood analytics in sequence data.
+Next, we explore the opportunity of neighborhood analytics in the sequence data.
 %In this chapter, we study the neighborhood analytics in sequence data.
-Sequence data is widely adopted %in many applications 
-to model events with temporal ordering such as
-sports games, temperature reads and stock ticks.
-There are two types of entities involved in the sequence data, 
-namely the \emph{subject} and the \emph{event}. For example, in 
-the sports application, the subjects are players and the events are the games
-a player participated. Events that belong to the same
-subject collectively represent the history of the subject. 
-An important analytics in sequence data
+Sequence data is widely adopted to model the history
+of \emph{subjects} which consists of temporally ordered \emph{events}.
+For example, in sports application, the subject could be a player and his history would be the games he participated. Likewise, in stock application, the subject could be a stock and its history would be its daily closing prices.
+%
+% such the sport games a player participated and the prices a stock dealt. 
+%such as sports games, temperature reads and stock ticks. The history of a subject consists of temporally ordered events.
+%Sequence data is widely adopted %in many applications 
+%to model events with temporal ordering such as
+%sports games, temperature reads and stock ticks.
+%There are two types of entities involved in the sequence data, 
+%namely the \emph{subject} and the \emph{event}. 
+%For example, in 
+%the sports application, the subjects could be players and the events are the games
+%a player participated in certain days. Events that belong to the same
+%subject collectively represent the history of the subject. 
+An important analytic task for these sequence data
 is to summarize the subject histories.
 Such a task is useful in a variety
-of applications~\cite{} and is also the cornerstone for the emerging computational journalism~\cite{}.
+of applications~\cite{walenz2014finding,hassan2014data,sultana2014incremental, wu2012one} and is also the cornerstone for the emerging computational journalism~\cite{cohen2011computational}.
 
 %An emerging analytics on the sequence data is in the field of journalism,
 %where the journalists strive to
@@ -21,9 +28,8 @@ of applications~\cite{} and is also the cornerstone for the emerging computation
 %there is an increasing reliance on computational technology~\cite{sultana2014incremental,wu2012one,hassan2014data} 
 %to reduce human labor and intervention to a minimum. 
 
-Recently, neighborhood analytics has been introduced to computational journalism
-via the form of \emph{streaks}. A streak is a tuple $\langle s, L, t, \overline{v} \rangle$
-which represents the last $L$ events of subject $s$ at sequence $t$. In addition, $\overline{v}$
+Leveraging the temporal ordering of events, neighborhood analytics in sequence data are expressed as \emph{streaks}~\cite{zhang2014discovering}. A streak refers to an aggregated period in a subject's history, such as ``points scored by a player in the last ten straight games''. Technically, a streak is a tuple $sk=\langle s, L, t, \overline{v} \rangle$
+which represents the last $L$ events of subject $s$ at time $t$. $\overline{v}$
 is the result of an analytic function (e.g., min, average)
 on all the events in the streak. A streak is essentially 
 built on  a \textbf{distance neighborhood} function. Formally,
@@ -31,12 +37,28 @@ let $t_s(e)$ be the sequence number of the event $e$ in the history of subject $
 Then, a length-$L$ streak of event $e$ is 
 defined by the following distance neighborhood
 function: $\mathcal{N}(s,L,e) = \{e_i | t_s(e) - t_s(e_i) \leq L \}$.
-A typical length-$10$ streak in sports application would be
-``the last ten games a player has participated before today''. 
-In this example, the last ten games form the distance neighborhoods.
-Analytic functions (e.g., min) can be naturally applied on the streak.
-For example, it is commonly seen in journalism the following:
-``Player XXX has scored at least YYY points in the last ten games''.
+%A typical length-$10$ streak in sports application would be
+%``the last ten games a player has participated before today''. 
+%In this example, the last ten games form the distance neighborhoods.
+%Analytic functions (e.g., min) can be naturally applied on the streak.
+%For example, it is commonly seen in journalism the following:
+%``Player XXX has scored at least YYY points in the last ten games''.
+%
+%Due to the ordering of events, neighborhood analytics in sequence data can be expressed as  \emph{streaks}. A streak is a tuple $\langle s, L, t, \overline{v} \rangle$
+%which represents the last $L$ events of subject $s$ at sequence $t$. In addition, $\overline{v}$
+%is the result of an analytic function (e.g., min, average)
+%on all the events in the streak. A streak is essentially 
+%built on  a \textbf{distance neighborhood} function. Formally,
+%let $t_s(e)$ be the sequence number of the event $e$ in the history of subject $s$.
+%Then, a length-$L$ streak of event $e$ is 
+%defined by the following distance neighborhood
+%function: $\mathcal{N}(s,L,e) = \{e_i | t_s(e) - t_s(e_i) \leq L \}$.
+%A typical length-$10$ streak in sports application would be
+%``the last ten games a player has participated before today''. 
+%In this example, the last ten games form the distance neighborhoods.
+%Analytic functions (e.g., min) can be naturally applied on the streak.
+%For example, it is commonly seen in journalism the following:
+%``Player XXX has scored at least YYY points in the last ten games''.
 
 %If analytic functions (e.g., min) are applied on the streak, the 
 %following short theme can be generated: ``Player XXX has scored at least YYY in the last ten games''.
@@ -65,9 +87,9 @@ For example, it is commonly seen in journalism the following:
 %A streak of length $k$ is defined by the following distance neighborhood
 %function $\mathcal{N}(e) = \{ e_i | t(e_i) - t(e) \leq k \}$
 
-Based on the streaks, Zhang et. al.~\cite{zhang2014discovering} studied the problem
+Based on the streaks, Zhang et.~al.~\cite{zhang2014discovering} studied the problem
 of summarizing a subject's history with \emph{prominent streaks}. Prominent streaks
-are the skylines among all streaks of a subject in terms of streak size (i.e., $L$) and analytic value (i.e., $\overline{v}$). Hence they are outstanding to represent the subject's history.
+are the skylines among all streaks of a subject in terms of streak size (i.e., $L$) and analytic value (i.e., $\overline{v}$). Hence, they are outstanding to represent the subject's history.
 %An outstanding usage of sequence data is in the field of journalism,
 %where the journalists strive to
 %analyze these data to derive attention-seizing news themes. 
@@ -127,17 +149,19 @@ Since prominent streaks in~\cite{zhang2014discovering} are defined as skylines,
 a subject with $n$ historical events may generate upto $n$ streaks that are not dominated (i.e., prominent streaks).
 Therefore, there calls for a new method to automatically select a limited number of striking streaks which best summarize a subject's history.
 
-In this chapter, we solve the problem of effectively and efficiently 
+In this chapter, we tackle the problem of effectively and efficiently 
 summarizing a subject's history by
 applying a novel \textbf{comparison neighborhood} function to transform streaks to the \emph{ranked-streaks}. 
-Given a streak $sk=(s,L,t,\overline{v})$, a comparison neighborhood is defined as $N(sk) = \{sk_i | sk_i.L = sk.L \wedge sk_i.\overline{v} >= sk.\overline{v}\}$. Then a \emph{count} aggregate 
-would generate the rank of this streak. In other words, the neighborhood function groups 
-the streaks with the same length and rank them based on their aggregated values. 
-We then propose the $k$-Sketch query to select $k$ ranked-streaks 
-which best summarize a subject's history.
-Compared with previous works,
-the ranked-streak is able to capture the strikingness of a streak 
+Given a streak $sk=(s,L,t,\overline{v})$, a comparison neighborhood is defined as $\mathcal{N}(sk) = \{sk_i | sk_i.L = sk.L \wedge sk_i.\overline{v} >= sk.\overline{v}\}$. Then a \emph{count} function 
+would generate the rank of this streak based on its neighborhood. In other words, the neighborhood function groups 
+the streaks with the same length and rank them based on their aggregated values. Compared with streak, ranked-streak is able to capture the strikingness of a streak 
 which is very newsworthy as evidenced in the following news excerpts:
+
+%We then propose the $k$-Sketch query to select $k$ ranked-streaks 
+%which best summarize a subject's history.
+%Compared with previous works,
+%the ranked-streak is able to capture the strikingness of a streak 
+%which is very newsworthy as evidenced in the following news excerpts:
 
 %In this chapter, we solve the problem of effectively and efficiently summarizing a subject's history by proposing a \emph{$k$-Sketch} query. The $k$-Sketch query is based on a novel rank-aware streak, named \emph{ranked-streak} and it 
 %selects $k$ ranked-streaks which best summarize a subject's history.
@@ -182,7 +206,7 @@ which is very newsworthy as evidenced in the following news excerpts:
 \item{(22 Jul 2011) Pelican Point recorded a maximum rainfall of 0.32 inches for \textbf{12 months}, making it the  \textbf{9th driest} places on earth\footnote{\url{http://www.livescience.com/30627-10-driest-places-on-earth.html}}.}
 \end{enumerate}
 
-In the above examples, each news theme is a \emph{ranked-streak} which consists of five components: (I)  a subject (e.g., Kobe Bryant, Stocks, Delhi), (II) a streak length (e.g., nine straight games, seventh consecutive days, past month), (III) an aggregate function on an attribute
+In the above examples, each news theme is a \emph{ranked-streak} which consists of five indicators: (I)  a subject (e.g., Kobe Bryant, Stocks, Delhi), (II) a streak length (e.g., nine straight games, seventh consecutive days, past month), (III) an aggregate function on an attribute
 (e.g., minimum points, count of gains, average of degrees), (IV) a rank (e.g., fourth, first time, highest), and (V) a historical dataset (e.g., all time list,
 seven years, since 1952). The indicators (I)-(IV) are summarized in Table~\ref{tbl:news-example}.
 %To compute the \emph{rank} (i.e., indicator (IV)), a \textbf{comparison neighborhood} is
@@ -191,10 +215,18 @@ seven years, since 1952). The indicators (I)-(IV) are summarized in Table~\ref{t
 %
 %The \emph{rank} is defined based on the streaks of the same lengths, which is
 %an aggregation on the \textbf{comparison neighborhood} function.
-Among all the ranked-streaks, our $k$-Sketch
-query leverages a novel scoring function that chooses
-the best $k$ ranked-streaks to summarize a subject's 
-history. Our scoring function considers two aspects: (1) we prefer the ranked-streaks that cover as many events as possible to represent a subject's history, and (2) we prefer the ranked-streaks that have better ranks\footnote{We consider a ranked-streak with rank $i$ to be more attractive than $j$ if $i<j$ and the other fields are the same.} as they indicate more strikingness. Our objective is to process the $k$-Sketch query for each subject in the domain.
+
+Based on the ranked-streaks, we propose a novel $k$-Sketch
+query to effectively summarize a subject's history by
+leveraging a novel scoring function that chooses
+the best $k$ ranked-streaks.
+% selecting $k$ \emph{best} ranked-streaks. Towards this goal, we design a scoring function that considers two aspects:
+%Among all the ranked-streaks, our $k$-Sketch
+%query leverages a novel scoring function that chooses
+%the best $k$ ranked-streaks to summarize a subject's 
+%history. 
+Our scoring function considers two aspects:
+(1) we prefer the ranked-streaks that cover as many events as possible to represent a subject's history, and (2) we prefer the ranked-streaks that have better ranks\footnote{We consider a ranked-streak with rank $i$ to be more attractive than $j$ if $i<j$ and the other fields are the same.} as they indicate more strikingness. Our objective is then to process the $k$-Sketch query for each subject in the domain.
 
 \begin{table}[t]
 \caption{Indicators of ranked-streaks.}

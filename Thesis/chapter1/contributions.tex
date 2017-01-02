@@ -324,11 +324,11 @@ We observe that these co-movement patterns can be uniformly represented as a two
 	
 	(1) $\mathcal{N}_1$ is a \emph{distance neighborhood} used to determine the spatial proximity of objects. For example,  flock~\cite{gudmundsson2006computing} and group~\cite{wang2006grouppattern} patterns uses the \emph{disk-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_i,o_j) < r \}$ for each object. Convoy~\cite{jeung2008discovery}, swarm~\cite{li2010swarm} and platoon~\cite{li2015platoon} patterns uses the \emph{density-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_j,o_k) \leq \epsilon \wedge o_k \in \mathcal{N}_1(o_i)\}$.
 	
-	(2) $\mathcal{N}_2$ is a \emph{comparison neighborhood} used to determine the temporal constraints, i.e., $\mathcal{N}_2(o_i)=\{o_j, T | \forall t \in T, C_t(o_i) \equiv C_t(o_j)\}$, where $C_t(\cdot)$ returns the neighborhoods (i.e., $N_1$) of an object at time $t$.
+	(2) $\mathcal{N}_2$ is a \emph{comparison neighborhood} used to determine co-moving behavior, i.e., $\mathcal{N}_2(o_i)=\{o_j, T | \forall t \in T, o_j \in C_t(o_i) \}$, where $C_t(\cdot)$ returns the neighborhoods (i.e., $N_1$) of an object at time $t$.
 
 Enlightened by the neighborhood based unification, we propose a \emph{General Co-Movement Pattern} (GCMP)
 query to capture all existing co-movement patterns in one shot. In GCMP, we treat the proximity detection (i.e., $\mathcal{N}_1$) as
-a black box and only focus on the pattern detection (i.e., $\mathcal{N}_2$). By adopting different analytic functions, GCMP
+a black box and only focus on the pattern detection (i.e., $\mathcal{N}_2$). By tuning different parameters (as explained in later sections), GCMP
 query is able to detect any of the existing patterns.
 %
 %It is notable that the GCMP
