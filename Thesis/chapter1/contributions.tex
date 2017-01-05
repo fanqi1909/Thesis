@@ -8,7 +8,7 @@ several novel neighborhood based queries are proposed for
 %and \emph{trajectory} domains respectively. 
 Second, this thesis
 deals with the efficiency issues in deploying the corresponding analytic queries to
-handle data of large scale data.
+handle data of large scale.
 The roadmap of this thesis is shown in Figure~\ref{fig:thesis_roadmap}.
 \begin{figure}[h]
 \centering
@@ -59,7 +59,7 @@ in the context of Directed Acyclic Graph (DAG). In DAGs,
 topological neighbors are composed of all the ascendant vertexes of a vertex. 
 The topological neighbors represent the most influential vertexes of a given vertex.
 Since DAGs are often found in biological networks, topological window would
-be helpful to analyze the the statistics of molecules of each biological proteins' pathway.
+be helpful to analyze the the statistics of molecules of each biological protein's pathway.
 %Since the topological neighbors , analytics
 %on the topological window would benefit the deeper understanding of the 
 %network.
@@ -119,7 +119,7 @@ and sports reports. For instance:
 %such as network monitoring, stock analysis
 %and sport reporting. For example, streaks may be of the following forms in stock and sports scenarios:
 \begin{enumerate}
-	\item{[STOCK]:``Apple Inc. has an \emph{average} price of USD 115.5 in the \emph{last week}''}
+	\item{[STOCK]:``Apple Inc.~has an \emph{average} price of USD 115.5 in the \emph{last week}''}
 	\item{[SPORTS]: ``Kobe has scored \emph{at least} 60 points in \emph{three straight games}'' }
 \end{enumerate}
 In general, a streak is constructed from two concepts: an \emph{aggregate function} (e.g., average, min)
@@ -149,11 +149,13 @@ Based on this observation, we propose a rank-aware pattern named \emph{ranked-st
 a streak by comparing among all streaks under same condition (i.e., streak length).
 
 Technically, the ranked-streak can be viewed as a joint neighborhood function. 
-Let $e_s(t)$ denote the event of subject $s$ at time $t$. Then the ranked-streaks are generated using neighborhood functions in a two-step manner: 
+Let $t_s(e)$ be the sequence number of the event $e$ in the history of subject $s$.
+%Let $e_s(t)$ denote the event of subject $s$ at time $t$. 
+Then the ranked-streaks of length $L$ are generated using neighborhood functions in a two-step manner: 
 
 \begin{enumerate}
-\item {a \emph{distance neighborhood} $\mathcal{N}_1(o_i,w)=\{o_j | o_i.t - o_j.t \leq w \}$ groups a consecutive $w$ events for each event. Let $\overline{v}$ be the aggregate value associated with $\mathcal{N}_1$, then the output of this step is a set of \emph{streak}s of the form  $n=\langle o_i, w, t, \overline{v} \rangle$.}
-\item {a \emph{comparison neighborhood} $\mathcal{N}_2(n_i) = \{n_j | n_j.w = n_i.w \wedge n_i.\overline{v} \geq n_j.\overline{v} \}$ ranks a subject's streak among all other streaks with the same streak length. The result of this step is a tuple $\langle o_i, w, t, r \rangle$, where $r$ is the \emph{rank}.}
+\item {a \emph{distance neighborhood} $\mathcal{N}_1(s,e,L)=\{e_j | t_s(e) - t_s(e_j) \leq L \}$ groups a consecutive $L$ events for each event in the history of subject $s$. Let $\overline{v}$ be the aggregate value associated with $\mathcal{N}_1$, then the output of this step is a set of \emph{streak}s of the form  $sk=\langle s, L, t, \overline{v} \rangle$.}
+\item {a \emph{comparison neighborhood} $\mathcal{N}_2(sk) = \{sk_i | sk.L = sk_i.L \wedge sk_i.\overline{v} \geq sk.\overline{v} \}$ ranks a subject's streak among all other streaks with the same length.  Note that the rank information can be simply calculated from a $\mathtt{count}$ function. The result of this step is a tuple $\langle s, L, t, \overline{v}, r \rangle$, where $r$ is the \emph{rank}.}
 \end{enumerate}
 %(1) a \emph{distance neighborhood} $\mathcal{N}_1(o_i,w)=\{o_j | o_i.t - o_j.t \leq w \}$ groups a consecutive $w$ events for each event. Let $\overline{v}$ be the aggregate value associated with $\mathcal{N}_1$, then the output of this step is a set of \emph{streak}s of the form  $n=\langle o_i, w, t, \overline{v} \rangle$.
 %
@@ -230,10 +232,8 @@ analytics in the trajectory domain.
 In trajectory analysis, an important
 mining task is to discover traveling patterns among moving objects. 
 A traveling pattern is often determined by the neighborhoods of moving objects. One of the prominent examples is the \emph{co-movement pattern}~\cite{li2013effective,zheng2015trajectory}.
-A co-movement pattern refers to a group of moving objects traveling together for a certain period of time. A pattern is significant if the group size exceeds $M$ and the length of duration exceeds $K$. 
-The group is defined based on the spatial proximity of objects, which 
-can be seen as the spatial neighbors of each object.
-
+A co-movement pattern refers to a group of moving objects traveling together for a certain period of time. 
+We observe that the co-movement pattern can be concisely represented using two neighborhood functions in spatial and temporal domains as follows:
 
 %Table~\ref{tbl:intro-move-patterns} summarizes several popular co-movement patterns with different 
 %constraints with respect to clustering in spatial proximity, consecutiveness in temporal duration
@@ -315,20 +315,36 @@ can be seen as the spatial neighbors of each object.
 
 %As shown, there are various types of co-movement patterns facilitating different application needs and 
 
+	(1) In spatial domain, let $o(t)$ be the spatial location of object $o$ at time $t$. The co-moving objects of an object $o$
+	can be determined by a \emph{distance neighborhood} $\mathcal{N}_1$. For example,  flock~\cite{gudmundsson2006computing} and group~\cite{wang2006grouppattern} patterns use the \emph{disk-based} clustering, which is equivalent to $\mathcal{N}_1(o, t)= \{o_j | \mathtt{dist}(o(t),o_j(t)) < r \}$. Convoy~\cite{jeung2008discovery}, swarm~\cite{li2010swarm} and platoon~\cite{li2015platoon} patterns use the \emph{density-based} clustering, which is equivalent to $\mathcal{N}_1(o,t)= \{o_j | \mathtt{dist}(o_j(t),o_k(t)) \leq \epsilon \wedge o_k \in \mathcal{N}_1(o,t)\}$.
+%	
+%	
+%	spatial groups of moving objects at time $t$
+%	can be formed by a \emph{distance neighborhood} $\mathcal{N}_1$. For example,  flock~\cite{gudmundsson2006computing} and group~\cite{wang2006grouppattern} patterns use the \emph{disk-based} clustering, which is equivalent to $\mathcal{N}_1(o, t)= \{o_j | \mathtt{dist}(o(t),o_j(t)) < r \}$. Convoy~\cite{jeung2008discovery}, swarm~\cite{li2010swarm} and platoon~\cite{li2015platoon} patterns use the \emph{density-based} clustering, which is equivalent to $\mathcal{N}_1(o,t)= \{o_j | \mathtt{dist}(o_j(t),o_k(t)) \leq \epsilon \wedge o_k \in \mathcal{N}_1(o,t)\}$.
+%	
+%	 $\mathcal{N}_1$ is a \emph{distance neighborhood} used to determine the spatial proximity of objects. For example,  flock~\cite{gudmundsson2006computing} and group~\cite{wang2006grouppattern} patterns uses the \emph{disk-based} clustering, which is equivalent to $\mathcal{N}_1(o, t)= \{o_j | \mathtt{dist}(o(t),o_j(t)) < r \}$ for each object. Convoy~\cite{jeung2008discovery}, swarm~\cite{li2010swarm} and platoon~\cite{li2015platoon} patterns uses the \emph{density-based} clustering, which is equivalent to $\mathcal{N}_1(o,t)= \{o_j | \mathtt{dist}(o_j(t),o_k(t)) \leq \epsilon \wedge o_k \in \mathcal{N}_1(o_i,t)\}$.
+	
+	(2) In temporal domain, objects that co-move with $o$ for a duration $T$ can be determined by
+	a \emph{comparison neighrbohodd} $\mathcal{N}_2$:
+% is a \emph{comparison neighborhood} used to determine co-moving behavior, i.e.,
+	%objects that co-move with $o$ for a duration $T$ can be represented by 
+	$\mathcal{N}_2(o, T)=\{o_j| \forall t \in T, o_j \in \mathcal{N}_1(o,t) \}$.%, where $C_t(\cdot)$ returns the neighborhoods (i.e., $N_1$) of an object at time $t$.
+
+A pattern is called significant if the group size exceeds $M$ (i.e., $|\mathcal{N}_2(\cdot)| \geq M$ and the length of duration exceeds $K$ (i.e., $T \geq K$). 
+%The group is defined based on the spatial proximity of objects, which 
+%can be seen as the spatial neighbors of each object.
+%
+%
 Rooted from the basic movement definition and driven by different mining applications, there are several instances of co-movement patterns that have been developed with more advanced constraints, namely \emph{flock}~\cite{gudmundsson2006computing}, \emph{convoy}~\cite{jeung2008discovery}, \emph{swarm}~\cite{li2010swarm}, 
 \emph{group}~\cite{wang2006grouppattern} and \emph{platoon}~\cite{li2015platoon}. 
 However, these solutions are tailored for each individual pattern and it is cumbersome to deploy and optimize each of the algorithm in real applications. Therefore, there 
 calls for a general framework which provides versatile and efficient support of all these pattern discoveries. 
 
-We observe that these co-movement patterns can be uniformly represented as a two-step neighborhood analytics as follows:
-	
-	(1) $\mathcal{N}_1$ is a \emph{distance neighborhood} used to determine the spatial proximity of objects. For example,  flock~\cite{gudmundsson2006computing} and group~\cite{wang2006grouppattern} patterns uses the \emph{disk-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_i,o_j) < r \}$ for each object. Convoy~\cite{jeung2008discovery}, swarm~\cite{li2010swarm} and platoon~\cite{li2015platoon} patterns uses the \emph{density-based} clustering, which is equivalent to $\mathcal{N}_1(o_i)= \{o_j | \mathtt{dist}(o_j,o_k) \leq \epsilon \wedge o_k \in \mathcal{N}_1(o_i)\}$.
-	
-	(2) $\mathcal{N}_2$ is a \emph{comparison neighborhood} used to determine co-moving behavior, i.e., $\mathcal{N}_2(o_i)=\{o_j, T | \forall t \in T, o_j \in C_t(o_i) \}$, where $C_t(\cdot)$ returns the neighborhoods (i.e., $N_1$) of an object at time $t$.
 
-Enlightened by the neighborhood based unification, we propose a \emph{General Co-Movement Pattern} (GCMP)
+Towards this goal, we propose a \emph{General Co-Movement Pattern} (GCMP)
 query to capture all existing co-movement patterns in one shot. In GCMP, we treat the proximity detection (i.e., $\mathcal{N}_1$) as
-a black box and only focus on the pattern detection (i.e., $\mathcal{N}_2$). By tuning different parameters (as explained in later sections), GCMP
+a black box and only focus on the pattern detection (i.e., $\mathcal{N}_2$). We relax the parameter settings on the
+co-moving duration (i.e., $T$) and by tuning different parameters (as explained in later sections), GCMP
 query is able to detect any of the existing patterns.
 %
 %It is notable that the GCMP
@@ -336,8 +352,8 @@ query is able to detect any of the existing patterns.
 
 
 
-On the technical side, we study how to efficiently process GCMP query 
-on the modern parallel platform (i.e., Apache Spark) to
+In the technical aspect, we study how to efficiently process GCMP query 
+on the modern parallel processing platform (i.e., Apache Spark) to
 gain scalability over large-scale trajectories. 
 In particular, we propose two parallel frameworks: (1) TRPM, which partitions trajectories by replicating snapshots in the temporal domain. Within each partitions, a line-sweep method is developed to find all patterns. 
 (2) SPARE, which partitions trajectories based on object's neighborhood. Within each partitions, a variant of Apriori enumerator is applied to generate all patterns. 

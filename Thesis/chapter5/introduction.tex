@@ -1,17 +1,25 @@
 \section{Introduction}
 Trajectory analysis is another emerging field in data analytics. A trajectory is the spatial trace
-of a moving object which contains a sequence of spatial-temporal records.  Data analysis on trajectories benefits a wide range of applications and services, including traffic planning~\cite{zheng2011urban}, animal analysis~\cite{li2010miningperiodic}, location-aware advertising~\cite{guo2016influence}, and social recommendations~\cite{bao2013survey}, to name just a few. 
+of a moving object which contains a sequence of spatial-temporal records. Typical trajectories
+include visitor movements in a shopping mall, taxi flows in a city, animal migration traces in a continent and user action logs in social networks.
+Data analysis on these trajectories benefits a wide range of applications and services, including traffic planning~\cite{zheng2011urban}, animal analysis~\cite{li2010miningperiodic}, location-aware advertising~\cite{guo2016influence}, and social recommendations~\cite{bao2013survey}, to name just a few. 
 
 An important analytics on top of trajectories is to discover co-moving objects. A \emph{co-movement} pattern~\cite{li2013effective,zheng2015survey} 
 refers to a group of objects traveling together for a certain period of time.
 %, where the group is determined by the spatial closeness of the objects. 
 Such a pattern can be concisely expressed by two neighborhood functions in the spatial and the temporal dimensions respectively.
-Specifically, in the spatial dimension, the groups of objects at each time point are determined by a \emph{distance neighborhood function}. Let $o(t)$ be the object $o$'s location at time $t$, then the objects in the same group with $o$ at time $t$ are: $\mathcal{N}_1(o,t) = \{o_i | \mathtt{dist}(o(t), o_i(t)) \leq r \}$\footnote{This refers to as the \emph{disk-based} clustering. Density-based clustering can be expressed similarly as: $\mathcal{N}_1(o,t) = \{o_i | \mathtt{dist}(o_j(t), o_i(t)) \leq \epsilon \wedge o_j \in \mathcal{N}_1(o,t) \}$}. Next, in the temporal dimension, the objects co-moving with an object $o$ for a time period $T$ are determined by: $\mathcal{N}_2(o, T) = \{o_i | \forall t \in T, o_i \in \mathcal{N}_1(o,t)\}$.
+Specifically, in the spatial dimension, let $o(t)$ be the object $o$'s location at time $t$.
+Then the objects co-moving with an object $o$
+at time $t$ are determined by a 
+%the groups of objects at each time point are determined by a
+\emph{distance neighborhood function}:
+%Let $o(t)$ be the object $o$'s location at time $t$, then the objects in the same group with $o$ at time $t$ are: 
+$\mathcal{N}_1(o,t) = \{o_i | \mathtt{dist}(o(t), o_i(t)) \leq r \}$\footnote{This refers to as the \emph{disk-based} clustering. Density-based clustering can be expressed similarly as: $\mathcal{N}_1(o,t) = \{o_i | \mathtt{dist}(o_j(t), o_i(t)) \leq \epsilon \wedge o_j \in \mathcal{N}_1(o,t) \}$}. Next, in the temporal dimension, the objects co-moving with an object $o$ for a time period $T$ are determined by: $\mathcal{N}_2(o, T) = \{o_i | \forall t \in T, o_i \in \mathcal{N}_1(o,t)\}$.
 %
 %Specifically, in the spatial dimension, the group of objects are determined by a \emph{distance neighborhood}. 
 %That is for object $o$ at time $t$, the objects in the same group are: $\mathcal{N}_1(o,t) = \{o_i | \mathtt{dist}_t(o, o_i) \leq r \}$\footnote{This refers to as the \emph{disk-based} clustering. Density-based clustering can be expressed similarly as: $\mathcal{N}_1(o) = \{o_i | \mathtt{dist}(o_j, o_i) \leq \epsilon \wedge o_j \in \mathcal{N}_1(o) \}$}. Next, in the temporal dimension, the moving pattern an object belongs to is determined by a \emph{comparison neighborhood}. That is the moving pattern of $o$ in a period of time $T$ is determined by $\mathcal{N}_2(o, T) = \{o_i | \forall t \in T, C_t(o_i) \equiv C_t(o)\}$, where $C_t(\cdot)$ returns the clusters an object belongs to at time $t$.
  A movement pattern is prominent if 
-the size of the group exceeds $M$ (i.e., $|\mathcal{N}_2| \geq M$) and the length of the duration exceeds $K$ (i.e., $|T| \geq K$), 
+the size of the group exceeds $M$ (i.e., $|\mathcal{N}_2(\cdot)| \geq M$) and the length of the duration exceeds $K$ (i.e., $|T| \geq K$), 
 where $M$ and $K$ are parameters specified by users. 
 Rooted from such a basic definition 
 and driven by different mining applications, there are many variants of co-movement patterns that have been developed with additional constraints.

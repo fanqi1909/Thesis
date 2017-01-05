@@ -16,10 +16,10 @@ For example, in sports application, the subject could be a player and his histor
 %the sports application, the subjects could be players and the events are the games
 %a player participated in certain days. Events that belong to the same
 %subject collectively represent the history of the subject. 
-An important analytic task for these sequence data
-is to summarize the subject histories.
-Such a task is useful in a variety
-of applications~\cite{walenz2014finding,hassan2014data,sultana2014incremental, wu2012one} and is also the cornerstone for the emerging computational journalism~\cite{cohen2011computational}.
+An important analytic task in the sequence data domain
+is to summarize the subject histories with phenomenal patterns.
+Such a task benefits a variety
+of applications such as computational journalism~\cite{cohen2011computational,zhang2014discovering}, automatic fact checking~\cite{hassan2014data,walenz2014finding}, and perturbation analysis~\cite{Walenz:2016:PAD:3007328.3007330}.
 
 %An emerging analytics on the sequence data is in the field of journalism,
 %where the journalists strive to
@@ -28,7 +28,10 @@ of applications~\cite{walenz2014finding,hassan2014data,sultana2014incremental, w
 %there is an increasing reliance on computational technology~\cite{sultana2014incremental,wu2012one,hassan2014data} 
 %to reduce human labor and intervention to a minimum. 
 
-Leveraging the temporal ordering of events, neighborhood analytics in sequence data are expressed as \emph{streaks}~\cite{zhang2014discovering}. A streak refers to an aggregated period in a subject's history, such as ``points scored by a player in the last ten straight games''. Technically, a streak is a tuple $sk=\langle s, L, t, \overline{v} \rangle$
+An outstanding example of the neighborhood based pattern in the sequence data is \emph{streaks}~\cite{zhang2014discovering}. A streak refers to an aggregated period in a subject's history, such as ``points scored by a player in the last ten straight games''. 
+%Technically, a streak is a tuple $sk=\langle s, L, t, \overline{v} \rangle$
+%Leveraging the temporal ordering of events, neighborhood analytics in sequence data are expressed as \emph{streaks}~\cite{zhang2014discovering}. A streak refers to an aggregated period in a subject's history, such as ``points scored by a player in the last ten straight games''.
+Technically, a streak is a tuple $sk=\langle s, L, t, \overline{v} \rangle$
 which represents the last $L$ events of subject $s$ at time $t$. $\overline{v}$
 is the result of an analytic function (e.g., min, average)
 on all the events in the streak. A streak is essentially 
@@ -152,9 +155,13 @@ Therefore, there calls for a new method to automatically select a limited number
 In this chapter, we tackle the problem of effectively and efficiently 
 summarizing a subject's history by
 applying a novel \textbf{comparison neighborhood} function to transform streaks to the \emph{ranked-streaks}. 
-Given a streak $sk=(s,L,t,\overline{v})$, a comparison neighborhood is defined as $\mathcal{N}(sk) = \{sk_i | sk_i.L = sk.L \wedge sk_i.\overline{v} >= sk.\overline{v}\}$. Then a \emph{count} function 
-would generate the rank of this streak based on its neighborhood. In other words, the neighborhood function groups 
-the streaks with the same length and rank them based on their aggregated values. Compared with streak, ranked-streak is able to capture the strikingness of a streak 
+Given a streak $sk=(s,L,t,\overline{v})$, a comparison neighborhood is first defined as $\mathcal{N}(sk) = \{sk_i | sk_i.L = sk.L \wedge sk_i.\overline{v} >= sk.\overline{v}\}$. Then a $\mathtt{count}$ function
+is applied on this neighborhood to generate the \emph{rank} of $sk$. 
+In other words, the neighborhood function groups 
+the streaks with the same length and rank them based on their aggregated values. 
+%In other words, each streak is compared its analytic value
+%with other streaks of the same length to infer its \emph{rank}\footnote{Given the neighborhood, rank can be easily computed from a $\mathtt{count}$ function.}.
+Compared with streak, ranked-streak is able to capture the strikingness of a streak 
 which is very newsworthy as evidenced in the following news excerpts:
 
 %We then propose the $k$-Sketch query to select $k$ ranked-streaks 
