@@ -2,24 +2,25 @@
 With the maturity of database technologies, many applications today collect and store data from all domains 
 at unprecedented scale. For example, billions of 
 social network users and their activities are collected in the form
-of \emph{graphs}; Thousands of sensor ticks are collected every second
-in the form of \emph{time series}; Hundreds of millions of spatiotemporal points
+of \emph{graphs}; 
+thousands of sensor ticks are collected every second
+in the form of \emph{time series}; hundreds of millions of spatiotemporal points
 are collected as \emph{trajectories}.
 Flooded by the tremendous amount of data, 
 it is becoming increasingly critical to efficiently
 conduct analytics to discover useful insights.
 However, traditional SQL analytics, which comprises 
 primary operations (e.g., partition, sorting and aggregation),
-is unable to cope  with domain-specific analytics 
-such as graph traversal and   pattern detection. 
+is unable to cope with emerging analytics
+such as graph traversal and pattern detection. 
 In practice, expressing these domain-specific 
-analytics using SQL query often involves 
+analytics using SQL queries often involves 
 complex joins which are hard to optimize. 
 In this thesis, we introduce the concept of \emph{neighborhood analytics} which
 originates from the recognized SQL window functions. We study
 the usage of \emph{neighborhood analytics} in emerging applications 
 from different data domains
-and design efficient algorithms to cope with today's big data.
+and design efficient algorithms to harness today's big data.
 
 %In this thesis, we explore an important type of 
 %SQL analytics named \emph{window function}
@@ -45,13 +46,13 @@ and design efficient algorithms to cope with today's big data.
 \section{Thesis Organization}
 The rest of the thesis is organized as follows: in Chapter 2, we review the literature related
 to our proposed queries in different data domains.
-In Chapter 3, we present the Graph Window Query on graph data. 
-In Chapter 4, we present the $k$-Sketch Query on sequence data.
-In Chapter 5, we present the General Co-Movement Pattern Query on trajectory data. 
+In Chapter 3, we describe the Graph Window query on graph data. 
+In Chapter 4, $k$-Sketch query on sequence data is presented.
+In Chapter 5, we report the General Co-Movement Pattern query on trajectory data. 
 Chapter 6 summarizes this thesis and highlights future directions.
 
 \section{Published Material}
-The research in this thesis has led to numerous publications. 
+The research in this thesis has led to numerous publications, which are listed as follows: 
 
 \begin{itemize}
 	\item{The overview of the thesis has been published in SIGMOD Ph.D. Symposium.\\
@@ -60,8 +61,8 @@ The research in this thesis has led to numerous publications.
 	\item{The work in Chapter 3 appears in DASFAA 2016.\\
 		\textbf{Qi Fan}, Zhengkui Wang, Chee-Yong Chan, Kian-Lee Tan. Towards Window Analytics over Large-Scale Graphs. International Conference on Database Systems for Advanced Applications, 2016
 	}
-	\item{The finding in Chapter 4 have been submitted for publication.\\
-		\textbf{Qi Fan}, Yuchen Li, Dongxiang Zhang, Kian-Lee Tan. Discovering Newsworthy Themes From Sequenced Data: A Step Towards Computational Journalism.
+	\item{The findings in Chapter 4 have been submitted for publication.\\
+		\textbf{Qi Fan}, Yuchen Li, Dongxiang Zhang, Kian-Lee Tan. Discovering Newsworthy Themes From Sequence Data: A Step Towards Computational Journalism.
 	}
 	\item{The work in Chapter 5 has been accepted in VLDB 2017.\\
 		\textbf{Qi Fan}, Dongxiang Zhang, Huayu Wu, Kian-Lee Tan. A General and Parallel Platform for Mining Co-Movement Patterns over Large-scale Trajectories. Proceedings of the VLDB Endowment, 2017

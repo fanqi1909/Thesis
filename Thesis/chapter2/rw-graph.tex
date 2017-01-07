@@ -5,17 +5,17 @@ Works on graph data analytics have focused  on graph aggregation~\cite{zhao2011g
 which are different from Graph Window Queries (GWQ).
 In a general model, graph aggregation comprises three steps: (1) partition
 graph based on attributes of vertex (and/or edges), (2) aggregate each
-partition to form Aggregated Nodes, and (3) link each aggregate node to
+partition to form Aggregated Nodes, and (3) link each aggregated node to
 form one Aggregated Graph. An illustration of the Graph Aggregation is shown 
 in Figure~\ref{fig:rw-agg-window} (b). In the first step, the input graph
-is partitioned on the``Gender'' attribute of vertex which results in two partitions. In the second
+is partitioned on the ``Gender'' attribute of vertex which results in two partitions. In the second
 step, two aggregated nodes are formed, i.e., $M$ (stands for Male) containing nodes $A,D,E$
-and $F$ (stands for female) containing nodes $B,C,F$. In the third step, the links between 
-$M$ and $F$ are added, with the ``count'' attached on each links. 
+and $F$ (stands for Female) containing nodes $B,C,F$. In the third step, the links between 
+$M$ and $F$ are added, with the ``count'' attached on each link. 
 Differently, Graph Window Queries perform graph analytics from the vertex-centric perspective.
 In GWQ, the neighborhood structure of each vertex form overlapping partitions. Then,
 analytics are computed over each neighborhood structure. In
-Figure~\ref{fig:rw-agg-window} (c), the neighborhood structure of $B$ and $E$
+Figure~\ref{fig:rw-agg-window} (c), the neighborhood structures of $B$ and $E$
 are highlighted. Clearly, the GWQ is different from graph aggregation
 and they could not model each other.
 %
@@ -86,7 +86,7 @@ This is similar to our $k$-hop query, while the difference is that they
 focus on providing pruning techniques to select the $k$ best vertexes and our graph
 window query aims to compute the analytics for each vertex. Therefore,
 in our setting, the pruning techniques in~\cite{yan2010top} does not take effect
-and would be equivalent to the non-indexed approach.% as described in Section~\ref{sec:graph:non-index}.
+and would be equivalent to the non-indexed approach as described in Section~\ref{gw:sec:db-index}.% as described in Section~\ref{sec:graph:non-index}.
 %This is similar to our $k$-hop queries while the difference is that they
 %focus on providing pruning techniques to select $k$ best vertexes and our graph
 %window query aims to compute the analytic values for each vertex. In our 
@@ -104,7 +104,7 @@ of data analytics (e.g., aggregation) within each egocentric network.
 Recently, Jayanta et.al. \cite{mondal2014eagr} 
 proposed an EAGR system to summarize attribute information among 
 each vertex's neighborhoods. Their technique builds an overlay graph 
-to leverage the shared components among vertexes' neighborhoods structures to
+to leverage the shared components among vertexes' neighborhood structures to
 boost query processing.
 %
 % Their technique is to build an overlay graph to
@@ -145,8 +145,8 @@ The main drawback of EAGR is its high demands of resources
 on the overlay construction. In terms of memory cost, EAGR assumes the 
 initial vertex-neighbor mapping can be stored in memory. However, the assumption does not scale well for computing higher hop windows (such as k $\geq 2$). 
 For instance, a LiveJournal social network graph \footnote{Available at http://snap.stanford.edu/data/index.html, which is used \cite{mondal2014eagr}} (4.8M nodes, 69M edges) generates over 100GB mapping information for k=2 in adjacency list 
-representation. If the neighborhood information is resided in disk, the performance of EAGR will
-largely reduced.  In terms of computational cost, EAGR requires to sort all vertexes 
+representation. If the neighborhood information is resided in disk, the performance of EAGR will be
+largely slow down.  In terms of computational cost, EAGR requires to sort all vertexes 
 in a graph and build an FP-Tree in each iteration. When the graph has
 millions of vertexes, the construction of the index is largely slow down.
 
@@ -166,7 +166,7 @@ the shared components among vertexes' neighborhoods. We then propose an estimati
 further reduces the number of neighborhood accesses.
 %To further reduce the neighborhood access, we propose an estimated indexing construction algorithm that only requires a vertex's smaller-hop neighborhood to be computed during clustering. 
 Experiments show that our schemes outperform EARG in both query processing and memory usage. 
-Our methods are able to perform well even when EAGR algorithm fails when neighborhood information overwhelms system's memory, and our methods takes much shorter index construction time.
+Our methods are able to perform well even when EAGR algorithm fails when neighborhood information overwhelms system's memory and our methods takes much shorter index construction time.
 %
 % As shown in Section~\ref{sec:graph:experiment}, our proposed mesthods 
 %is able to perform well even when EAGR algorithm fails when neighborhood information overwhelms system's memory.

@@ -1,5 +1,5 @@
 \begin{abstract}
-As the increasing variety and volume of the data 
+With the increasing variety and volume of the data 
 produced by today's applications, the adoption of effective 
 analytics becomes remarkably demanding. Window functions,
 being an important part of SQL family, have proven numerous successes in
@@ -8,9 +8,9 @@ assigns each tuple a set of related tuples, on which analytics can be applied.
 However, the window function defines the related tuples based on sorting which
 limits its usage in the domains where sorting may not be meaningful.
 In this thesis, we generalize the concept the window function to 
-\emph{neighborhood analytics} which eliminates the sorting requirement.
-We propose three interesting domain-specific queries on the basis
-of two simple neighborhood functions.
+\emph{neighborhood analytics} which eliminates the stringent sorting requirement.
+We propose three domain-specific queries tailored for emerging applications 
+on the basis of two simple neighborhood functions.
 Then, we study how to process these queries efficiently given today's data scale.
 
 In particular, we first propose the \emph{Graph Window Query} (GWQ) in the graph domain. 
@@ -18,7 +18,7 @@ GWQ computes aggregation for each vertex on its graph window. We formally define
 two instances of such graph windows: $k$-hop window and topological window. Then,
 we develop the Dense Block Index (DBIndex) and Inheritance Index (I-Index) to
 facilitate efficient processing of both queries. These indexes effectively compress
-the windows of each vertex and reuse the shared components during the query processing, 
+the windows of each vertex and reuse the shared components during query processing, 
 which achieve both space and query efficiency. 
 
 %We conduct extensive experimental evaluations
@@ -29,8 +29,9 @@ which achieve both space and query efficiency.
 Second, we propose the $k$-Sketch query on the sequence data to summarize a subject's history.
 $k$-Sketch query utilizes the novel \emph{ranked-streak} 
 which is formed by a nested neighborhood function. Specifically, a streak is first constructed
-by grouping temporally nearby events; Subsequently, streaks with the same size are 
-grouped to generate their ranks. A $k$-Sketch query then selects $k$ ranked-streaks which best summarize
+by grouping temporally nearby events. Subsequently, streaks with the same length are 
+compared to generate their ranks. 
+A $k$-Sketch query then selects $k$ ranked-streaks which best summarize
 a subject's history.
 We study the $k$-Sketch query processing in both offline and online scenarios. 
 In particular, we design two nontrivial streak-level pruning techniques and a $(1-1/e)$-approximate algorithm to achieve efficient processing in offline. Then we design a $1/8$-approximate algorithm for the online sketch maintenance. 
@@ -45,7 +46,7 @@ In particular, we design two nontrivial streak-level pruning techniques and a $(
 %solution achieves hundred times boost as compared to baselines. Besides, the effectiveness
 %of our solution is also endorsed by the anonymous users from Amazon Mechanical Turk.
 
-Third, we propose the General Co-Movement Pattern (GCMP) in trajectory databases. A GCMP
+Third, we propose the General Co-Movement Pattern (GCMP) query for trajectory databases. A GCMP
 is defined as the temporal invariant portion of an object's spatial neighborhood. Our GCMP
 is versatile to express other moving patterns defined in the literature. Meanwhile, GCMP
 is also able to eliminate the so-called loose-connection anomaly which has not been addressed before.

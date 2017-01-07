@@ -332,13 +332,13 @@ of the available memory (i.e., 270GB) . Again, SPARE outperforms TRPM in both th
 \end{tabular}
 \end{table}
 
-\subsection{Analysis of SPARE framework}
+\subsection{Analysis on the SPARE framework}
 In this part, we extensively evaluate SPARE from three aspects:
 (1) the advantages brought by the sequence simplification, (2) the effectiveness of load balance, and (3) the scalability with increasing computing resources.
 %Then, we study the scalability of SPARE with increasing computing resources.
 
 
-\subsubsection{Power of Sequence Simplification}
+\subsubsection{Power of sequence simplification}
 To study the power of \emph{Sequence Simplification} (SS),
 we collect two types of statistics: (1) the number of pairs that
 are shuffled to the reducers and (2) the number of pairs that
@@ -375,7 +375,7 @@ Prune ratio & 91.2\% & 89.1\% & 87.7\% \\
 \end{table}
 
 %\vspace{1em}
-\subsubsection{Load Balance}
+\subsubsection{Load balance}
 To study the effect of load balance in the SPARE framework, we use random task allocation (the default setting of Spark) as a baseline, denoted by SPARE-RD, and compare it with our best-fit method. In best-fit, the largest unassigned star is allocated to the currently most lightly loaded reducer.
 Figure~\ref{exp:wl} shows the breakdown of the costs in the mapreduce stages 
 for SPARE and SPARE-RD. %\revised{with TRPM as comparison}. 
@@ -430,7 +430,7 @@ for all jobs in Table~\ref{tbl:strags}, whose results clearly verify the effecti
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{chapter5/exp/spare/detail1.eps}
+\includegraphics[width=0.8\textwidth]{chapter5/exp/spare/detail1.eps}
  \caption{Cost breakdown of TRPM, SPARE-RD and SPARE.}
     \label{exp:wl}
 \end{figure}
@@ -490,7 +490,7 @@ SPARE-P achieves $7$ times speedup and SPARE-S achieves $10$ times speedup.
 %our TRPM and SPARE achieves 2.4 times and 7.1 times speedup respectively. 
 Second, we see that SPARE schemes demonstrate promising scalability in terms of the number of machines available. The running times decrease almost inversely as more machines are used. 
 When all the $11$ nodes ($162$ cores) are available, 
-SPARE-P is upto $65$ times and SPARE-S is upto $112$ times better than the state-of-the-art centralized schemes.
+SPARE-P is upto $65$ times and SPARE-S is up to $112$ times better than the state-of-the-art centralized schemes.
 %than \emph{platoon} and SPARE-S is upto $112$ times better than \emph{swarm}.
 %state-of-the-art \emph{platoon} detector in a centralized server.
 %
@@ -515,15 +515,15 @@ SPARE-P is upto $65$ times and SPARE-S is upto $112$ times better than the state
 %\end{figure}
 \begin{figure}
 \begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{/exp/spare/scalability-shopping.eps}
+        \includegraphics[width=\textwidth]{chapter5/exp/spare/scalability-shopping.eps}
         \caption{Shopping vary $N$}
     \end{subfigure} 
     \begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{/exp/spare/scalability-geolife.eps}
+        \includegraphics[width=\textwidth]{chapter5/exp/spare/scalability-geolife.eps}
         \caption{GeoLife vary $N$}
     \end{subfigure} 
     \begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{/exp/spare/scalability-taxi.eps}
+        \includegraphics[width=\textwidth]{chapter5/exp/spare/scalability-taxi.eps}
         \caption{Taxi vary $N$}
     \end{subfigure} 
  \caption{Comparisons among TRMP, SPARE, PLATOON and SWARM.}

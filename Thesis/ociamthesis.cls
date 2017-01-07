@@ -66,7 +66,7 @@
 {
 % Latest Logo, Square version (the default!)
 % you need an oxlogo.eps or oxlogo.pdf file as appropriate
-\def\logo{{\includegraphics[width=32mm]{oxlogo}}}
+\def\logo{{\includegraphics[width=60mm]{oxlogo}}}
 }{}
 
 %
@@ -103,12 +103,13 @@
   \begin{center}
     { \Huge {\bfseries {\@title}} \par}
    % {{\Large \@author} \par}
-{\large \vspace*{35mm} {{\Large \@author} \par {\@curdegree} \par} \vspace*{30mm}}
+{\large \vspace*{20mm} {{\Large \@author} \par {\@curdegree} \par} \vspace*{12mm}}
 {\large \vspace*{1ex}
+	{{\logo} \par}
     {{\@college} \par}
-\vspace*{1ex}
+%\vspace*{1ex}
     {National University of Singapore \par}
-\vspace*{25mm}
+\vspace*{15mm}
     {{\submittedtext} \par}
 \vspace*{1ex}
     {\it {\@degree} \par}

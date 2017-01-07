@@ -51,7 +51,7 @@ Therefore, we only provide bounds for
 \end{table}
 %}
 
-We present the performance variations of our $k$-Sketch query under different aggregate functions in Fig.~\ref{exp:agg_cmp}. We can see from the figures that when adopting \emph{min} (\emph{max}) the performance in both online and offline scenarios drops (20\% to 30\%). This indicates that the pruning bounds in \emph{min} (\emph{max}) is weaker than \emph{avg} (\emph{sum}, \emph{count}).
+We present the performance variations of our $k$-Sketch query under different aggregate functions in Figure~\ref{exp:agg_cmp}. We can see from the figures that when adopting \emph{min} (\emph{max}) the performance in both online and offline scenarios drops (20\% to 30\%). This indicates that the pruning bounds in \emph{min} (\emph{max}) is weaker than \emph{avg} (\emph{sum}, \emph{count}).
 
 \begin{figure}[h]
 \centering
@@ -102,8 +102,8 @@ We present the performance variations of our $k$-Sketch query under different ag
 \label{apx:thm2proof}
 
 \begin{proof}
-$\Gamma$ can be formalized using linear algebra:
-Let $G_A$ be an aggregated graph, with a $n \times n$ adjacent matrix $J$.
+$\Gamma$ can be formalized in linear algebra as follows:
+let $G_A$ be an aggregated graph, with a $n \times n$ adjacent matrix $J$.
 Since a vertex order is a permutation of $J$, the adjacent matrices 
 of any reordered graphs can be represented as $PJP^T$
 where $P \in \mathbb{P}$ is a $n\times n$ \emph{permutation matrix}\footnote{An identity matrix with rows shuffled}.

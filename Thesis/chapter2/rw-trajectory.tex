@@ -1,6 +1,6 @@
-\section{Co-Movement Pattern Discovery}
+\section{General Co-Movement Pattern Query}
 \label{sec:related_work:trajectory}
-Co-movement patterns can be grouped into three categories: \emph{co-movement patterns},
+Existing works on movement patterns can be grouped into three categories: \emph{co-movement patterns},
 \emph{dynamic movement patterns} and \emph{trajectory mining frameworks}.
 %The \emph{co-movement patterns} in literature consist 
 %of five members, namely \emph{group}~\cite{wang2006grouppattern}, \emph{flock}~\cite{gudmundsson2004flock},
@@ -36,7 +36,7 @@ For instance, in \emph{swarm}, the candidate set during the sequential scanning 
 exponentially, and many candidates can only be pruned after the entire dataset are scanned.
 
 \subsubsection{Group, swarm and platoon}
-Different from \emph{flock} and \emph{convoy}, all the \emph{group},\emph{swarm} and \emph{platoon}
+Different from \emph{flock} and \emph{convoy}, all the \emph{group}, \emph{swarm} and \emph{platoon}
 patterns have more relaxed constraints on the pattern duration. Therefore, their techniques of mining are of
 the same skeleton. The main idea of mining is to grow an object set from an empty set
 in a depth-first manner. During the growth, various pruning techniques are provided to prune 
@@ -52,5 +52,5 @@ A closely related literature to co-movement patterns is the \emph{dynamic moveme
 temporal domain.
  
 \subsection{Trajectory Mining Frameworks}
-Jinno et al. in~\cite{jinno2012paralleltpattern} designed a MapReduce based algorithm to efficiently support \emph{T}-pattern discovery, where a \emph{T}-pattern is a set of objects visiting the same place at simliar time. Li et al. proposed a framework of processing online \emph{evolving group} pattern~\cite{li2013onlinegroup}, which focuses on supporting efficient updates of arriving objects. 
+Jinno et al. in~\cite{jinno2012paralleltpattern} designed a MapReduce based algorithm to efficiently support \emph{T}-pattern discovery, where a \emph{T}-pattern is a set of objects visiting the same place at similar time. Li et al. proposed a framework of processing online \emph{evolving group} pattern~\cite{li2013onlinegroup}, which focuses on supporting efficient updates of arriving objects. 
 As these works essentially differ from co-movement pattern, their techniques cannot be directly applied to discover GCMPs.

@@ -11,7 +11,8 @@ an analogous analytics named \emph{neighborhood analytics},
 which generalizes the window analytics by eliminating the
 ordering requirement. Followed by the concept of
 neighborhood analytics, we then systematically studied
-three instances of such analytics in three data domains.
+three instances of such analytics in supporting emerging applications
+in three data domains.
 We proposed domain-tailored neighborhood queries and demonstrated
 their usefulness. To support large-scale data, 
 we further designed various optimization techniques which achieved
@@ -41,7 +42,7 @@ by a nested neighborhood function: the neighborhood events were grouped to form 
 %We group consecutive events into streaks and propose a novel idea of \emph{ranked-streak} to represent the strikingness.
 We formulated the \emph{$k$-Sketch} query to select $k$ ranked-streaks which best summarize a subject's history.
 We studied the $k$-Sketch query processing in both offline and online scenarios,
-and proposed efficient solutions to cope each scenario. In particular, we designed novel streak-level pruning techniques and a $(1-1/e)$-approximate algorithm to achieve efficient processing in offline. Then we designed a $1/8$-approximate algorithm for the online sketch maintenance.
+and proposed efficient solutions to cope each scenario. Specifically, we designed novel streak-level pruning techniques and a $(1-1/e)$-approximate algorithm for offline processing. Then we designed a $1/8$-approximate algorithm for online maintenance.
 Our comprehensive experiments demonstrated the efficiency of our solutions and a human study confirms the effectiveness of the $k$-Sketch query.
 
 
@@ -116,12 +117,13 @@ processing on graphs with multi-billion vertexes and edges.
 %Another interesting direction that we plan to investigate is the support of efficient structure updates (e.g., edge deletions and insertions). 
 
 In Chapter 4, we introduced $k$-Sketch query
-to the field of computational journalism. There are several more directions
+to summarize sequence data. There are several further directions
 worthy exploring using the neighborhood based \emph{ranked-streak}. First,
-We would like to generalize the rank-streak to non-schema data 
+we would like to generalize the rank-streak to non-schema data 
 such as tweets and replies in social networks. 
+This requires a more sophisticated ranking criteria.
 Second, we plan to study the problem of summarizing a subject's history
-in sliding window model. This is particular helpful in generating news themes that
+in the sliding window model. This is particular helpful in generating news themes that
 are emerging recently. Last, leveraging big data technology 
 to support fast-growing event data is also important and of our interests.
 %
@@ -139,7 +141,7 @@ to support fast-growing event data is also important and of our interests.
 %We further wish to explore leveraging big data technology to support fast-growing 
 %event data in journalism. 
 
-In chapter 5, we utilized the neighborhood concept to
+In Chapter 5, we utilized the neighborhood concept to
 design the general co-movement pattern mining framework.
 In the next stage, we would like to explore the real-time 
 movement pattern detection. Meanwhile, we also wish
@@ -147,8 +149,6 @@ to leverage the co-movement patterns to facilitate advanced
 trajectory analysis. For example, it is of great interest
 to discover the latent social network from drivers based 
 on their co-moving behaviors.  
-
-
 
 
 % In addition, classifying

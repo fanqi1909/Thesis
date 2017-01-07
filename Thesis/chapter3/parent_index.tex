@@ -99,14 +99,14 @@ When the processing of $v$ finishes, its window can be discarded. This
 frees up the memory, which makes the scheme space efficient.
 
 We note that the complexity of Algorithm~\ref{algo:piconstruction} is non-trivial to analyze. 
-This dues to the difficulty of analyzing of the number of ancestors of each vertex. Suppose the 
+This is due to the difficulty of analyzing of the number of ancestors of each vertex. Suppose the 
 average number of ancestors for each vertex is $H$, then Algorithm~\ref{algo:piconstruction} is of
 complexity $O(H|V|*d)$, where $d$ is the average degree of the graph. This complexity is close to the
 output complexity. That is to gather the all vertex-window mapping, at least $O(H|V|)$ elements needs
 to be outputted. Thus the index construction complexity is reasonably efficient.
 
 We further note that the size of \emph{I-Index} is hard to be precisely analyzed. 
-This dues to the difficulty of analyzing the window differences.
+This is due to the difficulty of analyzing the window differences.
 Assume the average size of window difference
 is $D$, then the size of \emph{I-Index} is $O(D|V|)$. Although $D$ can be as large as $O(|V|)$, our 
 experimental results indicate that the index size is always 
@@ -119,7 +119,7 @@ compression techniques.
 \caption{Create I-Index}
 \begin{algorithmic}[1]
 \Require Input graph: $G$ 
-\Ensure Inheritance Index: $I$ 
+%\Ensure Inheritance Index: $I$ 
 \State $I \leftarrow ()$
 \State $p \leftarrow ()$ \Comment{stores the window for each vertex}
 \State $c \leftarrow ()$ \Comment{stores the cardinality of window for each vertex}
@@ -140,7 +140,8 @@ compression techniques.
 \EndFor \label{algo:tp-step2-stop}
 \State $c[v] \leftarrow |p[v]|$ \Comment{update window cardinality}
 \State $p[v] \leftarrow ()$ \Comment{release memory}
-\EndFor
+\EndFor \\
+\Return $I$
 \end{algorithmic}
 \label{algo:piconstruction}
 \end{algorithm}
@@ -183,7 +184,7 @@ with DBIndex and with I-Index index respectively.
 \caption{QueryProcessingOverIIndex}
 \begin{algorithmic}[1]
 \Require Input graph $G$, aggregate function $\Sigma$, inheritance index $IIndex$ 
-\Ensure $w$ \Comment{The aggregation result of each vertex}
+%\Ensure $w$ \Comment{The aggregation result of each vertex}
 \State $w \leftarrow ()$
 \ForAll{$v \in$ topological order} \label{code:dstw-index-tp1}
 	\State $u \leftarrow IIndex[v].PID$
@@ -194,7 +195,7 @@ with DBIndex and with I-Index index respectively.
 		\State $S\leftarrow \Sigma(S, t.val)$
 	\EndFor
 	\State $w[v] \leftarrow S$
-\EndFor
+\EndFor \\
 \Return $w$
 \end{algorithmic}
 \label{alg:dstw-index}

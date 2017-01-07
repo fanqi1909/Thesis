@@ -56,7 +56,7 @@ different vertex ordering on the same graph. The top one has $\Gamma = 5$ while 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{chapter5/star-alt.eps}
+\includegraphics[width=\textwidth]{chapter5/star-alt.eps}
 \caption{Star partitioning with different vertex orderings.}
 \label{fig:star-alt}
 \end{figure}
@@ -191,14 +191,14 @@ Given a candidate pattern $P=\{O:T\}$, if $\mathtt{sim}(P.T)=\emptyset$, then an
 We prove by contradiction. Suppose there exists a valid pattern $P_2$ such that $P_2.O \supseteq P.O$. It is obvious that $P_2.T \subseteq P.T$. Based on Definition 2, the following conditions hold: (1) $P_2.T$ is $G$-connected. (2) $|P_2.T| \geq K$ and (3) $P_2.T$ is $L$-consecutive. Note that the entire $P_2.T$ is $G$-connected. Thus, $P_2.T$ itself is the only maximal $G$-connected subsequence. Based on conditions (1),(2),(3) and Definition 6, $P_2.T$ is decomposable. Then, based on Lemma~\ref{lemma:decom-sim}, we know $\mathtt{sim}(T)\neq \emptyset$ because $P_2.T \subseteq P.T$ and $P_2.T$ is decomposable. This contradicts with $\mathtt{sim}(P.T)=\emptyset$.
 \end{proof}
 
-\subsubsection{Apriori Enumerator}
+\subsubsection{Apriori enumerator}
 We design an Apriori based enumeration algorithm to efficiently discover all the valid patterns in a star partition. The principle of the Apriori algorithm is to construct a lattice structure and enumerate all the possible candidate sets in a bottom-up manner. Its merit lies in the monotonic property such that if a candidate set is not valid, then all its supersets can be pruned. Thus, it works well in practice in spite of the exponential search space.
 
 Our customized Apriori Enumerator is presented in Algorithm~\ref{algo:apriori_mining}. Initially, the edges (pairs of objects) in the star constitute the bottom level (Lines~\ref{code:init-start}-\ref{code:init-end}) and invalid candidates are excluded (Line~\ref{code:simp1}). An indicator \emph{level} is used to control the result size for candidate joins. During each iteration (Lines~\ref{code:level-start}-\ref{code:level-ends}), only candidates with object size equals to \emph{level} are generated (Line~\ref{code:join-start}). When two candidates $c_1$ and $c_2$ are joined, the new candidate becomes $c'=\langle c_1.O \cup c_2.O, c_1.T\cap c_2.T\rangle$ (Line~\ref{code:join}). To check the validity of the candidate, we calculate $\mathtt{sim}(c'.T)$. If its simplified sequence is empty, $c'$ is excluded from the next level (Line~\ref{code:simp2}). This ensures that all the candidates with $P.O\supseteq c'.O$ are pruned. If a candidate cannot generate any new candidate, then
 it is directly reported (Lines~\ref{code:output1-start}-\ref{code:output1-end}).
-To further improve the performance, we adopt the idea of \textit{forward closure}~\cite{wang2003closet+,pei2000closet} and  aggressively check if the union of all the current candidates form a valid pattern (Lines~\ref{code:fc-checking-start}-\ref{code:fc-checking-end}). If yes, we can  terminate the algorithm early and output the results.
+To further improve the performance, we adopt the idea of \textit{forward closure}~\cite{wang2003closet+,pei2000closet} and  aggressively check if the union of all the current candidates form a valid pattern (Lines~\ref{code:fc-checking-start}-\ref{code:fc-checking-end}). If yes, we can terminate the algorithm early and output the results.
 
-\begin{algorithm}[h]
+\begin{algorithm}
 \caption{Apriori Enumerator}
 \label{algo:apriori_mining}
 \begin{algorithmic}[1]

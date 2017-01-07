@@ -4,7 +4,7 @@ of a moving object which contains a sequence of spatial-temporal records. Typica
 include visitor movements in a shopping mall, taxi flows in a city, animal migration traces in a continent and user action logs in social networks.
 Data analysis on these trajectories benefits a wide range of applications and services, including traffic planning~\cite{zheng2011urban}, animal analysis~\cite{li2010miningperiodic}, location-aware advertising~\cite{guo2016influence}, and social recommendations~\cite{bao2013survey}, to name just a few. 
 
-An important analytics on top of trajectories is to discover co-moving objects. A \emph{co-movement} pattern~\cite{li2013effective,zheng2015survey} 
+An important analytics on top of trajectories is to discover co-moving objects. A \emph{co-movement} pattern~\cite{li2013onlinegroup,zheng2015trajectory} 
 refers to a group of objects traveling together for a certain period of time.
 %, where the group is determined by the spatial closeness of the objects. 
 Such a pattern can be concisely expressed by two neighborhood functions in the spatial and the temporal dimensions respectively.
@@ -151,7 +151,7 @@ They introduce a parameter $L$ to control the minimum length of each local conse
 
 \begin{table}[h]
 \centering
-\caption{Constraints and complexities of co-movement patterns. The time complexity indicates the performance wrt.
+\caption{Constraints and complexities of co-movement patterns. The time complexity indicates the performance with respect to
 $|\mathbb{O}|$, $|\mathbb{T}|$ in the worst case, where $|\mathbb{O}|$ is the number of objects, and $|\mathbb{T}|$ is the number of discretized timestamps.}\label{tbl:existing_co_patterns}
 \begin{tabular}{|l|l|l|l|}
 \hline 
@@ -224,7 +224,7 @@ These observations imply that existing methods are not scalable to support large
     \end{subfigure}
     %\vspace{-0.5em}
     \caption{Performance measures on existing co-movement patterns. A sampled GeoLife dataset
-    is used with upto 2.4 million data points. Default parameters are $M=15$, $K=180$, $L=30$.}
+    is used with up to 2.4 million data points. Default parameters are $M=15$, $K=180$, $L=30$.}
     %\vspace{-0.5em}
     \label{fig:related_work_scalability}
 \end{figure}
@@ -257,7 +257,7 @@ We conduct a set of extensive experiments on three large-scale real datasets wit
 temporal points. 
 The results show that both our parallel schemes efficiently support GCMP mining in large datasets.
 In particular, with over 170 million trajectory points,
-SPARE achieves upto 112 times speedup using 162 cores as compared to the state-of-the-art centralized schemes.
+SPARE achieves up to 112 times speedup using 162 cores as compared to the state-of-the-art centralized schemes.
 Moreover, SPARE further achieves almost linear scalability with upto 14 times efficiency
 as compared to the baseline algorithm.
 

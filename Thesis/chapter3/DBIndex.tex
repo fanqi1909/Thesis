@@ -50,7 +50,7 @@ such that if a set of blocks $B(v) \subseteq \blockset$ is linked to a node $v \
 then $W(v)$ is covered by $B(v)$.
 Note that a \DBIndex\ is independent of the aggregate functions (i.e., $\Sigma$).
 
-Figure~\ref{fig:dbi_agg}(a) shows an example of a \DBIndex\ wrt the social graph in Figure~\ref{fig:attributed} and the 1-hop window function.
+Figure~\ref{fig:dbi_agg}(a) shows an example of a \DBIndex\ with respect to the social graph in Figure~\ref{fig:attributed} and the 1-hop window function.
 Note that the index consists of a total of seven blocks of which three of them are dense blocks.
 
 \begin{figure}[t]
@@ -63,11 +63,11 @@ Note that the index consists of a total of seven blocks of which three of them a
 
 \subsection{Query Processing with \DBIndex}
 Given a \DBIndex\ with respect to a graph $G$ and a window function $W$, a graph window query $Q = (G, W, \Sigma)$ is processed by the following two steps.
-First, for each block $B_i$ in the index, we compute the aggregation (denoted by $T_i$) over all the nodes in $B_i$;
+First, for each block $B_i$ in the index, we compute the aggregation (denoted by $T_i$) over all the nodes in $B_i$,
 i.e., $T_i = \Sigma_{v \in B_i} v$. 
 Thus, each $T_i$ is a partial aggregate value.
-Next, for each window $W(v)$, $v \in V$, the aggregation for the window is computed by aggregating over all the partial aggregates associated with the blocks linked to $W(v)$;
-I.e., if $B(v)$ is the collection of blocks linked to $W(v)$, 
+Next, for each window $W(v)$, $v \in V$, the aggregation for the window is computed by aggregating over all the partial aggregates associated with the blocks linked to $W(v)$.
+In other words, if $B(v)$ is the collection of blocks linked to $W(v)$, 
 then the aggregation for $W(v)$ is computed by $\Sigma_{B_i \in B(v)} T_i$. 
 
 Consider again the \DBIndex\ shown in Figure~\ref{fig:dbi_agg}(a) 
@@ -106,7 +106,7 @@ then use this derived information to identify large dense blocks.
 However, this direct approach incurs a high space complexity of $O(|V|^2)$.
 Therefore, a more space-efficient approach is needed in order to scale to large graphs.
 
-In this section, we present two heuristic approaches, namely {\it MinHash Clustering (MC)} and {\it Estimated MinHash Clustering (EMC)}, to construct \DBIndex . The first approach $MC$ is to construct
+In this section, we present two heuristic approaches, namely {\it Min-hash Clustering (MC)} and {\it Estimated Min-hash Clustering (EMC)}, to construct \DBIndex . The first approach $MC$ is to construct
 a \DBIndex\ for general window functions; While the second approach $EMC$ is 
 to construct a \DBIndex\ specifically for $k$-hop window function. Compared to $MC$, $EMC$
 adopts a heuristic to speed up the index construction at the expense of sacrificing 
@@ -117,7 +117,7 @@ the ``quality'' of the dense blocks (in terms of their sizes).
 %the ``quality'' of the dense blocks (in terms of their sizes).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{MinHash Clustering (MC)}
+\subsubsection{Min-hash clustering (MC)}
 To reduce both the time and space complexities for the index construction,
 instead of trying to identify large dense blocks among a large collection of windows,
 we first partition all the windows 
@@ -126,9 +126,9 @@ similar window contents and then identify large dense blocks
 from each of the smaller clusters.
 Intuitively, two windows are considered to 
 be similar if they share a large subset of nodes.
-We apply the well-known {\it MinHash based Clustering (MC)} algorithm~\cite{broder1997syntactic} 
+We apply the well-known {\it Min-hash based Clustering (MC)} algorithm~\cite{broder1997syntactic} 
 to partition the windows into clusters of similar windows.
-The MinHash clustering algorithm is based on the
+The Min-hash clustering algorithm is based on the
 \emph{Jaccard Coefficient} which measures the similarity of two sets.  
 Given the two window $W(v)$ and $W(u)$, $u,v \in V$,
 their \emph{Jaccard Coefficient} is given by
@@ -155,7 +155,7 @@ and
 $links(I) = \emptyset$.
 %
 The first step is to partition the vertexes in $V$ into clusters
-using MinHash algorithm such that vertexes with similar windows belong to the same cluster. 
+using Min-hash algorithm such that vertexes with similar windows belong to the same cluster. 
 For each vertex $v \in V$, we first derive its window $W(v)$ by an appropriate traversal of the graph $G$.
 Next, we compute a hash signature (denoted by $H(v)$) for $W(v)$ based on applying $m$ 
 hash functions on the set $W(v)$.
@@ -224,7 +224,7 @@ and
 \begin{algorithmic}[1]  \small
 %\FUNCTION $dbiGen$
 \Require Graph $G=(V,E)$, window function $W$
-\Ensure \DBIndex\ $I$
+%\Ensure \DBIndex\ $I$
 \State Initialize \DBIndex\ $I$: $nodes(I)=V$, $blocks(I)=\emptyset$, $links(I)=\emptyset$
 \ForAll{$v \in V$}
 	\State Traverse $G$ to determine $W(v)$
@@ -236,7 +236,7 @@ and
 		\State Traverse $G$ to determine $W(v)$
 	\EndFor
 	\State {\tt IdentifyDenseBlocks} $(I,G,W,C_i)$
-\EndFor
+\EndFor \\
 \Return $I$
 \end{algorithmic}
 \label{algo:k-hop-dbi}
@@ -297,7 +297,7 @@ and
 Figure~\ref{fig:dbi-indexing} 
 illustrates the construction of the DBIndex with respect to the social graph in 
 Figure~\ref{fig:attributed}(a) and 1-hop window using the MC algorithm.
-First, the set of graph vertexes are partitioned into clusters using MinHash clustering;
+First, the set of graph vertexes are partitioned into clusters using Min-hash clustering;
 Figure~\ref{fig:dbi-indexing}(a)
 shows that the set of vertexes $V = \{A, B, C, D, E, F \}$ are partitioned into two clusters $C_1=\{A, B, C\}$ and $C_2=\{D, E, F\}$. 
 
@@ -327,11 +327,11 @@ The identification of dense blocks in cluster $C_2$
 is of similar process.
 
 We find it is non-trivial to precisely analyze the complexity of Algorithm~\ref{algo:k-hop-dbi}.
-Here, we only offer a brief analysis. Suppose the MinHash cost is $H$ and 
-the total cost for collecting window function for all all vertexes is $B$, 
+Here, we only offer a brief analysis. Suppose the Min-hash cost is $H$ and 
+the total cost for collecting window function for all vertexes is $B$, 
 Lines 1-5 has the complexity of $O(H + B)$.  
 Lines 7-10 has the complexity of $O(B)$. A single execution of Algorithm~\ref{algo:identify}  has the  complexity of $O(|V|)$, since we can simply partition nodes using hashing. Suppose the iteration runs for $K$ times, the total cost for Algorithm~\ref{algo:identify} and Algorithm~\ref{algo:refine} is $O(K|V|)$. Therefore the overall complexity of Algorithm~\ref{algo:k-hop-dbi} is $O(H+2*B + O(K|V|))$. $H$ depends on the number of vertex-window mappings for a given query and $B$ depends on the window functions.
-As we demonstrate in Section~\ref{sec:experiments}, for $k$-hop window, the $H$ and $B$ are the major factors in the index construction. To reduce the construction time, we design further optimization techniques for the $k$-hop window.
+As we demonstrate in Section~\ref{gw:sec:exp}, for $k$-hop window, the $H$ and $B$ are the major factors in the index construction. To reduce the construction time, we design further optimization techniques for the $k$-hop window.
 
 
 \begin{algorithm}
@@ -350,17 +350,17 @@ As we demonstrate in Section~\ref{sec:experiments}, for $k$-hop window, the $H$ 
 \label{algo:refine}
 \end{algorithm}
 
-\subsubsection{Estimated MinHash Clustering (EMC)}
+\subsubsection{Estimated min-hash clustering (EMC)}
 \label{sec:optimized}
 
 The MC approach described in the previous section requires the window of each node (i.e., $W(v), v \in V$)
 to be computed twice in order to avoid the high space complexity of materializing all the windows in main memory.
 For $k$-hop window function with a large value of $k$, the cost of graph traversal 
 to compute all $k$-hop windows
-could incur a high computation overhead. Moreover, the cost of initial MinHash in MC approach equals to the initial number of vertex-window mappings, which is of the same order as graph traversal. For the larger hops, MinHash clustering would incur high computation cost.
+could incur a high computation overhead. Moreover, the cost of initial Min-hash in MC approach equals to the initial number of vertex-window mappings, which is of the same order as graph traversal. For the larger hops, Min-hash clustering would incur high computation cost.
 
 To address these issues, we present a more efficient approach,
-referred to as {\it Estimated MinHash Clustering (EMC)}, 
+referred to as {\it Estimated Min-hash Clustering (EMC)}, 
 to optimize the construction of the \DBIndex\ for $k$-hop window function with larger $k$.
 
 The key idea behind $EMC$ is based on the observation that for any two nodes $u, v \in V$,
@@ -390,7 +390,7 @@ of the dense blocks (in terms of their sizes).
 However, our experimental results show that this reduction in 
 quality is only marginal which makes this approximation worthy.
 
-\subsubsection{Justification of Heuristic}
+\subsubsection{Justification of heuristic}
 In the following, we justify of our heuristic by make
 an assumption on the independence\footnote{Although the assumption may not always hold in reality, it makes the analysis feasible. We also conduct an empirical evaluation on real datasets in Section~\ref{sec:mc_vs_emc} to indicate the effectiveness of our heuristic.} of the 
 vertexes in a graph. First, we provide the following theorem which
@@ -443,7 +443,7 @@ be the ratio of newly discovered vertexes versus original set of vertexes.
 Since $|U_k| > |I_k|$, by the above theorem, $1+\alpha_U < 1+\alpha_I$. Therefore, $J_{k+1}(u,v)=\frac{|I_k| + \alpha_I|I_k|}{|U_k|+ \alpha_U|I_U|}= \frac{1+\alpha_I}{1+\alpha_U}\cdot\frac{|I_k|}{|I_U|} > J_k(u,v)$. This indicates that
 the expected Jaccard coefficient of the two vertexes increases with respect to $k$, which justifies
 our heuristic. 
-It is notable that, although our analysis of the heuristic rely on the independence of vertexes,
+It is notable that, although our analysis of the heuristic relies on the independence of vertexes,
 our experiments show that the heuristic is effective in many real datasets.
 
 %\subsubsection{Justification of Heuristic}

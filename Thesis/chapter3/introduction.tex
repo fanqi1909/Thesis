@@ -196,7 +196,7 @@ the latest processing algorithm can be adopted from literature is EAGR~\cite{mon
 % the state-of-the-art processing algorithm
 %is EAGR \cite{mondal2014eagr}. 
 EAGR leverages an overlay graph to represent the shared
-components among different windows. It incrementally construct the overlay graph
+components among different windows. It incrementally constructs the overlay graph
 through multiple iterations. In each iteration, it builds a Frequent-Pattern Tree~\cite{han2004mining}
 to discover the largest shared component among vertex windows. However,
 to achieve efficient shared component detection, EAGR requires all
@@ -269,7 +269,7 @@ We develop the indexes by integrating the window aggregation sharing techniques 
 \item{We perform extensive experiments over both real and synthetic datasets
 with hundreds of millions of vertexes and edges on a single machine. Our experiments 
 indicate that our proposed index-based algorithms outperform the naive non-index
-algorithm by upto four orders of magnitude. In addition, our experiments also show 
+algorithm by up to four orders of magnitude. In addition, our experiments also show 
 that DBIndex is superior over the state-of-the-art baseline (i.e., EAGR)
 in terms of both scalability and efficiency. 
 In particular, DBIndx saves up to 80\% of index constructing time as compared to EAGR, 
@@ -280,4 +280,4 @@ and performs well even when EAGR fails due to memory limitations.
 The rest of the chapter is organized as follows. In Section~\ref{gw:sec:pf}, the graph window query is formulated.
 In Section~\ref{gw:sec:db-index}, Dense Block Index is presented to process general window queries. A specialized
 index to handle topological query is presented in Section~\ref{gw:sec:topo}. Section~\ref{gw:sec:exp} demonstrates our experimental
-findings and Section~\ref{gw:sec:concl} concludes this chapter. 
+findings and Section~\ref{gw:sec:concl} concludes this chapter.  

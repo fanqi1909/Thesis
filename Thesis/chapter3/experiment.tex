@@ -81,8 +81,8 @@ depict the index time for the Amazon and Stanford-web networks.
 
 \subsection{Comparison between MC and EMC}\label{sec:mc_vs_emc}
 We first compare the effectiveness of the two DBIndex 
-construction algorithms: MinHash Clustering (MC) and Estimated 
-MinHash Clustering (EMC). We look at 
+construction algorithms: Min-hash Clustering (MC) and Estimated 
+Min-hash Clustering (EMC). We look at 
 the index construction time, index size and query performance. 
 All these experiments are conducted based on two real datasets: 
 Amazon and Stanford-web. For both datasets, we run a series of k-hop queries.\footnote{For the Stanford-web graph, which is directed,
@@ -96,21 +96,21 @@ EMC uses 1-hop information for the initial clustering.
 when we vary the windows from 1-hop to 4-hop for the Amazon and Stanford-web 
 graphs respectively. To better understand the time differences, 
 the construction time is split into two parts: 
-the MinHash cost (EMC-hash or MC-hash) and the breadth-first-search traversal (to compute the $k$-hop window)  cost (EMC-bfs or MC-bfs). The results show the same trend 
+the Min-hash cost (EMC-hash or MC-hash) and the breadth-first-search traversal (to compute the $k$-hop window)  cost (EMC-bfs or MC-bfs). The results show the same trend 
 for the two datasets. % We make several observations.
 First, as the number of hops increases, the index construction time increases as well. 
 This is expected as a larger hop count results in a larger window size 
-and the BFS and the MinHash time increase correspondingly. 
+and the BFS and the Min-hash time increase correspondingly. 
 Second, as the hop count increases, the difference between the
 index construction time of EMC and that of MC widens. 
 For instance, as shown in Figures~\ref{fig:index_analysis_emc_mc} (a) and (b), for the 4-hop window queries, compared to MC, 
 EMC can save $62\%$ and $66\%$ construction time for the Amazon and Stanford-Web datasets respectively.
-EMC benefits from both the low MinHash cost and low BFS cost. 
+EMC benefits from both the low Min-hash cost and low BFS cost. 
 %From Figures~\ref{fig:index_analysis_emc_mc} (a) and (b), 
-We can also see that the MinHash cost of MC increases as the number of hops 
+We can also see that the Min-hash cost of MC increases as the number of hops 
 increases, while that for EMC remains almost the same as the 1-hop case. 
-This shows that the cost of MinHash becomes more significant for larger windows. 
-Thus, using 1-hop clustering for larger hop counts reduces the MinHash cost 
+This shows that the cost of Min-hash becomes more significant for larger windows. 
+Thus, using 1-hop clustering for larger hop counts reduces the Min-hash cost 
 in EMC. Similarly, as EMC saves on BFS cost for $k$-hop queries where $k > 1$, 
 the BFS cost of EMC is much smaller than that of MC as well. 
 
@@ -222,9 +222,9 @@ iterations in the index construction.
 \label{fig:2-hop-real}
 \end{figure}
 
-\subsubsection{Real Datasets} 
+\subsubsection{Real datasets} 
 We first study the index construction and 
-query time performance of DBIndex and EAGR for 1-hop and 2-hop windows 
+query performance of DBIndex and EAGR for 1-hop and 2-hop windows 
 using 6 real datasets: DBLP, Youtube, Livejournal, Google, Pokec and Orkut. 
 The results for 1-hop window and 2-hop window are presented
 in Figures~\ref{fig:1-hop-real} and~\ref{fig:2-hop-real} 
@@ -257,7 +257,7 @@ DBIndex takes much shorter time to build but offers comparable, if not much fast
 performance than EAGR.
 
 
-\subsubsection{Synthetic Datasets}
+\subsubsection{Synthetic datasets}
 To study the scalability of DBIndex under large-scale graphs, 
 we generated synthetic datasets using the SNAP generator. 
 
@@ -272,8 +272,7 @@ both index construction and query performance. For the graph with 10M vertexes a
 Moreover, when the number of vertexes changes from 2M to 10M, 
 the query performance only increases 3 times. This shows that
 DBIndex is not only scalable, but offers acceptable performance. Figures~\ref{fig:khop_d10_h1} (c) and (d) show the
-performance of DBIndex in processing the 2-hop query. We notice that EAGR fails to run due to the high memory requirement. For instance, when vertex equals to 2M, the 2-hop query generates 90GB intermediate data, which exceeds the available memory
-.
+performance of DBIndex in processing the 2-hop query. We notice that EAGR fails to run due to the high memory requirement. For instance, when vertex equals to 2M, the 2-hop query generates 90GB intermediate data, which exceeds the available memory.
 
 \begin{figure}[t]
 \centering
@@ -347,11 +346,11 @@ increases the overhead of graph traversal time to collect the window.
 
 
 Figures~\ref{fig:khop_v2m} (b) and (d)
-show the results on query time 
+show the results on the query performance 
 for 1-hop and 2-hop queries respectively. 
 We observe a similar pattern for the index construction time:
 for the 1-hop query, the query time increases with increasing degree
-but at a much slower rate than EAGR; For the 2-hop query, we observe in Figure~\ref{fig:khop_v2m} (d) that the
+but at a much slower rate than EAGR. For the 2-hop query, we observe in Figure~\ref{fig:khop_v2m} (d) that the
 query performance of DBIndex hovers around 100ms, which is much 
 smaller than that of the 1-hop query performance. 
 This is because there are more dense blocks in the 2-hop case, 

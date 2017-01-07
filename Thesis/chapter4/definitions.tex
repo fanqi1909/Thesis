@@ -1,7 +1,7 @@
 \section{Problem Formulation}\label{sec:problem_definition}
 Let $S$ denote a set of subjects which are of potential interests to journalists. 
 For example, $S$ can refer to all the players or teams in the NBA application.
-Let $e_s(t)$ denote an event about subject $s$, where $t$ denotes its timestamp or sequence ID. 
+We use $e_s(t)$ to denote an event about subject $s$, where $t$ is its timestamp or sequence ID. 
 For example, an event can refer to an NBA game a player participated on a certain day. 
 Note that we maintain a sequence ID for each subject that is automatically incremented. 
 It is possible that the events of different subjects may have the same sequence ID. 
@@ -23,7 +23,7 @@ $$W_s(t,w).\overline{v} = f(e_s(t-w+1),..., e_s(t))$$
 %In general, if a subject $s$ has $|\mathbb{H}_s|$ events, there are $|\mathbb{H}_s|\choose{2}$ possible event windows. Given an aggregate function $f$, events in an event window can be aggregated to a numerical value $\overline{v}$ as:
 %$$W_s(t,w).\overline{v} = f(e_s(t-w+1),..., e_s(t))$$
 
-Common aggregate functions include \emph{sum}, \emph{avg}, \emph{count}, \emph{min} and \emph{max}. 
+Common aggregate functions include $\mathtt{sum}$, $\mathtt{avg}$, $\mathtt{count}$, $\mathtt{min}$ and $\mathtt{max}$. 
 In this thesis, we only consider a single aggregate function. Multiple aggregate functions can be 
 simply  processed independently.
 %To support multiple aggregation functions, one may simply invoke our solution multiple times to process them independently.
@@ -63,7 +63,7 @@ For instance, ``\textit{The total points Kobe has scored is $32,482$}'' can be t
 length-$w$ streaks on their aggregate values. 
 Let $p$ be a predefined threshold to indicate
 whether a streak is striking (i.e., top-$p$). 
-These concepts lead to our definition of  \emph{Ranked-Streak}:
+These concepts lead to our definition of  \emph{Ranked-streak}:
 %Then, our
 %definition of \emph{Ranked-Streak} is formed as follows:
 
@@ -74,7 +74,7 @@ These concepts lead to our definition of  \emph{Ranked-Streak}:
 %length-$w$ event windows on their aggregate values. Generally speaking, an event window is newsworthy if its rank is smaller than a predefined threshold. This leads to our definition of \emph{Candidate Theme}:
 %
 
-\begin{definition} [Ranked-Streak]
+\begin{definition} [Ranked-streak]
 A streak $W_s(t,w)$ can be transformed to a ranked-streak, denoted by $N_s(t,w)$, if its rank $\gamma_w(W_s(t,w).\overline{v}) \leq p$, where $p$ is a user-defined threshold.
 \end{definition} 
 

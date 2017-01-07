@@ -15,7 +15,7 @@ Representative works include the \emph{situational facts}~\cite{sultana2014incre
 summarize subjects' histories from their historical events, such as the \emph{prominent streaks}~\cite{zhang2014discovering}. Our proposed solution falls into the subject-oriented category. 
 
 
-\subsubsection{Situational facts and One-of-the-few facts}
+\subsubsection{Situational facts and one-of-the-few facts}
 \textbf{Situational Facts~\cite{sultana2014incremental}:} it finds for a given event, the best constraint-measure pair that makes the event unique (i.e., not dominated by others). 
 An example of the \emph{situational fact} is listed in Table~\ref{tbl:sketh:related_works} and is extracted from the NBA game events where the measure dimensions are ``points, assists, and rebounds'' and the constraint dimensions are ``team, result, and date''. The \emph{situational fact} of the event in Table~\ref{tbl:sketh:related_works} is the constraint-measure pair $\langle$team=Blazer, points$\rangle$, since under
 this situation, this event is a skyline among all events (i.e., no other events matching the constraint ``team=Blazer'' contain an even higher ``point'').
@@ -60,10 +60,10 @@ For example, as shown in Table~\ref{tbl:sketh:related_works}, a streak of ``Kobe
 The objective of~\cite{zhang2014discovering}
 is to discover all the non-dominated streaks (i.e., prominent streaks) where the dominance is defined among streaks of the same subject. 
 Despite being the same subject-oriented approach,
-our $k$-Sketch query differs from \cite{zhang2014discovering} in two aspects. First, we look at the \emph{global prominence among all} subjects (i.e., rank in NBA history) rather than local prominence within one subject (i.e., non-dominance in one's career). 
+our $k$-Sketch query differs from \cite{zhang2014discovering} in two aspects. First, we look at the \emph{global prominence among all} subjects (i.e., rank in the entire NBA history) rather than local prominence within one subject (i.e., non-dominance in one's career). 
 Second, our model provides the best $k$ ranked-streaks
 for each subject, whereas~\cite{zhang2014discovering} returns a set of skylines 
-which could be potentially large.
+which  potentially could be  large.
 
  
 \subsection{Frequent Episode Mining}
@@ -77,7 +77,7 @@ On the other hand, our ranked-streaks are defined with numerical values, making 
 Second, the episodes are selected based on the occurrences 
 which do not contain the \emph{rank} information, whereas our 
 $k$-Sketch query explicitly provides the rank of selected streaks.  
-As such, episode mining techniques cannot support $k$-Sketch query.
+As such, episode mining techniques cannot support the $k$-Sketch query.
 
 \subsection{Top-$k$ Diversity Query}
 Top-$k$ diversity queries~\cite{agrawal2009diversifying,borodin2012max,drosou2014diverse,chen2015diversity}
@@ -92,6 +92,6 @@ incurs the problem of multiple sketch updates for each new event. Such a complex
 \subsection{Event Detection and Tracking}
 In information retrieval, event detection and tracking aim to extract and organize new events from various
 media sources such as text streams~\cite{allan1998line,brants2003asystem}, social media streams~\cite{li2015social} and web articles~\cite{Vuurens2015Onlinenews}. 
-Despite the usefulness of these works, they differ from our $k$-Sketch query as they focuses on the detection of a single event, whereas $k$-Sketch aims to summarize a subject's history.
+Despite the usefulness of these works, they differ from our $k$-Sketch query as they focus on the detection of a single event, whereas $k$-Sketch aims to summarize a subject's history.
 Therefore, the abovementioned techniques cannot be directly applied.
 
