@@ -4,10 +4,10 @@
 \citation{guo2016influence}
 \citation{bao2013survey}
 \citation{li2013onlinegroup,zheng2015trajectory}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}GCMP Query: Neighborhood Analytics in Trajectories}{99}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}GCMP Query: Neighborhood Analytics in Trajectories}{96}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction}{99}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction}{96}}
 \citation{gudmundsson2006computing}
 \citation{wang2006grouppattern}
 \citation{jeung2008discovery}
@@ -18,144 +18,144 @@
 \citation{li2010swarm}
 \citation{wang2006grouppattern}
 \citation{li2015platoon}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Constraints and complexities of co-movement patterns. The time complexity indicates the performance with respect to $|\mathbb  {O}|$, $|\mathbb  {T}|$ in the worst case, where $|\mathbb  {O}|$ is the number of objects, and $|\mathbb  {T}|$ is the number of discretized timestamps.\relax }}{101}}
-\newlabel{tbl:existing_co_patterns}{{5.1}{101}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Trajectories and co-movement patterns. The example consists of six trajectories across six snapshots. Objects in spatial clusters are enclosed by dotted circles. $M$ is the minimum cluster cardinality; $K$ denotes the minimum number of snapshots for the occurrence of a spatial cluster; and $L$ denotes the minimum length for local consecutiveness.\relax }}{102}}
-\newlabel{fig:related_work}{{5.1}{102}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces \emph  {Loose-connection} anomaly. Even though $\delimiter "426830A o_1, o_2\delimiter "526930B $ is considered as a valid \emph  {platoon} pattern, it is highly probable that these two objects are not related as the two consecutive segments are 98 timestamps apart. \relax }}{103}}
-\newlabel{fig:platoon_weakpoint}{{5.2}{103}}
-\newlabel{fig:fig1}{{5.3a}{103}}
-\newlabel{sub@fig:fig1}{{a}{103}}
-\newlabel{fig:fig2}{{5.3b}{103}}
-\newlabel{sub@fig:fig2}{{b}{103}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Performance measures on existing co-movement patterns. A sampled GeoLife dataset is used with up to 2.4 million data points. Default parameters are $M=15$, $K=180$, $L=30$.\relax }}{103}}
-\newlabel{fig:related_work_scalability}{{5.3}{103}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Constraints and complexities of co-movement patterns. The time complexity indicates the performance with respect to $|\mathbb  {O}|$, $|\mathbb  {T}|$ in the worst case, where $|\mathbb  {O}|$ is the number of objects, and $|\mathbb  {T}|$ is the number of discretized timestamps.\relax }}{98}}
+\newlabel{tbl:existing_co_patterns}{{5.1}{98}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Trajectories and co-movement patterns. The example consists of six trajectories across six snapshots. Objects in spatial clusters are enclosed by dotted circles. $M$ is the minimum cluster cardinality; $K$ denotes the minimum number of snapshots for the occurrence of a spatial cluster; and $L$ denotes the minimum length for local consecutiveness.\relax }}{99}}
+\newlabel{fig:related_work}{{5.1}{99}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces \emph  {Loose-connection} anomaly. Even though $\delimiter "426830A o_1, o_2\delimiter "526930B $ is considered as a valid \emph  {platoon} pattern, it is highly probable that these two objects are not related as the two consecutive segments are 98 timestamps apart. \relax }}{100}}
+\newlabel{fig:platoon_weakpoint}{{5.2}{100}}
+\newlabel{fig:fig1}{{5.3a}{100}}
+\newlabel{sub@fig:fig1}{{a}{100}}
+\newlabel{fig:fig2}{{5.3b}{100}}
+\newlabel{sub@fig:fig2}{{b}{100}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Performance measures on existing co-movement patterns. A sampled GeoLife dataset is used with up to 2.4 million data points. Default parameters are $M=15$, $K=180$, $L=30$.\relax }}{100}}
+\newlabel{fig:related_work_scalability}{{5.3}{100}}
 \citation{li2015platoon}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Problem Formulation}{105}}
-\newlabel{sec:definition}{{5.2}{105}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Operators on time sequence.\relax }}{105}}
-\newlabel{tbl:operators}{{5.2}{105}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Expressing other patterns using GCMP. $\cdot $ indicates a user specified value.\relax }}{106}}
-\newlabel{tbl:patterns}{{5.3}{106}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Summary of notations.\relax }}{107}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Baseline: Temporal Replication and Parallel Mining}{107}}
-\newlabel{sec:trm}{{5.3}{107}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Workflow of Temporal Replication and Parallel Mining (TRPM). (a) and (b) correspond to the first mapreduce stage which clusters objects in each snapshot. (c) and (d) is the second mapreduce stage which uses TRPM to detect GCMPs.\relax }}{108}}
-\newlabel{fig:trm}{{5.4}{108}}
-\newlabel{THM:RP_ETA}{{5.3.1}{109}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {10}{\ignorespaces Line Sweep Mining\relax }}{110}}
-\newlabel{algo:line-sweep}{{10}{110}}
-\newlabel{code:ls-can-set}{{1}{110}}
-\newlabel{code:ls-init-start}{{2}{110}}
-\newlabel{code:ls-init-end}{{6}{110}}
-\newlabel{code:ls-sweep-starts}{{7}{110}}
-\newlabel{code:ls-join-start}{{9}{110}}
-\newlabel{code:ls-join}{{10}{110}}
-\newlabel{code:ls-m-prun}{{14}{110}}
-\newlabel{code:ls-join-ends}{{16}{110}}
-\newlabel{code:ls-g-prune-starts}{{18}{110}}
-\newlabel{code:ls-g-prune-ends}{{21}{110}}
-\newlabel{code:ls-l-prune-starts}{{22}{110}}
-\newlabel{code:ls-l-prune-ends}{{24}{110}}
-\newlabel{code:ls-sweep-ends}{{27}{110}}
-\newlabel{code:ls-valid-check}{{28}{110}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {11}{\ignorespaces Temporal Replication and Parallel Mining\relax }}{111}}
-\newlabel{algo:trm_overview}{{11}{111}}
-\newlabel{code:trm-map-start}{{2}{111}}
-\newlabel{code:trm-map-end}{{7}{111}}
-\newlabel{code:trm-par-start}{{8}{111}}
-\newlabel{code:trm-par-end}{{11}{111}}
-\newlabel{code:trm-red-start}{{12}{111}}
-\newlabel{code:trm-red-end}{{14}{111}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Star Partitioning and ApRiori Enumerator (SPARE). (a) Aggregated graph $G_A$ generated from Figure 1. (b) Five star partitions are generated from $G_A$. Star IDs are circled, vertexes and inverted lists are in the connected tables. (c) Apriori Enumerator with various pruning techniques.\relax }}{112}}
-\newlabel{fig:star_partition}{{5.5}{112}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}SPARE: Star Partitioning and Apriori Enumerator}{112}}
-\newlabel{sec:spm}{{5.4}{112}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Problem Formulation}{102}}
+\newlabel{sec:definition}{{5.2}{102}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Operators on time sequence.\relax }}{102}}
+\newlabel{tbl:operators}{{5.2}{102}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Expressing other patterns using GCMP. $\cdot $ indicates a user specified value.\relax }}{103}}
+\newlabel{tbl:patterns}{{5.3}{103}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Summary of notations.\relax }}{104}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Baseline: Temporal Replication and Parallel Mining}{104}}
+\newlabel{sec:trm}{{5.3}{104}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Workflow of Temporal Replication and Parallel Mining (TRPM). (a) and (b) correspond to the first mapreduce stage which clusters objects in each snapshot. (c) and (d) is the second mapreduce stage which uses TRPM to detect GCMPs.\relax }}{105}}
+\newlabel{fig:trm}{{5.4}{105}}
+\newlabel{THM:RP_ETA}{{5.3.1}{106}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {10}{\ignorespaces Line Sweep Mining\relax }}{107}}
+\newlabel{algo:line-sweep}{{10}{107}}
+\newlabel{code:ls-can-set}{{1}{107}}
+\newlabel{code:ls-init-start}{{2}{107}}
+\newlabel{code:ls-init-end}{{6}{107}}
+\newlabel{code:ls-sweep-starts}{{7}{107}}
+\newlabel{code:ls-join-start}{{9}{107}}
+\newlabel{code:ls-join}{{10}{107}}
+\newlabel{code:ls-m-prun}{{14}{107}}
+\newlabel{code:ls-join-ends}{{16}{107}}
+\newlabel{code:ls-g-prune-starts}{{18}{107}}
+\newlabel{code:ls-g-prune-ends}{{21}{107}}
+\newlabel{code:ls-l-prune-starts}{{22}{107}}
+\newlabel{code:ls-l-prune-ends}{{24}{107}}
+\newlabel{code:ls-sweep-ends}{{27}{107}}
+\newlabel{code:ls-valid-check}{{28}{107}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {11}{\ignorespaces Temporal Replication and Parallel Mining\relax }}{108}}
+\newlabel{algo:trm_overview}{{11}{108}}
+\newlabel{code:trm-map-start}{{2}{108}}
+\newlabel{code:trm-map-end}{{7}{108}}
+\newlabel{code:trm-par-start}{{8}{108}}
+\newlabel{code:trm-par-end}{{11}{108}}
+\newlabel{code:trm-red-start}{{12}{108}}
+\newlabel{code:trm-red-end}{{14}{108}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Star Partitioning and ApRiori Enumerator (SPARE). (a) Aggregated graph $G_A$ generated from Figure 1. (b) Five star partitions are generated from $G_A$. Star IDs are circled, vertexes and inverted lists are in the connected tables. (c) Apriori Enumerator with various pruning techniques.\relax }}{109}}
+\newlabel{fig:star_partition}{{5.5}{109}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}SPARE: Star Partitioning and Apriori Enumerator}{109}}
+\newlabel{sec:spm}{{5.4}{109}}
 \citation{yoo2006joinless}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Star Partitioning}{113}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Star Partitioning}{110}}
 \citation{kwon2012skewtune}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Star partitioning with different vertex orderings.\relax }}{114}}
-\newlabel{fig:star-alt}{{5.6}{114}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Star partitioning with different vertex orderings.\relax }}{111}}
+\newlabel{fig:star-alt}{{5.6}{111}}
 \citation{agrawal1994fast}
-\newlabel{THM:SPM_LB}{{5.4.1}{115}}
-\newlabel{THM:SPM_LB_INC}{{5.4.2}{115}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Apriori Enumerator}{115}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.1}Monotonicity}{116}}
-\newlabel{lemma:union-property}{{5.4.3}{116}}
-\newlabel{lemma:subset-property}{{5.4.4}{117}}
-\newlabel{lemma:decom-sim}{{5.4.5}{118}}
+\newlabel{THM:SPM_LB}{{5.4.1}{112}}
+\newlabel{THM:SPM_LB_INC}{{5.4.2}{112}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Apriori Enumerator}{112}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.1}Monotonicity}{113}}
+\newlabel{lemma:union-property}{{5.4.3}{113}}
+\newlabel{lemma:subset-property}{{5.4.4}{114}}
+\newlabel{lemma:decom-sim}{{5.4.5}{115}}
 \citation{wang2003closet+,pei2000closet}
-\newlabel{THM:SPARE_MONO}{{5.4.6}{119}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.2}Apriori enumerator}{119}}
+\newlabel{THM:SPARE_MONO}{{5.4.6}{116}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.2}Apriori enumerator}{116}}
 \citation{zaharia2012resilient}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Put Everything Together}{120}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {12}{\ignorespaces Apriori Enumerator\relax }}{121}}
-\newlabel{algo:apriori_mining}{{12}{121}}
-\newlabel{code:init-start}{{2}{121}}
-\newlabel{code:simp1}{{4}{121}}
-\newlabel{code:init-end}{{6}{121}}
-\newlabel{code:level}{{7}{121}}
-\newlabel{code:level-start}{{8}{121}}
-\newlabel{code:join-start}{{10}{121}}
-\newlabel{code:join}{{11}{121}}
-\newlabel{code:simp2}{{12}{121}}
-\newlabel{code:join-end}{{15}{121}}
-\newlabel{code:output1-start}{{16}{121}}
-\newlabel{code:output1-end}{{20}{121}}
-\newlabel{code:fc-checking-start}{{22}{121}}
-\newlabel{code:fc-checking}{{25}{121}}
-\newlabel{code:fc-checking-end}{{26}{121}}
-\newlabel{code:level-ends}{{28}{121}}
-\newlabel{code:output2-end}{{29}{121}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {13}{\ignorespaces Star Partitioning and ApRiori Enumerator\relax }}{122}}
-\newlabel{algo:spm_overview}{{13}{122}}
-\newlabel{code:spm-map-start}{{1}{122}}
-\newlabel{code:spm-edge-direct}{{4}{122}}
-\newlabel{code:spm-map-end}{{6}{122}}
-\newlabel{code:spm-shuffle-start}{{7}{122}}
-\newlabel{code:spm-shuffle-end}{{10}{122}}
-\newlabel{code:spm-reduce-start}{{11}{122}}
-\newlabel{code:spm-reduce-end}{{14}{122}}
-\newlabel{LEM:SPM_CORRECT}{{5.4.7}{122}}
-\newlabel{THM:SPM_CORRECT}{{5.4.8}{123}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Experimental Study}{123}}
-\newlabel{sec:exp}{{5.5}{123}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Put Everything Together}{117}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {12}{\ignorespaces Apriori Enumerator\relax }}{118}}
+\newlabel{algo:apriori_mining}{{12}{118}}
+\newlabel{code:init-start}{{2}{118}}
+\newlabel{code:simp1}{{4}{118}}
+\newlabel{code:init-end}{{6}{118}}
+\newlabel{code:level}{{7}{118}}
+\newlabel{code:level-start}{{8}{118}}
+\newlabel{code:join-start}{{10}{118}}
+\newlabel{code:join}{{11}{118}}
+\newlabel{code:simp2}{{12}{118}}
+\newlabel{code:join-end}{{15}{118}}
+\newlabel{code:output1-start}{{16}{118}}
+\newlabel{code:output1-end}{{20}{118}}
+\newlabel{code:fc-checking-start}{{22}{118}}
+\newlabel{code:fc-checking}{{25}{118}}
+\newlabel{code:fc-checking-end}{{26}{118}}
+\newlabel{code:level-ends}{{28}{118}}
+\newlabel{code:output2-end}{{29}{118}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {13}{\ignorespaces Star Partitioning and ApRiori Enumerator\relax }}{119}}
+\newlabel{algo:spm_overview}{{13}{119}}
+\newlabel{code:spm-map-start}{{1}{119}}
+\newlabel{code:spm-edge-direct}{{4}{119}}
+\newlabel{code:spm-map-end}{{6}{119}}
+\newlabel{code:spm-shuffle-start}{{7}{119}}
+\newlabel{code:spm-shuffle-end}{{10}{119}}
+\newlabel{code:spm-reduce-start}{{11}{119}}
+\newlabel{code:spm-reduce-end}{{14}{119}}
+\newlabel{LEM:SPM_CORRECT}{{5.4.7}{119}}
+\newlabel{THM:SPM_CORRECT}{{5.4.8}{120}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Experimental Study}{120}}
+\newlabel{sec:exp}{{5.5}{120}}
 \citation{ester1996density}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Statistics of datasets.\relax }}{125}}
-\newlabel{exp:dataset}{{5.5}{125}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Parameters and their default values.\relax }}{125}}
-\newlabel{tbl:parameters}{{5.6}{125}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Performance Evaluation}{125}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $M$\relax }}{126}}
-\newlabel{exp:performance_vary_m}{{5.7}{126}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $K$\relax }}{126}}
-\newlabel{exp:performance_vary_k}{{5.8}{126}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $L$\relax }}{127}}
-\newlabel{exp:performance_vary_l}{{5.9}{127}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $G$\relax }}{127}}
-\newlabel{exp:performance_vary_g}{{5.10}{127}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $O_r$\relax }}{127}}
-\newlabel{exp:performance_vary_o}{{5.11}{127}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $T$\relax }}{128}}
-\newlabel{exp:performance_vary_t}{{5.12}{128}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces Resources taken for TRPM and SPARE. Vcore-seconds is the aggregate of time spent in each core. Memory is the actual size (in MB) of RDDs.\relax }}{128}}
-\newlabel{tbl:resource}{{5.7}{128}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Analysis on the SPARE framework}{128}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2.1}Power of sequence simplification}{128}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Pruning power of SPARE.\relax }}{129}}
-\newlabel{tbl:pruning}{{5.8}{129}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2.2}Load balance}{129}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Cost breakdown of TRPM, SPARE-RD and SPARE.\relax }}{130}}
-\newlabel{exp:wl}{{5.13}{130}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces Statistics of execution time (seconds) on all jobs.\relax }}{130}}
-\newlabel{tbl:strags}{{5.9}{130}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2.3}Scalability}{130}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Comparisons among TRMP, SPARE, PLATOON and SWARM.\relax }}{131}}
-\newlabel{exp:scalability}{{5.14}{131}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Summary}{131}}
-\newlabel{sec:concl}{{5.6}{131}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Statistics of datasets.\relax }}{122}}
+\newlabel{exp:dataset}{{5.5}{122}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Parameters and their default values.\relax }}{122}}
+\newlabel{tbl:parameters}{{5.6}{122}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Performance Evaluation}{122}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $M$\relax }}{123}}
+\newlabel{exp:performance_vary_m}{{5.7}{123}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $K$\relax }}{123}}
+\newlabel{exp:performance_vary_k}{{5.8}{123}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $L$\relax }}{124}}
+\newlabel{exp:performance_vary_l}{{5.9}{124}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $G$\relax }}{124}}
+\newlabel{exp:performance_vary_g}{{5.10}{124}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $O_r$\relax }}{124}}
+\newlabel{exp:performance_vary_o}{{5.11}{124}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Performance of SPARE and TRPM on real datasets with varying $T$\relax }}{125}}
+\newlabel{exp:performance_vary_t}{{5.12}{125}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces Resources taken for TRPM and SPARE. Vcore-seconds is the aggregate of time spent in each core. Memory is the actual size (in MB) of RDDs.\relax }}{125}}
+\newlabel{tbl:resource}{{5.7}{125}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Analysis on the SPARE framework}{125}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2.1}Power of sequence simplification}{125}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Pruning power of SPARE.\relax }}{126}}
+\newlabel{tbl:pruning}{{5.8}{126}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2.2}Load balance}{126}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Cost breakdown of TRPM, SPARE-RD and SPARE.\relax }}{127}}
+\newlabel{exp:wl}{{5.13}{127}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces Statistics of execution time (seconds) on all jobs.\relax }}{127}}
+\newlabel{tbl:strags}{{5.9}{127}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2.3}Scalability}{127}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Comparisons among TRMP, SPARE, PLATOON and SWARM.\relax }}{128}}
+\newlabel{exp:scalability}{{5.14}{128}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Summary}{128}}
+\newlabel{sec:concl}{{5.6}{128}}
 \@setckpt{chapter5/chapter5}{
-\setcounter{page}{132}
+\setcounter{page}{129}
 \setcounter{equation}{0}
 \setcounter{enumi}{2}
 \setcounter{enumii}{0}

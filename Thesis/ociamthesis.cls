@@ -101,20 +101,25 @@
     \thispagestyle{empty}
   \null\vfill
   \begin{center}
+    {{\logo} \par}
     { \Huge {\bfseries {\@title}} \par}
    % {{\Large \@author} \par}
-{\large \vspace*{20mm} {{\Large \@author} \par {\@curdegree} \par} \vspace*{12mm}}
+{\large \vspace*{20mm} {\bf {\Large \@author} \par {\@curdegree} \par} \vspace*{5mm}}
 {\large \vspace*{1ex}
-	{{\logo} \par}
-    {{\@college} \par}
+	
+    %{{\@college} \par}
 %\vspace*{1ex}
-    {National University of Singapore \par}
-\vspace*{15mm}
-    {{\submittedtext} \par}
-\vspace*{1ex}
-    {\it {\@degree} \par}
-\vspace*{2ex}
-    {\@degreedate}}
+    %{National University of Singapore \par}
+%\vspace*{5mm}
+    {\bf A THESIS SUBMITTED \\ %\par}
+%\vspace*{2ex}
+%	{\bf 
+	FOR THE DEGREE OF DOCTOR OF PHILOSOPHY \par}
+  %  {\bf DOCTOR OF PHILOSOPHY \par}
+\vspace*{4ex}
+	{\bf NUS GRADUATE SCHOOL FOR INTEGRATIVE SCIENCES AND ENGINEERING (NGS) \par}
+	{\bf NATIONAL UNIVERSITY OF SINGAPORE\par}
+    {\bf \@degreedate}}
   \end{center}
   \null\vfill
 \end{alwayssingle}}
@@ -207,7 +212,7 @@
 \renewenvironment{abstract} {\begin{alwayssingle} \thispagestyle{empty}
   \begin{center}
   \vspace*{1.5cm}
-  {\Large \bfseries  Abstract}
+  {\Large \bfseries  Summary}
   \end{center}
   \vspace{0.5cm}
    \begin{quote}}
