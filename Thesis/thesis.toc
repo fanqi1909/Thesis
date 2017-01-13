@@ -26,7 +26,7 @@
 \contentsline {subsubsection}{\numberline {2.3.1.2}Group, swarm and platoon}{20}
 \contentsline {subsection}{\numberline {2.3.2}Other Related Trajectory Patterns}{20}
 \contentsline {subsection}{\numberline {2.3.3}Trajectory Mining Frameworks}{21}
-\contentsline {chapter}{\numberline {3}Graph Window Query: Neighborhood Analytics on Attributed Graphs}{22}
+\contentsline {chapter}{\numberline {3}Graph Window Query: Neighborhood Analytics in Attributed Graphs}{22}
 \contentsline {section}{\numberline {3.1}Introduction}{22}
 \contentsline {section}{\numberline {3.2}Problem Formulation}{26}
 \contentsline {section}{\numberline {3.3}Dense Block Index}{29}
