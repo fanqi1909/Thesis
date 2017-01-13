@@ -12,6 +12,11 @@ Rakesh Agrawal, Ramakrishnan Srikant, et~al.
 \newblock In {\em Proc. 20th int. conf. very large data bases, VLDB}, volume
   1215, pages 487--499, 1994.
 
+\bibitem{alamri2014taxonomy}
+Sultan Alamri, David Taniar, and Maytham Safar.
+\newblock A taxonomy for moving object queries in spatial databases.
+\newblock {\em Future Generation Computer Systems}, 37:232--242, 2014.
+
 \bibitem{allan1998line}
 James Allan, Ron Papka, and Victor Lavrenko.
 \newblock On-line new event detection and tracking.
@@ -64,7 +69,7 @@ Thorsten Brants, Francine Chen, and Ayman Farahat.
   pages 330--337, New York, NY, USA, 2003. ACM.
 
 \bibitem{briscoe2013determining}
-Erica~J Briscoe, D~Scott Appling, Rudolph~L Mappus~IV, and Heather Hayes.
+Erica~J. Briscoe, D.~Scott Appling, Rudolph~L. Mappus~IV, and Heather Hayes.
 \newblock Determining credibility from social network structure.
 \newblock In {\em Proceedings of the 2013 IEEE/ACM International Conference on
   Advances in Social Networks Analysis and Mining}, pages 1418--1424. ACM,
@@ -114,7 +119,7 @@ James Cheng, Zechao Shang, Hong Cheng, Haixun Wang, and Jeffrey~Xu Yu.
 Tom Choe, Alexander Skabardonis, and Pravin Varaiya.
 \newblock Freeway performance measurement system: operational analysis tool.
 \newblock {\em Transportation Research Record: Journal of the Transportation
-  Research Board}, (1811):67--75, 2002.
+  Research Board}, 1(1811):67--75, 2002.
 
 \bibitem{cohen2011computational}
 Sarah Cohen, Chengkai Li, Jun Yang, and Cong Yu.
@@ -174,7 +179,8 @@ Joachim Gudmundsson and Marc van Kreveld.
 \bibitem{guo2016influence}
 Long Guo, Dongxiang Zhang, Gao Cong, Wei Wu, and Kian-Lee Tan.
 \newblock Influence maximization in trajectory databases.
-\newblock In {\em TKDE}, in publication process, 2016.
+\newblock {\em IEEE Transcations on Knowledge and Data Engineering}, 99:1--14,
+  2016.
 
 \bibitem{han2000mining}
 Jiawei Han, Jian Pei, and Yiwen Yin.
@@ -303,7 +309,7 @@ Jayanta Mondal and Amol Deshpande.
   on Management of Data}, pages 1335--1346. ACM, 2014.
 
 \bibitem{Fisher1978An}
-George~L Nemhauser, Laurence~A Wolsey, and Marshall~L Fisher.
+George~L. Nemhauser, Laurence~A. Wolsey, and Marshall~L. Fisher.
 \newblock An analysis of approximations for maximizing submodular set
   functions—i.
 \newblock {\em Mathematical Programming}, 14(1):265--294, 1978.
@@ -312,13 +318,14 @@ George~L Nemhauser, Laurence~A Wolsey, and Marshall~L Fisher.
 Jian Pei, Jiawei Han, and Runying Mao.
 \newblock Closet: An efficient algorithm for mining frequent closed itemsets.
 \newblock In {\em ACM SIGMOD workshop on research issues in data mining and
-  knowledge discovery}, volume~4, pages 21--30, 2000.
+  knowledge discovery}, pages 21--30. ACM, 2000.
 
 \bibitem{Saha2009On}
 Barna Saha and Lise Getoor.
 \newblock On maximum coverage in the streaming model \& application to
   multi-topic blog-watch.
-\newblock 9:697--708, 2009.
+\newblock In {\em Proceedings of the 2009 SIAM International Conference on Data
+  Mining}, volume~9, pages 697--708. SIAM, 2009.
 
 \bibitem{sultana2014incremental}
 Afroza Sultana, Naeemul Hassan, Chengkai Li, Jun Yang, and Cong Yu.
@@ -425,7 +432,7 @@ Matei Zaharia, Mosharaf Chowdhury, Tathagata Das, Ankur Dave, Justin Ma, Murphy
 
 \bibitem{zemke2012s}
 Fred Zemke.
-\newblock What. s new in sql: 2011.
+\newblock What's new in sql: 2011.
 \newblock {\em ACM SIGMOD Record}, 41(1):67--73, 2012.
 
 \bibitem{zhang2014discovering}

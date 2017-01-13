@@ -91,8 +91,8 @@
 \contentsline {section}{\numberline {6.1}Thesis Contributions}{129}
 \contentsline {section}{\numberline {6.2}Future Research Directions}{131}
 \contentsline {chapter}{Bibliography}{132}
-\contentsline {chapter}{\numberline {A}Appendix}{142}
-\contentsline {section}{\numberline {A.1}Discussions on Other Aggregate Functions in Chapter 4}{142}
-\contentsline {section}{\numberline {A.2}Proofs of Theorems in Chapter 5}{143}
-\contentsline {subsection}{\numberline {A.2.1}Proofs of Theorem\nobreakspace {}5.4.1\hbox {} and\nobreakspace {}5.4.2\hbox {}}{143}
-\contentsline {subsection}{\numberline {A.2.2}Proof of Theorem\nobreakspace {}5.4.8\hbox {}}{145}
+\contentsline {chapter}{\numberline {A}Appendix}{143}
+\contentsline {section}{\numberline {A.1}Discussions on Other Aggregate Functions in Chapter 4}{143}
+\contentsline {section}{\numberline {A.2}Proofs of Theorems in Chapter 5}{144}
+\contentsline {subsection}{\numberline {A.2.1}Proofs of Theorem\nobreakspace {}5.4.1\hbox {} and\nobreakspace {}5.4.2\hbox {}}{144}
+\contentsline {subsection}{\numberline {A.2.2}Proof of Theorem\nobreakspace {}5.4.8\hbox {}}{146}
