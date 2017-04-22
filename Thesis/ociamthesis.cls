@@ -115,6 +115,26 @@
     {\it {\@degree} \par}
 \vspace*{2ex}
     {\@degreedate}}
+    {{\logo} \par}
+    { \Huge {\bfseries {\@title}} \par}
+   % {{\Large \@author} \par}
+{\large \vspace*{20mm} {\bf {\Large \@author} \par {\@curdegree} \par} \vspace*{5mm}}
+{\large \vspace*{1ex}
+	
+    %{{\@college} \par}
+%\vspace*{1ex}
+    %{National University of Singapore \par}
+%\vspace*{5mm}
+    {\bf A THESIS SUBMITTED \\ %\par}
+%\vspace*{2ex}
+%	{\bf 
+	FOR THE DEGREE OF DOCTOR OF PHILOSOPHY \par}
+  %  {\bf DOCTOR OF PHILOSOPHY \par}
+\vspace*{4ex}
+	{\bf NUS GRADUATE SCHOOL FOR INTEGRATIVE SCIENCES AND ENGINEERING (NGS) \par}
+	{\bf NATIONAL UNIVERSITY OF SINGAPORE\par}
+    {\bf \@degreedate}}
+>>>>>>> origin/master
   \end{center}
   \null\vfill
 \end{alwayssingle}}
@@ -207,7 +227,7 @@
 \renewenvironment{abstract} {\begin{alwayssingle} \thispagestyle{empty}
   \begin{center}
   \vspace*{1.5cm}
-  {\Large \bfseries  Abstract}
+  {\Large \bfseries  Summary}
   \end{center}
   \vspace{0.5cm}
    \begin{quote}}

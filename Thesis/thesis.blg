@@ -1,4 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: dedication.aux
+A level-1 auxiliary file: acknowlegements.aux
 A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: chapter1/chapter1.aux
 A level-1 auxiliary file: chapter2/chapter2.aux
@@ -9,28 +11,3 @@ A level-1 auxiliary file: conclusions.aux
 The style file: plain.bst
 A level-1 auxiliary file: appendix.aux
 Database file #1: refs.bib
-Repeated entry---line 236 of file refs.bib
- : @inproceedings{briscoe2013determining
- :                                      ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 245 of file refs.bib
- : @inproceedings{dai2012predicting
- :                                 ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 311 of file refs.bib
- : @article{campanario2011empirical
- :                                 ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 322 of file refs.bib
- : @article{holsapple2003citation
- :                               ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 333 of file refs.bib
- : @incollection{ma2010ego
- :                        ,
-I'm skipping whatever remains of this entry
-Warning--there's a number but no volume in choe2002freeway
-Warning--can't use both volume and number fields in han2000mining
-Warning--can't use both volume and number fields in pei2000closet
-Warning--empty journal in Saha2009On
-(There were 5 error messages)

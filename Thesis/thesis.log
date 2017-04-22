@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.28)  7 JAN 2017 16:28
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.28)  13 JAN 2017 15:14
 entering extended mode
 **thesis.tex
 (F:\GitHubRepos\Thesis\Thesis\thesis.tex
@@ -589,6 +589,8 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \c@query=\count146
 
 (F:\GitHubRepos\Thesis\Thesis\thesis.aux
+(F:\GitHubRepos\Thesis\Thesis\dedication.aux)
+(F:\GitHubRepos\Thesis\Thesis\acknowlegements.aux)
 (F:\GitHubRepos\Thesis\Thesis\abstract.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter1/chapter1.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter2/chapter2.aux)
@@ -637,22 +639,56 @@ Package pdftex.def Info: oxlogo.png used on input line 92.
 
 
 {C:/Users/a0048267/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <F:/GitHu
-bRepos/Thesis/Thesis/oxlogo.png>] (F:\GitHubRepos\Thesis\Thesis\abstract.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 18.
+bRepos/Thesis/Thesis/oxlogo.png>] (F:\GitHubRepos\Thesis\Thesis\dedication.tex 
+[2
+
+
+])
+(F:\GitHubRepos\Thesis\Thesis\acknowlegements.tex
+Overfull \hbox (8.12692pt too wide) in paragraph at lines 24--34
+[]\OT1/cmr/m/n/12 Third, I would like to es-pe-cially thank Prof. Zhengkui Wang
+ and Prof. Dong-
+ []
+
+[3
+
+
+
+] [4]) (F:\GitHubRepos\Thesis\Thesis\thesis.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
 
 (D:\MikTex\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 18.
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
  (D:\MikTex\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-[2
+[1
 
 
-] [3]) (F:\GitHubRepos\Thesis\Thesis\chapter1/chapter1.tex
+
+]
+Overfull \hbox (11.816pt too wide) in paragraph at lines 29--29
+ [] []\OT1/cmr/bx/n/12 Graph Win-dow Query: Neigh-bor-hood An-a-lyt-ics in At-t
+ributed Graphs []  
+ []
+
+[2] [3])
+\tf@toc=\write4
+ [4] (F:\GitHubRepos\Thesis\Thesis\abstract.tex [5
+
+
+] [6])
+(F:\GitHubRepos\Thesis\Thesis\thesis.lof [7
+
+
+] [8] [9])
+\tf@lof=\write5
+ [10]
+(F:\GitHubRepos\Thesis\Thesis\chapter1/chapter1.tex
 Chapter 1.
-(F:\GitHubRepos\Thesis\Thesis\chapter1/neighborhood_analytic.tex [4
+(F:\GitHubRepos\Thesis\Thesis\chapter1/neighborhood_analytic.tex [1
 
 
 
@@ -661,44 +697,44 @@ Chapter 1.
 pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/window_examp
 le.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allo
 wed
-<./Charts/window_example.pdf, id=25, 611.80872pt x 247.34569pt>
+<./Charts/window_example.pdf, id=62, 611.80872pt x 247.34569pt>
 File: ./Charts/window_example.pdf Graphic file (type pdf)
 
 <use ./Charts/window_example.pdf>
 Package pdftex.def Info: ./Charts/window_example.pdf used on input line 10.
 (pdftex.def)             Requested size: 346.89731pt x 140.24876pt.
- [5 <F:/GitHubRepos/Thesis/Thesis/Charts/window_example.pdf, page is rotated 90
+ [2 <F:/GitHubRepos/Thesis/Thesis/Charts/window_example.pdf, page is rotated 90
  degrees>])
-(F:\GitHubRepos\Thesis\Thesis\chapter1/thesis_scope.tex [6])
+(F:\GitHubRepos\Thesis\Thesis\chapter1/thesis_scope.tex [3])
 (F:\GitHubRepos\Thesis\Thesis\chapter1/contributions.tex
 
 pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/thesis_roadm
 ap.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allo
 wed
-<./Charts/thesis_roadmap.pdf, id=56, 646.76971pt x 308.52664pt>
+<./Charts/thesis_roadmap.pdf, id=91, 646.76971pt x 308.52664pt>
 File: ./Charts/thesis_roadmap.pdf Graphic file (type pdf)
 
 <use ./Charts/thesis_roadmap.pdf>
 Package pdftex.def Info: ./Charts/thesis_roadmap.pdf used on input line 15.
 (pdftex.def)             Requested size: 346.89731pt x 165.48146pt.
- [7 <F:/GitHubRepos/Thesis/Thesis/Charts/thesis_roadmap.pdf, page is rotated 90
- degrees>] [8] [9]
+ [4 <F:/GitHubRepos/Thesis/Thesis/Charts/thesis_roadmap.pdf, page is rotated 90
+ degrees>] [5] [6]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 171.
 
-[10] [11]) [12]
+[7] [8]) [9]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 58.
  (D:\MikTex\tex\latex\base\omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
- [13]) [14]
+ [10]) [11]
 (F:\GitHubRepos\Thesis\Thesis\chapter2/chapter2.tex
 Chapter 2.
-(F:\GitHubRepos\Thesis\Thesis\chapter2/rw-graph.tex [15
+(F:\GitHubRepos\Thesis\Thesis\chapter2/rw-graph.tex [12
 
 
 
@@ -715,7 +751,7 @@ s-converted-to.pdf ./Charts/chapter2/graphagg-window.eps>
 (epstopdf)             \includegraphics on input line 27.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/graphagg-window-eps-converted-to.pdf, id=108, 648.4225pt x 384.43625p
+<./Charts/graphagg-window-eps-converted-to.pdf, id=142, 648.4225pt x 384.43625p
 t>
 File: ./Charts/graphagg-window-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/graphagg-window-eps-converted-to.pdf>
@@ -726,36 +762,36 @@ input line 27.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[16] [17 <F:/GitHubRepos/Thesis/Thesis/Charts/graphagg-window-eps-converted-to.
-pdf>] [18]) (F:\GitHubRepos\Thesis\Thesis\chapter2/rw-sketch.tex
+[13] [14 <F:/GitHubRepos/Thesis/Thesis/Charts/graphagg-window-eps-converted-to.
+pdf>] [15]) (F:\GitHubRepos\Thesis\Thesis\chapter2/rw-sketch.tex
 Overfull \hbox (2.83597pt too wide) in paragraph at lines 10--16
 \OT1/cmr/m/n/12 gen-er-a-tion be-long to two cat-e-gories: \OT1/cmr/m/it/12 dim
 ension-oriented \OT1/cmr/m/n/12 ap-proach and \OT1/cmr/m/it/12 subject-oriented
 
  []
 
-[19] [20] [21]) (F:\GitHubRepos\Thesis\Thesis\chapter2/rw-trajectory.tex
-[22])) [23] [24] (F:\GitHubRepos\Thesis\Thesis\chapter3/chapter3.tex
+[16] [17] [18]) (F:\GitHubRepos\Thesis\Thesis\chapter2/rw-trajectory.tex
+[19])) [20] [21] (F:\GitHubRepos\Thesis\Thesis\chapter3/chapter3.tex
 Chapter 3.
-(F:\GitHubRepos\Thesis\Thesis\chapter3/introduction.tex [25
+(F:\GitHubRepos\Thesis\Thesis\chapter3/introduction.tex [22
 
 
 
-] [26] [27] [28])
-(F:\GitHubRepos\Thesis\Thesis\chapter3/definition.tex [29]
-<./Charts/chapter3/attributed_graph.pdf, id=162, 875.85574pt x 387.5294pt>
+] [23] [24] [25])
+(F:\GitHubRepos\Thesis\Thesis\chapter3/definition.tex [26]
+<./Charts/chapter3/attributed_graph.pdf, id=196, 875.85574pt x 387.5294pt>
 File: ./Charts/chapter3/attributed_graph.pdf Graphic file (type pdf)
 
 <use ./Charts/chapter3/attributed_graph.pdf>
 Package pdftex.def Info: ./Charts/chapter3/attributed_graph.pdf used on input l
 ine 22.
 (pdftex.def)             Requested size: 346.89731pt x 153.4834pt.
- [30 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/attributed_graph.pdf>]
+ [27 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/attributed_graph.pdf>]
 
 pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/dag
 .pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowe
 d
-<./Charts/chapter3/dag.pdf, id=184, 604.0144pt x 150.5625pt>
+<./Charts/chapter3/dag.pdf, id=218, 604.0144pt x 150.5625pt>
 File: ./Charts/chapter3/dag.pdf Graphic file (type pdf)
 
 <use ./Charts/chapter3/dag.pdf>
@@ -765,7 +801,7 @@ Package pdftex.def Info: ./Charts/chapter3/dag.pdf used on input line 86.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31]) (F:\GitHubRepos\Thesis\Thesis\chapter3/DBIndex.tex [32 <F:/GitHubRepos/Th
+[28]) (F:\GitHubRepos\Thesis\Thesis\chapter3/DBIndex.tex [29 <F:/GitHubRepos/Th
 esis/Thesis/Charts/chapter3/dag.pdf>]
 Overfull \hbox (11.20972pt too wide) in paragraph at lines 35--38
 []\OT1/cmr/m/n/12 We say that a win-dow $\OML/cmm/m/it/12 W\OT1/cmr/m/n/12 (\OM
@@ -774,19 +810,19 @@ by a col-lec-tion of dis-joint blocks $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 B[];
 []  ; B[]\OMS/cmsy/m/n/12 g$
  []
 
-[33] <./Charts/chapter3/dbi_process.pdf, id=209, 733.83461pt x 587.63197pt>
+[30] <./Charts/chapter3/dbi_process.pdf, id=243, 733.83461pt x 587.63197pt>
 File: ./Charts/chapter3/dbi_process.pdf Graphic file (type pdf)
 
 <use ./Charts/chapter3/dbi_process.pdf>
 Package pdftex.def Info: ./Charts/chapter3/dbi_process.pdf used on input line 5
 9.
 (pdftex.def)             Requested size: 346.89731pt x 277.79207pt.
- [34 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/dbi_process.pdf>] [35]
+ [31 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/dbi_process.pdf>] [32]
 
 pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/dbi
 _indexing.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.
 5> allowed
-<./Charts/chapter3/dbi_indexing.pdf, id=229, 615.83708pt x 472.34135pt>
+<./Charts/chapter3/dbi_indexing.pdf, id=263, 615.83708pt x 472.34135pt>
 File: ./Charts/chapter3/dbi_indexing.pdf Graphic file (type pdf)
 
 <use ./Charts/chapter3/dbi_indexing.pdf>
@@ -797,25 +833,25 @@ Package pdftex.def Info: ./Charts/chapter3/dbi_indexing.pdf used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[36] [37 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/dbi_indexing.pdf>]
-[38] [39] [40] [41] [42] [43])
+[33] [34 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/dbi_indexing.pdf>]
+[35] [36] [37] [38] [39] [40])
 (F:\GitHubRepos\Thesis\Thesis\chapter3/parent_index.tex
-<./Charts/chapter3/di_indexing.pdf, id=278, 910.55779pt x 432.64847pt>
+<./Charts/chapter3/di_indexing.pdf, id=311, 910.55779pt x 432.64847pt>
 File: ./Charts/chapter3/di_indexing.pdf Graphic file (type pdf)
 
 <use ./Charts/chapter3/di_indexing.pdf>
 Package pdftex.def Info: ./Charts/chapter3/di_indexing.pdf used on input line 2
 8.
 (pdftex.def)             Requested size: 346.89731pt x 164.83063pt.
- [44] [45 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/di_indexing.pdf>] [46] 
-[47])
-(F:\GitHubRepos\Thesis\Thesis\chapter3/experiment.tex [48]
+ [41] [42 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/di_indexing.pdf>] [43] 
+[44])
+(F:\GitHubRepos\Thesis\Thesis\chapter3/experiment.tex [45]
 
 pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/effectiveness/amazon_index_time.pdf): PDF inclusion: found PDF vers
 ion <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/effectiveness/amazon_index_time.pdf, id=310, 
+<./Charts/chapter3/exp/khopeffect/effectiveness/amazon_index_time.pdf, id=344, 
 342.01035pt x 247.1644pt>
 File: ./Charts/chapter3/exp/khopeffect/effectiveness/amazon_index_time.pdf Grap
 hic file (type pdf)
@@ -830,7 +866,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/effectiveness/stanford_index_time.pdf): PDF inclusion: found PDF ve
 rsion <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/effectiveness/stanford_index_time.pdf, id=311
+<./Charts/chapter3/exp/khopeffect/effectiveness/stanford_index_time.pdf, id=345
 , 344.27884pt x 247.1644pt>
 File: ./Charts/chapter3/exp/khopeffect/effectiveness/stanford_index_time.pdf Gr
 aphic file (type pdf)
@@ -845,7 +881,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/effectiveness/amazon_index_size.pdf): PDF inclusion: found PDF vers
 ion <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/effectiveness/amazon_index_size.pdf, id=312, 
+<./Charts/chapter3/exp/khopeffect/effectiveness/amazon_index_size.pdf, id=346, 
 346.05005pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/effectiveness/amazon_index_size.pdf Grap
 hic file (type pdf)
@@ -860,7 +896,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/effectiveness/stanford_index_size.pdf): PDF inclusion: found PDF ve
 rsion <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/effectiveness/stanford_index_size.pdf, id=313
+<./Charts/chapter3/exp/khopeffect/effectiveness/stanford_index_size.pdf, id=347
 , 346.05005pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/effectiveness/stanford_index_size.pdf Gr
 aphic file (type pdf)
@@ -870,7 +906,7 @@ Package pdftex.def Info: ./Charts/chapter3/exp/khopeffect/effectiveness/stanfor
 d_index_size.pdf used on input line 72.
 (pdftex.def)             Requested size: 195.12767pt x 142.05522pt.
 
-[49] [50 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/effective
+[46] [47 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/effective
 ness/amazon_index_time.pdf, page is rotated 90 degrees> <F:/GitHubRepos/Thesis/
 Thesis/Charts/chapter3/exp/khopeffect/effectiveness/stanford_index_time.pdf, pa
 ge is rotated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/kho
@@ -882,7 +918,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/effectiveness/amazon_query_time.pdf): PDF inclusion: found PDF vers
 ion <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/effectiveness/amazon_query_time.pdf, id=345, 
+<./Charts/chapter3/exp/khopeffect/effectiveness/amazon_query_time.pdf, id=379, 
 346.05005pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/effectiveness/amazon_query_time.pdf Grap
 hic file (type pdf)
@@ -897,7 +933,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/effectiveness/stanford_query_time.pdf): PDF inclusion: found PDF ve
 rsion <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/effectiveness/stanford_query_time.pdf, id=346
+<./Charts/chapter3/exp/khopeffect/effectiveness/stanford_query_time.pdf, id=380
 , 359.67093pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/effectiveness/stanford_query_time.pdf Gr
 aphic file (type pdf)
@@ -910,7 +946,7 @@ d_query_time.pdf used on input line 142.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[51] [52 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/effective
+[48] [49 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/effective
 ness/amazon_query_time.pdf, page is rotated 90 degrees> <F:/GitHubRepos/Thesis/
 Thesis/Charts/chapter3/exp/khopeffect/effectiveness/stanford_query_time.pdf, pa
 ge is rotated 90 degrees>]
@@ -919,7 +955,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/real_data/real_index_time_h1.pdf): PDF inclusion: found PDF version
  <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/real_data/real_index_time_h1.pdf, id=365, 347
+<./Charts/chapter3/exp/khopeffect/real_data/real_index_time_h1.pdf, id=399, 347
 .78099pt x 250.46875pt>
 File: ./Charts/chapter3/exp/khopeffect/real_data/real_index_time_h1.pdf Graphic
  file (type pdf)
@@ -934,7 +970,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/real_data/real_query_time_h1.pdf): PDF inclusion: found PDF version
  <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/real_data/real_query_time_h1.pdf, id=366, 347
+<./Charts/chapter3/exp/khopeffect/real_data/real_query_time_h1.pdf, id=400, 347
 .78099pt x 250.46875pt>
 File: ./Charts/chapter3/exp/khopeffect/real_data/real_query_time_h1.pdf Graphic
  file (type pdf)
@@ -949,7 +985,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/real_data/real_index_time_h2.pdf): PDF inclusion: found PDF version
  <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/real_data/real_index_time_h2.pdf, id=367, 347
+<./Charts/chapter3/exp/khopeffect/real_data/real_index_time_h2.pdf, id=401, 347
 .78099pt x 250.46875pt>
 File: ./Charts/chapter3/exp/khopeffect/real_data/real_index_time_h2.pdf Graphic
  file (type pdf)
@@ -964,7 +1000,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/real_data/real_query_time_h2.pdf): PDF inclusion: found PDF version
  <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/real_data/real_query_time_h2.pdf, id=368, 347
+<./Charts/chapter3/exp/khopeffect/real_data/real_query_time_h2.pdf, id=402, 347
 .78099pt x 250.46875pt>
 File: ./Charts/chapter3/exp/khopeffect/real_data/real_query_time_h2.pdf Graphic
  file (type pdf)
@@ -977,10 +1013,10 @@ time_h2.pdf used on input line 218.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[53 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/real_data/real
+[50 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/real_data/real
 _index_time_h1.pdf, page is rotated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/C
 harts/chapter3/exp/khopeffect/real_data/real_query_time_h1.pdf, page is rotated
- 90 degrees>] [54 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/
+ 90 degrees>] [51 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/
 real_data/real_index_time_h2.pdf, page is rotated 90 degrees> <F:/GitHubRepos/T
 hesis/Thesis/Charts/chapter3/exp/khopeffect/real_data/real_query_time_h2.pdf, p
 age is rotated 90 degrees>]
@@ -989,7 +1025,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/d10h1_index.pdf): PDF inclusion: found PDF version <1.6
 >, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/d10h1_index.pdf, id=399, 369.8951
+<./Charts/chapter3/exp/khopeffect/scalability/d10h1_index.pdf, id=433, 369.8951
 4pt x 249.30138pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/d10h1_index.pdf Graphic file
  (type pdf)
@@ -1004,7 +1040,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/d10h1_query.pdf): PDF inclusion: found PDF version <1.6
 >, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/d10h1_query.pdf, id=400, 369.8951
+<./Charts/chapter3/exp/khopeffect/scalability/d10h1_query.pdf, id=434, 369.8951
 4pt x 249.30138pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/d10h1_query.pdf Graphic file
  (type pdf)
@@ -1019,7 +1055,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/d10h2_index.pdf): PDF inclusion: found PDF version <1.6
 >, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/d10h2_index.pdf, id=401, 369.8951
+<./Charts/chapter3/exp/khopeffect/scalability/d10h2_index.pdf, id=435, 369.8951
 4pt x 249.30138pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/d10h2_index.pdf Graphic file
  (type pdf)
@@ -1034,7 +1070,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/d10h2_query.pdf): PDF inclusion: found PDF version <1.6
 >, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/d10h2_query.pdf, id=402, 369.8951
+<./Charts/chapter3/exp/khopeffect/scalability/d10h2_query.pdf, id=436, 369.8951
 4pt x 249.30138pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/d10h2_query.pdf Graphic file
  (type pdf)
@@ -1049,7 +1085,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/varyd_index_2M.pdf): PDF inclusion: found PDF version <
 1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/varyd_index_2M.pdf, id=403, 391.0
+<./Charts/chapter3/exp/khopeffect/scalability/varyd_index_2M.pdf, id=437, 391.0
 0299pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/varyd_index_2M.pdf Graphic f
 ile (type pdf)
@@ -1064,7 +1100,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/varyd_query_2M.pdf): PDF inclusion: found PDF version <
 1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/varyd_query_2M.pdf, id=404, 400.2
+<./Charts/chapter3/exp/khopeffect/scalability/varyd_query_2M.pdf, id=438, 400.2
 0135pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/varyd_query_2M.pdf Graphic f
 ile (type pdf)
@@ -1079,7 +1115,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/varyd_index_2M_h2.pdf): PDF inclusion: found PDF versio
 n <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/varyd_index_2M_h2.pdf, id=405, 39
+<./Charts/chapter3/exp/khopeffect/scalability/varyd_index_2M_h2.pdf, id=439, 39
 1.00299pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/varyd_index_2M_h2.pdf Graphi
 c file (type pdf)
@@ -1094,7 +1130,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/varyd_query_2M_h2.pdf): PDF inclusion: found PDF versio
 n <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/varyd_query_2M_h2.pdf, id=406, 39
+<./Charts/chapter3/exp/khopeffect/scalability/varyd_query_2M_h2.pdf, id=440, 39
 0.81227pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/varyd_query_2M_h2.pdf Graphi
 c file (type pdf)
@@ -1104,13 +1140,13 @@ Package pdftex.def Info: ./Charts/chapter3/exp/khopeffect/scalability/varyd_que
 ry_2M_h2.pdf used on input line 322.
 (pdftex.def)             Requested size: 195.12767pt x 125.78696pt.
 
-[55] [56 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/scalabili
+[52] [53 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/scalabili
 ty/d10h1_index.pdf, page is rotated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/C
 harts/chapter3/exp/khopeffect/scalability/d10h1_query.pdf, page is rotated 90 d
 egrees> <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/scalabilit
 y/d10h2_index.pdf, page is rotated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/Ch
 arts/chapter3/exp/khopeffect/scalability/d10h2_query.pdf, page is rotated 90 de
-grees>] [57 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/scalab
+grees>] [54 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/scalab
 ility/varyd_index_2M.pdf, page is rotated 90 degrees> <F:/GitHubRepos/Thesis/Th
 esis/Charts/chapter3/exp/khopeffect/scalability/varyd_query_2M.pdf, page is rot
 ated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/s
@@ -1122,7 +1158,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/varyd_index_200k.pdf): PDF inclusion: found PDF version
  <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/varyd_index_200k.pdf, id=465, 388
+<./Charts/chapter3/exp/khopeffect/scalability/varyd_index_200k.pdf, id=499, 388
 .91017pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/varyd_index_200k.pdf Graphic
  file (type pdf)
@@ -1137,7 +1173,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/varyd_query_200k.pdf): PDF inclusion: found PDF version
  <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/varyd_query_200k.pdf, id=466, 388
+<./Charts/chapter3/exp/khopeffect/scalability/varyd_query_200k.pdf, id=500, 388
 .71947pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/varyd_query_200k.pdf Graphic
  file (type pdf)
@@ -1152,7 +1188,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/varyd_index_200k_h2.pdf): PDF inclusion: found PDF vers
 ion <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/varyd_index_200k_h2.pdf, id=467, 
+<./Charts/chapter3/exp/khopeffect/scalability/varyd_index_200k_h2.pdf, id=501, 
 388.91017pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/varyd_index_200k_h2.pdf Grap
 hic file (type pdf)
@@ -1167,7 +1203,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /khopeffect/scalability/varyd_query_200k_h2.pdf): PDF inclusion: found PDF vers
 ion <1.6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/khopeffect/scalability/varyd_query_200k_h2.pdf, id=468, 
+<./Charts/chapter3/exp/khopeffect/scalability/varyd_query_200k_h2.pdf, id=502, 
 391.83008pt x 251.9282pt>
 File: ./Charts/chapter3/exp/khopeffect/scalability/varyd_query_200k_h2.pdf Grap
 hic file (type pdf)
@@ -1182,7 +1218,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_index_time_v30k.pdf): PDF inclusion: found PDF version <1.
 6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_index_time_v30k.pdf, id=469, 352.263
+<./Charts/chapter3/exp/topoeffect/comp/top_index_time_v30k.pdf, id=503, 352.263
 26pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_index_time_v30k.pdf Graphic fil
 e (type pdf)
@@ -1197,7 +1233,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_query_time_v30k.pdf): PDF inclusion: found PDF version <1.
 6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_query_time_v30k.pdf, id=470, 364.719
+<./Charts/chapter3/exp/topoeffect/comp/top_query_time_v30k.pdf, id=504, 364.719
 8pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_query_time_v30k.pdf Graphic fil
 e (type pdf)
@@ -1212,7 +1248,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_index_time_v60k.pdf): PDF inclusion: found PDF version <1.
 6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_index_time_v60k.pdf, id=471, 352.263
+<./Charts/chapter3/exp/topoeffect/comp/top_index_time_v60k.pdf, id=505, 352.263
 26pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_index_time_v60k.pdf Graphic fil
 e (type pdf)
@@ -1227,7 +1263,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_query_time_v60k.pdf): PDF inclusion: found PDF version <1.
 6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_query_time_v60k.pdf, id=472, 364.719
+<./Charts/chapter3/exp/topoeffect/comp/top_query_time_v60k.pdf, id=506, 364.719
 8pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_query_time_v60k.pdf Graphic fil
 e (type pdf)
@@ -1240,13 +1276,13 @@ Package pdftex.def Info: ./Charts/chapter3/exp/topoeffect/comp/top_query_time_v
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[58 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/scalability/va
+[55 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/scalability/va
 ryd_index_200k.pdf, page is rotated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/C
 harts/chapter3/exp/khopeffect/scalability/varyd_query_200k.pdf, page is rotated
  90 degrees> <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/khopeffect/scala
 bility/varyd_index_200k_h2.pdf, page is rotated 90 degrees> <F:/GitHubRepos/The
 sis/Thesis/Charts/chapter3/exp/khopeffect/scalability/varyd_query_200k_h2.pdf, 
-page is rotated 90 degrees>] [59 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/
+page is rotated 90 degrees>] [56 <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/
 exp/topoeffect/comp/top_index_time_v30k.pdf, page is rotated 90 degrees> <F:/Gi
 tHubRepos/Thesis/Thesis/Charts/chapter3/exp/topoeffect/comp/top_query_time_v30k
 .pdf, page is rotated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3
@@ -1258,7 +1294,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_scale_index_d10.pdf): PDF inclusion: found PDF version <1.
 6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_scale_index_d10.pdf, id=527, 363.246
+<./Charts/chapter3/exp/topoeffect/comp/top_scale_index_d10.pdf, id=561, 363.246
 28pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_scale_index_d10.pdf Graphic fil
 e (type pdf)
@@ -1273,7 +1309,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_scale_query_d10.pdf): PDF inclusion: found PDF version <1.
 6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_scale_query_d10.pdf, id=528, 363.647
+<./Charts/chapter3/exp/topoeffect/comp/top_scale_query_d10.pdf, id=562, 363.647
 8pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_scale_query_d10.pdf Graphic fil
 e (type pdf)
@@ -1288,7 +1324,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_scale_index_d20.pdf): PDF inclusion: found PDF version <1.
 6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_scale_index_d20.pdf, id=529, 363.647
+<./Charts/chapter3/exp/topoeffect/comp/top_scale_index_d20.pdf, id=563, 363.647
 8pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_scale_index_d20.pdf Graphic fil
 e (type pdf)
@@ -1303,7 +1339,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_scale_query_d20.pdf): PDF inclusion: found PDF version <1.
 6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_scale_query_d20.pdf, id=530, 364.049
+<./Charts/chapter3/exp/topoeffect/comp/top_scale_query_d20.pdf, id=564, 364.049
 29pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_scale_query_d20.pdf Graphic fil
 e (type pdf)
@@ -1318,7 +1354,7 @@ pdfTeX warning: pdflatex (file F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp
 /topoeffect/comp/top_scale_index_size.pdf): PDF inclusion: found PDF version <1
 .6>, but at most version <1.5> allowed
 
-<./Charts/chapter3/exp/topoeffect/comp/top_scale_index_size.pdf, id=531, 346.05
+<./Charts/chapter3/exp/topoeffect/comp/top_scale_index_size.pdf, id=565, 346.05
 005pt x 251.9282pt>
 File: ./Charts/chapter3/exp/topoeffect/comp/top_scale_index_size.pdf Graphic fi
 le (type pdf)
@@ -1331,28 +1367,28 @@ size.pdf used on input line 494.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (F:\GitHubRepos\Thesis\Thesis\chapter3/conclusion.tex [60 <F:/GitHubRepos/The
+) (F:\GitHubRepos\Thesis\Thesis\chapter3/conclusion.tex [57 <F:/GitHubRepos/The
 sis/Thesis/Charts/chapter3/exp/topoeffect/comp/top_scale_index_d10.pdf, page is
  rotated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/topoeffe
 ct/comp/top_scale_query_d10.pdf, page is rotated 90 degrees> <F:/GitHubRepos/Th
 esis/Thesis/Charts/chapter3/exp/topoeffect/comp/top_scale_index_d20.pdf, page i
 s rotated 90 degrees> <F:/GitHubRepos/Thesis/Thesis/Charts/chapter3/exp/topoeff
-ect/comp/top_scale_query_d20.pdf, page is rotated 90 degrees>])) [61 <F:/GitHub
+ect/comp/top_scale_query_d20.pdf, page is rotated 90 degrees>])) [58 <F:/GitHub
 Repos/Thesis/Thesis/Charts/chapter3/exp/topoeffect/comp/top_scale_index_size.pd
 f, page is rotated 90 degrees>]
 (F:\GitHubRepos\Thesis\Thesis\chapter4/chapter4.tex
 Chapter 4.
-(F:\GitHubRepos\Thesis\Thesis\chapter4/introduction.tex [62
+(F:\GitHubRepos\Thesis\Thesis\chapter4/introduction.tex [59
 
 
 
-] [63]
+] [60]
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
 [][]$\OT1/cmtt/m/n/10 http : / / www . cbssports . com / nba / eye-[]on-[]baske
 tball / 24525914/$
  []
 
-[64] [65]) (F:\GitHubRepos\Thesis\Thesis\chapter4/definitions.tex [66] [67]
+[61] [62]) (F:\GitHubRepos\Thesis\Thesis\chapter4/definitions.tex [63] [64]
 Package epstopdf Info: Source file: <./Charts/chapter4/charts/application.eps>
 (epstopdf)                    date: 2016-11-11 18:24:12
 (epstopdf)                    size: 1443138 bytes
@@ -1365,20 +1401,20 @@ nverted-to.pdf ./Charts/chapter4/charts/application.eps>
 (epstopdf)             \includegraphics on input line 47.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/application-eps-converted-to.pdf, id=589, 1465.475pt x 558.085pt>
+<./Charts/application-eps-converted-to.pdf, id=622, 1465.475pt x 558.085pt>
 File: ./Charts/application-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/application-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/application-eps-converted-to.pdf used on inpu
 t line 47.
 (pdftex.def)             Requested size: 433.62pt x 165.12756pt.
- [68 <F:/GitHubRepos/Thesis/Thesis/Charts/application-eps-converted-to.pdf>] [6
-9]
+ [65 <F:/GitHubRepos/Thesis/Thesis/Charts/application-eps-converted-to.pdf>] [6
+6]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (F:\GitHubRepos\Thesis\Thesis\chapter4/offline_processing.tex [70] [71]
-[72] [73] [74]
+) (F:\GitHubRepos\Thesis\Thesis\chapter4/offline_processing.tex [67] [68]
+[69] [70] [71]
 Package epstopdf Info: Source file: <./Charts/chapter4/charts/convex.eps>
 (epstopdf)                    date: 2016-08-28 10:08:48
 (epstopdf)                    size: 558009 bytes
@@ -1390,7 +1426,7 @@ ed-to.pdf ./Charts/chapter4/charts/convex.eps>
 (epstopdf)             \includegraphics on input line 316.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/convex-eps-converted-to.pdf, id=660, 515.9275pt x 362.35374pt>
+<./Charts/convex-eps-converted-to.pdf, id=694, 515.9275pt x 362.35374pt>
 File: ./Charts/convex-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/convex-eps-converted-to.pdf>
@@ -1408,14 +1444,14 @@ ted-to.pdf ./Charts/chapter4/charts/concave.eps>
 (epstopdf)             \includegraphics on input line 321.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/concave-eps-converted-to.pdf, id=661, 698.61pt x 498.86375pt>
+<./Charts/concave-eps-converted-to.pdf, id=695, 698.61pt x 498.86375pt>
 File: ./Charts/concave-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/concave-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/concave-eps-converted-to.pdf used on input li
 ne 321.
 (pdftex.def)             Requested size: 195.12767pt x 139.33835pt.
- [75] [76 <F:/GitHubRepos/Thesis/Thesis/Charts/convex-eps-converted-to.pdf> <F:
+ [72] [73 <F:/GitHubRepos/Thesis/Thesis/Charts/convex-eps-converted-to.pdf> <F:
 /GitHubRepos/Thesis/Thesis/Charts/concave-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Charts/chapter4/charts/window_pruning.ep
 s>
@@ -1430,16 +1466,16 @@ df>
 (epstopdf)             \includegraphics on input line 381.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/window_pruning-eps-converted-to.pdf, id=704, 861.2175pt x 557.08125pt
+<./Charts/window_pruning-eps-converted-to.pdf, id=738, 861.2175pt x 557.08125pt
 >
 File: ./Charts/window_pruning-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/window_pruning-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/window_pruning-eps-converted-to.pdf used on i
 nput line 381.
 (pdftex.def)             Requested size: 433.62pt x 280.49503pt.
- [77 <F:/GitHubRepos/Thesis/Thesis/Charts/window_pruning-eps-converted-to.pdf>]
- [78] [79])
-(F:\GitHubRepos\Thesis\Thesis\chapter4/online_processing.tex [80] [81] [82]
+ [74 <F:/GitHubRepos/Thesis/Thesis/Charts/window_pruning-eps-converted-to.pdf>]
+ [75] [76])
+(F:\GitHubRepos\Thesis\Thesis\chapter4/online_processing.tex [77] [78] [79]
 Package epstopdf Info: Source file: <./Charts/chapter4/charts/active_update.eps
 >
 (epstopdf)                    date: 2016-08-28 10:08:48
@@ -1453,7 +1489,7 @@ converted-to.pdf ./Charts/chapter4/charts/active_update.eps>
 (epstopdf)             \includegraphics on input line 121.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/active_update-eps-converted-to.pdf, id=776, 517.935pt x 264.99pt>
+<./Charts/active_update-eps-converted-to.pdf, id=810, 517.935pt x 264.99pt>
 File: ./Charts/active_update-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/active_update-eps-converted-to.pdf>
@@ -1478,17 +1514,17 @@ df>
 (epstopdf)             \includegraphics on input line 126.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/passive_update-eps-converted-to.pdf, id=777, 511.9125pt x 261.97874pt
+<./Charts/passive_update-eps-converted-to.pdf, id=811, 511.9125pt x 261.97874pt
 >
 File: ./Charts/passive_update-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/passive_update-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/passive_update-eps-converted-to.pdf used on i
 nput line 126.
 (pdftex.def)             Requested size: 195.12767pt x 99.85677pt.
- [83 <F:/GitHubRepos/Thesis/Thesis/Charts/active_update-eps-converted-to.pdf> <
-F:/GitHubRepos/Thesis/Thesis/Charts/passive_update-eps-converted-to.pdf>] [84])
+ [80 <F:/GitHubRepos/Thesis/Thesis/Charts/active_update-eps-converted-to.pdf> <
+F:/GitHubRepos/Thesis/Thesis/Charts/passive_update-eps-converted-to.pdf>] [81])
 
-(F:\GitHubRepos\Thesis\Thesis\chapter4/experiments.tex [85] [86]
+(F:\GitHubRepos\Thesis\Thesis\chapter4/experiments.tex [82] [83]
 Package epstopdf Info: Source file: <./Charts/chapter4/exp/offline/varyp/nba_va
 ry_p.eps>
 (epstopdf)                    date: 2016-11-11 18:24:12
@@ -1501,7 +1537,7 @@ verted-to.pdf ./Charts/chapter4/exp/offline/varyp/nba_vary_p.eps>
 (epstopdf)             \includegraphics on input line 64.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/nba_vary_p-eps-converted-to.pdf, id=803, 693.59125pt x 433.62pt>
+<./Charts/nba_vary_p-eps-converted-to.pdf, id=837, 693.59125pt x 433.62pt>
 File: ./Charts/nba_vary_p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/nba_vary_p-eps-converted-to.pdf>
@@ -1521,7 +1557,7 @@ onverted-to.pdf ./Charts/chapter4/exp/offline/varyp/power_vary_p.eps>
 (epstopdf)             \includegraphics on input line 68.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/power_vary_p-eps-converted-to.pdf, id=804, 693.59125pt x 433.62pt>
+<./Charts/power_vary_p-eps-converted-to.pdf, id=838, 693.59125pt x 433.62pt>
 File: ./Charts/power_vary_p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/power_vary_p-eps-converted-to.pdf>
@@ -1541,7 +1577,7 @@ onverted-to.pdf ./Charts/chapter4/exp/offline/varyp/stock_vary_p.eps>
 (epstopdf)             \includegraphics on input line 72.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/stock_vary_p-eps-converted-to.pdf, id=805, 693.59125pt x 433.62pt>
+<./Charts/stock_vary_p-eps-converted-to.pdf, id=839, 693.59125pt x 433.62pt>
 File: ./Charts/stock_vary_p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/stock_vary_p-eps-converted-to.pdf>
@@ -1561,14 +1597,14 @@ nverted-to.pdf ./Charts/chapter4/exp/offline/varyp/pems_vary_p.eps>
 (epstopdf)             \includegraphics on input line 76.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/pems_vary_p-eps-converted-to.pdf, id=806, 693.59125pt x 433.62pt>
+<./Charts/pems_vary_p-eps-converted-to.pdf, id=840, 693.59125pt x 433.62pt>
 File: ./Charts/pems_vary_p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/pems_vary_p-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/pems_vary_p-eps-converted-to.pdf used on inpu
 t line 76.
 (pdftex.def)             Requested size: 195.12767pt x 121.9884pt.
- [87] [88 <F:/GitHubRepos/Thesis/Thesis/Charts/nba_vary_p-eps-converted-to.pdf>
+ [84] [85 <F:/GitHubRepos/Thesis/Thesis/Charts/nba_vary_p-eps-converted-to.pdf>
  <F:/GitHubRepos/Thesis/Thesis/Charts/power_vary_p-eps-converted-to.pdf> <F:/Gi
 tHubRepos/Thesis/Thesis/Charts/stock_vary_p-eps-converted-to.pdf> <F:/GitHubRep
 os/Thesis/Thesis/Charts/pems_vary_p-eps-converted-to.pdf>]
@@ -1584,7 +1620,7 @@ verted-to.pdf ./Charts/chapter4/exp/offline/varyh/nba_vary_h.eps>
 (epstopdf)             \includegraphics on input line 110.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/nba_vary_h-eps-converted-to.pdf, id=825, 693.59125pt x 433.62pt>
+<./Charts/nba_vary_h-eps-converted-to.pdf, id=859, 693.59125pt x 433.62pt>
 File: ./Charts/nba_vary_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/nba_vary_h-eps-converted-to.pdf>
@@ -1604,7 +1640,7 @@ onverted-to.pdf ./Charts/chapter4/exp/offline/varyh/power_vary_h.eps>
 (epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/power_vary_h-eps-converted-to.pdf, id=826, 693.59125pt x 433.62pt>
+<./Charts/power_vary_h-eps-converted-to.pdf, id=860, 693.59125pt x 433.62pt>
 File: ./Charts/power_vary_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/power_vary_h-eps-converted-to.pdf>
@@ -1624,7 +1660,7 @@ onverted-to.pdf ./Charts/chapter4/exp/offline/varyh/stock_vary_h.eps>
 (epstopdf)             \includegraphics on input line 118.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/stock_vary_h-eps-converted-to.pdf, id=827, 693.59125pt x 433.62pt>
+<./Charts/stock_vary_h-eps-converted-to.pdf, id=861, 693.59125pt x 433.62pt>
 File: ./Charts/stock_vary_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/stock_vary_h-eps-converted-to.pdf>
@@ -1644,14 +1680,14 @@ nverted-to.pdf ./Charts/chapter4/exp/offline/varyh/pems_vary_h.eps>
 (epstopdf)             \includegraphics on input line 122.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/pems_vary_h-eps-converted-to.pdf, id=828, 693.59125pt x 433.62pt>
+<./Charts/pems_vary_h-eps-converted-to.pdf, id=862, 693.59125pt x 433.62pt>
 File: ./Charts/pems_vary_h-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/pems_vary_h-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/pems_vary_h-eps-converted-to.pdf used on inpu
 t line 122.
 (pdftex.def)             Requested size: 195.12767pt x 121.9884pt.
- [89 <F:/GitHubRepos/Thesis/Thesis/Charts/nba_vary_h-eps-converted-to.pdf> <F:/
+ [86 <F:/GitHubRepos/Thesis/Thesis/Charts/nba_vary_h-eps-converted-to.pdf> <F:/
 GitHubRepos/Thesis/Thesis/Charts/power_vary_h-eps-converted-to.pdf> <F:/GitHubR
 epos/Thesis/Thesis/Charts/stock_vary_h-eps-converted-to.pdf> <F:/GitHubRepos/Th
 esis/Thesis/Charts/pems_vary_h-eps-converted-to.pdf>]
@@ -1667,7 +1703,7 @@ erted-to.pdf ./Charts/chapter4/exp/online/varyp/nba_varyp.eps>
 (epstopdf)             \includegraphics on input line 200.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/nba_varyp-eps-converted-to.pdf, id=844, 693.59125pt x 433.62pt>
+<./Charts/nba_varyp-eps-converted-to.pdf, id=878, 693.59125pt x 433.62pt>
 File: ./Charts/nba_varyp-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/nba_varyp-eps-converted-to.pdf>
@@ -1687,7 +1723,7 @@ nverted-to.pdf ./Charts/chapter4/exp/online/varyp/power_varyp.eps>
 (epstopdf)             \includegraphics on input line 204.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/power_varyp-eps-converted-to.pdf, id=845, 693.59125pt x 433.62pt>
+<./Charts/power_varyp-eps-converted-to.pdf, id=879, 693.59125pt x 433.62pt>
 File: ./Charts/power_varyp-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/power_varyp-eps-converted-to.pdf>
@@ -1707,7 +1743,7 @@ nverted-to.pdf ./Charts/chapter4/exp/online/varyp/stock_varyp.eps>
 (epstopdf)             \includegraphics on input line 208.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/stock_varyp-eps-converted-to.pdf, id=846, 693.59125pt x 433.62pt>
+<./Charts/stock_varyp-eps-converted-to.pdf, id=880, 693.59125pt x 433.62pt>
 File: ./Charts/stock_varyp-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/stock_varyp-eps-converted-to.pdf>
@@ -1726,14 +1762,14 @@ verted-to.pdf ./Charts/chapter4/exp/online/varyp/pems_varyp.eps>
 (epstopdf)             \includegraphics on input line 212.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/pems_varyp-eps-converted-to.pdf, id=847, 693.59125pt x 433.62pt>
+<./Charts/pems_varyp-eps-converted-to.pdf, id=881, 693.59125pt x 433.62pt>
 File: ./Charts/pems_varyp-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/pems_varyp-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/pems_varyp-eps-converted-to.pdf used on input
  line 212.
 (pdftex.def)             Requested size: 195.12767pt x 121.9884pt.
- [90]
+ [87]
 Package epstopdf Info: Source file: <./Charts/chapter4/exp/online/varyk/nba_var
 yk.eps>
 (epstopdf)                    date: 2015-10-20 11:21:47
@@ -1746,7 +1782,7 @@ erted-to.pdf ./Charts/chapter4/exp/online/varyk/nba_varyk.eps>
 (epstopdf)             \includegraphics on input line 236.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/nba_varyk-eps-converted-to.pdf, id=851, 433.62pt x 289.08pt>
+<./Charts/nba_varyk-eps-converted-to.pdf, id=885, 433.62pt x 289.08pt>
 File: ./Charts/nba_varyk-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/nba_varyk-eps-converted-to.pdf>
@@ -1766,7 +1802,7 @@ nverted-to.pdf ./Charts/chapter4/exp/online/varyk/power_varyk.eps>
 (epstopdf)             \includegraphics on input line 240.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/power_varyk-eps-converted-to.pdf, id=852, 433.62pt x 289.08pt>
+<./Charts/power_varyk-eps-converted-to.pdf, id=886, 433.62pt x 289.08pt>
 File: ./Charts/power_varyk-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/power_varyk-eps-converted-to.pdf>
@@ -1786,7 +1822,7 @@ nverted-to.pdf ./Charts/chapter4/exp/online/varyk/stock_varyk.eps>
 (epstopdf)             \includegraphics on input line 244.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/stock_varyk-eps-converted-to.pdf, id=853, 433.62pt x 289.08pt>
+<./Charts/stock_varyk-eps-converted-to.pdf, id=887, 433.62pt x 289.08pt>
 File: ./Charts/stock_varyk-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/stock_varyk-eps-converted-to.pdf>
@@ -1805,7 +1841,7 @@ verted-to.pdf ./Charts/chapter4/exp/online/varyk/pems_varyk.eps>
 (epstopdf)             \includegraphics on input line 248.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/pems_varyk-eps-converted-to.pdf, id=854, 433.62pt x 289.08pt>
+<./Charts/pems_varyk-eps-converted-to.pdf, id=888, 433.62pt x 289.08pt>
 File: ./Charts/pems_varyk-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/pems_varyk-eps-converted-to.pdf>
@@ -1824,7 +1860,7 @@ erted-to.pdf ./Charts/chapter4/exp/online/varyh/nba_varyh.eps>
 (epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/nba_varyh-eps-converted-to.pdf, id=855, 433.62pt x 289.08pt>
+<./Charts/nba_varyh-eps-converted-to.pdf, id=889, 433.62pt x 289.08pt>
 File: ./Charts/nba_varyh-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/nba_varyh-eps-converted-to.pdf>
@@ -1844,7 +1880,7 @@ nverted-to.pdf ./Charts/chapter4/exp/online/varyh/power_varyh.eps>
 (epstopdf)             \includegraphics on input line 271.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/power_varyh-eps-converted-to.pdf, id=856, 433.62pt x 289.08pt>
+<./Charts/power_varyh-eps-converted-to.pdf, id=890, 433.62pt x 289.08pt>
 File: ./Charts/power_varyh-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/power_varyh-eps-converted-to.pdf>
@@ -1864,7 +1900,7 @@ nverted-to.pdf ./Charts/chapter4/exp/online/varyh/stock_varyh.eps>
 (epstopdf)             \includegraphics on input line 275.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/stock_varyh-eps-converted-to.pdf, id=857, 433.62pt x 289.08pt>
+<./Charts/stock_varyh-eps-converted-to.pdf, id=891, 433.62pt x 289.08pt>
 File: ./Charts/stock_varyh-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/stock_varyh-eps-converted-to.pdf>
@@ -1883,28 +1919,28 @@ verted-to.pdf ./Charts/chapter4/exp/online/varyh/pems_varyh.eps>
 (epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/pems_varyh-eps-converted-to.pdf, id=858, 433.62pt x 289.08pt>
+<./Charts/pems_varyh-eps-converted-to.pdf, id=892, 433.62pt x 289.08pt>
 File: ./Charts/pems_varyh-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/pems_varyh-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/pems_varyh-eps-converted-to.pdf used on input
  line 279.
 (pdftex.def)             Requested size: 195.12767pt x 130.0848pt.
- [91 <F:/GitHubRepos/Thesis/Thesis/Charts/nba_varyp-eps-converted-to.pdf> <F:/G
+ [88 <F:/GitHubRepos/Thesis/Thesis/Charts/nba_varyp-eps-converted-to.pdf> <F:/G
 itHubRepos/Thesis/Thesis/Charts/power_varyp-eps-converted-to.pdf> <F:/GitHubRep
 os/Thesis/Thesis/Charts/stock_varyp-eps-converted-to.pdf> <F:/GitHubRepos/Thesi
 s/Thesis/Charts/pems_varyp-eps-converted-to.pdf>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[92 <F:/GitHubRepos/Thesis/Thesis/Charts/nba_varyk-eps-converted-to.pdf> <F:/Gi
+[89 <F:/GitHubRepos/Thesis/Thesis/Charts/nba_varyk-eps-converted-to.pdf> <F:/Gi
 tHubRepos/Thesis/Thesis/Charts/power_varyk-eps-converted-to.pdf> <F:/GitHubRepo
 s/Thesis/Thesis/Charts/stock_varyk-eps-converted-to.pdf> <F:/GitHubRepos/Thesis
-/Thesis/Charts/pems_varyk-eps-converted-to.pdf>] [93 <F:/GitHubRepos/Thesis/The
+/Thesis/Charts/pems_varyk-eps-converted-to.pdf>] [90 <F:/GitHubRepos/Thesis/The
 sis/Charts/nba_varyh-eps-converted-to.pdf> <F:/GitHubRepos/Thesis/Thesis/Charts
 /power_varyh-eps-converted-to.pdf> <F:/GitHubRepos/Thesis/Thesis/Charts/stock_v
 aryh-eps-converted-to.pdf> <F:/GitHubRepos/Thesis/Thesis/Charts/pems_varyh-eps-
-converted-to.pdf>] [94]
+converted-to.pdf>] [91]
 Package epstopdf Info: Source file: <./Charts/chapter4/exp/sky_comp/sky_comp_of
 fline.eps>
 (epstopdf)                    date: 2016-11-11 18:24:12
@@ -1918,7 +1954,7 @@ ps-converted-to.pdf ./Charts/chapter4/exp/sky_comp/sky_comp_offline.eps>
 (epstopdf)             \includegraphics on input line 379.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/sky_comp_offline-eps-converted-to.pdf, id=908, 693.59125pt x 433.62pt
+<./Charts/sky_comp_offline-eps-converted-to.pdf, id=942, 693.59125pt x 433.62pt
 >
 File: ./Charts/sky_comp_offline-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/sky_comp_offline-eps-converted-to.pdf>
@@ -1938,7 +1974,7 @@ s-converted-to.pdf ./Charts/chapter4/exp/sky_comp/sky_comp_online.eps>
 (epstopdf)             \includegraphics on input line 383.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/sky_comp_online-eps-converted-to.pdf, id=909, 693.59125pt x 433.62pt>
+<./Charts/sky_comp_online-eps-converted-to.pdf, id=943, 693.59125pt x 433.62pt>
 File: ./Charts/sky_comp_online-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Charts/sky_comp_online-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/sky_comp_online-eps-converted-to.pdf used on 
@@ -1955,7 +1991,7 @@ ed-to.pdf ./Charts/chapter4/exp/survey/survey.eps>
 (epstopdf)             \includegraphics on input line 392.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/survey-eps-converted-to.pdf, id=910, 357.335pt x 206.7725pt>
+<./Charts/survey-eps-converted-to.pdf, id=944, 357.335pt x 206.7725pt>
 File: ./Charts/survey-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/survey-eps-converted-to.pdf>
@@ -1982,13 +2018,13 @@ Overfull \hbox (4.55681pt too wide) in paragraph at lines 417--417
 []|$\OML/cmm/m/it/12 SK$|  
  []
 
-[95 <F:/GitHubRepos/Thesis/Thesis/Charts/sky_comp_offline-eps-converted-to.pdf>
+[92 <F:/GitHubRepos/Thesis/Thesis/Charts/sky_comp_offline-eps-converted-to.pdf>
  <F:/GitHubRepos/Thesis/Thesis/Charts/sky_comp_online-eps-converted-to.pdf> <F:
-/GitHubRepos/Thesis/Thesis/Charts/survey-eps-converted-to.pdf>] [96])
-(F:\GitHubRepos\Thesis\Thesis\chapter4/conclusion.tex [97])) [98]
+/GitHubRepos/Thesis/Thesis/Charts/survey-eps-converted-to.pdf>] [93])
+(F:\GitHubRepos\Thesis\Thesis\chapter4/conclusion.tex [94])) [95]
 (F:\GitHubRepos\Thesis\Thesis\chapter5/chapter5.tex
 Chapter 5.
-(F:\GitHubRepos\Thesis\Thesis\chapter5/introduction.tex [99
+(F:\GitHubRepos\Thesis\Thesis\chapter5/introduction.tex [96
 
 
 
@@ -2011,7 +2047,7 @@ Package epstopdf Info: Source file: <./Charts/chapter5/related_work.eps>
 onverted-to.pdf ./Charts/chapter5/related_work.eps>
 (epstopdf)             \includegraphics on input line 175.
 Package epstopdf Info: Output file is already uptodate.
-<./Charts/related_work-eps-converted-to.pdf, id=946, 580.1675pt x 391.4625pt>
+<./Charts/related_work-eps-converted-to.pdf, id=980, 580.1675pt x 391.4625pt>
 File: ./Charts/related_work-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/related_work-eps-converted-to.pdf>
@@ -2022,7 +2058,7 @@ ut line 175.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[100] [101]
+[97] [98]
 Package epstopdf Info: Source file: <./Charts/chapter5/platoon_weakpoint.eps>
 (epstopdf)                    date: 2016-06-02 09:44:14
 (epstopdf)                    size: 352295 bytes
@@ -2035,7 +2071,7 @@ eps-converted-to.pdf ./Charts/chapter5/platoon_weakpoint.eps>
 (epstopdf)             \includegraphics on input line 187.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/platoon_weakpoint-eps-converted-to.pdf, id=954, 323.2075pt x 100.375p
+<./Charts/platoon_weakpoint-eps-converted-to.pdf, id=988, 323.2075pt x 100.375p
 t>
 File: ./Charts/platoon_weakpoint-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/platoon_weakpoint-eps-converted-to.pdf>
@@ -2046,7 +2082,7 @@ n input line 187.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[102 <F:/GitHubRepos/Thesis/Thesis/Charts/related_work-eps-converted-to.pdf>]
+[99 <F:/GitHubRepos/Thesis/Thesis/Charts/related_work-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Charts/chapter5/rw_perf_O.eps>
 (epstopdf)                    date: 2016-07-04 08:58:43
 (epstopdf)                    size: 24070 bytes
@@ -2058,7 +2094,7 @@ erted-to.pdf ./Charts/chapter5/rw_perf_O.eps>
 (epstopdf)             \includegraphics on input line 215.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/rw_perf_O-eps-converted-to.pdf, id=978, 867.24pt x 722.7pt>
+<./Charts/rw_perf_O-eps-converted-to.pdf, id=1012, 867.24pt x 722.7pt>
 File: ./Charts/rw_perf_O-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/rw_perf_O-eps-converted-to.pdf>
@@ -2076,18 +2112,18 @@ erted-to.pdf ./Charts/chapter5/rw_perf_T.eps>
 (epstopdf)             \includegraphics on input line 221.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/rw_perf_T-eps-converted-to.pdf, id=979, 867.24pt x 722.7pt>
+<./Charts/rw_perf_T-eps-converted-to.pdf, id=1013, 867.24pt x 722.7pt>
 File: ./Charts/rw_perf_T-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/rw_perf_T-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/rw_perf_T-eps-converted-to.pdf used on input 
 line 221.
 (pdftex.def)             Requested size: 195.12767pt x 162.60048pt.
- [103 <F:/GitHubRepos/Thesis/Thesis/Charts/platoon_weakpoint-eps-converted-to.p
+ [100 <F:/GitHubRepos/Thesis/Thesis/Charts/platoon_weakpoint-eps-converted-to.p
 df> <F:/GitHubRepos/Thesis/Thesis/Charts/rw_perf_O-eps-converted-to.pdf> <F:/Gi
 tHubRepos/Thesis/Thesis/Charts/rw_perf_T-eps-converted-to.pdf>])
-(F:\GitHubRepos\Thesis\Thesis\chapter5/definitions.tex [104] [105] [106])
-(F:\GitHubRepos\Thesis\Thesis\chapter5/baseline.tex [107]
+(F:\GitHubRepos\Thesis\Thesis\chapter5/definitions.tex [101] [102] [103])
+(F:\GitHubRepos\Thesis\Thesis\chapter5/baseline.tex [104]
 Package epstopdf Info: Source file: <./Charts/chapter5/trm.eps>
 (epstopdf)                    date: 2016-10-27 16:53:01
 (epstopdf)                    size: 804974 bytes
@@ -2099,15 +2135,15 @@ to.pdf ./Charts/chapter5/trm.eps>
 (epstopdf)             \includegraphics on input line 7.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/trm-eps-converted-to.pdf, id=1015, 707.64375pt x 268.00125pt>
+<./Charts/trm-eps-converted-to.pdf, id=1049, 707.64375pt x 268.00125pt>
 File: ./Charts/trm-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/trm-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/trm-eps-converted-to.pdf used on input line 7
 .
 (pdftex.def)             Requested size: 433.62pt x 164.22478pt.
- [108 <F:/GitHubRepos/Thesis/Thesis/Charts/trm-eps-converted-to.pdf>] [109] [11
-0] [111])
+ [105 <F:/GitHubRepos/Thesis/Thesis/Charts/trm-eps-converted-to.pdf>] [106] [10
+7] [108])
 (F:\GitHubRepos\Thesis\Thesis\chapter5/spm.tex
 Package epstopdf Info: Source file: <./Charts/chapter5/spm.eps>
 (epstopdf)                    date: 2016-07-01 20:45:21
@@ -2120,14 +2156,14 @@ to.pdf ./Charts/chapter5/spm.eps>
 (epstopdf)             \includegraphics on input line 3.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/spm-eps-converted-to.pdf, id=1086, 703.62875pt x 257.96375pt>
+<./Charts/spm-eps-converted-to.pdf, id=1120, 703.62875pt x 257.96375pt>
 File: ./Charts/spm-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/spm-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/spm-eps-converted-to.pdf used on input line 3
 .
 (pdftex.def)             Requested size: 433.62pt x 158.97148pt.
- [112 <F:/GitHubRepos/Thesis/Thesis/Charts/spm-eps-converted-to.pdf>] [113]
+ [109 <F:/GitHubRepos/Thesis/Thesis/Charts/spm-eps-converted-to.pdf>] [110]
 Package epstopdf Info: Source file: <./Charts/chapter5/star-alt.eps>
 (epstopdf)                    date: 2016-07-01 15:08:52
 (epstopdf)                    size: 407901 bytes
@@ -2139,14 +2175,14 @@ rted-to.pdf ./Charts/chapter5/star-alt.eps>
 (epstopdf)             \includegraphics on input line 59.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/star-alt-eps-converted-to.pdf, id=1207, 515.9275pt x 233.87375pt>
+<./Charts/star-alt-eps-converted-to.pdf, id=1241, 515.9275pt x 233.87375pt>
 File: ./Charts/star-alt-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/star-alt-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/star-alt-eps-converted-to.pdf used on input l
 ine 59.
 (pdftex.def)             Requested size: 433.62pt x 196.57034pt.
- [114 <F:/GitHubRepos/Thesis/Thesis/Charts/star-alt-eps-converted-to.pdf>] [115
+ [111 <F:/GitHubRepos/Thesis/Thesis/Charts/star-alt-eps-converted-to.pdf>] [112
 ]
 Overfull \hbox (4.2079pt too wide) in paragraph at lines 109--111
 $\OT1/cmr/m/n/12 11\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 13)$ and $\OML/cmm/m/it/1
@@ -2166,7 +2202,7 @@ n/12 and prove (1) by con-tra-dic-tion. Let $\OML/cmm/m/it/12 T[] \OT1/cmr/m/n/
 mr/m/n/12 [\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 ])$
  []
 
-[116] [117] [118]
+[113] [114] [115]
 Overfull \hbox (12.03557pt too wide) in paragraph at lines 186--187
 []\OT1/cmr/bx/n/12 Theorem 5.4.6 \OT1/cmr/m/n/12 (Mono-tonic-ity)\OT1/cmr/bx/n/
 12 . []\OT1/cmr/m/n/12 Given a can-di-date pat-tern $\OML/cmm/m/it/12 P \OT1/cm
@@ -2175,12 +2211,12 @@ r/m/n/12 = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 O \OT1/cmr/m/n/12 : \OML/cmm/m/it
 /n/12 ) =$
  []
 
-[119] [120] [121] [122]) (F:\GitHubRepos\Thesis\Thesis\chapter5/experiment.tex
-[123]
+[116] [117] [118] [119]) (F:\GitHubRepos\Thesis\Thesis\chapter5/experiment.tex
+[120]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[124]
+[121]
 Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/shopping
 _vary_M.eps>
 (epstopdf)                    date: 2016-06-30 09:59:00
@@ -2194,7 +2230,7 @@ s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_M.eps>
 (epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/shopping_vary_M-eps-converted-to.pdf, id=1254, 519.9425pt x 404.51125
+<./Charts/shopping_vary_M-eps-converted-to.pdf, id=1288, 519.9425pt x 404.51125
 pt>
 File: ./Charts/shopping_vary_M-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/shopping_vary_M-eps-converted-to.pdf>
@@ -2214,7 +2250,7 @@ df>
 (epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/geolife_vary_M-eps-converted-to.pdf, id=1255, 519.9425pt x 404.51125p
+<./Charts/geolife_vary_M-eps-converted-to.pdf, id=1289, 519.9425pt x 404.51125p
 t>
 File: ./Charts/geolife_vary_M-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/geolife_vary_M-eps-converted-to.pdf>
@@ -2234,7 +2270,7 @@ nverted-to.pdf ./Charts/chapter5/exp/performance/Taxi_vary_M.eps>
 (epstopdf)             \includegraphics on input line 189.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/Taxi_vary_M-eps-converted-to.pdf, id=1256, 519.9425pt x 404.51125pt>
+<./Charts/Taxi_vary_M-eps-converted-to.pdf, id=1290, 519.9425pt x 404.51125pt>
 File: ./Charts/Taxi_vary_M-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/Taxi_vary_M-eps-converted-to.pdf>
@@ -2258,7 +2294,7 @@ s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_K.eps>
 (epstopdf)             \includegraphics on input line 203.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/shopping_vary_K-eps-converted-to.pdf, id=1257, 519.9425pt x 404.51125
+<./Charts/shopping_vary_K-eps-converted-to.pdf, id=1291, 519.9425pt x 404.51125
 pt>
 File: ./Charts/shopping_vary_K-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/shopping_vary_K-eps-converted-to.pdf>
@@ -2278,7 +2314,7 @@ df>
 (epstopdf)             \includegraphics on input line 207.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/geolife_vary_K-eps-converted-to.pdf, id=1258, 519.9425pt x 404.51125p
+<./Charts/geolife_vary_K-eps-converted-to.pdf, id=1292, 519.9425pt x 404.51125p
 t>
 File: ./Charts/geolife_vary_K-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/geolife_vary_K-eps-converted-to.pdf>
@@ -2298,14 +2334,14 @@ nverted-to.pdf ./Charts/chapter5/exp/performance/Taxi_vary_K.eps>
 (epstopdf)             \includegraphics on input line 211.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/Taxi_vary_K-eps-converted-to.pdf, id=1259, 519.9425pt x 404.51125pt>
+<./Charts/Taxi_vary_K-eps-converted-to.pdf, id=1293, 519.9425pt x 404.51125pt>
 File: ./Charts/Taxi_vary_K-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/Taxi_vary_K-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/Taxi_vary_K-eps-converted-to.pdf used on inpu
 t line 211.
 (pdftex.def)             Requested size: 130.08731pt x 101.20163pt.
- [125]
+ [122]
 Package epstopdf Info: Source file: <./Charts/chapter5/exp/performance/shopping
 _vary_L.eps>
 (epstopdf)                    date: 2016-06-30 09:59:00
@@ -2319,7 +2355,7 @@ s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_L.eps>
 (epstopdf)             \includegraphics on input line 226.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/shopping_vary_L-eps-converted-to.pdf, id=1263, 519.9425pt x 404.51125
+<./Charts/shopping_vary_L-eps-converted-to.pdf, id=1297, 519.9425pt x 404.51125
 pt>
 File: ./Charts/shopping_vary_L-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/shopping_vary_L-eps-converted-to.pdf>
@@ -2339,7 +2375,7 @@ df>
 (epstopdf)             \includegraphics on input line 230.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/geolife_vary_L-eps-converted-to.pdf, id=1264, 519.9425pt x 404.51125p
+<./Charts/geolife_vary_L-eps-converted-to.pdf, id=1298, 519.9425pt x 404.51125p
 t>
 File: ./Charts/geolife_vary_L-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/geolife_vary_L-eps-converted-to.pdf>
@@ -2359,7 +2395,7 @@ nverted-to.pdf ./Charts/chapter5/exp/performance/Taxi_vary_L.eps>
 (epstopdf)             \includegraphics on input line 234.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/Taxi_vary_L-eps-converted-to.pdf, id=1265, 519.9425pt x 404.51125pt>
+<./Charts/Taxi_vary_L-eps-converted-to.pdf, id=1299, 519.9425pt x 404.51125pt>
 File: ./Charts/Taxi_vary_L-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/Taxi_vary_L-eps-converted-to.pdf>
@@ -2383,7 +2419,7 @@ s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_G.eps>
 (epstopdf)             \includegraphics on input line 247.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/shopping_vary_G-eps-converted-to.pdf, id=1266, 519.9425pt x 404.51125
+<./Charts/shopping_vary_G-eps-converted-to.pdf, id=1300, 519.9425pt x 404.51125
 pt>
 File: ./Charts/shopping_vary_G-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/shopping_vary_G-eps-converted-to.pdf>
@@ -2403,7 +2439,7 @@ df>
 (epstopdf)             \includegraphics on input line 251.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/geolife_vary_G-eps-converted-to.pdf, id=1267, 519.9425pt x 404.51125p
+<./Charts/geolife_vary_G-eps-converted-to.pdf, id=1301, 519.9425pt x 404.51125p
 t>
 File: ./Charts/geolife_vary_G-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/geolife_vary_G-eps-converted-to.pdf>
@@ -2423,7 +2459,7 @@ nverted-to.pdf ./Charts/chapter5/exp/performance/Taxi_vary_G.eps>
 (epstopdf)             \includegraphics on input line 255.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/Taxi_vary_G-eps-converted-to.pdf, id=1268, 519.9425pt x 404.51125pt>
+<./Charts/Taxi_vary_G-eps-converted-to.pdf, id=1302, 519.9425pt x 404.51125pt>
 File: ./Charts/Taxi_vary_G-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/Taxi_vary_G-eps-converted-to.pdf>
@@ -2434,7 +2470,7 @@ t line 255.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[126 <F:/GitHubRepos/Thesis/Thesis/Charts/shopping_vary_M-eps-converted-to.pdf>
+[123 <F:/GitHubRepos/Thesis/Thesis/Charts/shopping_vary_M-eps-converted-to.pdf>
  <F:/GitHubRepos/Thesis/Thesis/Charts/geolife_vary_M-eps-converted-to.pdf> <F:/
 GitHubRepos/Thesis/Thesis/Charts/Taxi_vary_M-eps-converted-to.pdf> <F:/GitHubRe
 pos/Thesis/Thesis/Charts/shopping_vary_K-eps-converted-to.pdf> <F:/GitHubRepos/
@@ -2453,7 +2489,7 @@ s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_O.eps>
 (epstopdf)             \includegraphics on input line 268.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/shopping_vary_O-eps-converted-to.pdf, id=1290, 519.9425pt x 404.51125
+<./Charts/shopping_vary_O-eps-converted-to.pdf, id=1324, 519.9425pt x 404.51125
 pt>
 File: ./Charts/shopping_vary_O-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/shopping_vary_O-eps-converted-to.pdf>
@@ -2473,7 +2509,7 @@ df>
 (epstopdf)             \includegraphics on input line 272.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/geolife_vary_O-eps-converted-to.pdf, id=1291, 519.9425pt x 404.51125p
+<./Charts/geolife_vary_O-eps-converted-to.pdf, id=1325, 519.9425pt x 404.51125p
 t>
 File: ./Charts/geolife_vary_O-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/geolife_vary_O-eps-converted-to.pdf>
@@ -2493,7 +2529,7 @@ nverted-to.pdf ./Charts/chapter5/exp/performance/Taxi_vary_O.eps>
 (epstopdf)             \includegraphics on input line 276.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/Taxi_vary_O-eps-converted-to.pdf, id=1292, 519.9425pt x 404.51125pt>
+<./Charts/Taxi_vary_O-eps-converted-to.pdf, id=1326, 519.9425pt x 404.51125pt>
 File: ./Charts/Taxi_vary_O-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/Taxi_vary_O-eps-converted-to.pdf>
@@ -2513,7 +2549,7 @@ s-converted-to.pdf ./Charts/chapter5/exp/performance/shopping_vary_T.eps>
 (epstopdf)             \includegraphics on input line 290.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/shopping_vary_T-eps-converted-to.pdf, id=1293, 519.9425pt x 404.51125
+<./Charts/shopping_vary_T-eps-converted-to.pdf, id=1327, 519.9425pt x 404.51125
 pt>
 File: ./Charts/shopping_vary_T-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/shopping_vary_T-eps-converted-to.pdf>
@@ -2533,7 +2569,7 @@ df>
 (epstopdf)             \includegraphics on input line 294.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/geolife_vary_T-eps-converted-to.pdf, id=1294, 519.9425pt x 404.51125p
+<./Charts/geolife_vary_T-eps-converted-to.pdf, id=1328, 519.9425pt x 404.51125p
 t>
 File: ./Charts/geolife_vary_T-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Charts/geolife_vary_T-eps-converted-to.pdf>
@@ -2553,7 +2589,7 @@ nverted-to.pdf ./Charts/chapter5/exp/performance/Taxi_vary_T.eps>
 (epstopdf)             \includegraphics on input line 298.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/Taxi_vary_T-eps-converted-to.pdf, id=1295, 519.9425pt x 404.51125pt>
+<./Charts/Taxi_vary_T-eps-converted-to.pdf, id=1329, 519.9425pt x 404.51125pt>
 File: ./Charts/Taxi_vary_T-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/Taxi_vary_T-eps-converted-to.pdf>
@@ -2564,7 +2600,7 @@ t line 298.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[127 <F:/GitHubRepos/Thesis/Thesis/Charts/shopping_vary_L-eps-converted-to.pdf>
+[124 <F:/GitHubRepos/Thesis/Thesis/Charts/shopping_vary_L-eps-converted-to.pdf>
  <F:/GitHubRepos/Thesis/Thesis/Charts/geolife_vary_L-eps-converted-to.pdf> <F:/
 GitHubRepos/Thesis/Thesis/Charts/Taxi_vary_L-eps-converted-to.pdf> <F:/GitHubRe
 pos/Thesis/Thesis/Charts/shopping_vary_G-eps-converted-to.pdf> <F:/GitHubRepos/
@@ -2572,7 +2608,7 @@ Thesis/Thesis/Charts/geolife_vary_G-eps-converted-to.pdf> <F:/GitHubRepos/Thesi
 s/Thesis/Charts/Taxi_vary_G-eps-converted-to.pdf> <F:/GitHubRepos/Thesis/Thesis
 /Charts/shopping_vary_O-eps-converted-to.pdf> <F:/GitHubRepos/Thesis/Thesis/Cha
 rts/geolife_vary_O-eps-converted-to.pdf> <F:/GitHubRepos/Thesis/Thesis/Charts/T
-axi_vary_O-eps-converted-to.pdf>] [128 <F:/GitHubRepos/Thesis/Thesis/Charts/sho
+axi_vary_O-eps-converted-to.pdf>] [125 <F:/GitHubRepos/Thesis/Thesis/Charts/sho
 pping_vary_T-eps-converted-to.pdf> <F:/GitHubRepos/Thesis/Thesis/Charts/geolife
 _vary_T-eps-converted-to.pdf> <F:/GitHubRepos/Thesis/Thesis/Charts/Taxi_vary_T-
 eps-converted-to.pdf>]
@@ -2587,7 +2623,7 @@ ted-to.pdf ./Charts/chapter5/exp/spare/detail1.eps>
 (epstopdf)             \includegraphics on input line 433.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/detail1-eps-converted-to.pdf, id=1339, 1156.32pt x 722.7pt>
+<./Charts/detail1-eps-converted-to.pdf, id=1373, 1156.32pt x 722.7pt>
 File: ./Charts/detail1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/detail1-eps-converted-to.pdf>
@@ -2611,7 +2647,7 @@ ng-eps-converted-to.pdf ./Charts/chapter5/exp/spare/scalability-shopping.eps>
 (epstopdf)             \includegraphics on input line 518.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/scalability-shopping-eps-converted-to.pdf, id=1340, 722.7pt x 433.62p
+<./Charts/scalability-shopping-eps-converted-to.pdf, id=1374, 722.7pt x 433.62p
 t>
 File: ./Charts/scalability-shopping-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -2632,7 +2668,7 @@ e-eps-converted-to.pdf ./Charts/chapter5/exp/spare/scalability-geolife.eps>
 (epstopdf)             \includegraphics on input line 522.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/scalability-geolife-eps-converted-to.pdf, id=1341, 722.7pt x 433.62pt
+<./Charts/scalability-geolife-eps-converted-to.pdf, id=1375, 722.7pt x 433.62pt
 >
 File: ./Charts/scalability-geolife-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -2653,7 +2689,7 @@ ps-converted-to.pdf ./Charts/chapter5/exp/spare/scalability-taxi.eps>
 (epstopdf)             \includegraphics on input line 526.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/scalability-taxi-eps-converted-to.pdf, id=1342, 722.7pt x 433.62pt>
+<./Charts/scalability-taxi-eps-converted-to.pdf, id=1376, 722.7pt x 433.62pt>
 File: ./Charts/scalability-taxi-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/scalability-taxi-eps-converted-to.pdf>
@@ -2661,14 +2697,14 @@ Package pdftex.def Info: ./Charts/scalability-taxi-eps-converted-to.pdf used on
  input line 526.
 (pdftex.def)             Requested size: 138.76157pt x 83.25542pt.
 )
-(F:\GitHubRepos\Thesis\Thesis\chapter5/conclusion.tex [129] [130 <F:/GitHubRepo
+(F:\GitHubRepos\Thesis\Thesis\chapter5/conclusion.tex [126] [127 <F:/GitHubRepo
 s/Thesis/Thesis/Charts/detail1-eps-converted-to.pdf>]
 Overfull \hbox (2.49214pt too wide) in paragraph at lines 3--9
 \OT1/cmr/m/n/12 In this chap-ter, we stud-ied one of the neigh-bor-hood an-a-ly
 t-ics, namely the co-movement
  []
 
-)) [131 <F:/GitHubRepos/Thesis/Thesis/Charts/scalability-shopping-eps-converted
+)) [128 <F:/GitHubRepos/Thesis/Thesis/Charts/scalability-shopping-eps-converted
 -to.pdf> <F:/GitHubRepos/Thesis/Thesis/Charts/scalability-geolife-eps-converted
 -to.pdf> <F:/GitHubRepos/Thesis/Thesis/Charts/scalability-taxi-eps-converted-to
 .pdf>] (F:\GitHubRepos\Thesis\Thesis\conclusions.tex
@@ -2679,23 +2715,23 @@ Overfull \hbox (1.64354pt too wide) in paragraph at lines 2--20
 d by the nowa-days database
  []
 
-[132
+[129
 
 
 
-] [133]) [134] (F:\GitHubRepos\Thesis\Thesis\thesis.bbl [135
+] [130]) [131] (F:\GitHubRepos\Thesis\Thesis\thesis.bbl [132
 
 
-] [136]
-[137] [138] [139]
+] [133]
+[134] [135] [136]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
- [140]
+ [137]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
- [141] [142] [143]) [144]
+ [138] [139] [140] [141]) [142]
 (F:\GitHubRepos\Thesis\Thesis\appendix.tex
 Appendix A.
 
@@ -2713,7 +2749,7 @@ Package epstopdf Info: Source file: <./Charts/chapter4/exp/agg/agg_offline.eps>
 nverted-to.pdf ./Charts/chapter4/exp/agg/agg_offline.eps>
 (epstopdf)             \includegraphics on input line 59.
 Package epstopdf Info: Output file is already uptodate.
-<./Charts/agg_offline-eps-converted-to.pdf, id=1405, 693.59125pt x 433.62pt>
+<./Charts/agg_offline-eps-converted-to.pdf, id=1442, 693.59125pt x 433.62pt>
 File: ./Charts/agg_offline-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/agg_offline-eps-converted-to.pdf>
@@ -2731,20 +2767,22 @@ verted-to.pdf ./Charts/chapter4/exp/agg/agg_online.eps>
 (epstopdf)             \includegraphics on input line 64.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Charts/agg_online-eps-converted-to.pdf, id=1406, 693.59125pt x 433.62pt>
+<./Charts/agg_online-eps-converted-to.pdf, id=1443, 693.59125pt x 433.62pt>
 File: ./Charts/agg_online-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Charts/agg_online-eps-converted-to.pdf>
 Package pdftex.def Info: ./Charts/agg_online-eps-converted-to.pdf used on input
  line 64.
 (pdftex.def)             Requested size: 195.12767pt x 121.9884pt.
- [145
+ [143
 
 
-] [146 <F:/GitHubRepos/Thesis/Thesis/Charts/agg_offline-eps-converted-to.pdf> <
-F:/GitHubRepos/Thesis/Thesis/Charts/agg_online-eps-converted-to.pdf>] [147] [14
-8]) [149]
+] [144 <F:/GitHubRepos/Thesis/Thesis/Charts/agg_offline-eps-converted-to.pdf> <
+F:/GitHubRepos/Thesis/Thesis/Charts/agg_online-eps-converted-to.pdf>] [145] [14
+6]) [147]
 (F:\GitHubRepos\Thesis\Thesis\thesis.aux
+(F:\GitHubRepos\Thesis\Thesis\dedication.aux)
+(F:\GitHubRepos\Thesis\Thesis\acknowlegements.aux)
 (F:\GitHubRepos\Thesis\Thesis\abstract.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter1/chapter1.aux)
 (F:\GitHubRepos\Thesis\Thesis\chapter2/chapter2.aux)
@@ -2754,11 +2792,11 @@ F:/GitHubRepos/Thesis/Thesis/Charts/agg_online-eps-converted-to.pdf>] [147] [14
 (F:\GitHubRepos\Thesis\Thesis\conclusions.aux)
 (F:\GitHubRepos\Thesis\Thesis\appendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 14585 strings out of 493921
- 273841 string characters out of 3154491
- 300362 words of memory out of 3000000
- 17288 multiletter control sequences out of 15000+200000
- 22558 words of font info for 91 fonts, out of 3000000 for 9000
+ 14606 strings out of 493921
+ 274600 string characters out of 3154491
+ 301650 words of memory out of 3000000
+ 17290 multiletter control sequences out of 15000+200000
+ 22211 words of font info for 90 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  63i,17n,75p,1698b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/MikTex/fonts/type1/public/ams
@@ -2768,18 +2806,18 @@ sfonts/cm/cmmi10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/M
 ikTex/fonts/type1/public/amsfonts/cm/cmmi6.pfb><D:/MikTex/fonts/type1/public/am
 sfonts/cm/cmmi7.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/Mik
 Tex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsf
-onts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb><D:/MikTe
-x/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/MikTex/fonts/type1/public/amsfont
-s/cm/cmr7.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/MikTex/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/public/amsfonts/c
-m/cmsy6.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/MikTex/font
-s/type1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm
-/cmti12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb><D:/MikTex/fon
-ts/type1/public/amsfonts/cm/cmtt12.pfb><D:/MikTex/fonts/type1/public/amsfonts/s
-ymbols/msam10.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (149 pages, 2316639 bytes).
+onts/cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/MikTex
+/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/MikTex/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fo
+nts/type1/public/amsfonts/cm/cmsy6.pfb><D:/MikTex/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/MikTex/fon
+ts/type1/public/amsfonts/cm/cmti12.pfb><D:/MikTex/fonts/type1/public/amsfonts/c
+m/cmtt10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmtt12.pfb><D:/MikTex/fo
+nts/type1/public/amsfonts/symbols/msam10.pfb><D:/MikTex/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on thesis.pdf (161 pages, 2327859 bytes).
 PDF statistics:
- 1505 PDF objects out of 1728 (max. 8388607)
+ 1539 PDF objects out of 1728 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  513 words of extra memory for PDF output out of 10000 (max. 10000000)
 
