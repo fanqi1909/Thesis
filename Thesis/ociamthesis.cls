@@ -101,15 +101,15 @@
     \thispagestyle{empty}
   \null\vfill
   \begin{center}
+  	{{\logo} \par}
     { \Huge {\bfseries {\@title}} \par}
    % {{\Large \@author} \par}
-{\large \vspace*{20mm} {{\Large \@author} \par {\@curdegree} \par} \vspace*{12mm}}
-{\large \vspace*{1ex}
-	{{\logo} \par}
+{\large \vspace*{20mm} {{\Large \@author} \par {\@curdegree} \par} \vspace*{15mm}}
+	{ %\large \vspace*{1ex}
     {{\@college} \par}
 %\vspace*{1ex}
     {National University of Singapore \par}
-\vspace*{15mm}
+\vspace*{12mm}
     {{\submittedtext} \par}
 \vspace*{1ex}
     {\it {\@degree} \par}
