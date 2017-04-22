@@ -101,40 +101,29 @@
     \thispagestyle{empty}
   \null\vfill
   \begin{center}
-  	{{\logo} \par}
+	{\vspace*{-10ex}{\logo} \par}
     { \Huge {\bfseries {\@title}} \par}
    % {{\Large \@author} \par}
-{\large \vspace*{20mm} {{\Large \@author} \par {\@curdegree} \par} \vspace*{15mm}}
-	{ %\large \vspace*{1ex}
-    {{\@college} \par}
-%\vspace*{1ex}
-    {National University of Singapore \par}
-\vspace*{12mm}
-    {{\submittedtext} \par}
-\vspace*{1ex}
-    {\it {\@degree} \par}
-\vspace*{2ex}
-    {\@degreedate}}
-    {{\logo} \par}
-    { \Huge {\bfseries {\@title}} \par}
-   % {{\Large \@author} \par}
-{\large \vspace*{20mm} {\bf {\Large \@author} \par {\@curdegree} \par} \vspace*{5mm}}
-{\large \vspace*{1ex}
-	
-    %{{\@college} \par}
-%\vspace*{1ex}
-    %{National University of Singapore \par}
-%\vspace*{5mm}
+{\large \vspace*{20mm} {\bf {\@author} \par {\@curdegree} \par} \vspace*{5mm}}
+	{\vspace*{4ex}
     {\bf A THESIS SUBMITTED \\ %\par}
-%\vspace*{2ex}
-%	{\bf 
-	FOR THE DEGREE OF DOCTOR OF PHILOSOPHY \par}
-  %  {\bf DOCTOR OF PHILOSOPHY \par}
-\vspace*{4ex}
-	{\bf NUS GRADUATE SCHOOL FOR INTEGRATIVE SCIENCES AND ENGINEERING (NGS) \par}
+	FOR THE DEGREE OF DOCTOR OF PHILOSOPHY  \\
+	NUS GRADUATE SCHOOL FOR INTEGRATIVE SCIENCES AND ENGINEERING (NGS)}
 	{\bf NATIONAL UNIVERSITY OF SINGAPORE\par}
-    {\bf \@degreedate}}
->>>>>>> origin/master
+	{\vspace*{2ex}}
+    {\bf \@degreedate} \par}
+    
+    {Supervisor: \\
+    \vspace{-1ex}
+     Professor Kian-Lee Tan \\
+     Examination Panel: \\
+         \vspace{-1ex}
+     Professor Ng See-Kiong \\ 
+         \vspace{-1ex}
+     Professor Wynne Hsu \\
+         \vspace{-1ex}
+     Professor David Taniar, Monash University
+     }
   \end{center}
   \null\vfill
 \end{alwayssingle}}

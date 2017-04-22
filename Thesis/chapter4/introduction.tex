@@ -266,7 +266,7 @@ Since the number of streaks is quadratic with respect to the number of events, e
 all of them is not scalable. By leveraging the subadditivity among the upper bounds of streaks, we design two effective pruning techniques to facilitate efficient ranked-streak generation.
 Furthermore, we notice that generating exact sketches from ranked-streaks is computationally expensive. Thus, we design an efficient $(1-1/e)$-approximate algorithm by exploiting the submodularity of the $k$-Sketch query.
 
-In the online scenario, fresh events are continuously fed into the system and our goal is to maintain the sketches for each subject uptodate. When a new event about subject $s$ arrives, many ranked-streaks of various lengths can be derived. For each derived ranked-streak,
+In the online scenario, fresh events are continuously fed into the system and our goal is to maintain the sketches for each subject up-to-date. When a new event about subject $s$ arrives, many ranked-streaks of various lengths can be derived. For each derived ranked-streak,
 not only the sketch of $s$ but also the sketches
 of other subjects may be affected. Dealing with such a complex updating pattern is non-trivial. 
 To efficiently support the update while maintaining the quality of sketches, we propose a $1/8$-approximate algorithm which only   
@@ -445,4 +445,4 @@ The rest of this chapter is organized as follows. In Section~\ref{sec:problem_de
 maintaining $k$-Sketches in the online scenario.
 In Section~\ref{sec:experiment}, comprehensive experimental studies on both the efficiency and the effectiveness of our algorithms are conducted.
 Section~\ref{sec:discussion} discusses the extension of our methods. Finally,
-Section~\ref{sec:conclusion} concludes our paper.
+Section~\ref{sec:conclusion} concludes our chapter.

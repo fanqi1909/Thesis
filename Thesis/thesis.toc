@@ -79,7 +79,7 @@
 \contentsline {subsection}{\numberline {5.4.2}Apriori Enumerator}{112}
 \contentsline {subsubsection}{\numberline {5.4.2.1}Monotonicity}{113}
 \contentsline {subsubsection}{\numberline {5.4.2.2}Apriori enumerator}{116}
-\contentsline {subsection}{\numberline {5.4.3}Put Everything Together}{117}
+\contentsline {subsection}{\numberline {5.4.3}Putting Everything Together}{117}
 \contentsline {section}{\numberline {5.5}Experimental Study}{120}
 \contentsline {subsection}{\numberline {5.5.1}Performance Evaluation}{122}
 \contentsline {subsection}{\numberline {5.5.2}Analysis on the SPARE framework}{125}

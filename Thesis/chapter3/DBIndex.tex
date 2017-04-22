@@ -312,7 +312,7 @@ the node $n$ and the vertexes $v \in C_1$ whose windows contains $n$, i.e., $\{v
 Consider the identification of dense blocks in cluster $C_1$.
 As shown in Figure~\ref{fig:dbi-indexing} (c), based on the notion of equivalence nodes,
 cluster $C_1$ is partitioned into three blocks of equivalent nodes:
-$B_1=\{A,D,F\}$, $B_2=\{B\}$, and $B_3\{C,E\}$.
+$B_1=\{A,D,F\}$, $B_2=\{B\}$, and $B_3=\{C,E\}$.
 Among these three blocks, only
 $B_1$ and $B_3$ are dense blocks.
 The MC algorithm then tries to repartition the window $A,B,C$ using non-dense nodes in $C_1$,
@@ -322,12 +322,14 @@ At the end of processing cluster $C_1$,
 the DBIndex $I$ is updated as follows:
 $blocks(I) = \{B_1, B_2, B_3\}$ 
 and
-$links(I) = \{ (B_1,\{A,B,C\}), (B_2, \{A,B\}),$, $(B_3, \{A,C\}) \}$. 
+$links(I) = \{ (B_1,\{A,B,C\}), (B_2, \{A,B\},$, $(B_3, \{A,C\}) \}$. 
 The identification of dense blocks in cluster $C_2$ 
 is of similar process.
 
-We find it is non-trivial to precisely analyze the complexity of Algorithm~\ref{algo:k-hop-dbi}.
-Here, we only offer a brief analysis. Suppose the Min-hash cost is $H$ and 
+Now, we analyze the complexity of Algorithm~\ref{algo:identify} as follows.
+%We find it is non-trivial to precisely analyze the complexity of Algorithm~\ref{algo:k-hop-dbi}.
+%Here, we only offer a brief analysis. 
+Suppose the Min-hash cost is $H$ and 
 the total cost for collecting window function for all vertexes is $B$, 
 Lines 1-5 has the complexity of $O(H + B)$.  
 Lines 7-10 has the complexity of $O(B)$. A single execution of Algorithm~\ref{algo:identify}  has the  complexity of $O(|V|)$, since we can simply partition nodes using hashing. Suppose the iteration runs for $K$ times, the total cost for Algorithm~\ref{algo:identify} and Algorithm~\ref{algo:refine} is $O(K|V|)$. Therefore the overall complexity of Algorithm~\ref{algo:k-hop-dbi} is $O(H+2*B + O(K|V|))$. $H$ depends on the number of vertex-window mappings for a given query and $B$ depends on the window functions.

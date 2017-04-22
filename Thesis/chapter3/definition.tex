@@ -29,7 +29,7 @@ a \emph{Graph Window Function (GWF)} over $G$ can be expressed
 as a pair $(W, \Sigma)$, where 
 $W(v)$ denotes a \emph{window specification} for a vertex $v \in V$ 
 that determines the set of $v$'s neighborhood nodes\footnote{We use ``vertex'' to refer the vertex in the original graph and ``node'' to refer to the vertex in the windows.},
-$\Sigma$ denotes an \emph{aggregate function}\footnote{An aggregate function is associated with an attribute. I.e., $\mathtt{average}$(age) and $\mathtt{average}$(salary) are considered to be two different aggregate functions.}.
+$\Sigma$ denotes an \emph{aggregate function}\footnote{An aggregate function is associated with one attribute. I.e., $\mathtt{average}$(age) and $\mathtt{average}$(salary) are considered to be two different aggregate functions. Functions that associated with more attributes can be easily computed via stored views.}.
 %, and $A$ denotes  a \emph{vertex attribute}.
 The evaluation of a GWF $(W, \Sigma)$ on $G$
 computes for each vertex $v$ in $G$, the aggregation $\Sigma$ 
